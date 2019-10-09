@@ -1,9 +1,11 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/test
+    url: jdbc:mariadb://localhost:3306/test
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
 #  发送邮件的配置文件
 #  mail:
 #    host: smtp.qq.com
@@ -14,3 +16,5 @@ server:
   port: 8081
   thymeleaf:
       cache: false
+      prefix:
+        classpath: /templates

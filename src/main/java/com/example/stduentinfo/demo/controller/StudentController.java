@@ -49,7 +49,7 @@ public class StudentController {
         session = httpServletRequest.getSession();
         Studentinfo studentinfo =(Studentinfo)session.getAttribute( "studentinfo" );
         if(studentinfo==null){
-             out.print( "<h1>您好</h1>\n"+"<h4>您还没登录</h4>\n"+"<a href='/login'>请登录</a>" );
+            out.print( "<h1>您好</h1>\n"+"<h4>您还没登录</h4>\n"+"<a href='/login'>请登录</a>" );
         }else{
             out.print( "<h2>您已经登陆登录</h2>\n<a href=\"/person>查看信息界面</a>" );
         }
@@ -72,38 +72,53 @@ public class StudentController {
         return "person";
     }
 
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+
+    @RequestMapping("/calendar_manage")
+    public String calendarManage() {
+        return "calendar_manage";
+    }
+
+    @RequestMapping("/blank_api")
+    public String blankApi(){
+        return "blank_api";
+    }
+
     @RequestMapping("logining")
     //登录功能
     public  String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
-          String username = httpServletRequest.getParameter( "username" );
-          String password = httpServletRequest.getParameter( "password" );
-          String checknode = httpServletRequest.getParameter( "checknode" );
-          String checknode2 = (String)httpServletRequest.getSession().getAttribute( "checknode" );
-          log.info(checknode2);
-          Studentinfo studentinfo = studentService.findByUsernameAndPassword( username,password );
-          session.setAttribute( "username",username);
-          if(!checknode.equals( checknode2 )){
-              map.put( "checknode","验证码错误" );
-              return "login";
-          }
-         else if (studentinfo!=null){
+        String username = httpServletRequest.getParameter( "username" );
+        String password = httpServletRequest.getParameter( "password" );
+        String checknode = httpServletRequest.getParameter( "checknode" );
+        String checknode2 = (String)httpServletRequest.getSession().getAttribute( "checknode" );
+        log.info(checknode2);
+        Studentinfo studentinfo = studentService.findByUsernameAndPassword( username,password );
+        session.setAttribute( "username",username);
+        if(!checknode.equals( checknode2 )){
+            map.put( "checknode","验证码错误" );
+            return "login";
+        }
+        else if (studentinfo!=null){
             log.info("IP地址和端口号："+httpServletRequest.getRemoteAddr()+":"+ httpServletRequest.getRemotePort());
             httpServletResponse.setContentType("text/html;charset=utf-8");
             //将信息返回
             PrintWriter out = httpServletResponse.getWriter();
-//            out.print("<p style=\"color:red\">登陆成功!!!</p>");
+            //out.print("<p style=\"color:red\">登陆成功!!!</p>");
             out.print( "<script type=\"text/javascript\">alert('登陆成功!!!')</script>" );
-            return "person";
+            return "index";
         }
         else
-            {
-                //两种方式一种直接显示，一种弹出窗口显示
-                map.put( "information","登陆失败,请检查用户名和密码" );
+        {
+            //两种方式一种直接显示，一种弹出窗口显示
+            map.put( "information","登陆失败,请检查用户名和密码" );
 //                httpServletResponse.setContentType("text/html;charset=utf-8");
 //                PrintWriter out1 = httpServletResponse.getWriter();
 //                out1.print( "<script type=\"text/javascript\">alert('登陆失败,请检查用户名和密码!!!')</script>" );
-                return "login";
-            }
+            return "login";
+        }
 
 
     }
@@ -212,7 +227,7 @@ public class StudentController {
             out.print( "<p style='color=red'>用户名已注册</p>" );
             return "register";
         }
-         if (!registerInfoYanzheng.panduan()){
+        if (!registerInfoYanzheng.panduan()){
 //            httpServletRequest.setAttribute( "registerInfoYanzheng",registerInfoYanzheng );
             map.put( "Username", registerInfoYanzheng.getErrors().get("username") );
             map.put( "Password", registerInfoYanzheng.getErrors().get("password") );
@@ -221,7 +236,7 @@ public class StudentController {
             return "register";
 
         }
-         else{
+        else{
             studentService.save( username,password,sex,birthday,myself,QQ );
 
             //将信息返回
@@ -239,28 +254,28 @@ public class StudentController {
 //        }
 
     }
-//    查看个人信息
+    //    查看个人信息
     @RequestMapping("/personinfo{username}")
     public ModelAndView getPersonInfo(@RequestParam String username ){
-         List<Studentinfo> studentinfo =studentService.findByUsername( username );
-         ModelAndView mv = new ModelAndView();
-         mv.setViewName( "personinfo" );
-         //获取列表中的元素（和用javaGUI 那个项目获取信息的方式一样，有个弊端就是太麻烦，目前正在讲究简便方法）
+        List<Studentinfo> studentinfo =studentService.findByUsername( username );
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName( "personinfo" );
+        //获取列表中的元素（和用javaGUI 那个项目获取信息的方式一样，有个弊端就是太麻烦，目前正在讲究简便方法）
         //thymleaf模板太复杂了，我这个菜鸟学起来好吃力
-         String Username = studentinfo.get(0).getUsername();
-         String Sex = studentinfo.get(0).getSex();
-         String Birthday = studentinfo.get(0).getBirthday();
-         String QQ = studentinfo.get(0).getQQ();
-         String Myself = studentinfo.get(0).getMyself();
+        String Username = studentinfo.get(0).getUsername();
+        String Sex = studentinfo.get(0).getSex();
+        String Birthday = studentinfo.get(0).getBirthday();
+        String QQ = studentinfo.get(0).getQQ();
+        String Myself = studentinfo.get(0).getMyself();
 
 
-         mv.addObject( "Username",Username );
-         mv.addObject( "Sex",Sex );
-         mv.addObject( "Birthday",Birthday );
-         mv.addObject( "QQ",QQ  );
-         mv.addObject( "Myself",Myself  );
+        mv.addObject( "Username",Username );
+        mv.addObject( "Sex",Sex );
+        mv.addObject( "Birthday",Birthday );
+        mv.addObject( "QQ",QQ  );
+        mv.addObject( "Myself",Myself  );
 
-         return mv;
+        return mv;
     }
     //修改个人信息
     @RequestMapping("/change{username}")
