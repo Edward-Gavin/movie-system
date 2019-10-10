@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../../static/dist/css/adminlte.min.css">
+  <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -26,7 +26,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index.html" class="nav-link">主页</a>
+        <a href="/index" class="nav-link">主页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"></a>
@@ -142,337 +142,19 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="../../index.html" class="brand-link">
-      <!--<img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .5">-->
-      <span class="d-block"><h5>影院放映质量信息服务系统</h5></span>
-    </a>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../../static/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">系统管理员</a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-			   <li class="nav-item">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-dashboard"></i>
-				  <p>
-					系统管理
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-					<li class="nav-item">
-						<a href="../examples/blank_api.html" class="nav-link">
-						  <i class="fa fa-plug nav-icon"></i>
-						  <p>接口管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../examples/blank_log.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>日志管理</p>
-						</a>
-					</li>
-				</ul>
-            </li>
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-user-circle"></i>
-				  <p>
-					用户管理
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-				  <li class="nav-item">
-					<a href="../../index.html" class="nav-link">
-					  <i class="fa fa-users nav-icon"></i>
-					  <p>组织管理</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../../index.html" class="nav-link">
-					  <i class="fa fa-male nav-icon"></i>
-					  <p>角色管理</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../../index.html" class="nav-link">
-					  <i class="fa fa-lock nav-icon"></i>
-					  <p>权限管理</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../../index.html" class="nav-link">
-					  <i class="fa fa-user nav-icon"></i>
-					  <p>用户管理</p>
-					</a>
-				  </li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-th"></i>
-				  <p>
-					基础信息管理
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-					<li class="nav-item">
-						<a href="../tables/data_cinema.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>机构信息管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../tables/data_cinema.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>院线公司信息管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../tables/data_cinema.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>管理公司信息管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../tables/data_cinema.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>影院信息管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../tables/data_machine.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>厂家信息管理</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="../tables/data_machine.html" class="nav-link">
-						  <i class="fa fa-file-text-o nav-icon"></i>
-						  <p>服务公司信息管理</p>
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-cny"></i>
-				  <p>
-					资产管理
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">             
-				  <li class="nav-item">
-					<a href="../tables/data_machine.html" class="nav-link">
-					  <i class="fa fa-server nav-icon"></i>
-					  <p>设备管理</p>
-					</a>
-					</li>
-				</ul>
-            </li>
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-wrench"></i>
-				  <p>
-					故障与维修管理
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-					<li class="nav-item">
-						<a href="../../pages/charts/chartjs_statistic.html" class="nav-link">
-						  <i class="fa fa-thumb-tack nav-icon"></i>
-						  <p>日常维护任务</p>
-						</a>
-				  </li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a href="../calendar_manage.html" class="nav-link">
-				  <i class="nav-icon fa fa-calendar"></i>
-				  <p>
-					日常工作管理
-					<!--<span class="badge badge-info right">2</span>-->
-				  </p>
-				</a>
-			</li>
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-search"></i>
-				  <p>
-					数据检索
-					<i class="fa fa-angle-left right"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-				  <li class="nav-item">
-					<a href="../tables/data_search.html" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>标准信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../tables/cinema_search.html" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>影院信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>设备信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>运维信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../tables/error_search.html" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>故障信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>厂家信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>服务商信息检索</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>综合信息检索</p>
-					</a>
-				  </li>
-				</ul>
-			</li>
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-star"></i>
-				  <p>
-					影院星级评定
-					<!--<i class="fa fa-angle-left right"></i>-->
-				  </p>
-				</a>
-			</li>
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-pie-chart"></i>
-				  <p>
-					业务统计分析
-					<i class="right fa fa-angle-left"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-plug nav-icon"></i>
-					  <p>API接口数据统计</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-times-circle-o nav-icon"></i>
-					  <p>故障统计</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="../../pages/charts/chartjs_statistic.html" class="nav-link">
-					  <i class="fa fa-thumb-tack nav-icon"></i>
-					  <p>日常维护任务统计</p>
-					</a>
-				  </li>
-				</ul>
-			</li>
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-table"></i>
-				  <p>
-					智能在线答疑
-					<!--<i class="fa fa-angle-left right"></i>-->
-				  </p>
-				</a>
-			</li>		  
-			<li class="nav-item has-treeview">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-book"></i>
-				  <p>
-					答题管理
-					<i class="fa fa-angle-left right"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-edit nav-icon"></i>
-					  <p>答题管理</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>答题查询</p>
-					</a>
-				  </li>
-				</ul>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-				  <i class="nav-icon fa fa-pencil"></i>
-				  <p>
-					积分管理
-					<!--<span class="right badge badge-danger">New</span>-->
-					<i class="fa fa-angle-left right"></i>
-				  </p>
-				</a>
-				<ul class="nav nav-treeview">
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-edit nav-icon"></i>
-					  <p>积分管理</p>
-					</a>
-				  </li>
-				  <li class="nav-item">
-					<a href="#" class="nav-link">
-					  <i class="fa fa-search nav-icon"></i>
-					  <p>积分查询</p>
-					</a>
-				  </li>
-				</ul>
-			</li>          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+	<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<!-- Brand Logo -->
+		<div th:replace="model/left :: left-logo"></div>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar user panel (optional) -->
+			<div th:replace="model/left :: left-nav-client"></div>
+			<!-- Sidebar Menu -->
+			<div th:replace="model/left :: left-nav"></div>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+	</aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -630,16 +312,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0-alpha
-    </div>
-    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
-
-  <!-- Control Sidebar -->
+	<div th:replace="/model/footer :: footer-and-right"></div>
+	<!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
@@ -648,23 +322,23 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script th:src="@{/plugins/fastclick/fastclick.js}"></script>
 <!-- AdminLTE App -->
-<script src="../../../static/dist/js/adminlte.min.js"></script>
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../static/dist/js/demo.js"></script>
+<script th:src="@{/dist/js/demo.js}"></script>
 <!-- FLOT CHARTS -->
-<script src="../../plugins/flot/jquery.flot.min.js"></script>
+<script th:src="@{/plugins/flot/jquery.flot.min.js}"></script>
 <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<script src="../../plugins/flot/jquery.flot.resize.min.js"></script>
+<script th:src="@{/plugins/flot/jquery.flot.resize.min.js}"></script>
 <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<script src="../../plugins/flot/jquery.flot.pie.min.js"></script>
+<script th:src="@{/plugins/flot/jquery.flot.pie.min.js}"></script>
 <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<script src="../../plugins/flot/jquery.flot.categories.min.js"></script>
+<script th:src="@{/plugins/flot/jquery.flot.categories.min.js}"></script>
 <!-- Page script -->
 <script>
   $(function () {

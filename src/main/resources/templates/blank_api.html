@@ -148,10 +148,10 @@
     <div th:replace="model/left :: left-logo"></div>
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-	  <div th:replace="model/left :: left-nav-client"></div>
+      <!-- Sidebar user panel (optional) -->
+      <div th:replace="model/left :: left-nav-client"></div>
       <!-- Sidebar Menu -->
-		<div th:replace="model/left :: left-nav"></div>
+      <div th:replace="model/left :: left-nav"></div>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -209,16 +209,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- SlimScroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script th:src="@{/plugins/fastclick/fastclick.js}"></script>
 <!-- AdminLTE App -->
-<script src="../../../static/dist/js/adminlte.min.js"></script>
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../static/dist/js/demo.js"></script>
+<script th:src="@{/dist/js/demo.js}"></script>
 </body>
 </html>

@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>影院放映质量管理信息系统 | Data Tables</title>
+  <title>服务公司信息管理</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- DataTables -->
-  <link rel="stylesheet" href="../../plugins/datatables/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" th:href="@{/plugins/datatables/dataTables.bootstrap4.min.css}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../../static/dist/css/adminlte.min.css">
+  <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -28,7 +27,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index.html" class="nav-link">主页</a>
+        <a href="/index" class="nav-link">主页</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"></a>
@@ -146,31 +145,17 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index.html" class="brand-link">
-      <!--<img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .5">-->
-      <span class="d-block"><h5>影院放映质量信息服务系统</h5></span>
-    </a>
-
+    <div th:replace="model/left :: left-logo"></div>
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../../../static/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">系统管理员用户</a>
-        </div>
-      </div>
-
+      <!-- Sidebar user panel (optional) -->
+      <div th:replace="model/left :: left-nav-client"></div>
       <!-- Sidebar Menu -->
-		<div th:replace="model/left :: left-nav"></div>
-		<!-- /.sidebar-menu -->
+      <div th:replace="model/left :: left-nav"></div>
+      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -435,14 +420,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0-alpha
-    </div>
-    <strong>Copyright &copy; 2014-2018 <a href="#">AdminLTE.io</a>.</strong> All rights
-    reserved.
-  </footer>
-
+<div th:replace="/model/footer :: footer-and-right"></div>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -452,20 +430,20 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- DataTables -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables/dataTables.bootstrap4.min.js"></script>
+<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/datatables/dataTables.bootstrap4.min.js}"></script>
 <!-- SlimScroll -->
-<script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
 <!-- FastClick -->
-<script src="../../plugins/fastclick/fastclick.js"></script>
+<script th:src="@{/plugins/fastclick/fastclick.js}"></script>
 <!-- AdminLTE App -->
-<script src="../../../static/dist/js/adminlte.min.js"></script>
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../../static/dist/js/demo.js"></script>
+<script th:src="@{/dist/js/demo.js}"></script>
 <!-- page script -->
 <script>
   $(function () {

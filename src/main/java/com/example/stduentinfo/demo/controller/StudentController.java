@@ -82,6 +82,46 @@ public class StudentController {
         return "blank_api";
     }
 
+    @RequestMapping("/chartjs_statistic")
+    public String chartStatistic(){
+        return "chartjs_statistic";
+    }
+
+    @RequestMapping("/cinema_search")
+    public String cinemaSearch(){
+        return "cinema_search";
+    }
+
+    @RequestMapping("/data_cinema")
+    public String dataCinema(){
+        return "data_cinema";
+    }
+
+    @RequestMapping("/data_machine")
+    public String dataMachine(){
+        return "data_machine";
+    }
+
+    @RequestMapping("/data_search")
+    public String dataSearch(){
+        return "data_search";
+    }
+
+    @RequestMapping("/direction_chat")
+    public String directionChat(){
+        return "direction_chat";
+    }
+
+    @RequestMapping("/error_search")
+    public String errorSearch(){
+        return "error_search";
+    }
+
+    @RequestMapping("/flot_analysis")
+    public String flotAnalysis(){
+        return "flot_analysis";
+    }
+
     @RequestMapping("logining")
     //登录功能
     public  String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
