@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>影院放映质量管理信息系统 | 主控面板</title>
+    <title>影院放映质量管理信息系统 | 首页</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -118,9 +118,9 @@
                                 <p>新留言</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="ion ion-email-unread"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -129,8 +129,7 @@
                         <div class="small-box bg-success">
                             <div class="inner">
                                 <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                <p>维修工单</p>
+                                <p>计划任务</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -145,12 +144,12 @@
                             <div class="inner">
                                 <h3>44</h3>
 
-                                <p>在线设备</p>
+                                <p>资产数量</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="ion ion-cash"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -160,10 +159,10 @@
                             <div class="inner">
                                 <h3>65</h3>
 
-                                <p>故障设备</p>
+                                <p>当前积分</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
+                                <i class="ion ion-bookmark"></i>
                             </div>
                             <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -173,25 +172,147 @@
                 <!-- /.row -->
                 <!-- Main row -->
                 <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header no-border">
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>放映厅 1</option>
+                                            <option>放映厅 2</option>
+                                            <option>放映厅 3</option>
+                                            <option>放映厅 4</option>
+                                            <option>放映厅 5</option>
+                                        </select>
+                                    </div>
+                                    <h3 class="card-title">入座人数统计</h3>
+                                    <a href="javascript:void(0);"></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">820</span>
+                                        <span>观众人数</span>
+                                    </p>
+                                    <p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fa fa-arrow-up"></i> 12.5%
+                    </span>
+                                        <span class="text-muted">与上周相比</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+
+                                <div class="position-relative mb-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                                    <canvas id="visitors-chart" height="400" width="1304" class="chartjs-render-monitor" style="display: block; height: 200px; width: 652px;"></canvas>
+                                </div>
+
+                                <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fa fa-square text-primary"></i> 本周
+                  </span>
+
+                                    <span>
+                    <i class="fa fa-square text-gray"></i> 上周
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header no-border">
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>放映厅 1</option>
+                                            <option>放映厅 2</option>
+                                            <option>放映厅 3</option>
+                                            <option>放映厅 4</option>
+                                            <option>放映厅 5</option>
+                                        </select>
+                                    </div>
+                                    <h3 class="card-title">一周温湿度变化</h3>
+                                    <a href="javascript:void(0);"></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">&nbsp;</span>
+                                        <span>摄氏度/百分比</span>
+                                    </p>
+                                    <p class="ml-auto d-flex flex-column text-right">
+                    <span class="text-success">
+                      <i class="fa fa-arrow-up"></i> 2%
+                        <i class="fa fa-arrow-up"></i> 6%
+                    </span>
+                                        <span class="text-muted">与上周相比</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+
+                                <div class="position-relative mb-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                                    <canvas id="sales-chart" height="400" width="1304" class="chartjs-render-monitor" style="display: block; height: 200px; width: 652px;"></canvas>
+                                </div>
+
+                                <div class="d-flex flex-row justify-content-end">
+                  <span class="mr-2">
+                    <i class="fa fa-square text-primary"></i> 温度
+                  </span>
+
+                                    <span>
+                    <i class="fa fa-square text-gray"></i> 湿度
+                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col-md-6 -->
+                </div>
+                <div class="row">
                     <!-- Left col -->
-                    <section class="col-lg-7 connectedSortable">
+                    <section class="col-lg-6 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
-                            <div class="card-header d-flex p-0">
-                                <h3 class="card-title p-3">
-                                    <i class="fa fa-pie-chart mr-1"></i>
-                                    设备维修记录
-                                </h3>
-                                <ul class="nav nav-pills ml-auto p-2">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">年份</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#sales-chart" data-toggle="tab">总量</a>
-                                    </li>
-                                </ul>
+                            <div class="card-header no-border">
+<!--                            <div class="card-header d-flex p-0">-->
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>放映厅 1</option>
+                                            <option>放映厅 2</option>
+                                            <option>放映厅 3</option>
+                                            <option>放映厅 4</option>
+                                            <option>放映厅 5</option>
+                                        </select>
+                                    </div>
+                                    <h3 class="card-title">
+    <!--                                    <i class="fa fa-pie-chart mr-1"></i>-->
+                                        银幕亮度
+                                    </h3>
+                                    <a href="javascript:void(0);"></a>
+<!--                                    <ul class="nav nav-pills ml-auto p-2">-->
+<!--                                        <li class="nav-item">-->
+<!--                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">年份</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="nav-item">-->
+<!--                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">总量</a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+                                </div>
                             </div><!-- /.card-header -->
                             <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">&nbsp;</span>
+                                        <span>cd/m2</span>
+                                    </p>
+                                </div>
                                 <div class="tab-content p-0">
                                     <!-- Morris chart - Sales -->
                                     <div class="chart tab-pane active" id="revenue-chart"
@@ -201,7 +322,6 @@
                             </div><!-- /.card-body -->
                         </div>
                         <!-- /.card -->
-
                         <!-- DIRECT CHAT -->
                         <div class="card direct-chat direct-chat-primary">
                             <div class="card-header">
@@ -231,7 +351,7 @@
                                             <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="dist/img/user8-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
@@ -247,7 +367,7 @@
                                             <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             请你参考异常处理，XXX参考手册XXX页。
@@ -263,7 +383,7 @@
                                             <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="dist/img/user8-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             。。。。
@@ -279,7 +399,7 @@
                                             <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                                         </div>
                                         <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
                                         <!-- /.direct-chat-img -->
                                         <div class="direct-chat-text">
                                             请问您的问题是否得到解决？
@@ -292,7 +412,7 @@
                                         <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
                                     </div>
                                     <!-- /.direct-chat-info -->
-                                    <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
                                     <!-- /.direct-chat-img -->
                                     <div class="direct-chat-text">
                                         请问您是否需要人工服务？&nbsp <a href="#"style="color: black">是</a> &nbsp &nbsp &nbsp <a href="#"style="color: black">否</a>
@@ -519,16 +639,28 @@
                     </section>
                     <!-- /.Left col -->
                     <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-5 connectedSortable">
+                    <section class="col-lg-6 connectedSortable">
                         <!-- Map card -->
                         <!-- /.card -->
                         <!-- solid sales graph -->
                         <div class="card bg-info-gradient">
                             <div class="card-header no-border">
-                                <h3 class="card-title">
-                                    <i class="fa fa-th mr-1"></i>
-                                    在线设备统计
-                                </h3>
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>放映厅 1</option>
+                                            <option>放映厅 2</option>
+                                            <option>放映厅 3</option>
+                                            <option>放映厅 4</option>
+                                            <option>放映厅 5</option>
+                                        </select>
+                                    </div>
+                                    <h3 class="card-title">
+<!--                                        <i class="fa fa-th mr-1"></i>-->
+                                        声压等级
+                                    </h3>
+                                    <a href="javascript:void(0);"></a>
+                                </div>
 
                                 <div class="card-tools">
                                     <button type="button" class="btn bg-info btn-sm" data-widget="collapse">
@@ -540,35 +672,41 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                <div class="d-flex">
+                                    <p class="d-flex flex-column">
+                                        <span class="text-bold text-lg">&nbsp;</span>
+                                        <span>db</span>
+                                    </p>
+                                </div>
                                 <div class="chart" id="line-chart" style="height: 250px;"></div>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
+<!--                            <div class="card-footer bg-transparent">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-4 text-center">-->
+<!--                                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"-->
+<!--                                               data-fgColor="#39CCCC">-->
 
-                                        <div class="text-white">故障</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
+<!--                                        <div class="text-white">故障</div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
+<!--                                    <div class="col-4 text-center">-->
+<!--                                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"-->
+<!--                                               data-fgColor="#39CCCC">-->
 
-                                        <div class="text-white">正常</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
+<!--                                        <div class="text-white">正常</div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
+<!--                                    <div class="col-4 text-center">-->
+<!--                                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"-->
+<!--                                               data-fgColor="#39CCCC">-->
 
-                                        <div class="text-white">在修</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
+<!--                                        <div class="text-white">在修</div>-->
+<!--                                    </div>-->
+<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; /.row &ndash;&gt;-->
+<!--                            </div>-->
                             <!-- /.card-footer -->
                         </div>
                         <!-- /.card -->
@@ -667,5 +805,8 @@
 <script th:src="@{/dist/js/pages/dashboard.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
+<script th:src="@{/dist/js/pages/dashboard3.js}"></script>
+<!-- OPTIONAL SCRIPTS -->
+<script th:src="@{/plugins/chart.js/Chart.min.js}"></script>
 </body>
 </html>

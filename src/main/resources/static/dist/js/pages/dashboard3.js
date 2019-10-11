@@ -13,17 +13,17 @@ $(function () {
   var salesChart  = new Chart($salesChart, {
     type   : 'bar',
     data   : {
-      labels  : ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+      labels  : ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
       datasets: [
         {
           backgroundColor: '#007bff',
           borderColor    : '#007bff',
-          data           : [1000, 2000, 3000, 2500, 2700, 2500, 3000]
+          data           : [15, 20, 25, 27, 26, 20, 18]
         },
         {
           backgroundColor: '#ced4da',
           borderColor    : '#ced4da',
-          data           : [700, 1700, 2700, 2000, 1800, 1500, 2000]
+          data           : [35, 40, 45, 50, 47, 46, 34]
         }
       ]
     },
@@ -58,7 +58,7 @@ $(function () {
                 value /= 1000
                 value += 'k'
               }
-              return '$' + value
+              return value + "°/%"
             }
           }, ticksStyle)
         }],
@@ -76,7 +76,7 @@ $(function () {
   var $visitorsChart = $('#visitors-chart')
   var visitorsChart  = new Chart($visitorsChart, {
     data   : {
-      labels  : ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
+      labels  : ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
       datasets: [{
         type                : 'line',
         data                : [100, 120, 170, 167, 180, 177, 160],
