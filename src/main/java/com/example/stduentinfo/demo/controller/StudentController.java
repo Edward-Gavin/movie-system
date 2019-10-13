@@ -57,10 +57,10 @@ public class StudentController {
         log.info( cookie.getValue() );
     }
     //登录界面
-    @RequestMapping("/login")
-    public String login(){
-        return "login";
-    }
+//    @RequestMapping("/login")
+//    public String login(){
+//        return "login";
+//    }
 
     @RequestMapping("/person")
     public String person(){

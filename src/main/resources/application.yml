@@ -6,6 +6,10 @@ spring:
     url: jdbc:mariadb://localhost:3306/test
   resources:
     static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+  profiles:
+    active: dev
+  messages:
+    basename: i18n.login
 #  发送邮件的配置文件
 #  mail:
 #    host: smtp.qq.com
@@ -18,3 +22,18 @@ server:
       cache: false
       prefix:
         classpath: /templates
+logging:
+  path:
+---
+server:
+  port: 8082
+
+spring:
+  profiles: prod
+
+---
+server:
+  port: 8083
+
+spring:
+  profiles: dev
