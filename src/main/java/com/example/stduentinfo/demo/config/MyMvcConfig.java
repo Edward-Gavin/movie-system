@@ -32,6 +32,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
                 registry.addViewController("/login").setViewName("login");
                 registry.addViewController("login.html").setViewName("login");
                 registry.addViewController("/main.html").setViewName("index");
+                registry.addViewController("/task_search").setViewName("task_search");
             }
         };
         return adapter;
@@ -42,7 +43,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         // 不拦截的请求地址： "/checknode","/login","/register","/","/login.html"
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/blank_api","/chartjs_statistic",
                 "/cinema_search", "/data_cinema","/data_machine", "/data_search", "/direction_chat","/error_search",
-                "/main.html","/index");
+                "/main.html","/index","/calendar_manage","/task_search");
         super.addInterceptors(registry);
     }
 
