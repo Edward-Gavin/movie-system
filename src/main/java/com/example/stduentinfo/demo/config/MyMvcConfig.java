@@ -1,10 +1,12 @@
 package com.example.stduentinfo.demo.config;
 
 
+import com.example.stduentinfo.demo.component.LoginHandlerInterceptor;
 import com.example.stduentinfo.demo.component.MylocaleResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -26,11 +28,22 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter(){
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
+                registry.addViewController("/").setViewName("login");
                 registry.addViewController("/login").setViewName("login");
                 registry.addViewController("login.html").setViewName("login");
+                registry.addViewController("/main.html").setViewName("index");
             }
         };
         return adapter;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 不拦截的请求地址： "/checknode","/login","/register","/","/login.html"
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/blank_api","/chartjs_statistic",
+                "/cinema_search", "/data_cinema","/data_machine", "/data_search", "/direction_chat","/error_search",
+                "/main.html","/index");
+        super.addInterceptors(registry);
     }
 
     @Bean

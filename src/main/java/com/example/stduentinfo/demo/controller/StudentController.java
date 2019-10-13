@@ -30,32 +30,10 @@ public class StudentController {
     //验证码宽度，验证码高度
     private static int WIDTH = 60;
     private static int HEIGHT = 20;
+
     @Autowired
     private StudentService studentService;
 
-    //首页面
-    @RequestMapping("/")
-    public void index( HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws IOException {
-        HttpSession session;
-        //解决乱码问题
-        httpServletResponse.setContentType( "text/html;charset=utf-8" );
-        PrintWriter out = httpServletResponse.getWriter();
-        //创建并且获取保存用户信息的session对象
-        session = httpServletRequest.getSession();
-        Studentinfo studentinfo =(Studentinfo)session.getAttribute( "studentinfo" );
-        if(studentinfo==null){
-            out.print( "<h1>您好</h1>\n"+"<h4>您还没登录</h4>\n"+"<a href='/login'>请登录</a>" );
-        }else{
-            out.print( "<h2>您已经登陆登录</h2>\n<a href=\"/person>查看信息界面</a>" );
-        }
-        log.info( session.getId() );
-        //创建cookie存放session的标识号
-        Cookie cookie = new Cookie( "JSESSIONID",session.getId() );
-        cookie.setMaxAge( 60*20 );
-        cookie.setPath( "/" );
-        httpServletResponse.addCookie( cookie );
-        log.info( cookie.getValue() );
-    }
     //登录界面
 //    @RequestMapping("/login")
 //    public String login(){
@@ -140,18 +118,18 @@ public class StudentController {
             log.info("IP地址和端口号："+httpServletRequest.getRemoteAddr()+":"+ httpServletRequest.getRemotePort());
             httpServletResponse.setContentType("text/html;charset=utf-8");
             //将信息返回
-            PrintWriter out = httpServletResponse.getWriter();
+            //PrintWriter out = httpServletResponse.getWriter();
             //out.print("<p style=\"color:red\">登陆成功!!!</p>");
-            out.print( "<script type=\"text/javascript\">alert('登陆成功!!!')</script>" );
-            return "index";
+            //out.print( "<script type=\"text/javascript\">alert('登陆成功!!!')</script>" );
+            return "redirect:/main.html";
         }
         else
         {
             //两种方式一种直接显示，一种弹出窗口显示
             map.put( "information","登陆失败,请检查用户名和密码" );
-//                httpServletResponse.setContentType("text/html;charset=utf-8");
-//                PrintWriter out1 = httpServletResponse.getWriter();
-//                out1.print( "<script type=\"text/javascript\">alert('登陆失败,请检查用户名和密码!!!')</script>" );
+            //httpServletResponse.setContentType("text/html;charset=utf-8");
+            //PrintWriter out1 = httpServletResponse.getWriter();
+            //out1.print( "<script type=\"text/javascript\">alert('登陆失败,请检查用户名和密码!!!')</script>" );
             return "login";
         }
     }
