@@ -220,7 +220,6 @@ public class StudentController {
     //注册功能
     @RequestMapping("/registering")
     public String registering( HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,Map<String,String> map ) throws IOException {
-        httpServletResponse.setContentType("text/html;charset=utf-8");
         String username = httpServletRequest.getParameter( "username" );
         String password = httpServletRequest.getParameter( "password" );
         String password1 =httpServletRequest.getParameter( "password1" );
@@ -228,32 +227,36 @@ public class StudentController {
         String sex = httpServletRequest.getParameter( "sex" );
         String birthday = httpServletRequest.getParameter( "birthday" );
         String myself = httpServletRequest.getParameter( "myself" );
+
         //获取注册验证信息
         RegisterInfoYanzheng registerInfoYanzheng = new RegisterInfoYanzheng();
         registerInfoYanzheng.setUsername( username );
         registerInfoYanzheng.setPassword( password );
         registerInfoYanzheng.setPassword1( password1 );
         registerInfoYanzheng.setQQ(QQ);
-        if(username.equals( studentService.selectUsername( username ) ) ){
-            PrintWriter out = httpServletResponse.getWriter();
-            out.print( "<p style='color=red'>用户名已注册</p>" );
+
+        // 判断用户名是否被注册了
+        if(username.equals(studentService.selectUsername(username))){
+            //PrintWriter out = httpServletResponse.getWriter();
+            map.put( "register_information","用户名已注册" );
+            // out.print( "<p style='color=red'>用户名已注册</p>" );
             return "register";
         }
+        // 如果用户没有被注册，检查输入的信息是否符合规范
         if (!registerInfoYanzheng.panduan()){
-//            httpServletRequest.setAttribute( "registerInfoYanzheng",registerInfoYanzheng );
+            httpServletRequest.setAttribute( "registerInfoYanzheng",registerInfoYanzheng );
             map.put( "Username", registerInfoYanzheng.getErrors().get("username") );
             map.put( "Password", registerInfoYanzheng.getErrors().get("password") );
             map.put( "Password1", registerInfoYanzheng.getErrors().get("password1") );
             map.put( "qq", registerInfoYanzheng.getErrors().get("QQ") );
             return "register";
-
         }
         else{
             studentService.save( username,password,sex,birthday,myself,QQ );
-
             //将信息返回
-            PrintWriter out = httpServletResponse.getWriter();
-            out.print( "<script type=\"text/javascript\">alert('注册成功,请您登录！！！')</script>" );
+            //PrintWriter out = httpServletResponse.getWriter();
+            //out.print( "<script type=\"text/javascript\">alert('注册成功,请您登录！！！')</script>" );
+            map.put( "information","注册成功，请您登录！" );
             return "login";
         }
 //        else {
@@ -264,7 +267,6 @@ public class StudentController {
 ////            out1.print ("<p style=\"color:red\">注册失败,请检查每一项是否为空，密码是否相同</p>");
 //             return "register";
 //        }
-
     }
     //    查看个人信息
     @RequestMapping("/personinfo{username}")

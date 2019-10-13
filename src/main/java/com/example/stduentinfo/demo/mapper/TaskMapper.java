@@ -19,10 +19,10 @@ public interface TaskMapper {
     public void save( @Param ( "taskName" ) String username , @Param( "publicUser" ) String password , @Param( "status" ) String sex, @Param("startDate") String birthday , @Param( "endDate" ) String myself, @Param( "reponsible" ) String QQ);
 
     //多字段更新，只需要在单字段后面用逗号分隔来书写就行
-    @Update( "update taskinfo set sex = #{sex},QQ=#{QQ},birthday=#{birthday},myself=#{myself}  where username=#{username}" )
-    public void update(@Param( "sex" ) String sex,
-                       @Param( "QQ" ) String QQ,
-                       @Param( "birthday" ) String birthday,
-                       @Param( "myself" ) String myself,
+    @Update( "update taskinfo set taskName = #{taskName},publicUser=#{publicUser}, status=#{status}, startDate=#{startDate}, endDate=#{endDated} where taskName=#{taskName}" )
+    public void update(@Param( "taskName" ) String sex,
+                       @Param( "publicUser" ) String QQ,
+                       @Param( "status" ) String birthday,
+                       @Param( "startDate" ) String myself,
                        @Param( "username" ) String username);
 }

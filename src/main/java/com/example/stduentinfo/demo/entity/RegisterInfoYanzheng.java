@@ -53,10 +53,11 @@ public class RegisterInfoYanzheng {
 
     public boolean panduan(){
         boolean flag = true;
-        if (username == null||username.trim().equals( "" )){
-              errors.put("username", "请输用户名" );
-              flag =false;
+        if(username == null||username.trim().equals( "" )){
+            errors.put("username", "请输用户名" );
+            flag =false;
         }
+
         if(password==null||password.trim().equals( "" )){
             errors.put( "password","请输入密码" );
             flag=false;
@@ -65,10 +66,11 @@ public class RegisterInfoYanzheng {
             flag=false;
         }
 
-        if (!password.equals( password1 )&&password!=null) {
-            errors.put( "password1","两次密码不一致" );
+        if (!password.equals(password1)){
+            errors.put( "password1","两次密码不一致");
             flag=false;
         }
+
         if(QQ.length()>13||QQ.length()<5){
             errors.put( "QQ","请输入正确位数的QQ号" );
             flag=false;
