@@ -100,9 +100,19 @@ public class StudentController {
         return "details";
     }
 
+    @RequestMapping("/details_error")
+    public String detailsError(){
+        return "details_error";
+    }
+
     @RequestMapping("/flot_analysis")
     public String flotAnalysis(){
         return "flot_analysis";
+    }
+
+    @RequestMapping("/details_room")
+    public String detailsRoom(){
+        return "details_room";
     }
 
     @RequestMapping("logining")
