@@ -95,6 +95,11 @@ public class StudentController {
         return "error_search";
     }
 
+    @RequestMapping("/details")
+    public String details(){
+        return "details";
+    }
+
     @RequestMapping("/flot_analysis")
     public String flotAnalysis(){
         return "flot_analysis";
