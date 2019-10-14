@@ -242,12 +242,12 @@ public class StudentController {
             // out.print( "<p style='color=red'>用户名已注册</p>" );
             return "register";
         }
-        // 如果用户没有被注册，检查输入的信息是否符合规范
+        // 如果用户名没有被注册，检查输入的信息是否符合规范
         if (!registerInfoYanzheng.panduan()){
-            httpServletRequest.setAttribute( "registerInfoYanzheng",registerInfoYanzheng );
-            map.put( "Username", registerInfoYanzheng.getErrors().get("username") );
-            map.put( "Password", registerInfoYanzheng.getErrors().get("password") );
-            map.put( "Password1", registerInfoYanzheng.getErrors().get("password1") );
+            httpServletRequest.setAttribute("registerInfoYanzheng",registerInfoYanzheng);
+            map.put( "username", registerInfoYanzheng.getErrors().get("username"));
+            map.put( "password", registerInfoYanzheng.getErrors().get("password") );
+            map.put( "password1", registerInfoYanzheng.getErrors().get("password1") );
             map.put( "qq", registerInfoYanzheng.getErrors().get("QQ") );
             return "register";
         }

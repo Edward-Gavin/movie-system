@@ -3,19 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <title>影院放映质量信息系统 | 登陆</title>
-    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-        body {
-            background-size:cover;
-            font-size: 16px;
-            background-color: #00c0ef;
-        }
-
-        .form {
-            background: rgba(255,255,255,0.2);
-            width:400px;
-            margin:100px auto;}
-    </style>
+    <script type='text/javascript' th:src='@{/dist/js/jquery.particleground.js}'></script>
+    <script type='text/javascript' th:src='@{/dist/js/demo-login.js}'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/dist/css/style.css}" />
+    <script type='text/javascript' th:src='@{/dist/js/jquery-1.11.1.min.js}'></script>
+    <script src="http://www.jsdelivr.com/#!particles.js"></script>
 </head>
 <body>
 <!--
@@ -28,46 +21,68 @@
     大型设备台式电脑用col-lg-*
     为了兼容多个设备，可以用多个col-*-*来控制；
 -->
-    <div class="container">
-        <div class="form row">
-            <div>
-                <p th:text="${information}" style="color: red" align="center">这里是信息提示.</p>
-            </div>
-            <div align="center">
-                <h3 th:text="#{login.tip}">影院放映质量信息服务系统</h3>
-            </div>
-            <form class="form-horizontal col-sm-offset-3 col-md-offset-3" action="/logining">
-                <div class="col-sm-9 col-md-9">
-                    <div class="form-group">
-                        <label class=" control-label" th:text="#{login.username}">用户名:</label>
-                        <input class="form-control required" type="text" placeholder="请输入用户名" th:placeholder="#{login.username}" name="username" autofocus="autofocus" maxlength="20"/>
-                    </div>
-                    <div class="form-group">
-                        <label class=" control-label" th:text="#{login.password}">密码:</label>
-                        <input class="form-control required" type="password" placeholder="请输入密码" th:placeholder="#{login.password}" name="password" maxlength="20"/>
-                    </div>
-                    <span th:text="${checknode}" style="color: red"></span>
-                    <div class="form-group">
-                        <label class=" control-label" th:text="#{login.captcha}">验证码:</label>
-                        <input class="form-control required" type="text" placeholder="请输入验证码" th:placeholder="#{login.captcha}" name="checknode" maxlength="4"/>
-                        <img src='/checknode'><a href="/login" th:text="#{login.cantsee}">看不清,刷新试试</a>
-                    </div>
-                    <div class="form-group">
-                        <a href="/register">
-                            <input type="button" class="btn btn-success pull-left" th:value="#{login.register}" value="注册"/>
-                        </a>
-                        <input type="submit" class="btn btn-success pull-right" th:value="#{login.login}" value="登录"/>
-                    </div>
-                    <div class="form-group">
-                        <div class="text-center">
-                            <a  th:href="@{/login(l='zh_CN')}">中文</a>
-                            &nbsp;&nbsp;&nbsp;
-                            <a  th:href="@{/login(l='en_US')}">English</a>
+<div id="particles">
+    <div id="intro">
+        <div class="container">
+            <div class="form row">
+                <div>
+                    <p th:text="${information}" style="color: red" align="center">这里是信息提示.</p>
+                </div>
+                <div align="center">
+                    <h3 th:text="#{login.tip}">影院放映质量信息服务系统</h3>
+                </div>
+                <form class="form-horizontal" action="/logining">
+                    <div class="form-box col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                </div>
+<!--                            <label class=" control-label" th:text="#{login.username}">用户名:</label>-->
+                            <input class="form-control required" type="text" placeholder="请输入用户名" th:placeholder="#{login.username}" name="username" autofocus="autofocus" maxlength="20"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                </div>
+<!--                                <label class=" control-label" th:text="#{login.password}">密码:</label>-->
+                                <input class="form-control" type="password" placeholder="请输入密码" th:placeholder="#{login.password}" name="password" maxlength="20"/>
+                            </div>
+                        </div>
+                        <span th:text="${checknode}" style="color: red"></span>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                                </div>
+<!--                                <label class=" control-label" th:text="#{login.captcha}">验证码:</label>-->
+                                <input class="form-control" type="text" placeholder="验证码" th:placeholder="#{login.captcha}" name="checknode" maxlength="4"/>
+                            </div>
+                            <div class="checknode-group">
+                                <img src='/checknode'>
+                                <a href="/login" th:text="#{login.cantsee}">看不清,刷新试试</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a href="/register">
+                                <input type="button" style="background-color: #007bff; border-color: #007bff; color: white" class="btn btn-success pull-left" th:value="#{login.register}" value="注册"/>
+                            </a>
+                            <input type="submit" style="background-color: #007bff; border-color: #007bff; color: white" class="btn btn-success pull-right" th:value="#{login.login}" value="登录"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <a  th:href="@{/login(l='zh_CN')}">中文</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a  th:href="@{/login(l='en_US')}">English</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 </body>
 </html>
