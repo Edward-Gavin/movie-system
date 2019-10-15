@@ -2,8 +2,8 @@ package com.example.stduentinfo.demo.service;
 
 import com.example.stduentinfo.demo.entity.Studentinfo;
 import com.example.stduentinfo.demo.mapper.StudentMapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @Author: Edward Gavin
  * @Create: 2019-10-08 18:51
  */
-@org.springframework.stereotype.Service
+@Service
 //服务类
 public class StudentService {
     @Autowired

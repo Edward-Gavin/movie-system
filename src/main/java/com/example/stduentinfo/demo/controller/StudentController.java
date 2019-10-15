@@ -115,9 +115,14 @@ public class StudentController {
         return "details_room";
     }
 
+    @RequestMapping("/show")
+    public String show() {
+        return "show";
+    }
+
     @RequestMapping("logining")
     //登录功能
-    public  String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
+    public String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
         String username = httpServletRequest.getParameter( "username" );
         String password = httpServletRequest.getParameter( "password" );
         String checknode = httpServletRequest.getParameter( "checknode" );

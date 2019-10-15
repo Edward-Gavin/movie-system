@@ -1,13 +1,11 @@
 package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.Studentinfo;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+@Mapper
 public interface TaskMapper {
     @Select( "select * from taskinfo where username = #{username}" )
     public List<Studentinfo> findByUsername(String username);
