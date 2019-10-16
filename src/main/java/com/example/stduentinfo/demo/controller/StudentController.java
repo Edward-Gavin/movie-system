@@ -115,10 +115,15 @@ public class StudentController {
         return "details_room";
     }
 
-    @RequestMapping("/show")
-    public String show() {
-        return "show";
+    @RequestMapping("/cinema_insert")
+    public String insertCinema(){
+        return "cinema_insert";
     }
+
+//    @RequestMapping("/show")
+//    public String show() {
+//        return "show";
+//    }
 
     @RequestMapping("logining")
     //登录功能

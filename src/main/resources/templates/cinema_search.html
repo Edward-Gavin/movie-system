@@ -187,7 +187,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="/show" method="get">
+              <form role="form" action="/show">
                 <div class="card-body">
                   <div class="form-group">
                     <div class="row">
@@ -218,7 +218,11 @@
 					<!-- /.card-body -->
                   <div class="form-group">
 					<div class="card-footer">
-					  <button style="float: right" type="submit" class="btn btn-primary">查找</button>
+                      <div class="row col-sm-2 float-lg-right">
+                        <button type="submit" class="btn btn-primary">查询</button>
+                        <span class="col-sm-2"> &nbsp;&nbsp;</span>
+                        <button type="submit" class="btn btn-primary"><a href="/cinema_insert" style="color: #ffffff;">添加</a></button>
+                      </div>
                 	</div>
                   </div>
 				</div>

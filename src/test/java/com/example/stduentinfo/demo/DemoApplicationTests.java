@@ -14,13 +14,4 @@ public class DemoApplicationTests {
     public void contextLoads() {
     }
 
-
-    @Test
-    public void testCinemaSearch() {
-        CinemaService cinemaService = null;
-
-        cinemaService.findByAll("北京市", "朝阳区","劲松电影院", "张three");
-
-    }
-
 }
