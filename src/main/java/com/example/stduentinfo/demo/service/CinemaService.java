@@ -25,9 +25,18 @@ public class CinemaService {
     public List<Cinema> find(String cinemaName, String province, String city, String responsible) {
         return cinemaMapper.findById(cinemaName, province, city, responsible);
     }
+
     public void saveCinema(String cinemaName, String province, String city, String address ,
                            String responsible, String responsiblePhone, String manager ,
                            String managerPhone, String roomNumber) {
         cinemaMapper.save(cinemaName, province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber);
+    }
+
+    public List<Cinema> findByPCR(String province, String city, String responsible) {
+        return cinemaMapper.findByProvinceAndCityAndResponsible(province, city, responsible);
+    }
+
+    public List<Cinema> findByPCN(String province, String city, String cinemaName) {
+        return cinemaMapper.findByProvinceAndCityAndCName(province, city, cinemaName);
     }
 }

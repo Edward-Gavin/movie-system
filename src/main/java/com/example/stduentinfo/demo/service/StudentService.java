@@ -38,9 +38,11 @@ public class StudentService {
         studentMapper.update( sex, QQ,birthday,myself,username);
     }
     //注册验证用户名是否重复
-    public   String selectUsername(String username){
+    public String selectUsername(String username){
         return studentMapper.selectUsername( username );
     }
 
-
+    public List<Studentinfo> findAllStu() {
+        return studentMapper.findAll();
+    }
 }

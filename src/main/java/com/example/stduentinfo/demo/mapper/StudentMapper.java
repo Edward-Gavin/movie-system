@@ -10,8 +10,11 @@ import java.util.List;
 //映射类
 public interface StudentMapper {
 
-    @Select( "select *from studentinfo where username = #{username}" )
+    @Select( "select * from studentinfo where username = #{username}" )
     public List<Studentinfo> findByUsername(String username);
+
+    @Select("select * from studentinfo")
+    List<Studentinfo> findAll();
 
     @Select( "select username,password from studentinfo where username=#{username} and password=#{password}" )
     public Studentinfo findByUsernameAndPassword(@Param ( "username" ) String username , @Param( "password" ) String password);

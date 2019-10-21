@@ -164,12 +164,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>标准基础信息管理</h1>
+                        <h1>用户信息管理</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">主页</a></li>
-                            <li class="breadcrumb-item active">标准基础信息管理</li>
+                            <li class="breadcrumb-item active">用户信息管理</li>
                         </ol>
                     </div>
                 </div>
@@ -229,7 +229,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>用户名</th>
@@ -237,16 +237,26 @@
                                     <th>生日</th>
                                     <th>QQ</th>
                                     <th>个人介绍</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="student : ${studentInfos}">
                                     <td th:text="${student.username}"></td>
-                                    <td th:text="${cinema.sex}"></td>
-                                    <td th:text="${cinema.birthday}"></td>
-                                    <td th:text="${cinema.qq}"></td>
-                                    <td th:text="${cinema.myself}"></td>
-                                    <th><a href="/details">详情</a></th>
+                                    <td th:text="${student.sex}"></td>
+                                    <td th:text="${student.birthday}"></td>
+                                    <td th:text="${student.QQ}"></td>
+                                    <td th:text="${student.myself}"></td>
+                                    <td>
+                                        <div class="float-lg-right">
+                                            <a href="/system/update" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm">修改</button>
+                                            </a>
+                                            <a href="/system/delete" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm">删除</button>
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -288,5 +298,18 @@
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/static/dist/js/demo.js}"></script>
 <!-- page script -->
+<script>
+    $(function () {
+        // $("#example1").DataTable();
+        $('#example1').DataTable({
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true
+        });
+    });
+</script>
 </body>
 </html>

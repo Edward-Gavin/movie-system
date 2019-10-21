@@ -6,6 +6,7 @@ import com.example.stduentinfo.demo.service.StudentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,11 +66,6 @@ public class StudentController {
         return "chartjs_statistic";
     }
 
-    @RequestMapping("/cinema_search")
-    public String cinemaSearch(){
-        return "cinema_search";
-    }
-
     @RequestMapping("/data_cinema")
     public String dataCinema(){
         return "data_cinema";
@@ -114,16 +110,6 @@ public class StudentController {
     public String detailsRoom(){
         return "details_room";
     }
-
-    @RequestMapping("/cinema_insert")
-    public String insertCinema(){
-        return "cinema_insert";
-    }
-
-//    @RequestMapping("/show")
-//    public String show() {
-//        return "show";
-//    }
 
     @RequestMapping("logining")
     //登录功能
@@ -342,7 +328,14 @@ public class StudentController {
         }
     }
 
+    @RequestMapping("/system/user")
+    public String getAllStu(Model model) {
 
+        List<Studentinfo> studentinfos = studentService.findAllStu();
+
+        model.addAttribute("studentInfos", studentinfos);
+        return "system/user";
+    }
 
 
 }

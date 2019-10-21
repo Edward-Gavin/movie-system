@@ -17,6 +17,21 @@ public interface CinemaMapper {
     List<Cinema> findByPC(@Param( "province" ) String province,
                                  @Param("city") String city );
 
+    @Select( "select * from cinema " +
+            "where province=#{province} and " +
+            "city=#{city} and cinemaName=#{cinemaName}")
+    List<Cinema> findByProvinceAndCityAndCName(@Param( "province" ) String province,
+                                               @Param("city") String city,
+                                               @Param("cinemaName") String cinemaName);
+
+    @Select( "select * from cinema " +
+            "where province=#{province} and " +
+            "city=#{city} and responsible=#{responsible}")
+    List<Cinema> findByProvinceAndCityAndResponsible(@Param( "province" ) String province,
+                                               @Param("city") String city,
+                                               @Param("responsible") String responsible);
+
+
 
     @Select("SELECT * FROM cinema WHERE cinemaName=#{cinemaName} and " +
             "province=#{province} and " +

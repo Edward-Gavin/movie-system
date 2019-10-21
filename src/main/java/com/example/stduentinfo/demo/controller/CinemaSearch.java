@@ -24,7 +24,12 @@ public class CinemaSearch {
     @Autowired
     private CinemaService cinemaService;
 
-    @RequestMapping("/show")
+    @RequestMapping("/base/cinema/search")
+    public String cinemaSearch(){
+        return "base/cinema/search";
+    }
+
+    @RequestMapping("/base/cinema/show")
     public String cinemaSearch(HttpServletRequest httpServletRequest, Model model){
         String cinemaName = httpServletRequest.getParameter("cinemaName");
         String province = httpServletRequest.getParameter("province");
@@ -37,6 +42,18 @@ public class CinemaSearch {
                 log.info(cinema.toString());
             }
             model.addAttribute("cinemas", cinemas);
+        }else if(!cinemaName.equals("")){
+            List<Cinema> cinemas = cinemaService.findByPCN(province, city, cinemaName);
+            for (Cinema cinema : cinemas) {
+                log.info(cinema.toString());
+            }
+            model.addAttribute("cinemas", cinemas);
+        }else if(!responsible.equals("")){
+            List<Cinema> cinemas = cinemaService.findByPCR(province, city, responsible);
+            for (Cinema cinema : cinemas) {
+                log.info(cinema.toString());
+            }
+            model.addAttribute("cinemas", cinemas);
         }else{
             List<Cinema> cinemas = cinemaService.find(cinemaName, province, city, responsible);
             for (Cinema cinema : cinemas) {
@@ -44,10 +61,10 @@ public class CinemaSearch {
             }
             model.addAttribute("cinemas", cinemas);
         }
-        return "show";
+        return "base/cinema/show";
     }
 
-    @RequestMapping("/insert")
+    @RequestMapping("/base/cinema/insert")
     public String cinemaInsert(HttpServletRequest httpServletRequest, Map<String,String> map) {
         String cinemaName = httpServletRequest.getParameter("cinemaName");
         String province = httpServletRequest.getParameter("province");
@@ -62,11 +79,11 @@ public class CinemaSearch {
         try {
             cinemaService.saveCinema(cinemaName, province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber);
             map.put("Info", "影院信息添加成功！");
-            return "cinema_insert";
+            return "base/cinema/insert";
         } catch (Exception e) {
             log.info(e.toString());
             map.put("Info", "影院信息添加失败，请查看添加信息！");
-            return "cinema_insert";
+            return "base/cinema/insert";
         }
     }
 }
