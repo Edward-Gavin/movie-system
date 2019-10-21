@@ -43,6 +43,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         // 不拦截的请求地址： "/checknode","/login","/register","/","/login.html"
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/blank_api","/chartjs_statistic",
                 "/base/cinema/insert", "/base/cinema/show","/base/cinema/search","/data_cinema","/data_machine",
+                "/documents/standard","/documents/operate_course","/documents/handbook",
                 "/data_search", "/direction_chat","/error_search",
                 "/main.html","/index","/calendar_manage","/task_search","/details","/details_error","/details_room");
         super.addInterceptors(registry);
