@@ -32,4 +32,21 @@ public class DocumentController {
         return "documents/handbook";
     }
 
+    @RequestMapping("/documents/stand_details")
+    public String getStandardDetails(Model model) {
+
+        return "documents/stand_details";
+    }
+
+    @RequestMapping("/documents/operate_details")
+    public String getOperateDetails(Model model) {
+
+        return "documents/operate_details";
+    }
+
+    @RequestMapping("/documents/hand_details")
+    public String getHandbookDetails(Model model) {
+
+        return "documents/hand_details";
+    }
 }

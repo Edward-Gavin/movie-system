@@ -3,15 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>故障手册</title>
+  <title>标准详情</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-  <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" th:href="@{/plugins/datatables/dataTables.bootstrap4.min.css}">
   <!-- Theme style -->
   <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
   <!-- Google Font: Source Sans Pro -->
@@ -33,6 +31,7 @@
         <a href="#" class="nav-link"></a>
       </li>
     </ul>
+
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
@@ -57,7 +56,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../../static/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -73,7 +72,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../../static/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -89,7 +88,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="../../../static/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -162,118 +161,121 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>故障手册</h1>
+            <h1>标准详细信息</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">主页</a></li>
-              <li class="breadcrumb-item active">故障手册</li>
+              <li class="breadcrumb-item active">标准详细信息</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-12">
-		<div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">输入故障手册信息</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form">
-                <div class="card-body">
-                  <div class="form-group row">
-                    <div class="col-3">
-                      <label>故障对象</label>
-                      <div class="form-group">
-                        <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>放映机故障</option>
-                          <option>服务器故障</option>
-                          <option>音响故障</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <label>对象型号</label>
-                      <div class="form-group">
-                        <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>DP2K</option>
-                          <option>DP2K</option>
-                          <option>DP2K</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <label>故障类型</label>
-                      <div class="form-group">
-                        <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>错误</option>
-                          <option>警告</option>
-                          <option>错误和警告</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <label>故障详细代码：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：248-2011">
-                    </div>
-                  </div>
-                <!-- /.card-body -->
-                    <button style="float: right" type="submit" class="btn btn-primary">查询</button>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!--<div class="callout callout-info">
+              <h5><i class="fa fa-info"></i> Note:</h5>
+              This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+            </div>-->
+            <!-- Main content -->
+            <div class="invoice p-3 mb-3">
+              <!-- title row -->
+              <div class="row">
+                <div class="col-12">
+                  <h4>
+                    
+                    <small class="float-right">更新时间: 2/8/2019</small>
+                  </h4>
                 </div>
-              </form>
-            </div>        
-          <!-- /.card -->
-		  <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">故障手册</h3>
+                <!-- /.col -->
+              </div>
+              <!-- info row -->
+              <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                  <strong>设备品牌及类型：</strong>
+                
+                    <br> BARCO DP2K <br>
+                  <address>
+                  </address>
+				  
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                  <address>
+					<strong>故障代码及说明：</strong>
+                    <br>Code 5004: “lamp - no communication” (Error)<br>
+                  </address>
+                </div>
+				<div class="col-sm-4 invoice-col">
+                  <address>
+					<strong>故障级别：</strong>
+                    <br>错误<br>
+                  </address>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+           <address></address>
+              <!-- Table row -->
+              <div class="row">
+				  <div class="col-6 table-responsive">
+					  <div >
+						  <h4>&nbsp&nbsp&nbsp解决方法：</h4>
+					  </div>
+                  	<table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>状态</th>
+                      <th>解决方法</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>灯箱没有被正确安装</td>
+                      <td>检查灯箱安装，并重置灯箱</td>
+
+                    </tr>
+                    <tr>
+                      <td>使用了与本机型号不匹配的灯箱</td>
+                      <td>选择匹配灯箱</td>
+
+                    </tr>
+                    <tr>
+                      <td>同时显示代码5180（lamp house - not connected）</td>
+                      <td>见5180</td>
+
+                    </tr>
+                    <tr>
+                      <td>与灯箱无通讯</td>
+                      <td>检查灯箱前端蓝色插头是否损坏</td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+				  </div>
+				  <div class="col-6 table-responsive">
+					<h4>&nbsp&nbsp&nbsp操作视频：</h4>
+						&nbsp&nbsp&nbsp视频加载中...
+				  </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+              <!-- Table row -->
+              </div>
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>设备及其型号</th>
-                  <th>故障代码</th>
-                  <th>故障类型</th>
-                  <th>故障原因</th>
-                  <th>预留属性</th>
-                  <th>预留属性</th>
-                  <th>详情>></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>BARCO DP2K</td>
-                  <td>5003</td>
-                  <td>错误</td>
-                  <td>4</td>
-                  <td>4</td>
-                  <td>4</td>
-                  <td><a href="/documents/hand_details">详情>> </a> </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+            <!-- /.invoice -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<div th:replace="model/footer :: footer-and-right"></div>
+	<div th:replace="model/footer :: footer-and-right"></div>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -286,30 +288,11 @@
 <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
 <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
-<!-- DataTables -->
-<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
-<script th:src="@{/plugins/datatables/dataTables.bootstrap4.min.js}"></script>
-<!-- SlimScroll -->
-<script th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
 <!-- FastClick -->
 <script th:src="@{/plugins/fastclick/fastclick.js}"></script>
 <!-- AdminLTE App -->
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
-<!-- page script -->
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
 </body>
 </html>
