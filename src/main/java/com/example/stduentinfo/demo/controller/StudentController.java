@@ -111,6 +111,11 @@ public class StudentController {
         return "details_room";
     }
 
+    @RequestMapping("/statistic_analysis")
+    public String statisticAnalysis(){
+        return "statistic_analysis";
+    }
+
     @RequestMapping("logining")
     //登录功能
     public String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{

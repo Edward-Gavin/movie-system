@@ -44,7 +44,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/blank_api","/chartjs_statistic",
                 "/base/cinema/insert", "/base/cinema/show","/base/cinema/search","/data_cinema","/data_machine",
                 "/documents/standard","/documents/operate_course","/documents/handbook","/documents/hand_details",
-                "/documents/operate_details","/documents/stand_details",
+                "/documents/operate_details","/documents/stand_details","/statistic_analysis","/question/question",
                 "/data_search", "/direction_chat","/error_search",
                 "/main.html","/index","/calendar_manage","/task_search","/details","/details_error","/details_room");
         super.addInterceptors(registry);
