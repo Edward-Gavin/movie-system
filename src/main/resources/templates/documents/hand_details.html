@@ -258,15 +258,16 @@
                     </tbody>
                   </table>
 				  </div>
-				  <div class="col-6 table-responsive">
-					<h4>
-                      &nbsp&nbsp&nbsp操作视频：
-                      <a href="#">
-                        <button style="float: right" type="button" class="btn btn-info">答题</button>
-                      </a>
-                    </h4>
-						&nbsp&nbsp&nbsp视频加载中...
-				  </div>
+                  <div class="col-6 table-responsive">
+                  <h4>&nbsp&nbsp&nbsp操作视频</h4>
+                  <video style="height: 340px; width: 617px;" autoplay="autoplay" controls="controls" th:src="@{/video/abc.mov}">
+                    <span>&nbsp;</span>
+                  </video>
+                  <div class="col-11">
+                    <button style="float: right" type="submit" class="btn btn-info">答题</button>
+                  </div>
+                </div>
+
                 <!-- /.col -->
               </div>
               <!-- /.row -->
