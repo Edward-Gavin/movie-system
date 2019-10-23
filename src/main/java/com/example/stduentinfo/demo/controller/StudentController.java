@@ -153,7 +153,7 @@ public class StudentController {
     @RequestMapping("/logout")
     public String loginout(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse){
         //将session对象移除
-        httpServletRequest.getSession().removeAttribute( "studentinfo" );
+        httpServletRequest.getSession().removeAttribute( "username" );
         return "login";
     }
     //加入验证码功能
