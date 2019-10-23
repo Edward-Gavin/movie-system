@@ -1,7 +1,5 @@
 package com.example.stduentinfo.demo.entity;
 
-import java.util.Date;
-
 /**
  * @Author: Edward Gavin
  * @Create: 2019-10-08 16:03
@@ -11,8 +9,10 @@ public class Task {
     private String title;
     private String equipment;
     private String publish;
-    private Date start;
-    private Date end;
+    private String detail;
+    private String date;
+    private String start;
+    private String end;
     private Integer status;
     private String responsible;
 
@@ -23,10 +23,12 @@ public class Task {
                 ", title='" + title + '\'' +
                 ", equipment='" + equipment + '\'' +
                 ", publish='" + publish + '\'' +
-                ", start=" + start +
-                ", end=" + end +
+                ", detail='" + detail + '\'' +
+                ", date='" + date + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
                 ", status=" + status +
-                ", reponsible='" + responsible + '\'' +
+                ", responsible='" + responsible + '\'' +
                 '}';
     }
 
@@ -62,19 +64,35 @@ public class Task {
         this.publish = publish;
     }
 
-    public Date getStart() {
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public String getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(String end) {
         this.end = end;
     }
 
@@ -86,11 +104,11 @@ public class Task {
         this.status = status;
     }
 
-    public String getReponsible() {
+    public String getResponsible() {
         return responsible;
     }
 
-    public void setReponsible(String reponsible) {
-        this.responsible = reponsible;
+    public void setResponsible(String responsible) {
+        this.responsible = responsible;
     }
 }
