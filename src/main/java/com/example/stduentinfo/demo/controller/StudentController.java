@@ -2,7 +2,9 @@ package com.example.stduentinfo.demo.controller;
 
 import com.example.stduentinfo.demo.entity.RegisterInfoYanzheng;
 import com.example.stduentinfo.demo.entity.Studentinfo;
+import com.example.stduentinfo.demo.entity.User;
 import com.example.stduentinfo.demo.service.StudentService;
+import com.example.stduentinfo.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,7 +34,7 @@ public class StudentController {
     private static int HEIGHT = 20;
 
     @Autowired
-    private StudentService studentService;
+    private UserService userService;
 
     //登录界面
 //    @RequestMapping("/login")
@@ -116,6 +117,16 @@ public class StudentController {
         return "statistic_analysis";
     }
 
+    @RequestMapping("/online_course")
+    public String onlineCourse(){
+        return "online_course";
+    }
+
+    @RequestMapping("/question/score")
+    public String score(){
+        return "question/score";
+    }
+
     @RequestMapping("logining")
     //登录功能
     public String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
@@ -124,13 +135,14 @@ public class StudentController {
         String checknode = httpServletRequest.getParameter( "checknode" );
         String checknode2 = (String)httpServletRequest.getSession().getAttribute( "checknode" );
         log.info(checknode2);
-        Studentinfo studentinfo = studentService.findByUsernameAndPassword( username,password );
+        User user = userService.findByUsernameAndPassword(username, password);
+
         session.setAttribute( "username",username);
         if(!checknode.equals( checknode2 )){
             map.put( "checknode","验证码错误" );
             return "login";
         }
-        else if (studentinfo!=null){
+        else if (user != null){
             log.info("IP地址和端口号："+httpServletRequest.getRemoteAddr()+":"+ httpServletRequest.getRemotePort());
             httpServletResponse.setContentType("text/html;charset=utf-8");
             //将信息返回
@@ -235,24 +247,20 @@ public class StudentController {
 
     //注册功能
     @RequestMapping("/registering")
-    public String registering( HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,Map<String,String> map ) throws IOException {
+    public String registering(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,Map<String,String> map ) throws IOException {
         String username = httpServletRequest.getParameter( "username" );
         String password = httpServletRequest.getParameter( "password" );
         String password1 =httpServletRequest.getParameter( "password1" );
-        String QQ = httpServletRequest.getParameter( "QQ" );
-        String sex = httpServletRequest.getParameter( "sex" );
-        String birthday = httpServletRequest.getParameter( "birthday" );
-        String myself = httpServletRequest.getParameter( "myself" );
+
 
         //获取注册验证信息
         RegisterInfoYanzheng registerInfoYanzheng = new RegisterInfoYanzheng();
-        registerInfoYanzheng.setUsername( username );
-        registerInfoYanzheng.setPassword( password );
-        registerInfoYanzheng.setPassword1( password1 );
-        registerInfoYanzheng.setQQ(QQ);
+        registerInfoYanzheng.setUsername(username);
+        registerInfoYanzheng.setPassword(password);
+        registerInfoYanzheng.setPassword1(password1);
 
         // 判断用户名是否被注册了
-        if(username.equals(studentService.selectUsername(username))){
+        if(username.equals(userService.selectUsername(username))){
             //PrintWriter out = httpServletResponse.getWriter();
             map.put( "register_information","用户名已注册" );
             // out.print( "<p style='color=red'>用户名已注册</p>" );
@@ -264,83 +272,15 @@ public class StudentController {
             map.put( "username", registerInfoYanzheng.getErrors().get("username"));
             map.put( "password", registerInfoYanzheng.getErrors().get("password") );
             map.put( "password1", registerInfoYanzheng.getErrors().get("password1") );
-            map.put( "qq", registerInfoYanzheng.getErrors().get("QQ") );
             return "register";
         }
         else{
-            studentService.save( username,password,sex,birthday,myself,QQ );
+            userService.save( username,password);
             //将信息返回
             //PrintWriter out = httpServletResponse.getWriter();
             //out.print( "<script type=\"text/javascript\">alert('注册成功,请您登录！！！')</script>" );
             map.put( "information","注册成功，请您登录！" );
             return "login";
         }
-//        else {
-//             //解决乱码
-//             httpServletResponse.setContentType("text/html;charset=utf-8");
-//             PrintWriter out1 = httpServletResponse.getWriter();
-//             out1.print( "<script type=\"text/javascript\">alert('注册失败,请检查每一项是否为空，密码是否相同!!!')</script>" );
-////            out1.print ("<p style=\"color:red\">注册失败,请检查每一项是否为空，密码是否相同</p>");
-//             return "register";
-//        }
     }
-    //    查看个人信息
-    @RequestMapping("/personinfo{username}")
-    public ModelAndView getPersonInfo(@RequestParam String username ){
-        List<Studentinfo> studentinfo =studentService.findByUsername( username );
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName( "personinfo" );
-        //获取列表中的元素（和用javaGUI 那个项目获取信息的方式一样，有个弊端就是太麻烦，目前正在讲究简便方法）
-        //thymleaf模板太复杂了，我这个菜鸟学起来好吃力
-        String Username = studentinfo.get(0).getUsername();
-        String Sex = studentinfo.get(0).getSex();
-        String Birthday = studentinfo.get(0).getBirthday();
-        String QQ = studentinfo.get(0).getQQ();
-        String Myself = studentinfo.get(0).getMyself();
-
-
-        mv.addObject( "Username",Username );
-        mv.addObject( "Sex",Sex );
-        mv.addObject( "Birthday",Birthday );
-        mv.addObject( "QQ",QQ  );
-        mv.addObject( "Myself",Myself  );
-
-        return mv;
-    }
-    //修改个人信息
-    @RequestMapping("/change{username}")
-    public String updateinfo(HttpServletRequest request, HttpServletResponse httpServletResponse,@RequestParam(value="username") String username,Map<String,Object> map){
-        log.info( username );
-        String sex = request.getParameter( "sex" );
-        String QQ = request.getParameter( "QQ" );
-        String birthday =request.getParameter( "birthday" );
-        String myself =request.getParameter( "myself" );
-
-        log.info( username );
-        httpServletResponse.setContentType( "text/html;charset=utf-8 ");
-        if(sex!=null&&QQ!=null&&birthday!=null&&myself!=null) {                 studentService.update( sex,QQ,birthday,myself,username);
-            PrintWriter out=null;
-            try {
-                out=httpServletResponse.getWriter();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            out.print( "<script type=\"text/javascript\">alert('修改信息成功！！')</script>" );
-            return "person";
-        }else {
-            map.put( "information","修改的信息内容不能为空");
-            return "changeinfo";
-        }
-    }
-
-    @RequestMapping("/system/user")
-    public String getAllStu(Model model) {
-
-        List<Studentinfo> studentinfos = studentService.findAllStu();
-
-        model.addAttribute("studentInfos", studentinfos);
-        return "system/user";
-    }
-
-
 }

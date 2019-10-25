@@ -11,17 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @Slf4j
+@RequestMapping("/question")
 public class QuestionController {
-    @RequestMapping("/question/question")
+    @RequestMapping("/question")
     public String question(Model model) {
 
         return "question/question";
     }
 
-    @RequestMapping("/question/details")
+    @RequestMapping("/details")
     public String details(Model model) {
 
         return "question/details";
+    }
+
+
+    @RequestMapping("/online")
+    public String online(Model model) {
+
+        return "question/online";
     }
 
 }

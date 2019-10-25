@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>用户管理</title>
+    <title>权限管理</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -70,12 +70,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>用户信息管理</h1>
+                        <h1>权限管理</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">主页</a></li>
-                            <li class="breadcrumb-item active">用户信息管理</li>
+                            <li class="breadcrumb-item active">权限管理</li>
                         </ol>
                     </div>
                 </div>
@@ -85,87 +85,112 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
+<!--                    <div class="card card-primary">-->
+<!--                        <div class="card-header">-->
+<!--                            <h3 class="card-title">请输入标准检索信息</h3>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--                        &lt;!&ndash; form start &ndash;&gt;-->
+<!--                        <form role="form">-->
+<!--                            <div class="card-body">-->
+<!--                                <div class="row">-->
+<!--                                    <div class="col-3 float-lg-left">-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label>所在省市：</label>-->
+<!--                                            <select id="province" class="form-control" name="province">-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-3 float-lg-right">-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label>所在区：</label>-->
+<!--                                            <select id="city" class="form-control" name="city">-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group col-3 float-lg-left">-->
+<!--                                        <label>影院名称：</label>-->
+<!--                                        <input type="text" class="form-control" placeholder="例：北京世纪东都国际影城" name="cinemaName">-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group col-3 float-lg-right">-->
+<!--                                        <label>影院经理：</label>-->
+<!--                                        <input type="text" class="form-control" placeholder="例：张XX" name="responsible">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="card-footer">-->
+<!--                                    <div class="row col-sm-2 float-lg-right">-->
+<!--                                        <button type="submit" class="btn btn-primary">查询</button>-->
+<!--                                        <span class="col-sm-2"> &nbsp;&nbsp;</span>-->
+<!--                                        <a href="/cinema/insert" style="color: #ffffff;">-->
+<!--                                            <button type="button" class="btn btn-primary">添加</button>-->
+<!--                                        </a>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">请输入标准检索信息</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-3 float-lg-left">
-                                        <div class="form-group">
-                                            <label>所在省市：</label>
-                                            <select id="province" class="form-control" name="province">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 float-lg-right">
-                                        <div class="form-group">
-                                            <label>所在区：</label>
-                                            <select id="city" class="form-control" name="city">
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-3 float-lg-left">
-                                        <label>影院名称：</label>
-                                        <input type="text" class="form-control" placeholder="例：北京世纪东都国际影城" name="cinemaName">
-                                    </div>
-                                    <div class="form-group col-3 float-lg-right">
-                                        <label>影院经理：</label>
-                                        <input type="text" class="form-control" placeholder="例：张XX" name="responsible">
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row col-sm-2 float-lg-right">
-                                        <button type="submit" class="btn btn-primary">查询</button>
-                                        <span class="col-sm-2"> &nbsp;&nbsp;</span>
-                                        <a href="/cinema/insert" style="color: #ffffff;">
-                                            <button type="button" class="btn btn-primary">添加</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">基础信息检索结果</h3>
+                            <h3 class="card-title">权限信息</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>用户名</th>
-                                    <th>性别</th>
-                                    <th>手机号</th>
-                                    <th>邮箱</th>
-                                    <th>QQ</th>
-                                    <th>真实姓名</th>
-                                    <th>状态</th>
-                                    <th>角色</th>
-                                    <th>操作</th>
+                                    <th>权限名称</th>
+                                    <th>权限信息</th>
+                                    <th>预留字段</th>
+                                    <th>预留字段</th>
+                                    <th>权限操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="user : ${users}">
-                                    <td th:text="${user.username}"></td>
-                                    <td th:text="${user.sex}"></td>
-                                    <td th:text="${user.phone}"></td>
-                                    <td th:text="${user.mail}"></td>
-                                    <td th:text="${user.qq}"></td>
-                                    <td th:text="${user.name}"></td>
-                                    <td th:text="${user.state}"></td>
-                                    <td th:text="${user.role}"></td>
+                                <tr>
+                                    <td>系统管理员</td>
+                                    <td>系统管理员登录后，有用户管理、权限管理、个人信息管理二级目录，可查看所有用户信息</td>
+                                    <td>1</td>
+                                    <td>1</td>
                                     <td>
                                         <div class="float-lg-left">
-                                            <a href="/system/update" style="color: #ffffff;">
-                                                <button type="button" class="btn btn-sm" style="color: green">修改</button>
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
                                             </a>
-                                            <a href="/system/delete" style="color: #ffffff;">
-                                                <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                                        </div>
+                                    </td>                                </tr>
+                                <tr>
+                                    <td>院线公司/影院管理公司</td>
+                                    <td>院线公司/影院管理公司登录后，有用户管理、权限管理、个人信息管理二级目录，仅可查看自己管理的影院的用户及权限</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
+                                            </a>
+                                        </div>
+                                    </td>                                </tr>
+                                <tr>
+                                    <td>影院管理员</td>
+                                    <td>影院管理员登录后，有用户管理、权限管理、个人信息管理二级目录，仅可查看本影院的用户及权限</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
+                                            </a>
+                                        </div>
+                                    </td>                                </tr>
+                                <tr>
+                                    <td>影院普通用户</td>
+                                    <td>影院普通登录后，仅有个人信息管理二级目录，仅可修改个人信息。</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
                                             </a>
                                         </div>
                                     </td>

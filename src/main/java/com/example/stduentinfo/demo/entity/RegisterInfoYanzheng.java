@@ -33,14 +33,6 @@ public class RegisterInfoYanzheng {
         this.password1 = password1;
     }
 
-    public String getQQ() {
-        return QQ;
-    }
-
-    public void setQQ(String QQ) {
-        this.QQ = QQ;
-    }
-
     public void setErrors(HashMap<String, String> errors) {
         this.errors = errors;
     }
@@ -48,7 +40,6 @@ public class RegisterInfoYanzheng {
     private String username;
     private String password;
     private String password1;
-    private String QQ;
     HashMap<String,String> errors = new HashMap<String , String>();
 
     public boolean panduan(){
@@ -71,10 +62,6 @@ public class RegisterInfoYanzheng {
             flag=false;
         }
 
-        if(QQ.length()>13||QQ.length()<5){
-            errors.put( "QQ","请输入正确位数的QQ号" );
-            flag=false;
-        }
         return flag;
     }
     //向Map集合errors中添加错误信息

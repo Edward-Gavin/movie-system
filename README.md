@@ -44,5 +44,5 @@ alt+ctrl+H查看方法类结构
 @Param mybatis中的注解，是为了给参数命名。
 
 @RequsetMapping（请求到处理器（controller）功能方法的映射规则）
-RequsetMapping是一个用来处理请求地址映射的注解，可用在类或者方法上，用在类上，表示类中
+@RequsetMapping是一个用来处理请求地址映射的注解，可用在类或者方法上，用在类上，表示类中
 所有的响应消息都是以该地址父路径

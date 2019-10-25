@@ -1,3 +1,7 @@
+image-config:
+  upload-path: /Users/edwardgavinwang/IdeaProjects/github/Spring-boot-mybatis/src/main/resources/static/images/
+
+
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver

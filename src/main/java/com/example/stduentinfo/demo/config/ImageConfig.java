@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "image-config")
-public class ImagesConfig {
+public class ImageConfig {
 
     private String uploadPath;
 
-    public String getImageUri() {
+    public String getUploadPath() {
         return uploadPath;
     }
 
-    public void setImageUri(String imageUri) {
-        this.uploadPath = imageUri;
+    public void setUploadPath(String uploadPath) {
+        this.uploadPath = uploadPath;
     }
 }

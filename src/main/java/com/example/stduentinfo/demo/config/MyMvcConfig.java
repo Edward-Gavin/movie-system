@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -45,9 +46,19 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
                 "/base/cinema/insert", "/base/cinema/show","/base/cinema/search","/data_cinema","/data_machine",
                 "/documents/standard","/documents/operate_course","/documents/handbook","/documents/hand_details",
                 "/documents/operate_details","/documents/stand_details","/statistic_analysis","/question/question",
-                "/data_search", "/direction_chat","/error_search",
+                "/data_search", "/direction_chat","/error_search","/system/user",
                 "/main.html","/index","/calendar_manage","/task_search","/details","/details_error","/details_room");
         super.addInterceptors(registry);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        /**
+         * 资源映射路径
+         * addResourceHandler：访问映射路径
+         * addResourceLocations：资源绝对路径
+         */
+        registry.addResourceHandler("/images/**").addResourceLocations("file:/Users/edwardgavinwang/IdeaProjects/github/Spring-boot-mybatis/src/main/resources/static/images/");
     }
 
     @Bean

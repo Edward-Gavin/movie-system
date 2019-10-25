@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>答题管理</title>
+    <title>在线测试</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -69,12 +69,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>答题管理</h1>
+                        <h1>在线测试</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">主页</a></li>
-                            <li class="breadcrumb-item active">答题管理</li>
+                            <li class="breadcrumb-item active">在线测试</li>
                         </ol>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" >
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4 float-lg-left">
@@ -132,60 +132,12 @@
                                     </div>
                                 </div>
                                 <div class="card-footer float-lg-right">
-<!--                                    <div class="row col-sm-2 float-lg-right">-->
-                                    <button type="submit" class="btn btn-primary">生成</button>
-                                    <button type="button" class="btn btn-primary">在线测试</button>
-                                    <!--                                        <span class="col-sm-2"> &nbsp;&nbsp;</span>-->
-<!--                                        <a href="/base/cinema/insert" style="color: #ffffff;">-->
-<!--                                            <button type="button" class="btn btn-primary">添加</button>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
+                                    <a href="/question/details">
+                                        <button type="submit" class="btn btn-primary">生成</button>
+                                    </a>
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">题目信息检索结果</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>题目类型</th>
-                                    <th>题目对象</th>
-                                    <th>题目分值</th>
-                                    <th>相关资源</th>
-                                    <th>预留属性</th>
-                                    <th>进入答题</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="cinema : ${cinemas}">
-                                    <td th:text="${cinema.cinemaName}">北京XXX影城</td>
-                                    <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
-                                    <td th:text="${cinema.address}">平乐园100号</td>
-                                    <td th:text="${cinema.responsible}">张三</td>
-                                    <td th:text="${cinema.responsiblePhone}">140000</td>
-                                    <td th:text="${cinema.manager}">ac</td>
-                                    <td th:text="${cinema.managerPhone}">dfjlsd</td>
-                                    <td th:text="${cinema.roomNumber}">1300000000</td>
-                                    <th><a href="/details">详情>></a></th>
-                                </tr>
-                                <tr>
-                                    <td>维护</td>
-                                    <td>影院</td>
-                                    <td>3</td>
-                                    <td>GY 2312标准</td>
-                                    <td>4</td>
-                                    <td ><a href="/question/details">进入答题</a></td>
-
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
                 <!-- /.card -->

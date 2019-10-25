@@ -14,7 +14,17 @@ public class User {
     private String qq;
     private String sex;
     private String name;
-    private String state;
+    private char state;
+    private Integer role;
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
 
     public Integer getId() {
         return uid;
@@ -80,18 +90,26 @@ public class User {
         this.name = name;
     }
 
-    public String getState() {
+    public char getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(char state) {
         this.state = state;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + uid +
+                "uid=" + uid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
@@ -100,6 +118,7 @@ public class User {
                 ", sex='" + sex + '\'' +
                 ", name='" + name + '\'' +
                 ", state='" + state + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
