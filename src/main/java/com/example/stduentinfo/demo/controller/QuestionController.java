@@ -32,4 +32,11 @@ public class QuestionController {
         return "question/online";
     }
 
+
+    @RequestMapping("/insert")
+    public String insert(Model model) {
+
+        return "question/insert";
+    }
+
 }
