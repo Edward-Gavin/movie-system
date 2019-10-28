@@ -322,7 +322,7 @@
           content: ""+date._d+"---"+copiedEventObject.title+"--"+copiedEventObject.start_time+"---"+copiedEventObject.end_time+"---"+copiedEventObject.detail+"---"+copiedEventObject.backgroundColor+"---"+copiedEventObject.equipment,
           ok:{
             callback: function () {
-              $.post("http://localhost:8084/post_task",
+              $.post("http://localhost:8083/post_task",
                       {
                         title:copiedEventObject.title,
                         detail:copiedEventObject.detail,

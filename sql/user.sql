@@ -16,6 +16,7 @@ CREATE TABLE `user` (
                              `sex` varchar(10) default null comment '性别',
                              `name` varchar(256) DEFAULT NULL COMMENT '用户真实姓名',
                              `state` char(1) DEFAULT '0' COMMENT '用户状态：0:正常状态,1：用户被锁定',
+                             `role`     int         default 3   null comment '用户角色 0:系统管理员，1:院线公司/影院管理公司，2:影院管理员，3:影院普通用户',
                              PRIMARY KEY (`uid`),
                              UNIQUE KEY `username` (`username`) USING BTREE,
                              UNIQUE KEY `id_card_num` (`phone`) USING BTREE

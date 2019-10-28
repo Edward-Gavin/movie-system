@@ -117,7 +117,7 @@
                                     <td th:text="${user.role}"></td>
                                     <td>
                                         <div class="float-lg-left">
-                                            <a href="/system/update" style="color: #ffffff;">
+                                            <a th:href="@{/system/update(username=${user.username})}" style="color: #ffffff;">
                                                 <button type="button" class="btn btn-sm" style="color: green">修改</button>
                                             </a>
                                             <a href="/system/delete" style="color: #ffffff;">

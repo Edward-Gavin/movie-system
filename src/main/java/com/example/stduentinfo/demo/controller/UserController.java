@@ -91,18 +91,15 @@ public class UserController {
 
     @RequestMapping("/user")
     public String getAllStu(Model model) {
-
         List<User> users = userService.findAllStu();
-
         model.addAttribute("users", users);
         return "system/user";
     }
 
 
-    // 需要返回当前用户的详细信息，展现在前端页面中   ** 未完成 **
-    @RequestMapping("/update")
-    public String updateUser(HttpServletRequest httpServletRequest, Model model) {
-        String username = httpServletRequest.getSession().getAttribute("username").toString();
+    // 需要返回当前用户的详细信息，展现在前端页面中   ** 未完成 **  ---> finished
+    @RequestMapping("/update{username}")
+    public String updateUser(Model model, @RequestParam(value="username") String username) {
         User user = userService.findOne(username);
         log.info(user.toString());
         model.addAttribute("user", user);
@@ -110,12 +107,11 @@ public class UserController {
     }
 
 
-    // 修改界面提交还是有问题，处理中    ** 未完成 **
+    // 修改界面提交还是有问题，处理中    ** 未完成 ** ---> finished
     @RequestMapping("/updating")
-    public String updatingUser(HttpServletRequest httpServletRequest) {
+    public String updatingUser(HttpServletRequest httpServletRequest, Model model) {
         String username = httpServletRequest.getParameter("username");
         String sex = httpServletRequest.getParameter("sex");
-        log.info(sex);
         String phone = httpServletRequest.getParameter("phone");
         String mail = httpServletRequest.getParameter("mail");
         String qq = httpServletRequest.getParameter("qq");
@@ -126,6 +122,8 @@ public class UserController {
         Integer role = Integer.parseInt(preRole);
 
         userService.update(phone,mail,qq,sex,name,state, role, username);
+        User user = userService.findOne(username);
+        model.addAttribute("user", user);
         return "system/update";
     }
 

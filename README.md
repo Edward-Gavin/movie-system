@@ -46,3 +46,38 @@ alt+ctrl+H查看方法类结构
 @RequsetMapping（请求到处理器（controller）功能方法的映射规则）
 @RequsetMapping是一个用来处理请求地址映射的注解，可用在类或者方法上，用在类上，表示类中
 所有的响应消息都是以该地址父路径
+
+
+String  -> char
+在Java中将String转换为char是非常简单的。
+1. 使用String.charAt(index)（返回值为char）可以得到String中某一指定位置的char。
+2. 使用String.toCharArray()（返回值为char[]）可以得到将包含整个String的char数组。这样我们就能够使用从0开始的位置索引来访问string中的任意位置的元素。
+
+int -> String 
+int i=12345;
+String s="";
+第一种方法：s=i+"";
+第二种方法：s=String.valueOf(i);
+
+String -> int 
+s="12345";
+int i;
+第一种方法：i=Integer.parseInt(s);
+第二种方法：i=Integer.valueOf(s).intValue();
+
+
+关于图片存储的问题：
+https://www.cnblogs.com/wangtao_20/p/3440570.html
+
+
+图片上传功能实现；
+https://blog.csdn.net/qq_38762237/article/details/81282444
+https://blog.csdn.net/j903829182/article/details/78406778
+
+
+表单提交的过程中遇到input标签添加disabled属性值后，表单提交不能提交响应的属性：
+
+readonly & disabled区别
+readonly和disabled是用在表单中的两个属性，它们都能够做到使用户不能够更改表单域中的内容。
+disabled：对于所有的表单元素都有效，包括select, radio, checkbox, button等。如果一个输入项的disabled设为true，则该表单输入项不能获取焦点，用户的所有操作（鼠标点击和键盘输入等）对该输入项都无效，最重要的一点是当提交表单时，这个表单输入项将不会被提交。
+readonly：只针对input(text / password)和textarea有效；如果设为true，用户只是不能编辑对应的文本，但是仍然可以聚焦焦点，并且在提交表单的时候，该输入项会作为form的一项提交。
