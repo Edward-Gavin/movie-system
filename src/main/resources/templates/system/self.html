@@ -96,7 +96,7 @@
                     <div class="row">
                       <div class="form-group col-6 float-lg-right">
                         <label>用户名：</label>
-                        <input type="text" class="form-control" th:placeholder="${session.username}" name="username" readonly="readonly">
+                        <input type="text" class="form-control" th:value="${session.username}" name="username" readonly="readonly">
                       </div>
                       <div class="col-6 ">
                         <div class="form-group">
@@ -122,7 +122,8 @@
                       </div>
                       <div>
                         <p th:text="${password}" style="color: red" align="center">这里是信息提示.</p>
-                      </div>                      <div class="form-group col-6 float-lg-left">
+                      </div>
+                      <div class="form-group col-6 float-lg-left">
                         <label>手机号：</label>
                         <input type="text" class="form-control" th:value="${user.phone}" name="phone">
                       </div>
@@ -139,29 +140,13 @@
                         <label>真实姓名：</label>
                         <input type="text" class="form-control" th:value="${user.name}" name="name">
                       </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>状态：</label>
-                        <select class="form-control" name="state">
-                         <option value="1" th:selected="${user.state=='1'}">激活</option>
-                         <option value="2" th:selected="${user.state=='2'}">锁定</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>角色：</label>
-                        <select class="form-control" name="role">
-                          <option th:selected="${user.role}==0" value="0">系统管理员</option>
-                          <option th:selected="${user.role}==1" value="1">院线公司/影院管理公司</option>
-                          <option th:selected="${user.role}==2" value="2">影院管理员</option>
-                          <option th:selected="${user.role}==3" value="3">影院普通用户</option>
-                        </select>
-                      </div>
                     </div>
                   </div>
                     <!-- /.card-body -->
                   <div class="form-group">
                     <div class="card-footer">
                       <div class="row float-lg-right">
-                        <button type="button" class="btn btn-primary">修改</button>
+                        <button type="submit" class="btn btn-primary">修改</button>
                       </div>
                     </div>
                   </div>

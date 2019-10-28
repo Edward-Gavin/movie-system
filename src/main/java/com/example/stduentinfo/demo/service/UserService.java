@@ -57,4 +57,8 @@ public class UserService {
         return userMapper.findAll();
     }
 
+    public void updateself(String phone, String password, String mail,String qq,String sex, String name, String username){
+        userMapper.updateself(phone, password, mail, qq, sex, name, username);
+    }
+
 }

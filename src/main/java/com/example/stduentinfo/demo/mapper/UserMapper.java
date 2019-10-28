@@ -54,4 +54,12 @@ public interface UserMapper {
                 @Param("role") Integer role,
                 @Param( "username" ) String username);
 
+    @Update("update user set phone=#{phone}, password=#{password}, mail=#{mail}, qq=#{qq}, sex = #{sex}, name=#{name}")
+    void updateself(@Param( "phone" ) String phone,
+                    @Param("password") String password,
+                    @Param( "mail" ) String mail,
+                    @Param( "qq" ) String qq,
+                    @Param( "sex" ) String sex,
+                    @Param( "name" ) String name,
+                    @Param( "username" ) String username);
 }
