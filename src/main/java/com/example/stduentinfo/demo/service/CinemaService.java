@@ -2,6 +2,7 @@ package com.example.stduentinfo.demo.service;
 
 import com.example.stduentinfo.demo.entity.Cinema;
 import com.example.stduentinfo.demo.mapper.CinemaMapper;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +24,13 @@ public class CinemaService {
     }
 
     public List<Cinema> find(String cinemaName, String province, String city, String responsible) {
-        return cinemaMapper.findById(cinemaName, province, city, responsible);
+        return cinemaMapper.findByCPCR(cinemaName, province, city, responsible);
     }
 
-    public void saveCinema(String cinemaName, String province, String city, String address ,
+    public void saveCinema(Integer id, String cinemaName, String province, String city, String address ,
                            String responsible, String responsiblePhone, String manager ,
                            String managerPhone, String roomNumber) {
-        cinemaMapper.save(cinemaName, province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber);
+        cinemaMapper.save(id, cinemaName, province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber);
     }
 
     public List<Cinema> findByPCR(String province, String city, String responsible) {
@@ -38,5 +39,15 @@ public class CinemaService {
 
     public List<Cinema> findByPCN(String province, String city, String cinemaName) {
         return cinemaMapper.findByProvinceAndCityAndCName(province, city, cinemaName);
+    }
+
+    public Cinema findById(Integer id) {
+        return cinemaMapper.findById(id);
+    }
+
+    public void updateById(String cinemaName, String province, String city, String address,
+                           String responsible, String responsiblePhone, String manager,
+                           String managerPhone, String roomNumber, Integer id) {
+        cinemaMapper.updateById(cinemaName, province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber, id);
     }
 }

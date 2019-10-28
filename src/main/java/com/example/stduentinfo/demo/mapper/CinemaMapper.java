@@ -17,6 +17,10 @@ public interface CinemaMapper {
     List<Cinema> findByPC(@Param( "province" ) String province,
                                  @Param("city") String city );
 
+    @Select("select * from cinema where id=#{id}")
+    Cinema findById(@Param("id") Integer id);
+
+
     @Select( "select * from cinema " +
             "where province=#{province} and " +
             "city=#{city} and cinemaName=#{cinemaName}")
@@ -42,13 +46,15 @@ public interface CinemaMapper {
             @Result(property = "province", column = "province"),
             @Result(property = "city", column = "city"),
             @Result(property = "responsible", column = "responsible")})
-    List<Cinema> findById(String cinemaName, String province, String city, String responsible);
+
+    List<Cinema> findByCPCR(String cinemaName, String province, String city, String responsible);
 
     @Insert( "insert into " +
-            "cinema(cinemaName,province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber) " +
+            "cinema(id, cinemaName,province, city, address, responsible, responsiblePhone, manager, managerPhone, roomNumber) " +
             "values" +
-            "(#{cinemaName},#{province},#{city},#{address},#{responsible},#{responsiblePhone},#{manager},#{managerPhone},#{roomNumber})" )
-    void save( @Param ( "cinemaName" ) String cinemaName ,
+            "(#{id}, #{cinemaName},#{province},#{city},#{address},#{responsible},#{responsiblePhone},#{manager},#{managerPhone},#{roomNumber})" )
+    void save(@Param("id") Integer id,
+              @Param ( "cinemaName" ) String cinemaName ,
                @Param( "province" ) String province ,
                @Param( "city" ) String city,
                @Param("address") String address ,
@@ -57,5 +63,20 @@ public interface CinemaMapper {
                @Param("manager") String manager ,
                @Param( "managerPhone" ) String managerPhone,
                @Param( "roomNumber" ) String roomNumber);
+
+
+    @Update("update cinema set cinemaName=#{cinemaName}, province=#{province}, city=#{city}, address=#{address}," +
+            "responsible=#{responsible}, responsiblePhone=#{responsiblePhone}, manager=#{manager}, " +
+            "managerPhone=#{managerPhone}, roomNumber=#{roomNumber} where id=#{id}")
+    void updateById(@Param("cinemaName") String cinemaName,
+                    @Param("province") String province,
+                    @Param("city") String city,
+                    @Param("address") String address,
+                    @Param("responsible") String responsible,
+                    @Param("responsiblePhone") String responsiblePhone,
+                    @Param("manager") String manager,
+                    @Param("managerPhone") String managerPhone,
+                    @Param("roomNumber") String roomNumber,
+                    @Param("id") int id);
 
 }

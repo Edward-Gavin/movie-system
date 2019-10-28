@@ -86,72 +86,69 @@
           <div class="col-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">请输入影院基础信息</h3>
+                <h3 class="card-title">请修改影院基础信息</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" th:action="@{/base/cinema/inserting}">
+              <form role="form" th:action="@{/base/cinema/updating}">
                 <div class="card-body">
                   <div class="form-group">
-                    <div class="row">
+                    <div class="row col-12">
                       <div class="row col-12">
-                        <div class="col-2">
-                          <div class="form-group">
-                            <label>影院ID：</label>
-                            <input class="form-control" name="id">
-                          </div>
+                        <div class="form-group col-2">
+                          <label>影院ID：</label>
+                          <input class="form-control" name="id" th:value="${cinema.id}" readonly="readonly">
                         </div>
-                        <div class="col-2">
-                          <div class="form-group">
+                        <div class="form-group col-2">
                             <label>所在省市：</label>
-                            <select id="province" class="form-control" name="province">
+                            <select id="province" class="form-control" name="province" th:value="${cinema.province}">
                             </select>
-                          </div>
                         </div>
-                        <div class="col-2">
-                          <div class="form-group">
+                        <div class="form-group col-2">
                             <label>所在区：</label>
-                            <select id="city" class="form-control" name="city">
+                            <select id="city" class="form-control" name="city" th:value="${cinema.city}">
                             </select>
-                          </div>
                         </div>
                         <div class="form-group col-6">
                           <label>详细地址：</label>
-                          <input type="text" class="form-control" placeholder="例：平乐园100号" name="address">
+                          <input type="text" class="form-control" th:value="${cinema.address}" name="address">
                         </div>
                       </div>
-                      <div class="form-group col-6 float-lg-left">
+                      <div class="form-group col-6">
                         <label>影院名称：</label>
-                        <input type="text" class="form-control" placeholder="例：北京世纪东都国际影城" name="cinemaName">
+                        <input type="text" class="form-control" th:value="${cinema.cinemaName}" name="cinemaName">
                       </div>
-                      <div class="form-group col-6 float-lg-right">
+                      <div class="form-group col-6">
                         <label>影厅数量：</label>
-                        <input type="text" class="form-control" placeholder="例：10" name="roomNumber">
+                        <input type="text" class="form-control" th:value="${cinema.roomNumber}" name="roomNumber">
                       </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>影院经理：</label>
-                        <input type="text" class="form-control" placeholder="例：张XX" name="responsible">
+                      <div class="row col-12">
+                        <div class="form-group col-6">
+                          <label>影院经理：</label>
+                          <input type="text" class="form-control" th:value="${cinema.responsible}" name="responsible">
+                        </div>
+                        <div class="form-group col-6">
+                          <label>经理电话：</label>
+                          <input type="text" class="form-control" th:value="${cinema.responsiblePhone}" name="responsiblePhone">
+                        </div>
                       </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>经理电话：</label>
-                        <input type="text" class="form-control" placeholder="例：15000000000" name="responsiblePhone">
+                      <div class="row col-12">
+                        <div class="form-group col-6">
+                          <label>影院主管：</label>
+                          <input type="text" class="form-control" th:value="${cinema.manager}" name="manager">
+                        </div>
+                        <div class="form-group col-6">
+                          <label>主管电话：</label>
+                          <input type="text" class="form-control" th:value="${cinema.managerPhone}" name="managerPhone">
+                        </div>
                       </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>影院主管：</label>
-                        <input type="text" class="form-control" placeholder="例：李XX" name="manager">
-                      </div>
-                      <div class="form-group col-6 float-lg-right">
-                        <label>主管电话：</label>
-                        <input type="text" class="form-control" placeholder="例：15000000000" name="managerPhone">
-                      </div>
-
                     </div>
                   </div>
                     <!-- /.card-body -->
                   <div class="form-group">
                     <div class="card-footer">
                       <div class="row float-lg-right">
-                        <button type="submit" class="btn btn-primary">添加</button>
+                        <button type="submit" class="btn btn-primary">修改</button>
                       </div>
                     </div>
                   </div>

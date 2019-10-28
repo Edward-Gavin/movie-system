@@ -118,12 +118,12 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="row col-sm-4 float-lg-right">
-                                        <button type="submit" class="btn btn-primary">查询</button>
-                                        <span class="col-sm-2"> &nbsp;&nbsp;</span>
-                                        <button type="button" class="btn btn-primary">Excel导入</button>
-                                        <span class="col-sm-2"> &nbsp;&nbsp;</span>
-                                        <a href="/base/cinema/insert" style="color: #ffffff;">
-                                            <button type="button" class="btn btn-primary">添加</button>
+                                        <button type="submit" class="btn btn-primary col-sm-2">查询</button>
+                                        <span class="col-sm-3"> &nbsp; &nbsp; &nbsp;</span>
+                                        <button type="button" class="btn btn-primary col-sm-3">Excel导入</button>
+                                        <span class="col-sm-2"> &nbsp; &nbsp; &nbsp;</span>
+                                        <a href="/base/cinema/insert" style="color: #ffffff;" class="col-sm-2">
+                                            <button type="button" class="btn btn-primary ">添加</button>
                                         </a>
                                     </div>
                                 </div>
@@ -139,6 +139,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>影院ID</th>
                                     <th>影院名称</th>
                                     <th>省市区</th>
                                     <th>地址</th>
@@ -147,11 +148,12 @@
                                     <th>影院主管</th>
                                     <th>主管电话</th>
                                     <th>影厅数量</th>
-                                    <th>详情</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr th:each="cinema : ${cinemas}">
+                                    <td th:text="${cinema.id}">北京XXX影城</td>
                                     <td th:text="${cinema.cinemaName}">北京XXX影城</td>
                                     <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
                                     <td th:text="${cinema.address}">平乐园100号</td>
@@ -160,7 +162,16 @@
                                     <td th:text="${cinema.manager}">ac</td>
                                     <td th:text="${cinema.managerPhone}">dfjlsd</td>
                                     <td th:text="${cinema.roomNumber}">1300000000</td>
-                                    <th><a href="/details">详情>></a></th>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">修改</button>
+                                            </a>
+                                            <a href="/base/cinema/delete" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

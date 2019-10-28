@@ -7,6 +7,8 @@ package com.example.stduentinfo.demo.entity;
  */
 
 public class Cinema {
+
+    private Integer id;
     private String cinemaName;
     private String province;
     private String city;
@@ -15,6 +17,14 @@ public class Cinema {
     private String responsiblePhone;
     private String manager;
     private String managerPhone;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getAddress() {
         return address;
@@ -94,7 +104,8 @@ public class Cinema {
     @Override
     public String toString() {
         return "Cinema{" +
-                "cinemaName='" + cinemaName + '\'' +
+                "id=" + id +
+                ", cinemaName='" + cinemaName + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", address='" + address + '\'' +
