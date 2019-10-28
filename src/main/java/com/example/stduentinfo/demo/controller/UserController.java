@@ -97,4 +97,14 @@ public class UserController {
         return "system/self";
     }
 
+    @RequestMapping("/delete")
+    public String deleteUser(HttpServletRequest httpServletRequest, Model model) {
+        String username = httpServletRequest.getParameter("username");
+
+        userService.deleteUser(username);
+        List<User> users = userService.findAllStu();
+        model.addAttribute("users", users);
+        return "system/user";
+    }
+
 }

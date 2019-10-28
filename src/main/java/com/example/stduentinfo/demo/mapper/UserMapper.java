@@ -3,6 +3,7 @@ package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.User;
 import org.apache.ibatis.annotations.*;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -63,4 +64,7 @@ public interface UserMapper {
                     @Param( "sex" ) String sex,
                     @Param( "name" ) String name,
                     @Param( "username" ) String username);
+
+    @Delete("delete from user where username=#{username}")
+    void deleteUser(@Param("username") String username);
 }

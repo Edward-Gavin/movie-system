@@ -125,10 +125,10 @@
                 </select>
                 <br>请选择相关负责人
                 <select  id="new-event-staff" class="form-control">
-                  <option value="维修人员1">张三</option>
-                  <option value="维修人员乙">李四</option>
-                  <option value="维修人员3">王五</option>
-                  <option value="维护人员3">赵六</option>
+                  <option value="张三">张三</option>
+                  <option value="李四">李四</option>
+                  <option value="王五">王五</option>
+                  <option value="赵六">赵六</option>
                 </select>
                 <br>请选择开始时间：
                 <input id="new-event-start-time" type="time" class="form-control">
@@ -322,7 +322,7 @@
           content: ""+date._d+"---"+copiedEventObject.title+"--"+copiedEventObject.start_time+"---"+copiedEventObject.end_time+"---"+copiedEventObject.detail+"---"+copiedEventObject.backgroundColor+"---"+copiedEventObject.equipment,
           ok:{
             callback: function () {
-              $.post("http://localhost:8083/post_task",
+              $.post("http://localhost:8084/post_task",
                       {
                         title:copiedEventObject.title,
                         detail:copiedEventObject.detail,

@@ -33,4 +33,10 @@ public class TaskService {
     public List<Task> findAll() {
         return taskMapper.findAll();
     }
+
+    public List<Task> findByResponsible(String responsible) {
+
+        return taskMapper.findByResponsible(responsible);
+    }
+
 }

@@ -56,4 +56,7 @@ public class UserService {
         userMapper.updateself(phone, password, mail, qq, sex, name, username);
     }
 
+    public void deleteUser(String username) {
+        userMapper.deleteUser(username);
+    }
 }

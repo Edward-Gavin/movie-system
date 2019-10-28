@@ -11,9 +11,8 @@ public interface TaskMapper {
     @Select( "select * from task" )
     List<Task> findAll();
 
-    @Select( "select username,password from task where username=#{username} and password=#{password}" )
-    Studentinfo findByUsernameAndPassword(@Param( "username" ) String username ,
-                                          @Param( "password" ) String password);
+    @Select( "select * from task where responsible=#{responsible}" )
+    List<Task> findByResponsible(@Param( "responsible" ) String username);
 
     @Insert( "insert into task(title, equipment, publish, detail, date, status, start, end,responsible) " +
             "values(#{title},#{equipment},#{publish},#{detail},#{date}, #{status},#{start},#{end},#{responsible})" )
@@ -34,4 +33,6 @@ public interface TaskMapper {
                        @Param( "status" ) String birthday,
                        @Param( "startDate" ) String myself,
                        @Param( "username" ) String username);
+
+
 }

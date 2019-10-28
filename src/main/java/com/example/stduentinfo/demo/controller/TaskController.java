@@ -5,6 +5,7 @@ import com.example.stduentinfo.demo.mapper.TaskMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -63,4 +64,23 @@ public class TaskController {
         List<Task> taskAll = taskMapper.findAll();
         return taskAll;
     }
+
+    @RequestMapping("/task_search")
+    public String taskSearch() {
+        return "task_search";
+    }
+
+    @RequestMapping("/searching")
+    public String searching(HttpServletRequest httpServletRequest, Model model) {
+        String date = httpServletRequest.getParameter("date");
+        String responsible = httpServletRequest.getParameter("responsible");
+        String equipment = httpServletRequest.getParameter("equipment");
+        String title = httpServletRequest.getParameter("title");
+
+        List<Task>  tasks = taskMapper.findByResponsible(responsible);
+        model.addAttribute("tasks", tasks);
+        return "task_search";
+    }
+
+
 }
