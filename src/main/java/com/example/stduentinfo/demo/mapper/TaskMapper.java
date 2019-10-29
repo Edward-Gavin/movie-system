@@ -6,14 +6,19 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-@Mapper
+//@Mapper
+// 指定操作计划任务的Mapper
 public interface TaskMapper {
+
+    // 查找当前计划任务表中所有的计划任务
     @Select( "select * from task" )
     List<Task> findAll();
 
+    // 根据相关的负责人来查找所有的计划任务
     @Select( "select * from task where responsible=#{responsible}" )
     List<Task> findByResponsible(@Param( "responsible" ) String username);
 
+    // 添加计划任务
     @Insert( "insert into task(title, equipment, publish, detail, date, status, start, end,responsible) " +
             "values(#{title},#{equipment},#{publish},#{detail},#{date}, #{status},#{start},#{end},#{responsible})" )
     void save( @Param ( "title" ) String title ,
@@ -28,11 +33,11 @@ public interface TaskMapper {
 
     //多字段更新，只需要在单字段后面用逗号分隔来书写就行
     @Update( "update taskinfo set taskName = #{taskName},publicUser=#{publicUser}, status=#{status}, startDate=#{startDate}, endDate=#{endDated} where taskName=#{taskName}" )
-    public void update(@Param( "taskName" ) String sex,
-                       @Param( "publicUser" ) String QQ,
-                       @Param( "status" ) String birthday,
-                       @Param( "startDate" ) String myself,
-                       @Param( "username" ) String username);
+    void update(@Param("taskName") String sex,
+                @Param("publicUser") String QQ,
+                @Param("status") String birthday,
+                @Param("startDate") String myself,
+                @Param("username") String username);
 
 
 }

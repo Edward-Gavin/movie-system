@@ -6,7 +6,11 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-@Mapper
+
+// 指定操作影院表的Mapper
+
+// 在启动文件中已经添加了自动扫描Mapper的配置
+//@Mapper
 public interface CinemaMapper {
     @Select( "select * from cinema where cinemaName = #{cinemaName}" )
     List<Cinema> findByCinemaName(String cinemaName);

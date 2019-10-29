@@ -3,11 +3,11 @@ package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.User;
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 @Mapper
+// 定义用户的基本信息表的Mapper
 public interface UserMapper {
 
     // 用户基本信息表
