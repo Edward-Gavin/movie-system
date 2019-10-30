@@ -1,12 +1,14 @@
 package com.example.stduentinfo.demo.mapper;
 
-import com.example.stduentinfo.demo.entity.Studentinfo;
 import com.example.stduentinfo.demo.entity.Task;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+
+// 使用了MappperScan扫描方法
 //@Mapper
+
 // 指定操作计划任务的Mapper
 public interface TaskMapper {
 

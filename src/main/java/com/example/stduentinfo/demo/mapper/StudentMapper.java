@@ -3,7 +3,6 @@ package com.example.stduentinfo.demo.mapper;
 import com.example.stduentinfo.demo.entity.Studentinfo;
 import org.apache.ibatis.annotations.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @Mapper
