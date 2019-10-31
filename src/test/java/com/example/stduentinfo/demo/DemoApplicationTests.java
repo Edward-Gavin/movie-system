@@ -1,6 +1,7 @@
 package com.example.stduentinfo.demo;
 
 import com.example.stduentinfo.demo.config.ImageConfig;
+import com.example.stduentinfo.demo.service.CinemaService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

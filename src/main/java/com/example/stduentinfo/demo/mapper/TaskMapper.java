@@ -2,6 +2,7 @@ package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.Task;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
 //@Mapper
 
 // 指定操作计划任务的Mapper
+@Repository
 public interface TaskMapper {
 
     // 查找当前计划任务表中所有的计划任务

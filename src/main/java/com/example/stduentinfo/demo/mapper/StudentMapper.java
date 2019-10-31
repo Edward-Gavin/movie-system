@@ -2,9 +2,12 @@ package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.Studentinfo;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
+@Repository
 @Mapper
 //映射类
 public interface StudentMapper {
