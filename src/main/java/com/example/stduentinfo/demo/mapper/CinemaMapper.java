@@ -3,6 +3,7 @@ package com.example.stduentinfo.demo.mapper;
 
 import com.example.stduentinfo.demo.entity.Cinema;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 // 在启动文件中已经添加了自动扫描Mapper的配置
 //@Mapper
+@Repository
 public interface CinemaMapper {
     @Select( "select * from cinema where cinemaName = #{cinemaName}" )
     List<Cinema> findByCinemaName(String cinemaName);

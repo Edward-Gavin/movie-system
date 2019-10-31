@@ -2,7 +2,6 @@ package com.example.stduentinfo.demo.service;
 
 import com.example.stduentinfo.demo.entity.Cinema;
 import com.example.stduentinfo.demo.mapper.CinemaMapper;
-import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

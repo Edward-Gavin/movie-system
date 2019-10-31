@@ -24,6 +24,7 @@ server:
   thymeleaf:
       cache: false
       prefix:
+
         classpath: /templates
 
 ---
