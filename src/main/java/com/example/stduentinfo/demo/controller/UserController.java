@@ -6,8 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,9 +36,9 @@ public class UserController {
     }
 
 
-    // 需要返回当前用户的详细信息，展现在前端页面中   ** 未完成 **  ---> finished
-    @RequestMapping("/update{username}")
-    public String updateUser(Model model, @RequestParam(value="username") String username) {
+    // 更新当前用户信息；添加model视图；返回渲染的更新页面
+    @RequestMapping(value = "/update/{username}", method = RequestMethod.GET)
+    public String updateUser(Model model, @PathVariable String username) {
         User user = userService.findOne(username);
         log.info(user.toString());
         model.addAttribute("user", user);
@@ -45,9 +46,10 @@ public class UserController {
     }
 
 
-    // 修改界面提交还是有问题，处理中    ** 未完成 ** ---> finished
+    // 管理员更新用户信息；添加model视图；返回渲染的更新页面
     @RequestMapping("/updating")
-    public String updatingUser(HttpServletRequest httpServletRequest, Model model) {
+    public String updatingUser(User user1, HttpServletRequest httpServletRequest, Model model) {
+        log.info(user1.toString());
         String username = httpServletRequest.getParameter("username");
         String sex = httpServletRequest.getParameter("sex");
         String phone = httpServletRequest.getParameter("phone");
@@ -80,9 +82,11 @@ public class UserController {
     }
 
 
-    // 修改界面提交还是有问题，处理中……    ---> finished
+    // 用户查看及修改个人信息页面
+    // 通过使用对象来直接获取参数，这里注意需要注意的是，对象的属性应该和提交表单的name名是一致的。
     @RequestMapping("/selfing")
-    public String selfingUser(HttpServletRequest httpServletRequest, Model model) {
+    public String selfingUser(User users, HttpServletRequest httpServletRequest, Model model) {
+        log.info(users.toString());
         String username = httpServletRequest.getParameter("username");
         String password1 = httpServletRequest.getParameter("password1");
         String sex = httpServletRequest.getParameter("sex");
@@ -97,6 +101,7 @@ public class UserController {
         return "system/self";
     }
 
+    // 管理员操作删除用户
     @RequestMapping("/delete")
     public String deleteUser(HttpServletRequest httpServletRequest, Model model) {
         String username = httpServletRequest.getParameter("username");

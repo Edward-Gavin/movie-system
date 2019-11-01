@@ -81,3 +81,15 @@ readonly & disabled区别
 readonly和disabled是用在表单中的两个属性，它们都能够做到使用户不能够更改表单域中的内容。
 disabled：对于所有的表单元素都有效，包括select, radio, checkbox, button等。如果一个输入项的disabled设为true，则该表单输入项不能获取焦点，用户的所有操作（鼠标点击和键盘输入等）对该输入项都无效，最重要的一点是当提交表单时，这个表单输入项将不会被提交。
 readonly：只针对input(text / password)和textarea有效；如果设为true，用户只是不能编辑对应的文本，但是仍然可以聚焦焦点，并且在提交表单的时候，该输入项会作为form的一项提交。
+
+
+### 2. thymeleaf 使用总结
+
+#### 1. 路径参数接受输入
+
+使用路径参数接受输入，需要添加路径链接，这时的路径链接必须满足一定的格式，参考thymeleaf官方文档如下：
+
+```html
+<!-- Will produce '/gtvg/order/3/details' (plus rewriting) -->
+<a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
+```
