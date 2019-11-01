@@ -21,7 +21,7 @@ import java.util.Map;
 
 @Controller
 @Slf4j
-public class StudentController {
+public class LoginController {
     //验证码宽度，验证码高度
     private static int WIDTH = 60;
     private static int HEIGHT = 20;

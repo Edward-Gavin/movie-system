@@ -29,7 +29,7 @@ public class UserController {
     private UserService userService;
 
     /**
-     *
+     * 获取用户列表页
      * @param model
      * @return
      */
@@ -96,9 +96,14 @@ public class UserController {
         return "system/self";
     }
 
-
-    // 用户修改个人信息页面
-    // 通过使用对象来直接获取参数，这里注意需要注意的是，对象的属性应该和提交表单的name名是一致的。
+    /**
+     * 用户修改个人信息页面
+     * 通过使用对象来直接获取参数，这里注意需要注意的是，对象的属性应该和提交表单的name名是一致的。
+     * @param users
+     * @param httpServletRequest
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/selfing", method = RequestMethod.POST)
     public String selfingUser(User users, HttpServletRequest httpServletRequest, Model model) {
         log.info(users.toString());
@@ -116,7 +121,13 @@ public class UserController {
         return "system/self";
     }
 
-    // 管理员操作删除用户
+
+    /**
+     * 管理员操作删除用户
+     * @param httpServletRequest
+     * @param model
+     * @return
+     */
     @RequestMapping("/delete")
     public String deleteUser(HttpServletRequest httpServletRequest, Model model) {
         String username = httpServletRequest.getParameter("username");
@@ -126,6 +137,10 @@ public class UserController {
         return "system/user";
     }
 
+    /**
+     * 访问接口页
+     * @return
+     */
     @RequestMapping("/blank_api")
     public String blankApi(){
         return "system/blank_api";
