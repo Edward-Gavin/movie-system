@@ -65,9 +65,14 @@ public class TaskController {
         return taskAll;
     }
 
-    @RequestMapping("/task_search")
+    @RequestMapping("/task/task_search")
     public String taskSearch() {
-        return "task_search";
+        return "task/task_search";
+    }
+
+    @RequestMapping("/task/calendar_manage")
+    public String calendarManage() {
+        return "task/calendar_manage";
     }
 
     @RequestMapping("/searching")

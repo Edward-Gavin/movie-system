@@ -123,4 +123,14 @@ public class CinemaSearch {
         model.addAttribute("cinema", cinema);
         return "base/cinema/update";
     }
+
+    @RequestMapping("/details")
+    public String details(){
+        return "base/cinema/details";
+    }
+
+    @RequestMapping("/details_room")
+    public String detailsRoom(){
+        return "base/cinema/details_room";
+    }
 }

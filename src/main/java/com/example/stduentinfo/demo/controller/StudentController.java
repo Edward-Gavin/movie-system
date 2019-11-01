@@ -1,17 +1,12 @@
 package com.example.stduentinfo.demo.controller;
 
 import com.example.stduentinfo.demo.entity.RegisterInfoYanzheng;
-import com.example.stduentinfo.demo.entity.Studentinfo;
 import com.example.stduentinfo.demo.entity.User;
-import com.example.stduentinfo.demo.service.StudentService;
 import com.example.stduentinfo.demo.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -22,8 +17,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -36,108 +29,29 @@ public class StudentController {
     @Autowired
     private UserService userService;
 
-    //登录界面
-//    @RequestMapping("/login")
-//    public String login(){
-//        return "login";
-//    }
-
-    @RequestMapping("/person")
-    public String person(){
-        return "person";
-    }
-
-    @RequestMapping("/index")
-    public String index(){
-        return "index";
-    }
-
-    @RequestMapping("/calendar_manage")
-    public String calendarManage() {
-        return "calendar_manage";
-    }
-
-    @RequestMapping("/blank_api")
-    public String blankApi(){
-        return "blank_api";
-    }
-
-    @RequestMapping("/chartjs_statistic")
-    public String chartStatistic(){
-        return "chartjs_statistic";
-    }
-
-    @RequestMapping("/data_cinema")
-    public String dataCinema(){
-        return "data_cinema";
-    }
-
-    @RequestMapping("/data_machine")
-    public String dataMachine(){
-        return "data_machine";
-    }
-
-    @RequestMapping("/data_search")
-    public String dataSearch(){
-        return "data_search";
-    }
-
-    @RequestMapping("/direction_chat")
-    public String directionChat(){
-        return "direction_chat";
-    }
-
-    @RequestMapping("/error_search")
-    public String errorSearch(){
-        return "error_search";
-    }
-
-    @RequestMapping("/details")
-    public String details(){
-        return "details";
-    }
-
-    @RequestMapping("/details_error")
-    public String detailsError(){
-        return "details_error";
-    }
-
-    @RequestMapping("/flot_analysis")
-    public String flotAnalysis(){
-        return "flot_analysis";
-    }
-
-    @RequestMapping("/details_room")
-    public String detailsRoom(){
-        return "details_room";
-    }
-
-    @RequestMapping("/statistic_analysis")
-    public String statisticAnalysis(){
-        return "statistic_analysis";
-    }
-
-    @RequestMapping("/online_course")
-    public String onlineCourse(){
-        return "online_course";
-    }
-
-    @RequestMapping("/question/score")
-    public String score(){
-        return "question/score";
-    }
-
-    @RequestMapping("logining")
-    //登录功能
-    public String logining( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
+    /**
+     *  登录功能
+     * @param httpServletRequest
+     * @param session
+     * @param httpServletResponse
+     * @param map
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/auth")
+    public String login( HttpServletRequest httpServletRequest,HttpSession session,HttpServletResponse httpServletResponse,Map<String,Object> map)throws Exception{
         String username = httpServletRequest.getParameter( "username" );
         String password = httpServletRequest.getParameter( "password" );
         String checknode = httpServletRequest.getParameter( "checknode" );
         String checknode2 = (String)httpServletRequest.getSession().getAttribute( "checknode" );
         log.info(checknode2);
+        log.info(username);
+        log.info(password);
         User user = userService.findByUsernameAndPassword(username, password);
+        log.info(user.toString());
 
-        session.setAttribute( "username",username);
+        //session.setAttribute( "username",username);
+
         if(!checknode.equals( checknode2 )){
             map.put( "checknode","验证码错误" );
             return "login";
@@ -146,10 +60,8 @@ public class StudentController {
             log.info("IP地址和端口号："+httpServletRequest.getRemoteAddr()+":"+ httpServletRequest.getRemotePort());
             httpServletResponse.setContentType("text/html;charset=utf-8");
             //将信息返回
-            //PrintWriter out = httpServletResponse.getWriter();
-            //out.print("<p style=\"color:red\">登陆成功!!!</p>");
-            //out.print( "<script type=\"text/javascript\">alert('登陆成功!!!')</script>" );
-            return "redirect:/main.html";
+            httpServletRequest.getSession().setAttribute("username", username);
+            return "redirect:/index";
         }
         else
         {
@@ -163,11 +75,12 @@ public class StudentController {
     }
 
     @RequestMapping("/logout")
-    public String loginout(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse){
+    public String loginout(HttpServletRequest httpServletRequest){
         //将session对象移除
         httpServletRequest.getSession().removeAttribute( "username" );
         return "login";
     }
+
     //加入验证码功能
     @RequestMapping("/checknode")
     public void checkservlet(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) throws IOException {
@@ -247,7 +160,7 @@ public class StudentController {
 
     //注册功能
     @RequestMapping("/registering")
-    public String registering(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,Map<String,String> map ) throws IOException {
+    public String registering(HttpServletRequest httpServletRequest,Map<String,String> map ) throws IOException {
         String username = httpServletRequest.getParameter( "username" );
         String password = httpServletRequest.getParameter( "password" );
         String password1 =httpServletRequest.getParameter( "password1" );

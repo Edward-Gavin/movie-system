@@ -39,4 +39,9 @@ public class QuestionController {
         return "question/insert";
     }
 
+    @RequestMapping("/score")
+    public String score(){
+        return "question/score";
+    }
+
 }

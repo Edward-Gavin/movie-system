@@ -1,5 +1,6 @@
 package com.example.stduentinfo.demo.component;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -9,16 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @Author: Edward Gavin
  * @Create: 2019-10-13 19:28
- * 登录的检查
+ * 登录的拦截器
  */
+@Slf4j
 public class LoginHandlerInterceptor implements HandlerInterceptor {
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Object user = request.getSession().getAttribute("username");
+         Object user =  request.getSession().getAttribute("username");
         if (user == null) {
             //未登录，返回登录页面
-            request.setAttribute("information","没有权限，请先登录");
-            request.getRequestDispatcher("login.html").forward(request,response);
+            request.setAttribute("information","您还没有登录，请先登录！");
+            request.getRequestDispatcher("/").forward(request,response);
             return false;
         } else {
             //登录

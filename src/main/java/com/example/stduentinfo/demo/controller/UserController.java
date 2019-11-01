@@ -28,6 +28,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping("/user")
     public String getAllStu(Model model) {
         List<User> users = userService.findAllStu();
@@ -35,8 +40,12 @@ public class UserController {
         return "system/user";
     }
 
-
-    // 更新当前用户信息；添加model视图；返回渲染的更新页面
+    /**
+     * 更新当前用户信息；添加model视图；返回渲染的更新页面
+     * @param model
+     * @param username
+     * @return
+     */
     @RequestMapping(value = "/update/{username}", method = RequestMethod.GET)
     public String updateUser(Model model, @PathVariable String username) {
         User user = userService.findOne(username);
@@ -46,8 +55,14 @@ public class UserController {
     }
 
 
-    // 管理员更新用户信息；添加model视图；返回渲染的更新页面
-    @RequestMapping("/updating")
+    /**
+     * 管理员更新用户信息；添加model视图；返回渲染的更新页面
+     * @param user1
+     * @param httpServletRequest
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/updating", method = RequestMethod.POST)
     public String updatingUser(User user1, HttpServletRequest httpServletRequest, Model model) {
         log.info(user1.toString());
         String username = httpServletRequest.getParameter("username");
@@ -82,9 +97,9 @@ public class UserController {
     }
 
 
-    // 用户查看及修改个人信息页面
+    // 用户修改个人信息页面
     // 通过使用对象来直接获取参数，这里注意需要注意的是，对象的属性应该和提交表单的name名是一致的。
-    @RequestMapping("/selfing")
+    @RequestMapping(value = "/selfing", method = RequestMethod.POST)
     public String selfingUser(User users, HttpServletRequest httpServletRequest, Model model) {
         log.info(users.toString());
         String username = httpServletRequest.getParameter("username");
@@ -105,11 +120,15 @@ public class UserController {
     @RequestMapping("/delete")
     public String deleteUser(HttpServletRequest httpServletRequest, Model model) {
         String username = httpServletRequest.getParameter("username");
-
         userService.deleteUser(username);
         List<User> users = userService.findAllStu();
         model.addAttribute("users", users);
         return "system/user";
+    }
+
+    @RequestMapping("/blank_api")
+    public String blankApi(){
+        return "system/blank_api";
     }
 
 }
