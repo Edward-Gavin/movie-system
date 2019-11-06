@@ -84,7 +84,7 @@ public class TaskController {
 
         List<Task>  tasks = taskMapper.findByResponsible(responsible);
         model.addAttribute("tasks", tasks);
-        return "task_search";
+        return "task/task_search";
     }
 
 
