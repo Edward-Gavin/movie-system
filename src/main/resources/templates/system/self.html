@@ -96,49 +96,45 @@
                     <div class="row">
                       <div class="form-group col-6 float-lg-right">
                         <label>用户名：</label>
-                        <input type="text" class="form-control" th:value="${session.username}" name="username" readonly="readonly">
+                        <input  id="user" type="text" class="form-control" th:value="${session.username}" name="username" readonly="readonly">
                       </div>
                       <div class="col-6 ">
                         <div class="form-group">
                           <label>性别：</label>
-                          <select class="form-control" name="sex" >
+                          <select class="form-control" name="sex" id="gender" >
                             <option th:default="${user.sex}eq''" value="请选择">请选择</option>
                             <option th:selected="${user.sex}eq'男'" value="男">男</option>
                             <option th:selected="${user.sex}eq'女'" value="女">女</option>
                           </select>
                         </div>
                       </div>
-                      <div class="form-group col-12 float-lg-left">
-                        <label>原始密码：</label>
-                        <input type="text" class="form-control" th:value="${user.password}">
-                      </div>
                       <div class="form-group col-6 float-lg-left">
                         <label>新密码：</label>
-                        <input type="text" class="form-control" name="password1">
+                        <input type="password" class="form-control" name="password1" id="new_password">
                       </div>
                       <div class="form-group col-6 float-lg-left">
                         <label>确认密码：</label>
-                        <input type="text" class="form-control" name="password2">
+                        <input type="password" class="form-control" name="password2" id="new_password_ensure">
                       </div>
                       <div>
                         <p th:text="${password}" style="color: red" align="center">这里是信息提示.</p>
                       </div>
                       <div class="form-group col-6 float-lg-left">
                         <label>手机号：</label>
-                        <input type="text" class="form-control" th:value="${user.phone}" name="phone">
+                        <input type="text" class="form-control" th:value="${user.phone}" name="phone" id="new_phoneNumber">
                       </div>
                       <div class="form-group col-6 float-lg-right">
                         <label>邮箱：</label>
-                        <input type="text" class="form-control" th:value="${user.mail}" name="mail">
+                        <input type="text" class="form-control" th:value="${user.mail}" name="mail" id="new_email">
                       </div>
 
                       <div class="form-group col-6 float-lg-right">
                         <label>QQ：</label>
-                        <input type="text" class="form-control" th:value="${user.qq}" name="qq">
+                        <input type="text" class="form-control" th:value="${user.qq}" name="qq" id="new_qq">
                       </div>
                       <div class="form-group col-6 float-lg-right">
                         <label>真实姓名：</label>
-                        <input type="text" class="form-control" th:value="${user.name}" name="name">
+                        <input type="text" class="form-control" th:value="${user.name}" name="name" id="new_name">
                       </div>
                     </div>
                   </div>
@@ -146,7 +142,7 @@
                   <div class="form-group">
                     <div class="card-footer">
                       <div class="row float-lg-right">
-                        <button type="submit" class="btn btn-primary">修改</button>
+                        <button type="submit" class="btn btn-primary" onclick="submitChange()">修改</button>
                       </div>
                     </div>
                   </div>
@@ -184,23 +180,48 @@
 <script th:src="@{/dist/js/demo.js}"></script>
 <!-- page script -->
 <script>
-  (function(){
-    var pHtmlStr = '';
-    for(var name in pc){
-      pHtmlStr = pHtmlStr + '<option>'+name+'</option>';
+    function submitChange() {
+        var newPassword=document.getElementById("new_password").value;
+        var newPasswordEnsure=document.getElementById("new_password_ensure").value;
+        var gender=document.getElementById("gender").value;
+        var qq=document.getElementById("new_qq").value;
+        var email=document.getElementById("new_email").value;
+        var phoneNumber=document.getElementById("new_phoneNumber").value;
+        var name=document.getElementById("new_name").value;
+        var user=document.getElementById("user").value;
+        if(newPassword!=newPasswordEnsure){
+            alert("确认密码与新密码不一致");
+            return
+        }
+
+        if("男"!=gender&&"女"!=gender){
+            alert("修改信息必须添加有效的性别信息");
+            return
+        }
+        if(qq==""&&email==""&&phoneNumber==""){
+            alert("请至少留下一种有效的联系方式");
+            return
+        }
+
+        if(name==""){
+            alert("请输入准确的个人姓名");
+            return
+        }
+
+        $.post("http://localhost:8084/selfing",
+            {
+                user:user,
+                password:newPassword,
+                gender:gender,
+                qq:qq,
+                email:email,
+                phoneNumber:phoneNumber,
+                name:name
+            },
+            function(data,status) {
+                console.log(status)
+            },"json")
     }
-    $("#province").html(pHtmlStr);
-    $("#province").change(function(){
-      var pname = $("#province option:selected").text();
-      var pHtmlStr = '';
-      var cityList = pc[pname];
-      for(var index in cityList){
-        pHtmlStr = pHtmlStr + '<option>'+cityList[index]+'</option>';
-      }
-      $("#city").html(pHtmlStr);
-    });
-    $("#province").change();
-  })();
 </script>
 </body>
 </html>

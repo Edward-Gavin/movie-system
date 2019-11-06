@@ -233,7 +233,7 @@
                   var backgroundColor="";
                   var borderColor=""
 
-                  if(type==1){//黄色
+                  if(type==0){//黄色
                     backgroundColor='#f39c12'
                     borderColor='#f39c12'
                   }else{//红色
@@ -459,11 +459,11 @@
     }
 
     function feedback(title,detail,equipment,responsible,startTime){
-      return "您的任务名为："+title+";"+
-              "您的任务详细为：\n"+detail+";"+
-              "在"+equipment+"上;"+
-              "负责人为："+responsible+";"+
-              "起始时间为："+startTime+";"
+      return "您的任务名为："+title+""+"</br>" +
+              "您的任务详细为：</br>"+detail+"</br>"+
+              "在"+equipment+"上</br>"+
+              "负责人为："+responsible+"</br>"+
+              "起始时间为："+startTime+"</br>"
     }
 
     function validTime(startTime,endTime) {
