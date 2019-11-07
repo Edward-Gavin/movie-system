@@ -128,7 +128,7 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping("/delete")
+    @RequestMapping("/delete/")
     public String deleteUser(HttpServletRequest httpServletRequest, Model model) {
         String username = httpServletRequest.getParameter("username");
         userService.deleteUser(username);

@@ -47,7 +47,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 //                "/main.html","/index","/calendar_manage","/task_search","/details","/details_error","/details_room");
 //        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/ai/*","/analysis/*","/assets/*",
 //                "base/*","/course/*","/documents/*","/question/*","/source/*","/system/*","/task/*");
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/checknode","/register","/login","/auth","/");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/checknode","/register","/login","/auth","/","/dist/**");
         super.addInterceptors(registry);
     }
 

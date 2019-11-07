@@ -17,6 +17,9 @@ public interface CinemaMapper {
     @Select( "select * from cinema where cinemaName = #{cinemaName}" )
     List<Cinema> findByCinemaName(String cinemaName);
 
+    @Select("select * from cinema")
+    List<Cinema> findAll();
+
     @Select( "select * from cinema " +
             "where province=#{province} and " +
             "city=#{city}")

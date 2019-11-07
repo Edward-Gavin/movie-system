@@ -111,8 +111,13 @@
                                     <td th:text="${user.mail}"></td>
                                     <td th:text="${user.qq}"></td>
                                     <td th:text="${user.name}"></td>
-                                    <td th:text="${user.state}"></td>
-                                    <td th:text="${user.role}"></td>
+                                    <td th:text="${user.state}?'启用':'锁定'"></td>
+                                    <div th:switch="${user.role}">
+                                        <td th:case="'0'">系统管理员</td>
+                                        <td th:case="'1'">影院管理公司</td>
+                                        <td th:case="'2'">影院管理员</td>
+                                        <td th:case="'3'">影院普通用户</td>
+                                    </div>
                                     <td>
                                         <div class="float-lg-left">
                                             <a th:href="@{/system/update/{username}(username=${user.username})}" style="color: #ffffff;">

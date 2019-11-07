@@ -27,7 +27,9 @@ public class CinemaSearch {
     private CinemaService cinemaService;
 
     @RequestMapping("/search")
-    public String cinemaSearch(){
+    public String cinemaSearch(Model model) {
+        List<Cinema> cinemas = cinemaService.findAll();
+        model.addAttribute("cinemas", cinemas);
         return "base/cinema/search";
     }
 

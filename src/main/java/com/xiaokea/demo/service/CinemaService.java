@@ -22,6 +22,10 @@ public class CinemaService {
         return cinemaMapper.findByPC(province, city);
     }
 
+    public List<Cinema> findAll() {
+        return cinemaMapper.findAll();
+    }
+
     public List<Cinema> find(String cinemaName, String province, String city, String responsible) {
         return cinemaMapper.findByCPCR(cinemaName, province, city, responsible);
     }
