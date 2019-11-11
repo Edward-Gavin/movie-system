@@ -158,6 +158,23 @@
                 <!-- Main row -->
                 <div class="row">
                     <div class="col-lg-6">
+                        <div class="card card-danger">
+                        <div class="card-header">
+                            <h3 class="card-title">Donut Chart</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="pieChart" style="height: 342px; width: 685px;" width="1370" height="684"></canvas>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    </div>
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
@@ -793,5 +810,6 @@
 <script th:src="@{/dist/js/pages/dashboard3.js}"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script th:src="@{/plugins/chart.js/Chart.min.js}"></script>
+<script th:src="@{/plugins/chartjs-old/Chart.min.js}"></script>
 </body>
 </html>
