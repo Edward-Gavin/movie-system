@@ -1,6 +1,5 @@
 package com.xiaokea.demo.controller;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import com.xiaokea.demo.entity.Question;
 import com.xiaokea.demo.entity.QuestionResponse;
 import com.xiaokea.demo.service.QuestionService;

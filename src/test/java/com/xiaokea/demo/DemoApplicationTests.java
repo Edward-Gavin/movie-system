@@ -18,6 +18,7 @@ public class DemoApplicationTests {
     @Test
     public void contextLoads() {
         System.out.println(imagesConfig.getUploadPath());
+        System.out.println(System.getProperties());
     }
 
 }
