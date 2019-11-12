@@ -1,6 +1,5 @@
 package com.xiaokea.demo.entity;
 
-import java.util.List;
 
 /**
  * @Author: Edward Gavin
@@ -18,6 +17,17 @@ public class Question {
     private String url;
     private String answer;
     private String source;
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    private String score;
+
 
     public Integer getId() {
         return id;
@@ -111,6 +121,7 @@ public class Question {
                 ", optionD='" + optionD + '\'' +
                 ", url='" + url + '\'' +
                 ", answer='" + answer + '\'' +
+                ", score='" + score + '\'' +
                 ", source='" + source + '\'' +
                 '}';
     }

@@ -206,32 +206,32 @@
     $.get("http://localhost:8084/get_task",function (data,status) {
               console.log(status)
               if("success"==status){//如果从服务器成功获取数据
-                for(var p in data){
-                  //遍历JSON数据的每一项
-                  var title=data[p].title;//拿到title
-                  var allDay=false;//拿到allDay的布尔值
+                    for(var p in data){
+                      //遍历JSON数据的每一项
+                      var title=data[p].title;//拿到title
+                      var allDay=false;//拿到allDay的布尔值
 
-                  var date=data[p].date;
-                  var arr=date.split(" ");
+                      var date=data[p].date;
+                      var arr=date.split(" ");
 
-                  var month=month_transform(arr[1]);//任务的月份
-                  var day=Number(arr[2]);//任务的天
-                  var year=Number(arr[3]);//任务的年
+                      var month=month_transform(arr[1]);//任务的月份
+                      var day=Number(arr[2]);//任务的天
+                      var year=Number(arr[3]);//任务的年
 
-                  var startTime=data[p].start;
-                  var arr1=startTime.split(":")
-                  var startHour=Number(arr1[0]);//任务的起始小时
-                  var startMinute=Number(arr1[1]);//任务的起始分钟
+                      var startTime=data[p].start;
+                      var arr1=startTime.split(":")
+                      var startHour=Number(arr1[0]);//任务的起始小时
+                      var startMinute=Number(arr1[1]);//任务的起始分钟
 
-                  var endTime=data[p].end;
-                  var arr2=endTime.split(":")
+                      var endTime=data[p].end;
+                      var arr2=endTime.split(":")
 
-                  var endHour=Number(arr2[0]);//任务的结束小时
-                  var endMinute=Number(arr2[0]);//任务的结束分钟
+                      var endHour=Number(arr2[0]);//任务的结束小时
+                      var endMinute=Number(arr2[0]);//任务的结束分钟
 
-                  var type=data[p].status;
-                  var backgroundColor="";
-                  var borderColor=""
+                      var type=data[p].status;
+                      var backgroundColor="";
+                      var borderColor=""
 
                   if(type==1){//黄色
                     backgroundColor='#f39c12'
@@ -253,7 +253,8 @@
                     allDay         : false,
                     backgroundColor: backgroundColor,
                     borderColor    : borderColor
-                  }//构建JSON数据
+                  }
+                  //构建JSON数据
                   storedEvents.push(newTask)//添加进入JSON数组中
                 }
                 //只有在成功拿到JSON数据之后才对日历进行渲染
@@ -488,10 +489,6 @@
       }
 
     }
-
-
-
-
   })
 </script>
 

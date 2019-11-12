@@ -287,6 +287,24 @@
 <!-- Page script -->
 <script>
     $(function () {
+      var questionJson = [];
+      $.get("http://localhost:8084/question/all_questions", function (data, status) {
+        console.log(status);
+        for (var d in data) {
+          var title = data[d].title;
+          var options = data[d].options;
+          var details = data[d].details;
+          var url = data[d].url;
+
+          var newQuestion={
+            title: title,
+            options: options,
+            details: details,
+            url: url
+          }
+          questionJson.push(newQuestion)
+        }
+      })
       //JSON of questions
       console.log("Initial");
       var questionList = {

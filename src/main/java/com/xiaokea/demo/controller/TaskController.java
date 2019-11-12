@@ -86,6 +86,4 @@ public class TaskController {
         model.addAttribute("tasks", tasks);
         return "task/task_search";
     }
-
-
 }

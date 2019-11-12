@@ -1,19 +1,21 @@
 package com.xiaokea.demo.mapper;
 
 
-import com.xiaokea.demo.entity.QuestionResponse;
+import com.xiaokea.demo.entity.Question;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
+@Mapper
 public interface QuestionMapper {
 
-    @Select("select * from question where ")
-    List<QuestionResponse> getAllQuestion();
+    @Select("select * from question")
+    List<Question> getAllQuestion();
 
     @Select("select * from question where type=#{type}")
-    List<QuestionResponse> getByType();
+    List<Question> getByType(String type);
 
 }
