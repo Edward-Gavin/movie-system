@@ -17,4 +17,9 @@ public class ChatController {
     public String chat() {
         return "chat/chat";
     }
+
+    @RequestMapping("/list")
+    public String list() {
+        return "chat/list";
+    }
 }

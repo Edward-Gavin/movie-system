@@ -10,6 +10,8 @@
   <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
   <!-- Theme style -->
   <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
   <!-- Google Font: Source Sans Pro -->
@@ -138,107 +140,89 @@
         <!-- Direct Chat -->
         <h4 class="mt-4 mb-2"></h4>
         <div class="row">
-          <div class="col-md-3">
-            <!-- DIRECT CHAT PRIMARY -->
-            <div class="card card-info direct-chat direct-chat-info">
-              <div class="card-header">
-                <h3 class="card-title">会话列表 1</h3>
-
-                <div class="card-tools">
-                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-info">3</span>
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
-                          data-widget="chat-pane-toggle">
-                    <i class="fa fa-comments"></i></button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-right">张静</span>
-                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-left">李光</span>
-                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      请你参考异常处理，XXX参考手册XXX页。
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-
-                  <!-- /.direct-chat-msg -->
-                </div>
-                <!--/.direct-chat-messages-->
-
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="../../static/dist/img/user1-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-right">2/28/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">How have you been? I was...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contatcts-list -->
-                </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" name="message" placeholder="输入中……" class="form-control">
-                    <span class="input-group-append">
-                      <button type="submit" class="btn btn-info">发送</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
+          <div class="col-sm-3">
+            <div class="card">
+            <div class="card-header bg-info">
+              <h3 class="card-title">联系人列表</h3>
             </div>
-            <!--/.direct-chat -->
+            <div class="card-body p-0">
+              <table class="table table-striped table-valign-middle">
+                <tbody>
+                <tr onclick="">
+                  <td>
+                    <img th:src="@{/dist/img/user2-160x160.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小赵</td>
+                  <td><span class="badge bg-danger">未处理</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user1-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小钱</td>
+                  <td><span class="badge bg-danger">未处理</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user8-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小孙</td>
+                  <td><span class="badge bg-primary">需协助</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user4-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小李</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user5-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小周</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user6-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小吴</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/user7-128x128.jpg}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小郑</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/default-150x150.png}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小王</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <img th:src="@{/dist/img/default-150x150.png}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                  </td>
+                  <td>小张</td>
+                  <td><span class="badge bg-success">已回复</span></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            </div>
           </div>
           <!-- /.col -->
 
-          <div class="col-md-3">
+          <div class="col-sm-9">
             <!-- DIRECT CHAT PRIMARY -->
             <div class="card card-success direct-chat direct-chat-success">
               <div class="card-header">
-                <h3 class="card-title">会话列表 2</h3>
+                <h3 class="card-title">会话列表</h3>
 
                 <div class="card-tools">
                   <span data-toggle="tooltip" title="3 New Messages" class="badge bg-success">3</span>
@@ -254,7 +238,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
+                <div class="direct-chat-messages" style="height:450px;">
                   <!-- Message. Default to the left -->
                   <div class="direct-chat-msg right">
                     <div class="direct-chat-info clearfix">
@@ -262,7 +246,7 @@
                       <span class="direct-chat-timestamp float-left">10月21日 14:00</span>
                     </div>
                     <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">
+                    <img class="direct-chat-img" th:src="@{/images/admin.png}" alt="message user image">
                     <!-- /.direct-chat-img -->
                     <div class="direct-chat-text">
                       xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
@@ -270,7 +254,6 @@
                     <!-- /.direct-chat-text -->
                   </div>
                   <!-- /.direct-chat-msg -->
-
                   <!-- Message to the right -->
                   <div class="direct-chat-msg">
                     <div class="direct-chat-info clearfix">
@@ -285,7 +268,32 @@
                     </div>
                     <!-- /.direct-chat-text -->
                   </div>
-
+                  <div class="direct-chat-msg right">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name float-right">张静</span>
+                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" th:src="@{/images/admin.png}" alt="message user image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
+                  <div class="direct-chat-msg">
+                    <div class="direct-chat-info clearfix">
+                      <span class="direct-chat-name float-left">赵未</span>
+                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>
+                    </div>
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                      请你参考异常处理，XXX参考手册XXX页。
+                    </div>
+                    <!-- /.direct-chat-text -->
+                  </div>
                   <!-- /.direct-chat-msg -->
                 </div>
                 <!--/.direct-chat-messages-->
@@ -317,6 +325,11 @@
               <div class="card-footer">
                 <form action="#" method="post">
                   <div class="input-group">
+                    <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-default">表情</button>
+                      <button type="button" class="btn btn-default">图片</button>
+                      <button type="button" class="btn btn-default">文件</button>
+                    </div>
                     <input type="text" name="message" placeholder="输入中……" class="form-control">
                     <span class="input-group-append">
                       <button type="submit" class="btn btn-success">发送</button>
@@ -330,195 +343,195 @@
           </div>
           <!-- /.col -->
 
-          <div class="col-md-3">
-            <!-- DIRECT CHAT PRIMARY -->
-            <div class="card card-warning direct-chat direct-chat-warning">
-              <div class="card-header">
-                <h3 class="card-title">会话列表 3</h3>
+<!--          <div class="col-md-3">-->
+<!--            &lt;!&ndash; DIRECT CHAT PRIMARY &ndash;&gt;-->
+<!--            <div class="card card-warning direct-chat direct-chat-warning">-->
+<!--              <div class="card-header">-->
+<!--                <h3 class="card-title">会话列表 3</h3>-->
 
-                <div class="card-tools">
-                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-warning">3</span>
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
-                          data-widget="chat-pane-toggle">
-                    <i class="fa fa-comments"></i></button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-right">张静</span>
-                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
+<!--                <div class="card-tools">-->
+<!--                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-warning">3</span>-->
+<!--                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>-->
+<!--                  </button>-->
+<!--                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"-->
+<!--                          data-widget="chat-pane-toggle">-->
+<!--                    <i class="fa fa-comments"></i></button>-->
+<!--                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--              <div class="card-body">-->
+<!--                &lt;!&ndash; Conversations are loaded here &ndash;&gt;-->
+<!--                <div class="direct-chat-messages">-->
+<!--                  &lt;!&ndash; Message. Default to the left &ndash;&gt;-->
+<!--                  <div class="direct-chat-msg right">-->
+<!--                    <div class="direct-chat-info clearfix">-->
+<!--                      <span class="direct-chat-name float-right">张静</span>-->
+<!--                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
+<!--                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">-->
+<!--                    &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
+<!--                    <div class="direct-chat-text">-->
+<!--                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
 
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-left">钱三</span>
-                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      请你参考异常处理，XXX参考手册XXX页。
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
+<!--                  &lt;!&ndash; Message to the right &ndash;&gt;-->
+<!--                  <div class="direct-chat-msg">-->
+<!--                    <div class="direct-chat-info clearfix">-->
+<!--                      <span class="direct-chat-name float-left">钱三</span>-->
+<!--                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
+<!--                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">-->
+<!--                    &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
+<!--                    <div class="direct-chat-text">-->
+<!--                      请你参考异常处理，XXX参考手册XXX页。-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
+<!--                  </div>-->
 
-                  <!-- /.direct-chat-msg -->
-                </div>
-                <!--/.direct-chat-messages-->
+<!--                  &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.direct-chat-messages&ndash;&gt;-->
 
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="../../static/dist/img/user1-128x128.jpg">
+<!--                &lt;!&ndash; Contacts are loaded here &ndash;&gt;-->
+<!--                <div class="direct-chat-contacts">-->
+<!--                  <ul class="contacts-list">-->
+<!--                    <li>-->
+<!--                      <a href="#">-->
+<!--                        <img class="contacts-list-img" src="../../static/dist/img/user1-128x128.jpg">-->
 
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-right">2/28/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">How have you been? I was...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contatcts-list -->
-                </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" name="message" placeholder="输入中……" class="form-control">
-                    <span class="input-group-append">
-                      <button type="submit" class="btn btn-warning">发送</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
-            </div>
-            <!--/.direct-chat -->
-          </div>          <!-- /.col -->
+<!--                        <div class="contacts-list-info">-->
+<!--                          <span class="contacts-list-name">-->
+<!--                            Count Dracula-->
+<!--                            <small class="contacts-list-date float-right">2/28/2015</small>-->
+<!--                          </span>-->
+<!--                          <span class="contacts-list-msg">How have you been? I was...</span>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
+<!--                      </a>-->
+<!--                    </li>-->
+<!--                    &lt;!&ndash; End Contact Item &ndash;&gt;-->
+<!--                  </ul>-->
+<!--                  &lt;!&ndash; /.contatcts-list &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /.direct-chat-pane &ndash;&gt;-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-body &ndash;&gt;-->
+<!--              <div class="card-footer">-->
+<!--                <form action="#" method="post">-->
+<!--                  <div class="input-group">-->
+<!--                    <input type="text" name="message" placeholder="输入中……" class="form-control">-->
+<!--                    <span class="input-group-append">-->
+<!--                      <button type="submit" class="btn btn-warning">发送</button>-->
+<!--                    </span>-->
+<!--                  </div>-->
+<!--                </form>-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-footer&ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.direct-chat &ndash;&gt;-->
+<!--          </div>          &lt;!&ndash; /.col &ndash;&gt;-->
 
-          <div class="col-md-3">
-            <!-- DIRECT CHAT PRIMARY -->
-            <div class="card card-danger direct-chat direct-chat-danger">
-              <div class="card-header">
-                <h3 class="card-title">会话列表 4</h3>
+<!--          <div class="col-md-3">-->
+<!--            &lt;!&ndash; DIRECT CHAT PRIMARY &ndash;&gt;-->
+<!--            <div class="card card-danger direct-chat direct-chat-danger">-->
+<!--              <div class="card-header">-->
+<!--                <h3 class="card-title">会话列表 4</h3>-->
 
-                <div class="card-tools">
-                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-danger">3</span>
-                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
-                          data-widget="chat-pane-toggle">
-                    <i class="fa fa-comments"></i></button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-right">张静</span>
-                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
+<!--                <div class="card-tools">-->
+<!--                  <span data-toggle="tooltip" title="3 New Messages" class="badge bg-danger">3</span>-->
+<!--                  <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>-->
+<!--                  </button>-->
+<!--                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"-->
+<!--                          data-widget="chat-pane-toggle">-->
+<!--                    <i class="fa fa-comments"></i></button>-->
+<!--                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>-->
+<!--                  </button>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-header &ndash;&gt;-->
+<!--              <div class="card-body">-->
+<!--                &lt;!&ndash; Conversations are loaded here &ndash;&gt;-->
+<!--                <div class="direct-chat-messages">-->
+<!--                  &lt;!&ndash; Message. Default to the left &ndash;&gt;-->
+<!--                  <div class="direct-chat-msg right">-->
+<!--                    <div class="direct-chat-info clearfix">-->
+<!--                      <span class="direct-chat-name float-right">张静</span>-->
+<!--                      <span class="direct-chat-timestamp float-left">10月21日 14:00</span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
+<!--                    <img class="direct-chat-img" th:src="@{/dist/img/user6-128x128.jpg}" alt="Message User Image">-->
+<!--                    &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
+<!--                    <div class="direct-chat-text">-->
+<!--                      xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
+<!--                  </div>-->
+<!--                  &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
 
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-left">刘进</span>
-                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      请你参考异常处理，XXX参考手册XXX页。
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
+<!--                  &lt;!&ndash; Message to the right &ndash;&gt;-->
+<!--                  <div class="direct-chat-msg">-->
+<!--                    <div class="direct-chat-info clearfix">-->
+<!--                      <span class="direct-chat-name float-left">刘进</span>-->
+<!--                      <span class="direct-chat-timestamp float-right">10月21日 14:05 </span>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
+<!--                    <img class="direct-chat-img" th:src="@{/dist/img/user1-128x128.jpg}" alt="Message User Image">-->
+<!--                    &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
+<!--                    <div class="direct-chat-text">-->
+<!--                      请你参考异常处理，XXX参考手册XXX页。-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
+<!--                  </div>-->
 
-                  <!-- /.direct-chat-msg -->
-                </div>
-                <!--/.direct-chat-messages-->
+<!--                  &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash;/.direct-chat-messages&ndash;&gt;-->
 
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="../../static/dist/img/user1-128x128.jpg">
+<!--                &lt;!&ndash; Contacts are loaded here &ndash;&gt;-->
+<!--                <div class="direct-chat-contacts">-->
+<!--                  <ul class="contacts-list">-->
+<!--                    <li>-->
+<!--                      <a href="#">-->
+<!--                        <img class="contacts-list-img" src="../../static/dist/img/user1-128x128.jpg">-->
 
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-right">2/28/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">How have you been? I was...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contatcts-list -->
-                </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" name="message" placeholder="输入中……" class="form-control">
-                    <span class="input-group-append">
-                      <button type="submit" class="btn btn-danger">发送</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
-            </div>
-            <!--/.direct-chat -->
-          </div>
+<!--                        <div class="contacts-list-info">-->
+<!--                          <span class="contacts-list-name">-->
+<!--                            Count Dracula-->
+<!--                            <small class="contacts-list-date float-right">2/28/2015</small>-->
+<!--                          </span>-->
+<!--                          <span class="contacts-list-msg">How have you been? I was...</span>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
+<!--                      </a>-->
+<!--                    </li>-->
+<!--                    &lt;!&ndash; End Contact Item &ndash;&gt;-->
+<!--                  </ul>-->
+<!--                  &lt;!&ndash; /.contatcts-list &ndash;&gt;-->
+<!--                </div>-->
+<!--                &lt;!&ndash; /.direct-chat-pane &ndash;&gt;-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-body &ndash;&gt;-->
+<!--              <div class="card-footer">-->
+<!--                <form action="#" method="post">-->
+<!--                  <div class="input-group">-->
+<!--                    <input type="text" name="message" placeholder="输入中……" class="form-control">-->
+<!--                    <span class="input-group-append">-->
+<!--                      <button type="submit" class="btn btn-danger">发送</button>-->
+<!--                    </span>-->
+<!--                  </div>-->
+<!--                </form>-->
+<!--              </div>-->
+<!--              &lt;!&ndash; /.card-footer&ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;/.direct-chat &ndash;&gt;-->
+<!--          </div>-->
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -542,7 +555,33 @@
 <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- AdminLTE App -->
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
+<!-- FastClick -->
+<script th:src="@{/plugins/fastclick/fastclick.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
+<!-- CK Editor -->
+<script th:src="@{/plugins/ckeditor/ckeditor.js}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script th:src="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js}"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .then(function (editor) {
+              // The editor instance
+            })
+            .catch(function (error) {
+              console.error(error)
+            })
+
+    // bootstrap WYSIHTML5 - text editor
+
+    $('.textarea').wysihtml5({
+      toolbar: { fa: true }
+    })
+  })
+</script>
 </body>
 </html>

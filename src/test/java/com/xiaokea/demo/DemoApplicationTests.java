@@ -21,4 +21,45 @@ public class DemoApplicationTests {
         System.out.println(System.getProperties());
     }
 
+
+    public class MyThread extends Thread {
+        @Override
+        public void run() {
+            System.out.println("hello thread");
+        }
+    }
+    @Test
+    public void testThread() {
+        MyThread thread = new MyThread();
+        thread.start();
+    }
+
+
+    @Test
+    public void testThreadTwo() {
+        Thread thread = new Thread(){
+            public void run() {
+                System.out.println("abc");
+            }
+        };
+
+        thread.start();
+    }
+
+
+    public class MyRunable implements Runnable {
+        @Override
+        public void run() {
+            System.out.println("runnable running ");
+        }
+    }
+
+    @Test
+    public void testRunnable() {
+        MyRunable myRunable = new MyRunable();
+        Thread thread = new Thread(myRunable, "Thread-1");
+
+        thread.start();
+    }
 }
+
