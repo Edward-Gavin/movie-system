@@ -43,4 +43,16 @@ public class AssetsController {
 
         return "assets/insert";
     }
+
+    @RequestMapping("/details")
+    public String detailsAssets(HttpServletRequest httpServletRequest, Model model) {
+
+        return "assets/details";
+    }
+
+    @RequestMapping("/details_room")
+    public String detailsRoom(){
+        return "assets/details_room";
+    }
+
 }

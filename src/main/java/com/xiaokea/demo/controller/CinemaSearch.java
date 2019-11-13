@@ -128,8 +128,5 @@ public class CinemaSearch {
         return "base/cinema/details";
     }
 
-    @RequestMapping("/details_room")
-    public String detailsRoom(){
-        return "base/cinema/details_room";
-    }
+
 }

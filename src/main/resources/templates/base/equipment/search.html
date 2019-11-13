@@ -139,12 +139,12 @@
                   <!-- /.card-body -->
                 <div class="form-group">
                   <div class="row col-sm-4 float-right">
-                    <div style="margin-left: 175px;">
+                    <div style="margin-left: 180px;">
                       <button type="submit" class="btn btn-primary">筛选</button>
                       <span class="col-sm-2"> &nbsp; &nbsp;</span>
                       <button type="button" class="btn btn-primary">导入</button>
                       <span class="col-sm-2"> &nbsp; &nbsp;</span>
-                      <a href="/base/cinema/insert" style="color: #ffffff;" class="col-sm-2">
+                      <a href="/base/equipment/insert" style="color: #ffffff;">
                         <button type="button" class="btn btn-primary ">添加</button>
                       </a>
                     </div>
@@ -153,6 +153,71 @@
               </div>
             </form>
       </div>
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">基础信息检索结果</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>设备ID</th>
+                <th>设备类型</th>
+                <th>设备品牌</th>
+                <th>设备型号</th>
+                <th>设备序列号</th>
+                <th>预留字段</th>
+                <th>预留字段</th>
+                <th>详情</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="cinema : ${cinemas}">
+                <td th:text="${cinema.cinemaName}">北京XXX影城</td>
+                <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
+                <td th:text="${cinema.address}">平乐园100号</td>
+                <td th:text="${cinema.responsible}">张三</td>
+                <td th:text="${cinema.responsiblePhone}">140000</td>
+                <td th:text="${cinema.manager}">ac</td>
+                <td th:text="${cinema.managerPhone}">dfjlsd</td>
+                <th><a href="/details">详情</a></th>
+              </tr>
+              <tr>
+                <td >23543</td>
+                <td >扬声器</td>
+                <td >HARMAN</td>
+                <td >9400</td>
+                <td >14-00-00-08-38-95</td>
+                <td >-</td>
+                <td >-</td>
+                <th><a href="/details">详情</a></th>
+              </tr>
+              <tr>
+                <td >23892</td>
+                <td >服务器</td>
+                <td >华为</td>
+                <td >87999</td>
+                <td >14-00-00-08-38-95</td>
+                <td >-</td>
+                <td >-</td>
+                <th><a href="/details">详情</a></th>
+              </tr>
+              <tr>
+                <td >23356</td>
+                <td >服务器</td>
+                <td >惠普</td>
+                <td >87000</td>
+                <td >14-00-00-08-38-95</td>
+                <td >-</td>
+                <td >-</td>
+                <th><a href="/details">详情</a></th>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
         <!-- /.card -->
       </div>
       <!-- /.col -->
