@@ -93,26 +93,36 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" action="/base/equipment/show">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-3 float-lg-left">
-                                        <div class="form-group">
-                                            <label>设备类型：</label>
-                                            <select class="form-control" name="type">
-                                                <option>放映机</option>
-                                                <option>音响</option>
-                                                <option>服务器</option>
-                                                <option>音频处理器</option>
-                                                <option>功放设备</option>
-                                                <option>3D系统</option>
-                                                <option>D系统</option>
-                                            </select>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-2 float-lg-left">
+                                            <div class="form-group">
+                                                <label>种类：</label>
+                                                <select class="form-control" name="type">
+                                                    <option>放映机</option>
+                                                    <option>音响</option>
+                                                    <option>服务器</option>
+                                                    <option>音频处理器</option>
+                                                    <option>功放设备</option>
+                                                    <option>3D系统</option>
+                                                    <option>D系统</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3 float-lg-right">
-                                        <div class="form-group">
-                                            <label>设备品牌：</label>
+                                        <div class="col-2 float-lg-right">
+                                            <div class="form-group">
+                                                <label>规格/类型：</label>
+                                                <select class="form-control" name="brand">
+                                                    <option>氙灯</option>
+                                                    <option>汞灯</option>
+                                                    <option>激光</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 float-lg-left">
+                                            <label>品牌：</label>
                                             <select class="form-control" name="brand">
                                                 <option>可视</option>
                                                 <option>巴克</option>
@@ -120,23 +130,35 @@
                                                 <option>戴尔</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="form-group col-3 float-lg-left">
-                                        <label>设备型号：</label>
-                                        <select class="form-control" name="brand">
-                                            <option>CLP 系列</option>
-                                            <option>SLP 系列</option>
-                                            <option>B 系列</option>
-                                            <option>C 系列</option>
-                                            <option>L 系列</option>
-                                            <option>LHC 系列</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-3 float-lg-right">
-                                        <label>设备序列号：</label>
-                                        <input type="text" class="form-control" placeholder="例：XXXX-XXXXX-XXXX" name="number">
+                                        <div class="col-2 float-lg-left">
+                                            <label>系列：</label>
+                                            <select class="form-control" name="brand">
+                                                <option>CLP 系列</option>
+                                                <option>SLP 系列</option>
+                                                <option>B 系列</option>
+                                                <option>C 系列</option>
+                                                <option>L 系列</option>
+                                                <option>LHC 系列</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-2 float-lg-left">
+                                            <label>型号：</label>
+                                            <select class="form-control" name="brand">
+                                                <option>CLP </option>
+                                                <option>SLP </option>
+                                                <option>B </option>
+                                                <option>C </option>
+                                                <option>L </option>
+                                                <option>LHC </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-2 float-lg-right">
+                                            <label>序列号：</label>
+                                            <input type="text" class="form-control" placeholder="例：XXXX-XXXXX-XXXX" name="number">
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- /.card-body -->
                                 <div class="form-group">
                                     <div class="row col-sm-4 float-right">
                                         <div style="margin-left: 180px;">
@@ -163,12 +185,12 @@
                                 <thead>
                                 <tr>
                                     <th>设备ID</th>
-                                    <th>设备类型</th>
-                                    <th>设备品牌</th>
-                                    <th>设备型号</th>
-                                    <th>设备序列号</th>
-                                    <th>预留字段</th>
-                                    <th>预留字段</th>
+                                    <th>种类</th>
+                                    <th>规格/类型</th>
+                                    <th>品牌</th>
+                                    <th>系列</th>
+                                    <th>型号</th>
+                                    <th>序列号</th>
                                     <th>详情</th>
                                 </tr>
                                 </thead>
@@ -183,16 +205,47 @@
                                     <td th:text="${cinema.managerPhone}">dfjlsd</td>
                                     <th><a href="/details">详情</a></th>
                                 </tr>
+                                <tr>
+                                    <td >23543</td>
+                                    <td >扬声器</td>
+                                    <td >HARMAN</td>
+                                    <td >HARMAN</td>
+                                    <td >T</td>
+                                    <td >HARMAN</td>
+                                    <td >14-00-00-08-38-95</td>
+                                    <th><a href="/details">详情</a></th>
+                                </tr>
+                                <tr>
+                                    <td >23892</td>
+                                    <td >服务器</td>
+                                    <td >高级存储</td>
+                                    <td >华为</td>
+                                    <td >存储系列</td>
+                                    <td >SLM</td>
+                                    <td >14-00-00-08-38-95</td>
+                                    <th><a href="/details">详情</a></th>
+                                </tr>
+                                <tr>
+                                    <td >23356</td>
+                                    <td >服务器</td>
+                                    <td >计算服务</td>
+                                    <td >惠普</td>
+                                    <td >计算系列</td>
+                                    <td >HP_LL</td>
+                                    <td >14-00-00-08-38-95</td>
+                                    <th><a href="/details">详情</a></th>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
+                <!-- /.col -->
             </div>
-            <!-- /.col -->
         </section>
+        <!-- /.content -->
     </div>
     <!-- /.row -->
     <!-- /.content -->

@@ -79,7 +79,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -89,7 +88,6 @@
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">影院设备维护统计</h3>
-
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
@@ -97,19 +95,16 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="areaChart" style="height:250px"></canvas>
-                </div>
+                  <div id="mulAreaChart" style="height: 25rem;"></div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
             <!-- DONUT CHART -->
-            <div class="card card-danger">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">影院各类设备比例统计</h3>
-
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
@@ -117,7 +112,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <canvas id="pieChart" style="height:250px"></canvas>
+                <div id="pieChart" style="height: 25rem"></div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -127,7 +122,7 @@
           <!-- /.col (LEFT) -->
           <div class="col-md-6">
             <!-- LINE CHART -->
-            <div class="card card-info">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">影院设备故障统计</h3>
 
@@ -138,16 +133,14 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="lineChart" style="height:250px"></canvas>
-                </div>
+                  <div id="mulLineChart" style="height:25rem;"></div>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
             <!-- BAR CHART -->
-            <div class="card card-success">
+            <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">员工工作统计</h3>
 
@@ -158,9 +151,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="chart">
-                  <canvas id="barChart" style="height:230px"></canvas>
-                </div>
+                  <div id="barChart" style="height: 25rem"></div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -197,6 +188,9 @@
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
 <!-- page script -->
+<!-- echarts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
 <script>
   $(function () {
     /* ChartJS
@@ -290,118 +284,253 @@
     lineChartOptions.datasetFill = false
     lineChart.Line(areaChartData, lineChartOptions)
 
-    //-------------
-    //- PIE CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieChart       = new Chart(pieChartCanvas)
-    var PieData        = [
-      {
-        value    : 700,
-        color    : '#f56954',
-        highlight: '#f56954',
-        label    : 'Chrome'
-      },
-      {
-        value    : 500,
-        color    : '#00a65a',
-        highlight: '#00a65a',
-        label    : 'IE'
-      },
-      {
-        value    : 400,
-        color    : '#f39c12',
-        highlight: '#f39c12',
-        label    : 'FireFox'
-      },
-      {
-        value    : 600,
-        color    : '#00c0ef',
-        highlight: '#00c0ef',
-        label    : 'Safari'
-      },
-      {
-        value    : 300,
-        color    : '#3c8dbc',
-        highlight: '#3c8dbc',
-        label    : 'Opera'
-      },
-      {
-        value    : 100,
-        color    : '#d2d6de',
-        highlight: '#d2d6de',
-        label    : 'Navigator'
-      }
-    ]
-    var pieOptions     = {
-      //Boolean - Whether we should show a stroke on each segment
-      segmentShowStroke    : true,
-      //String - The colour of each segment stroke
-      segmentStrokeColor   : '#fff',
-      //Number - The width of each segment stroke
-      segmentStrokeWidth   : 2,
-      //Number - The percentage of the chart that we cut out of the middle
-      percentageInnerCutout: 50, // This is 0 for Pie charts
-      //Number - Amount of animation steps
-      animationSteps       : 100,
-      //String - Animation easing effect
-      animationEasing      : 'easeOutBounce',
-      //Boolean - Whether we animate the rotation of the Doughnut
-      animateRotate        : true,
-      //Boolean - Whether we animate scaling the Doughnut from the centre
-      animateScale         : false,
-      //Boolean - whether to make the chart responsive to window resizing
-      responsive           : true,
-      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-      maintainAspectRatio  : true,
-      //String - A legend template
-      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    pieChart.Doughnut(PieData, pieOptions)
-
-    //-------------
-    //- BAR CHART -
-    //-------------
-    var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
-    var barChart                         = new Chart(barChartCanvas)
-    var barChartData                     = areaChartData
-    barChartData.datasets[1].fillColor   = '#00a65a'
-    barChartData.datasets[1].strokeColor = '#00a65a'
-    barChartData.datasets[1].pointColor  = '#00a65a'
-    var barChartOptions                  = {
-      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero        : true,
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines      : true,
-      //String - Colour of the grid lines
-      scaleGridLineColor      : 'rgba(0,0,0,.05)',
-      //Number - Width of the grid lines
-      scaleGridLineWidth      : 1,
-      //Boolean - Whether to show horizontal lines (except X axis)
-      scaleShowHorizontalLines: true,
-      //Boolean - Whether to show vertical lines (except Y axis)
-      scaleShowVerticalLines  : true,
-      //Boolean - If there is a stroke on each bar
-      barShowStroke           : true,
-      //Number - Pixel width of the bar stroke
-      barStrokeWidth          : 2,
-      //Number - Spacing between each of the X value sets
-      barValueSpacing         : 5,
-      //Number - Spacing between data sets within X values
-      barDatasetSpacing       : 1,
-      //String - A legend template
-      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-      //Boolean - whether to make the chart responsive
-      responsive              : true,
-      maintainAspectRatio     : true
-    }
-
-    barChartOptions.datasetFill = false
-    barChart.Bar(barChartData, barChartOptions)
   })
 </script>
+
+
+<script>
+  var barChart = echarts.init(document.getElementById("barChart"));
+  var option = {
+    title : {
+      text: '',
+      x:'center'
+    },
+    tooltip : {
+      trigger: 'item',
+      formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
+    legend: {},
+    tooltip: {},
+    dataset: {
+      dimensions: ['product', '小张', '小王'],
+      source: [
+        {product: '一月', '小张': 43.3, '小王': 85.8},
+        {product: '二月', '小张': 83.1, '小王': 73.4},
+        {product: '三月', '小张': 86.4, '小王': 65.2},
+        {product: '四月', '小张': 72.4, '小王': 53.91},
+        {product: '五月', '小张': 72.4, '小王': 53.91},
+        {product: '六月', '小张': 72.4, '小王': 53.91},
+        {product: '七月', '小张': 72.4, '小王': 53.91},
+        {product: '八月', '小张': 72.4, '小王': 53.91},
+        {product: '九月', '小张': 72.4, '小王': 53.91},
+        {product: '十月', '小张': 72.4, '小王': 53.91},
+        {product: '十一月', '小张': 72.4, '小王': 53.91},
+        {product: '十二月', '小张': 72.4, '小王': 53.91}
+      ]
+    },
+    xAxis: {type: 'category'},
+    yAxis: {},
+    // Declare several bar series, each will be mapped
+    // to a column of dataset.source by default.
+    series: [
+      {type: 'bar'},
+      {type: 'bar'},
+    ]
+  };
+  barChart.setOption(option);
+</script>
+
+<script>
+  var pieChart = echarts.init(document.getElementById("pieChart"));
+  var option = {
+    title : {
+      text: '',
+      x:'center'
+    },
+    tooltip: {
+      trigger: 'item',
+      formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+      orient: 'vertical',
+      x: 'left',
+      data:['放映机','服务器','音响','功放','3D系统']
+    },
+    series: [
+      {
+        name:'访问来源',
+        type:'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          normal: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            show: true,
+            textStyle: {
+              fontSize: '30',
+              fontWeight: 'bold'
+            }
+          }
+        },
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        data:[
+          {value:335, name:'放映机'},
+          {value:310, name:'服务器'},
+          {value:234, name:'音响'},
+          {value:135, name:'功放'},
+          {value:1548, name:'3D系统'}
+        ]
+      }
+    ]
+  };
+
+  pieChart.setOption(option);
+</script>
+<script>
+  var mulLineChart = echarts.init(document.getElementById("mulLineChart"));
+  var option = {
+    title: {
+      text: ''
+    },
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data:['放映机','服务器','功放','音响','3D设备']
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['一月','二月','三月','四月','五月','六月','七月']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name:'放映机',
+        type:'line',
+        stack: '总量',
+        data:[20, 32, 10, 34, 9, 23, 10]
+      },
+      {
+        name:'服务器',
+        type:'line',
+        stack: '总量',
+        data:[20, 82, 91, 34, 90, 30, 10]
+      },
+      {
+        name:'功放',
+        type:'line',
+        stack: '总量',
+        data:[50, 32, 10, 54, 90, 30, 10]
+      },
+      {
+        name:'音响',
+        type:'line',
+        stack: '总量',
+        data:[20, 32, 10, 34, 40, 30, 20]
+      },
+      {
+        name:'3D设备',
+        type:'line',
+        stack: '总量',
+        data:[20, 32, 15, 34, 19, 13, 20]
+      }
+    ]
+  };
+  mulLineChart.setOption(option);
+</script>
+
+<script>
+  var mulAreaChart = echarts.init(document.getElementById("mulAreaChart"));
+  var option = {
+    title: {
+      text: ''
+    },
+    tooltip : {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross',
+        label: {
+          backgroundColor: '#6a7985'
+        }
+      }
+    },
+    legend: {
+      data:['放映机','服务器','功放','音响','3D设备']
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis : [
+      {
+        type : 'category',
+        boundaryGap : false,
+        data : ['周一','周二','周三','周四','周五','周六','周日']
+      }
+    ],
+    yAxis : [
+      {
+        type : 'value'
+      }
+    ],
+    series: [
+      {
+        name:'放映机',
+        type:'line',
+        stack: '总量',
+        areaStyle: {},
+        data:[2, 3, 1, 4, 9, 3, 10]
+      },
+      {
+        name:'服务器',
+        type:'line',
+        stack: '总量',
+        areaStyle: {},
+        data:[2, 8, 9, 3, 9, 3, 1]
+      },
+      {
+        name:'功放',
+        type:'line',
+        stack: '总量',
+        areaStyle: {},
+        data:[5, 3, 10, 4, 9, 3, 1]
+      },
+      {
+        name:'音响',
+        type:'line',
+        stack: '总量',
+        areaStyle: {},
+        data:[2, 3, 1, 4, 4, 3, 2]
+      },
+      {
+        name:'3D设备',
+        type:'line',
+        stack: '总量',
+        areaStyle: {},
+        data:[2, 3, 5, 4, 9, 3, 2]
+      }
+    ]
+  };
+  mulAreaChart.setOption(option);
+</script>
+
 </body>
 </html>

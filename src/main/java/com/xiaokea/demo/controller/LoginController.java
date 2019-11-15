@@ -158,6 +158,11 @@ public class LoginController {
         return "register";
     }
 
+    @RequestMapping("/blank")
+    public String blank(){
+        return "blank";
+    }
+
     //注册功能
     @RequestMapping("/registering")
     public String registering(HttpServletRequest httpServletRequest,Map<String,String> map ) throws IOException {
