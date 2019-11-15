@@ -36,4 +36,9 @@ public class EquipmentController {
 
         return "base/equipment/insert";
     }
+
+    @RequestMapping("/details")
+    public String detailsEquipment(HttpServletRequest httpServletRequest, Model model) {
+        return "base/equipment/details";
+    }
 }

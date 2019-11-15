@@ -55,4 +55,9 @@ public class AssetsController {
         return "assets/details_room";
     }
 
+    @RequestMapping("/equipment_details")
+    public String equipment_details(){
+        return "assets/equipment_details";
+    }
+
 }
