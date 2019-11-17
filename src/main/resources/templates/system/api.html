@@ -81,12 +81,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>开发中...</h1>
+            <h1>数据接口管理</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">主页</a></li>
-              <li class="breadcrumb-item active">空白页</li>
+              <li class="breadcrumb-item"><a href="/index">主页</a></li>
+              <li class="breadcrumb-item">系统管理</li>
+              <li class="breadcrumb-item active">数据接口管理</li>
             </ol>
           </div>
         </div>
@@ -99,7 +100,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">标题</h3>
+          <h3 class="card-title">数据接口列表</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -109,7 +110,31 @@
           </div>
         </div>
         <div class="card-body">
-          正在开发接口管理中......
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>接口名称</th>
+              <th>接口地址</th>
+              <th >配置</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>影院监管平台接口</td>
+              <td>http:// 111.207.30.7:8080</td>
+              <td >
+                <a href="#"><div class="fa fa-cog"> </div></a>
+              </td>
+            </tr>
+            <tr>
+              <td>流媒体服务器接口</td>
+              <td>http://192.168.1.210:80</td>
+              <td >
+                <a href="#"><div class="fa fa-cog"> </div></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -137,5 +162,18 @@
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example1').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
 </body>
 </html>

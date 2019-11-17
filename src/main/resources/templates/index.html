@@ -44,6 +44,8 @@
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <div th:replace="model/topper :: topper-phone"></div>
+
             <!-- Messages Dropdown Menu -->
             <div th:replace="model/topper :: topper-info"></div>
             <!-- Notifications Dropdown Menu -->
@@ -105,7 +107,7 @@
                             <div class="icon">
                                 <i class="ion ion-email-unread"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/ai/direction_chat" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -119,7 +121,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/task/calendar_manage" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -134,7 +136,7 @@
                             <div class="icon">
                                 <i class="ion ion-cash"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/assets/search" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -149,7 +151,7 @@
                             <div class="icon">
                                 <i class="ion ion-bookmark"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/question/score" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -887,7 +889,7 @@
     var option = {
         backgroundColor: '#FFFFFF',
         title: {
-            text: '全国地图大数据',
+            text: '各省份影院数量统计',
             subtext: '',
             x:'center'
         },
@@ -910,14 +912,14 @@
 
         //配置属性
         series: [{
-            name: '数据',
+            name: '影院数量',
             type: 'map',
             mapType: 'china',
             roam: true,
             // radius: '80%',
             label: {
                 normal: {
-                    show: false  //省份名称
+                    show: true  //省份名称
                 },
                 emphasis: {
                     show: false
@@ -945,7 +947,7 @@
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['华为','惠普','联想','索尼','尼康','巴可','科视']
+            data: ['科视Christie','巴可','NEC']
         },
         series : [
             {
@@ -954,13 +956,9 @@
                 radius : '55%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:335, name:'华为'},
-                    {value:310, name:'惠普'},
-                    {value:234, name:'联想'},
-                    {value:135, name:'索尼'},
-                    {value:1548, name:'尼康'},
-                    {value:123, name:'巴可'},
-                    {value:456, name:'科视'}
+                    {value:335, name:'科视Christie'},
+                    {value:310, name:'巴可'},
+                    {value:234, name:'NEC'}
                 ],
                 itemStyle: {
                     emphasis: {

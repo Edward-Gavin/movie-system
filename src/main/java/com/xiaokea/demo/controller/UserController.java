@@ -141,9 +141,9 @@ public class UserController {
      * 访问接口页
      * @return
      */
-    @RequestMapping("/blank_api")
+    @RequestMapping("/api")
     public String blankApi(){
-        return "system/blank_api";
+        return "system/api";
     }
 
 }

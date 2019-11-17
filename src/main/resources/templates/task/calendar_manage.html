@@ -102,14 +102,15 @@
             <!-- /. box -->
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">创建 事件</h3>
+                <h3 class="card-title">创建事件</h3>
               </div>
               <div class="card-body">
                 <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
                   <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
                   <ul class="fc-color-picker" id="color-chooser">
-                    <li><a class="text-warning" href="#"><i class="fa fa-square"></i></a></li>
-                    <li><a class="text-danger" href="#"><i class="fa fa-square"></i></a></li>
+                    <li><a class="text-warning" href="#"><i class="fa fa-square"></i>维护</a></li>
+                    <li><a class="text-danger" href="#"><i class="fa fa-square"></i>维修</a></li>
+                    <li><a class="text-info" href="#"><i class="fa fa-square"></i>日常</a></li>
                   </ul>
                 </div>
                 <!-- /btn-group -->
@@ -236,9 +237,15 @@
                   if(type==1){//黄色
                     backgroundColor='#f39c12'
                     borderColor='#f39c12'
-                  }else{//红色
-                    backgroundColor='#f56954'
-                    borderColor='#f56954'
+                  }else {
+                    if(type == 2){//红色
+                      backgroundColor='#f56954'
+                      borderColor='#f56954'
+                    }else { // 蓝色
+                      backgroundColor='#17a2b8'
+                      borderColor='#17a2b8'
+                    }
+
                   }
 
                   var start=new Date(year,month,day,startHour,startMinute);

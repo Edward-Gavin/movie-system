@@ -96,584 +96,86 @@
                 <!-- /.row -->
                 <!-- Main row -->
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group">
                                         <select class="form-control">
-                                            <option>放映厅 1</option>
+                                            <option></option>
                                             <option>放映厅 2</option>
                                             <option>放映厅 3</option>
                                             <option>放映厅 4</option>
                                             <option>放映厅 5</option>
                                         </select>
                                     </div>
-                                    <h3 class="card-title">入座人数统计</h3>
-                                    <a href="javascript:void(0);"></a>
+<!--                                    <h3 class="card-title">入座人数统计</h3>-->
+<!--                                    <a href="javascript:void(0);"></a>-->
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">820</span>
-                                        <span>观众人数</span>
-                                    </p>
-                                    <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fa fa-arrow-up"></i> 12.5%
-                    </span>
-                                        <span class="text-muted">与上周相比</span>
-                                    </p>
-                                </div>
-                                <!-- /.d-flex -->
-
-                                <div class="position-relative mb-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                                    <canvas id="visitors-chart" height="400" width="1304" class="chartjs-render-monitor" style="display: block; height: 200px; width: 652px;"></canvas>
-                                </div>
-
-                                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fa fa-square text-primary"></i> 本周
-                  </span>
-
-                                    <span>
-                    <i class="fa fa-square text-gray"></i> 上周
-                  </span>
-                                </div>
+                                <div id="barChart" style="height:30rem;"></div>
                             </div>
                         </div>
-                        <!-- /.card -->
                     </div>
-                    <!-- /.col-md-6 -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header no-border">
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
-                                    </div>
-                                    <h3 class="card-title">一周温湿度变化</h3>
-                                    <a href="javascript:void(0);"></a>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">&nbsp;</span>
-                                        <span>摄氏度/百分比</span>
-                                    </p>
-                                    <p class="ml-auto d-flex flex-column text-right">
-                    <span class="text-success">
-                      <i class="fa fa-arrow-up"></i> 2%
-                        <i class="fa fa-arrow-up"></i> 6%
-                    </span>
-                                        <span class="text-muted">与上周相比</span>
-                                    </p>
-                                </div>
-                                <!-- /.d-flex -->
-
-                                <div class="position-relative mb-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-                                    <canvas id="sales-chart" height="400" width="1304" class="chartjs-render-monitor" style="display: block; height: 200px; width: 652px;"></canvas>
-                                </div>
-
-                                <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fa fa-square text-primary"></i> 温度
-                  </span>
-
-                                    <span>
-                    <i class="fa fa-square text-gray"></i> 湿度
-                  </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                    <!-- /.col-md-6 -->
+                    <!-- /.card -->
                 </div>
                 <div class="row">
-                    <!-- Left col -->
-                    <section class="col-lg-6 connectedSortable">
-                        <!-- Custom tabs (Charts with tabs)-->
-                        <div class="card">
-                            <div class="card-header no-border">
-<!--                            <div class="card-header d-flex p-0">-->
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
-                                    </div>
-                                    <h3 class="card-title">
-    <!--                                    <i class="fa fa-pie-chart mr-1"></i>-->
-                                        银幕亮度
-                                    </h3>
-                                    <a href="javascript:void(0);"></a>
-<!--                                    <ul class="nav nav-pills ml-auto p-2">-->
-<!--                                        <li class="nav-item">-->
-<!--                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">年份</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="nav-item">-->
-<!--                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">总量</a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-                                </div>
-                            </div><!-- /.card-header -->
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">&nbsp;</span>
-                                        <span>cd/m2</span>
-                                    </p>
-                                </div>
-                                <div class="tab-content p-0">
-                                    <!-- Morris chart - Sales -->
-                                    <div class="chart tab-pane active" id="revenue-chart"
-                                         style="position: relative; height: 300px;"></div>
-                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                                </div>
-                            </div><!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                        <!-- DIRECT CHAT -->
-<!--                        <div class="card direct-chat direct-chat-primary">-->
-<!--                            <div class="card-header">-->
-<!--                                <h3 class="card-title">在线答疑</h3>-->
-
-<!--                                <div class="card-tools">-->
-<!--                                    <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>-->
-<!--                                    <button type="button" class="btn btn-tool" data-widget="collapse">-->
-<!--                                        <i class="fa fa-minus"></i>-->
-<!--                                    </button>-->
-<!--                                    <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"-->
-<!--                                            data-widget="chat-pane-toggle">-->
-<!--                                        <i class="fa fa-comments"></i>-->
-<!--                                    </button>-->
-<!--                                    <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
-<!--                            <div class="card-body">-->
-<!--                                &lt;!&ndash; Conversations are loaded here &ndash;&gt;-->
-<!--                                <div class="direct-chat-messages">-->
-<!--                                    &lt;!&ndash; Message. Default to the left &ndash;&gt;-->
-<!--                                    <div class="direct-chat-msg">-->
-<!--                                        <div class="direct-chat-info clearfix">-->
-<!--                                            <span class="direct-chat-name float-left">维修人员</span>-->
-<!--                                            <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
-<!--                                        <img class="direct-chat-img" src="dist/img/user8-128x128.jpg" alt="message user image">-->
-<!--                                        &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
-<!--                                        <div class="direct-chat-text">-->
-<!--                                            xxx型号放映机故障码xxx，根据xxx手册进行了xxx操作后出现xxx情况，请问如何解决？-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
-
-<!--                                    &lt;!&ndash; Message to the right &ndash;&gt;-->
-<!--                                    <div class="direct-chat-msg right">-->
-<!--                                        <div class="direct-chat-info clearfix">-->
-<!--                                            <span class="direct-chat-name float-right">AI小助手</span>-->
-<!--                                            <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
-<!--                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">-->
-<!--                                        &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
-<!--                                        <div class="direct-chat-text">-->
-<!--                                            请你参考异常处理，XXX参考手册XXX页。-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
-
-<!--                                    &lt;!&ndash; Message. Default to the left &ndash;&gt;-->
-<!--                                    <div class="direct-chat-msg">-->
-<!--                                        <div class="direct-chat-info clearfix">-->
-<!--                                            <span class="direct-chat-name float-left">XXX电影院</span>-->
-<!--                                            <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
-<!--                                        <img class="direct-chat-img" src="dist/img/user8-128x128.jpg" alt="message user image">-->
-<!--                                        &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
-<!--                                        <div class="direct-chat-text">-->
-<!--                                            。。。。-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
-
-<!--                                    &lt;!&ndash; Message to the right &ndash;&gt;-->
-<!--                                    <div class="direct-chat-msg right">-->
-<!--                                        <div class="direct-chat-info clearfix">-->
-<!--                                            <span class="direct-chat-name float-right">AI小助手</span>-->
-<!--                                            <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
-<!--                                        <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">-->
-<!--                                        &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
-<!--                                        <div class="direct-chat-text">-->
-<!--                                            请问您的问题是否得到解决？-->
-<!--                                        </div>-->
-<!--                                        &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-msg &ndash;&gt;<div class="direct-chat-msg right">-->
-<!--                                    <div class="direct-chat-info clearfix">-->
-<!--                                        <span class="direct-chat-name float-right">AI小助手</span>-->
-<!--                                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-info &ndash;&gt;-->
-<!--                                    <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">-->
-<!--                                    &lt;!&ndash; /.direct-chat-img &ndash;&gt;-->
-<!--                                    <div class="direct-chat-text">-->
-<!--                                        请问您是否需要人工服务？&nbsp <a href="#"style="color: black">是</a> &nbsp &nbsp &nbsp <a href="#"style="color: black">否</a>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;-->
-<!--                                </div>-->
-<!--                                    &lt;!&ndash; /.direct-chat-msg &ndash;&gt;-->
-
-<!--                                </div>-->
-<!--                                &lt;!&ndash;/.direct-chat-messages&ndash;&gt;-->
-
-<!--                                &lt;!&ndash; Contacts are loaded here &ndash;&gt;-->
-<!--                                <div class="direct-chat-contacts">-->
-<!--                                    <ul class="contacts-list">-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user1-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            Count Dracula-->
-<!--                            <small class="contacts-list-date float-right">2/28/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">How have you been? I was...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user7-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            Sarah Doe-->
-<!--                            <small class="contacts-list-date float-right">2/23/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">I will be waiting for...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user3-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            Nadia Jolie-->
-<!--                            <small class="contacts-list-date float-right">2/20/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">I'll call you back at...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user5-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            Nora S. Vans-->
-<!--                            <small class="contacts-list-date float-right">2/10/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">Where is your new...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user6-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            John K.-->
-<!--                            <small class="contacts-list-date float-right">1/27/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">Can I take a look at...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                <img class="contacts-list-img" src="dist/img/user8-128x128.jpg">-->
-
-<!--                                                <div class="contacts-list-info">-->
-<!--                          <span class="contacts-list-name">-->
-<!--                            Kenneth M.-->
-<!--                            <small class="contacts-list-date float-right">1/4/2015</small>-->
-<!--                          </span>-->
-<!--                                                    <span class="contacts-list-msg">Never mind I found...</span>-->
-<!--                                                </div>-->
-<!--                                                &lt;!&ndash; /.contacts-list-info &ndash;&gt;-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        &lt;!&ndash; End Contact Item &ndash;&gt;-->
-<!--                                    </ul>-->
-<!--                                    &lt;!&ndash; /.contacts-list &ndash;&gt;-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /.direct-chat-pane &ndash;&gt;-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-body &ndash;&gt;-->
-<!--                            <div class="card-footer">-->
-<!--                                <form action="#" method="post">-->
-<!--                                    <div class="input-group">-->
-<!--                                        <input type="text" name="message" placeholder="输入信息 ..." class="form-control">-->
-<!--                                        <span class="input-group-append">-->
-<!--                      <button type="button" class="btn btn-primary">发送</button>-->
-<!--                    </span>-->
-<!--                                    </div>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-footer&ndash;&gt;-->
-<!--                        </div>-->
-                        <!--/.direct-chat -->
-
-                        <!-- TO DO List -->
-<!--                        <div class="card">-->
-<!--                            <div class="card-header">-->
-<!--                                <h3 class="card-title">-->
-<!--                                    <i class="ion ion-clipboard mr-1"></i>-->
-<!--                                    待办事项-->
-<!--                                </h3>-->
-<!--                                <div class="card-tools">-->
-<!--                                    <ul class="pagination pagination-sm">-->
-<!--                                        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>-->
-<!--                                        <li class="page-item"><a href="#" class="page-link">1</a></li>-->
-<!--                                        <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-<!--                                        <li class="page-item"><a href="#" class="page-link">3</a></li>-->
-<!--                                        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
-<!--                            <div class="card-body">-->
-<!--                                <ul class="todo-list">-->
-<!--                                    <li>-->
-<!--                                        &lt;!&ndash; drag handle &ndash;&gt;-->
-<!--                                        <span class="handle">-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                    </span>-->
-<!--                                        &lt;!&ndash; checkbox &ndash;&gt;-->
-<!--                                        <input type="checkbox" value="" name="">-->
-<!--                                        &lt;!&ndash; todo text &ndash;&gt;-->
-<!--                                        <span class="text">开会</span>-->
-<!--                                        &lt;!&ndash; Emphasis label &ndash;&gt;-->
-<!--                                        <small class="badge badge-danger"><i class="fa fa-clock-o"></i> 2 mins</small>-->
-<!--                                        &lt;!&ndash; General tools such as edit or delete&ndash;&gt;-->
-<!--                                        <div class="tools">-->
-<!--                                            <i class="fa fa-edit"></i>-->
-<!--                                            <i class="fa fa-trash-o"></i>-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                    <span class="handle">-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                    </span>-->
-<!--                                        <input type="checkbox" value="" name="">-->
-<!--                                        <span class="text">开会</span>-->
-<!--                                        <small class="badge badge-info"><i class="fa fa-clock-o"></i> 4 hours</small>-->
-<!--                                        <div class="tools">-->
-<!--                                            <i class="fa fa-edit"></i>-->
-<!--                                            <i class="fa fa-trash-o"></i>-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                    <span class="handle">-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                    </span>-->
-<!--                                        <input type="checkbox" value="" name="">-->
-<!--                                        <span class="text">还是开会</span>-->
-<!--                                        <small class="badge badge-warning"><i class="fa fa-clock-o"></i> 1 day</small>-->
-<!--                                        <div class="tools">-->
-<!--                                            <i class="fa fa-edit"></i>-->
-<!--                                            <i class="fa fa-trash-o"></i>-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                    <span class="handle">-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                    </span>-->
-<!--                                        <input type="checkbox" value="" name="">-->
-<!--                                        <span class="text">加班开会</span>-->
-<!--                                        <small class="badge badge-success"><i class="fa fa-clock-o"></i> 3 days</small>-->
-<!--                                        <div class="tools">-->
-<!--                                            <i class="fa fa-edit"></i>-->
-<!--                                            <i class="fa fa-trash-o"></i>-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-<!--                                    <li>-->
-<!--                    <span class="handle">-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                      <i class="fa fa-ellipsis-v"></i>-->
-<!--                    </span>-->
-<!--                                        <input type="checkbox" value="" name="">-->
-<!--                                        <span class="text">放假啦</span>-->
-<!--                                        <small class="badge badge-primary"><i class="fa fa-clock-o"></i> 1 week</small>-->
-<!--                                        <div class="tools">-->
-<!--                                            <i class="fa fa-edit"></i>-->
-<!--                                            <i class="fa fa-trash-o"></i>-->
-<!--                                        </div>-->
-<!--                                    </li>-->
-
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-body &ndash;&gt;-->
-<!--                            <div class="card-footer clearfix">-->
-<!--                                <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i>添加项目</button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                        <!-- /.card -->
-                    </section>
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-6 connectedSortable">
-                        <!-- Map card -->
-                        <!-- /.card -->
-                        <!-- solid sales graph -->
-                        <div class="card bg-info-gradient">
-                            <div class="card-header no-border">
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
-                                    </div>
-                                    <h3 class="card-title">
-<!--                                        <i class="fa fa-th mr-1"></i>-->
-                                        声压等级
-                                    </h3>
-                                    <a href="javascript:void(0);"></a>
-                                </div>
-
-                                <div class="card-tools">
-                                    <button type="button" class="btn bg-info btn-sm" data-widget="collapse">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn bg-info btn-sm" data-widget="remove">
-                                        <i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">&nbsp;</span>
-                                        <span>db</span>
-                                    </p>
-                                </div>
-                                <div class="chart" id="line-chart" style="height: 250px;"></div>
-                            </div>
-                            <!-- /.card-body -->
-<!--                            <div class="card-footer bg-transparent">-->
-<!--                                <div class="row">-->
-<!--                                    <div class="col-4 text-center">-->
-<!--                                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"-->
-<!--                                               data-fgColor="#39CCCC">-->
-
-<!--                                        <div class="text-white">故障</div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-<!--                                    <div class="col-4 text-center">-->
-<!--                                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"-->
-<!--                                               data-fgColor="#39CCCC">-->
-
-<!--                                        <div class="text-white">正常</div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-<!--                                    <div class="col-4 text-center">-->
-<!--                                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"-->
-<!--                                               data-fgColor="#39CCCC">-->
-
-<!--                                        <div class="text-white">在修</div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /.row &ndash;&gt;-->
-<!--                            </div>-->
-                            <!-- /.card-footer -->
-                        </div>
-                        <!-- /.card -->
-
-                        <!-- Calendar -->
-<!--                        <div class="card bg-success-gradient">-->
-<!--                            <div class="card-header no-border">-->
-<!--                                <h3 class="card-title">-->
-<!--                                    <i class="fa fa-calendar"></i>-->
-<!--                                    日常工作管理-->
-<!--                                </h3>-->
-<!--                                &lt;!&ndash; tools card &ndash;&gt;-->
-<!--                                <div class="card-tools">-->
-<!--                                    &lt;!&ndash; button with a dropdown &ndash;&gt;-->
-<!--                                    <div class="btn-group">-->
-<!--                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">-->
-<!--                                            <i class="fa fa-bars"></i></button>-->
-<!--                                        <div class="dropdown-menu float-right" role="menu">-->
-<!--                                            <a href="#" class="dropdown-item">添加事项</a>-->
-<!--                                            <a href="#" class="dropdown-item">清除事项</a>-->
-<!--                                            <div class="dropdown-divider"></div>-->
-<!--                                            <a href="#" class="dropdown-item">查看事项</a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <button type="button" class="btn btn-success btn-sm" data-widget="collapse">-->
-<!--                                        <i class="fa fa-minus"></i>-->
-<!--                                    </button>-->
-<!--                                    <button type="button" class="btn btn-success btn-sm" data-widget="remove">-->
-<!--                                        <i class="fa fa-times"></i>-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /. tools &ndash;&gt;-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
-<!--                            <div class="card-body p-0">-->
-<!--                                &lt;!&ndash;The calendar &ndash;&gt;-->
-<!--                                <div id="calendar" style="width: 100%"></div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-body &ndash;&gt;-->
-<!--                        </div>-->
-                        <!-- /.card -->
-                    </section>
-                    <!-- right col -->
+                    <!-- /.col-md-6 -->
+                    <div class="col-lg-12">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>设备ID</th>
+                                <th>种类</th>
+                                <th>规格/类型</th>
+                                <th>品牌</th>
+                                <th>系列</th>
+                                <th>型号</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cinema : ${cinemas}">
+                                <td th:text="${cinema.cinemaName}">北京XXX影城</td>
+                                <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
+                                <td th:text="${cinema.address}">平乐园100号</td>
+                                <td th:text="${cinema.responsible}">张三</td>
+                                <td th:text="${cinema.responsiblePhone}">140000</td>
+                                <td th:text="${cinema.manager}">ac</td>
+                                <th><a href="/base/equipment/details">详情</a></th>
+                            </tr>
+                            <tr>
+                                <td >23543</td>
+                                <td >扬声器</td>
+                                <td >HARMAN</td>
+                                <td >HARMAN</td>
+                                <td >T</td>
+                                <td >HARMAN</td>
+                                <th><a href="/base/equipment/details">详情</a></th>
+                            </tr>
+                            <tr>
+                                <td >23892</td>
+                                <td >服务器</td>
+                                <td >高级存储</td>
+                                <td >华为</td>
+                                <td >存储系列</td>
+                                <td >SLM</td>
+                                <th><a href="/base/equipment/details">详情</a></th>
+                            </tr>
+                            <tr>
+                                <td >23356</td>
+                                <td >服务器</td>
+                                <td >计算服务</td>
+                                <td >惠普</td>
+                                <td >计算系列</td>
+                                <td >HP_LL</td>
+                                <th><a href="/base/equipment/details">详情</a></th>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.col-md-6 -->
                 </div>
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
@@ -732,5 +234,250 @@
 <script th:src="@{/dist/js/pages/dashboard3.js}"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script th:src="@{/plugins/chart.js/Chart.min.js}"></script>
+<!-- e-charts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<!-- bar-chart -->
+<script>
+
+    var barChart = echarts.init(document.getElementById("barChart"));
+
+    var builderJson = {
+        "all": 10887,
+        "charts": {
+            "map": 3237,
+            "lines": 2164,
+            "bar": 7561,
+            "line": 7778,
+            "pie": 7355,
+            "scatter": 2405,
+            "candlestick": 1842,
+            "radar": 2090,
+            "heatmap": 1762,
+            "treemap": 1593,
+            "graph": 2060,
+            "boxplot": 1537,
+            "parallel": 1908,
+            "gauge": 2107,
+            "funnel": 1692,
+            "sankey": 1568
+        },
+        "components": {
+            "geo": 2788,
+            "title": 9575,
+            "legend": 9400,
+            "tooltip": 9466,
+            "grid": 9266,
+            "markPoint": 3419,
+            "markLine": 2984,
+            "timeline": 2739,
+            "dataZoom": 2744,
+            "visualMap": 2466,
+            "toolbox": 3034,
+            "polar": 1945
+        },
+        "ie": 9743
+    };
+
+    var downloadJson = {
+        "小张": 110,
+        "小李": 135,
+        "小王": 129,
+        "小赵": 148
+    };
+
+    var themeJson = {
+        "影厅1": 1594,
+        "影厅2": 925,
+        "影厅3": 1608,
+        "影厅4": 721,
+        "影厅5": 2179,
+        "影厅6": 1982
+    };
+
+    var waterMarkText = '';
+
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = canvas.height = 100;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.globalAlpha = 0.08;
+    ctx.font = '20px Microsoft Yahei';
+    ctx.translate(50, 50);
+    ctx.rotate(-Math.PI / 4);
+    ctx.fillText(waterMarkText, 0, 0);
+
+    var option = {
+        backgroundColor: {
+            type: 'pattern',
+            image: canvas,
+            repeat: 'repeat'
+        },
+        legend:[{
+            orient: 'vertical',
+            x: 'left',
+            type: 'scroll',
+            data: ['a']
+        }, {
+            data: ['a']
+        }, {
+            data: ['a']
+        }, {
+            data: ['a']
+        }, {
+            data: ['a','b','c','d']
+        }, {
+            data:['a','b','c','d','e','f']
+        }],
+        tooltip: {},
+        title: [{
+            text: '维修及维护统计',
+            subtext: '总计 ' + builderJson.all,
+            x: '25%',
+            textAlign: 'center'
+        }, {
+            text: '员工出勤天数统计',
+            subtext: '总计 ' + Object.keys(downloadJson).reduce(function (all, key) {
+                return all + downloadJson[key];
+            }, 0),
+            x: '75%',
+            textAlign: 'center'
+        }, {
+            text: '影厅入座人数',
+            subtext: '总计 ' + Object.keys(themeJson).reduce(function (all, key) {
+                return all + themeJson[key];
+            }, 0),
+            x: '75%',
+            y: '50%',
+            textAlign: 'center'
+        }],
+        grid: [{
+            top: 50,
+            width: '50%',
+            bottom: '45%',
+            left: 10,
+            containLabel: true
+        }, {
+            top: '55%',
+            width: '50%',
+            bottom: 0,
+            left: 10,
+            containLabel: true
+        }],
+        xAxis: [{
+            type: 'value',
+            max: builderJson.all,
+            splitLine: {
+                show: false
+            }
+        }, {
+            type: 'value',
+            max: builderJson.all,
+            gridIndex: 1,
+            splitLine: {
+                show: false
+            }
+        }],
+        yAxis: [{
+            type: 'category',
+            data: Object.keys(builderJson.charts),
+            axisLabel: {
+                interval: 0,
+                rotate: 30
+            },
+            splitLine: {
+                show: false
+            }
+        }, {
+            gridIndex: 1,
+            type: 'category',
+            data: Object.keys(builderJson.components),
+            axisLabel: {
+                interval: 0,
+                rotate: 30
+            },
+            splitLine: {
+                show: false
+            }
+        }],
+        series: [{
+            name: 'test',
+            type: 'bar',
+            stack: 'chart',
+            z: 3,
+            label: {
+                normal: {
+                    position: 'right',
+                    show: true
+                }
+            },
+            data: Object.keys(builderJson.charts).map(function (key) {
+                return builderJson.charts[key];
+            }),
+        }, {
+            type: 'bar',
+            stack: 'chart',
+            silent: true,
+            itemStyle: {
+                normal: {
+                    color: '#eee'
+                }
+            },
+            data: Object.keys(builderJson.charts).map(function (key) {
+                return builderJson.all - builderJson.charts[key];
+            })
+        }, {
+            type: 'bar',
+            stack: 'component',
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            z: 3,
+            label: {
+                normal: {
+                    position: 'right',
+                    show: true
+                }
+            },
+            data: Object.keys(builderJson.components).map(function (key) {
+                return builderJson.components[key];
+            })
+        }, {
+            type: 'bar',
+            stack: 'component',
+            silent: true,
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            itemStyle: {
+                normal: {
+                    color: '#eee'
+                }
+            },
+            data: Object.keys(builderJson.components).map(function (key) {
+                return builderJson.all - builderJson.components[key];
+            })
+        }, {
+            type: 'pie',
+            radius: [0, '30%'],
+            center: ['75%', '25%'],
+            data: Object.keys(downloadJson).map(function (key) {
+                return {
+                    name: key.replace('.js', ''),
+                    value: downloadJson[key]
+                }
+            })
+        }, {
+            type: 'pie',
+            radius: [0, '30%'],
+            center: ['75%', '75%'],
+            data: Object.keys(themeJson).map(function (key) {
+                return {
+                    name: key.replace('.js', ''),
+                    value: themeJson[key]
+                }
+            })
+        }]
+    };
+    barChart.setOption(option);
+</script>
 </body>
 </html>

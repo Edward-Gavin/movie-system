@@ -42,6 +42,8 @@ public class TaskController {
             color = 1;
         }else if(colorString.equals("rgb(189, 33, 48)")){
             color =2;
+        }else if (colorString.equals("rgb(17, 122, 139)")){
+            color =3;
         }
         HttpSession session = httpServletRequest.getSession();
         String publish = session.getAttribute("username").toString();
