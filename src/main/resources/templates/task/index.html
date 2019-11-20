@@ -44,6 +44,8 @@
         </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <div th:replace="model/topper :: topper-phone"></div>
+
             <!-- Messages Dropdown Menu -->
             <div th:replace="model/topper :: topper-info"></div>
             <!-- Notifications Dropdown Menu -->
@@ -105,7 +107,7 @@
                             <div class="icon">
                                 <i class="ion ion-email-unread"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/ai/direction_chat" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -119,7 +121,7 @@
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/task/calendar_manage" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -134,7 +136,7 @@
                             <div class="icon">
                                 <i class="ion ion-cash"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/assets/search" class="small-box-footer">详情<i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -149,7 +151,7 @@
                             <div class="icon">
                                 <i class="ion ion-bookmark"></i>
                             </div>
-                            <a href="#" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="/question/score" class="small-box-footer">详情 <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -161,12 +163,15 @@
                         <div class="card">
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">影院数量统计</h3>
-                                    <a href="javascript:void(0);"></a>
+                                    <div class="form-group">
+                                        &nbsp;
+                                        <p></p>
+                                    </div>
+                                    <h3 class="card-title"></h3>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div id="main" style="height: 400px"></div>
+                                <div id="main" style="height: 25rem"></div>
                             </div>
                         </div>
                         <!-- /.card -->
@@ -174,13 +179,22 @@
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
+                                        <div class="row">
+                                            <select class="form-control col-sm-6">
+                                                <option>大地影院</option>
+                                                <option>保利影城</option>
+                                                <option>万达影城</option>
+                                                <option>劲松电影院</option>
+                                                <option>十里河影院</option>
+                                            </select>
+                                            <select class="form-control col-sm-6">
+                                                <option>放映厅 1</option>
+                                                <option>放映厅 2</option>
+                                                <option>放映厅 3</option>
+                                                <option>放映厅 4</option>
+                                                <option>放映厅 5</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <h3 class="card-title">入座人数统计</h3>
                                     <a href="javascript:void(0);"></a>
@@ -225,12 +239,40 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group">
                                         <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
+                                            <option>放映机</option>
+                                            <option>音响</option>
+                                            <option>功放</option>
+                                            <option>服务器</option>
+                                            <option>3D系统</option>
                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="piechart" style="height: 25rem"></div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                        <div class="card">
+                            <div class="card-header no-border">
+                                <div class="d-flex justify-content-between">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <select class="form-control col-sm-6">
+                                                <option>大地影院</option>
+                                                <option>保利影城</option>
+                                                <option>万达影城</option>
+                                                <option>劲松电影院</option>
+                                                <option>十里河影院</option>
+                                            </select>
+                                            <select class="form-control col-sm-6">
+                                                <option>放映厅 1</option>
+                                                <option>放映厅 2</option>
+                                                <option>放映厅 3</option>
+                                                <option>放映厅 4</option>
+                                                <option>放映厅 5</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <h3 class="card-title">一周温湿度变化</h3>
                                     <a href="javascript:void(0);"></a>
@@ -280,27 +322,27 @@
                                 <!--                            <div class="card-header d-flex p-0">-->
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
+                                        <div class="row">
+                                            <select class="form-control col-sm-6">
+                                                <option>大地影院</option>
+                                                <option>保利影城</option>
+                                                <option>万达影城</option>
+                                                <option>劲松电影院</option>
+                                                <option>十里河影院</option>
+                                            </select>
+                                            <select class="form-control col-sm-6">
+                                                <option>放映厅 1</option>
+                                                <option>放映厅 2</option>
+                                                <option>放映厅 3</option>
+                                                <option>放映厅 4</option>
+                                                <option>放映厅 5</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <h3 class="card-title">
-                                        <!--                                    <i class="fa fa-pie-chart mr-1"></i>-->
                                         银幕亮度
                                     </h3>
                                     <a href="javascript:void(0);"></a>
-                                    <!--                                    <ul class="nav nav-pills ml-auto p-2">-->
-                                    <!--                                        <li class="nav-item">-->
-                                    <!--                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">年份</a>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="nav-item">-->
-                                    <!--                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">总量</a>-->
-                                    <!--                                        </li>-->
-                                    <!--                                    </ul>-->
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body">
@@ -644,13 +686,22 @@
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
                                     <div class="form-group">
-                                        <select class="form-control">
-                                            <option>放映厅 1</option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
+                                        <div class="row">
+                                            <select class="form-control col-sm-6">
+                                                <option>大地影院</option>
+                                                <option>保利影城</option>
+                                                <option>万达影城</option>
+                                                <option>劲松电影院</option>
+                                                <option>十里河影院</option>
+                                            </select>
+                                            <select class="form-control col-sm-6">
+                                                <option>放映厅 1</option>
+                                                <option>放映厅 2</option>
+                                                <option>放映厅 3</option>
+                                                <option>放映厅 4</option>
+                                                <option>放映厅 5</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <h3 class="card-title">
                                         <!--                                        <i class="fa fa-th mr-1"></i>-->
@@ -838,7 +889,7 @@
     var option = {
         backgroundColor: '#FFFFFF',
         title: {
-            text: '全国地图大数据',
+            text: '各省份影院数量统计',
             subtext: '',
             x:'center'
         },
@@ -861,13 +912,14 @@
 
         //配置属性
         series: [{
-            name: '数据',
+            name: '影院数量',
             type: 'map',
             mapType: 'china',
             roam: true,
+            // radius: '80%',
             label: {
                 normal: {
-                    show: false  //省份名称
+                    show: true  //省份名称
                 },
                 emphasis: {
                     show: false
@@ -879,6 +931,47 @@
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
+</script>
+<script>
+    var pieChart = echarts.init(document.getElementById("piechart"));
+
+    var option = {
+        title : {
+            text: '设备品牌统计',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ['科视Christie','巴可','NEC']
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'科视Christie'},
+                    {value:310, name:'巴可'},
+                    {value:234, name:'NEC'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    pieChart.setOption(option);
 </script>
 </body>
 </html>
