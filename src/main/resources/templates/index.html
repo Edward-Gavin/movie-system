@@ -244,7 +244,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <h3 class="card-title">一周温湿度变化</h3>
+                                    <h3 class="card-title">影厅各类设备比例</h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
                             </div>
@@ -1415,7 +1415,7 @@
         },
         series : [
             {
-                name: 'pm2.5',
+                name: '数量',
                 type: 'scatter',
                 coordinateSystem: 'bmap',
                 data: convertData(data),
@@ -1434,12 +1434,12 @@
                 },
                 itemStyle: {
                     normal: {
-                        color: 'purple'
+                        color: 'blue'
                     }
                 }
             },
             {
-                name: 'Top 5',
+                name: 'TOP 6',
                 type: 'effectScatter',
                 coordinateSystem: 'bmap',
                 data: convertData(data.sort(function (a, b) {
@@ -1462,7 +1462,7 @@
                 },
                 itemStyle: {
                     normal: {
-                        color: 'purple',
+                        color: 'blue',
                         shadowBlur: 10,
                         shadowColor: '#333'
                     }
