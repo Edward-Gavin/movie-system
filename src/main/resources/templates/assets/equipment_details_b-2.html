@@ -15,30 +15,6 @@
   <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- Viewer.js-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.7/viewer.css" integrity="sha256-HD7WuGVQWPCs3E5c5PdzAZEyVrbMtwEi5eRXNc+IlU8=" crossorigin="anonymous" />
-
-  <style>
-    #images{
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      /*width: 200px;*/
-      /*overflow-wrap: break-word;*/
-      list-style: none;
-      padding-left: 0;
-    }
-    #images  li{
-      width: 23%;
-      /*margin-right: 0.1px;*/
-    }
-
-    .videolist { position:relative; float:left; width:500px; height:300px; margin-right:50px; margin-top:15px; margin-bottom:30px; }
-    .videolist:hover{ cursor: pointer; }
-    .videoed { display:none; width:50px; height:50px; position: absolute; left:45%; top:45%; z-index:99; border-radius:100%; }
-    .videos{ display:none; border: 1px solid #080808; position:fixed; left:50%; top:50%; margin-left:-320px; margin-top:-210px; z-index:100; width:640px; height:360px; }
-    .vclose { position:absolute;right:1%; top:1%; border-radius:100%; cursor: pointer; }
-  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -162,7 +138,6 @@
                 <p class="text-muted">
                   宽度可达10米/33英寸（屏幕增益1.2 @ 14ftl）</p>
               </div>
-
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
@@ -172,7 +147,7 @@
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active show" href="#activity" data-toggle="tab">图片视频</a></li>
+                  <li class="nav-item"><a class="nav-link active show" href="#activity" data-toggle="tab">设备图片</a></li>
                   <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">维修信息</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">维护信息</a></li>
                   <li class="nav-item"><a class="nav-link" href="#part" data-toggle="tab">设备配件</a></li>
@@ -188,35 +163,30 @@
                       </div>
                       <!-- /.user-block -->
                       <div class="row mb-3">
-                        <h6 class="col-sm-12"> 设备图片信息</h6>
-                        <div class="col-sm-12">
-                          <ul id="images">
-                            <li><img class="img-fluid mb-3" th:src="@{/images/DP2K-10S right std angle jpg.jpg}" alt="Photo"></li>
-                            <li><img class="img-fluid mb-3" th:src="@{/images/DP2K-10S side jpg.jpg}" alt="Photo"></li>
-                            <li><img class="img-fluid mb-3" th:src="@{/images/cinema/cinema2.png}" alt="Photo"></li>
-                          </ul>
-                          <!-- /.row -->
-                        </div>
                         <!-- /.col -->
-                        <h6 class="col-sm-12"> 设备视频信息</h6>
-                        <br/>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <img class="img-fluid mb-3" th:src="@{/images/cinema/cinema2.png}" alt="Photo">
+                          </div>
+                          <!-- /.col -->
+                          <div class="col-sm-3">
+                            <img class="img-fluid mb-3" th:src="@{/images/DP2K-10S right std angle jpg.jpg}" alt="Photo">
+                          </div>
+                          <div class="col-sm-3">
+                            <img class="img-fluid mb-3" th:src="@{/images/DP2K-10S side jpg.jpg}" alt="Photo">
+                          </div>
+                          <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                        <!-- /.col -->
+                      </div>
+                      <div class="row mb-3">
                         <div class="col-sm-3">
-                          <div class="videolist" vpath="v.jpg" ipath="/video/abc.mov">
-                            <div class="vtit">
-                              <img th:src="@{/images/video_details.png}" height="200px" width="300px">
-                              <img th:src="@{/images/play.png}" class="videoed" style="display: none;">
-                            </div>
-                          </div>
-<!--                      <video class="img-fluid" controls="controls" th:src="@{/video/abc.mov}" alt="Photo"></video>-->
-                          <div class="videos" style="display: none;" >
-                            <video id="video" preload="auto" poster="/images/video_details.png" style="width: 640px;" th:src="@{/video/abc.mov}" controls="controls" autoplay="autoplay" >
-
-                            </video>
-                            <img onclick="close1()" class="vclose" th:src="@{/images/gb.png}" width="25px" height="25px">
-                          </div>
+                          <video class="img-fluid"  autoplay="autoplay" controls="controls" th:src="@{/video/abc.mov}" alt="Photo"></video>
                         </div>
                         <!-- /.col -->
                       </div>
+
                       <!-- /.row -->
                     </div>
                     <!-- /.post -->
@@ -426,43 +396,5 @@
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
-<!-- Viewer.js-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.7/viewer.js"></script>
-<script type="text/javascript">
-
-  // // View an image
-  // const viewer = new Viewer(document.getElementById('image'), {
-  //   inline: true,
-  //   viewed() {
-  //     viewer.zoomTo(1);
-  //   },
-  // });
-
-  // View a list of images
-  const gallery = new Viewer(document.getElementById('images'));
-
-</script>
-<script type="text/javascript">
-  $('.videolist').each(function(){ //遍历视频列表
-    $(this).hover(function(){ //鼠标移上来后显示播放按钮
-      $(this).find('.videoed').show();
-    },function(){
-      $(this).find('.videoed').hide();
-    });
-    $(this).click(function(){ //这个视频被点击后执行
-      var img = $(this).attr('vpath');//获取视频预览图
-      var video = $(this).attr('ipath');//获取视频路径
-      $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"/images/gb.png\" width=\"25\" height=\"25\"/>");
-      $('.videos').show();
-    });
-  });
-
-  function close1(){
-    var v = document.getElementById('video');//获取视频节点
-    $('.videos').hide();//点击关闭按钮关闭暂停视频
-    v.pause();
-    $('.videos').html();
-  }
-</script>
 </body>
 </html>
