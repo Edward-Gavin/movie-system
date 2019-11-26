@@ -201,15 +201,15 @@
                         <h6 class="col-sm-12"> 设备视频信息</h6>
                         <br/>
                         <div class="col-sm-3">
-                          <div class="videolist" vpath="v.jpg" ipath="/video/abc.mov">
+                          <div class="videolist" vpath="v.jpg" ipath="https://www.barco.com.cn/video/ICMP_Install01.mp4">
                             <div class="vtit">
-                              <img th:src="@{/images/video_details.png}" height="200px" width="300px">
+                              <img th:src="@{/images/backvideo.png}" height="200px" width="300px">
                               <img th:src="@{/images/play.png}" class="videoed" style="display: none;">
                             </div>
                           </div>
 <!--                      <video class="img-fluid" controls="controls" th:src="@{/video/abc.mov}" alt="Photo"></video>-->
                           <div class="videos" style="display: none;" >
-                            <video id="video" preload="auto" poster="/images/video_details.png" style="width: 640px;" th:src="@{/video/abc.mov}" controls="controls" autoplay="autoplay" >
+                            <video id="video" preload="auto" poster="/images/video_details.png" style="width: 640px;" th:src="@{https://www.barco.com.cn/video/ICMP_Install01.mp4}" controls="controls" >
 
                             </video>
                             <img onclick="close1()" class="vclose" th:src="@{/images/gb.png}" width="25px" height="25px">
@@ -452,7 +452,7 @@
     $(this).click(function(){ //这个视频被点击后执行
       var img = $(this).attr('vpath');//获取视频预览图
       var video = $(this).attr('ipath');//获取视频路径
-      $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"/images/gb.png\" width=\"25\" height=\"25\"/>");
+      $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 640px' src='"+video+"' preload=\"auto\" controls=\"controls\"></video><img onClick=\"close1()\" class=\"vclose\" src=\"/images/gb.png\" width=\"25\" height=\"25\"/>");
       $('.videos').show();
     });
   });
