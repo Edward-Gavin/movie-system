@@ -727,7 +727,7 @@
                                     </div>
                                     <h3 class="card-title">
                                         <!--                                        <i class="fa fa-th mr-1"></i>-->
-                                        声压等级
+                                        声压级
                                     </h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
@@ -742,13 +742,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">&nbsp;</span>
-                                        <span>db</span>
-                                    </p>
-                                </div>
-                                <div class="chart" id="line-chart" style="height: 250px;"></div>
+                                <div class="chart" id="linechart" style="height: 370px;"></div>
                             </div>
                             <!-- /.card-body -->
                             <!--                            <div class="card-footer bg-transparent">-->
@@ -1512,6 +1506,30 @@
                 }
             }
         ]
+    };
+
+    pieChart.setOption(option);
+</script>
+<script>
+    var pieChart = echarts.init(document.getElementById("linechart"));
+
+    var option = {
+        xAxis: {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        },
+        yAxis: {
+            name: 'db',
+            type: 'value'
+        },
+        series: [{
+            data: [60,59,43,76,46,55,70],
+            type: 'line',
+            smooth: true,
+            hover: true,
+            itemStyle : { normal: {label : {show: true}}},
+            splitNumber: 8
+        }]
     };
 
     pieChart.setOption(option);
