@@ -18,12 +18,12 @@ $(function () {
         {
           backgroundColor: '#007bff',
           borderColor    : '#007bff',
-          data           : [15, 20, 25, 27, 26, 20, 18]
+          data           : [21, 20, 25, 24, 23, 20, 22]
         },
         {
           backgroundColor: '#ced4da',
           borderColor    : '#ced4da',
-          data           : [35, 40, 45, 50, 47, 46, 34]
+          data           : [6, 4, 5, 5, 4, 6, 4]
         }
       ]
     },
