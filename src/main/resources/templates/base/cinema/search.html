@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -141,43 +141,140 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>影院ID</th>
+                <th>序号</th>
+                <th>影院编码</th>
                 <th>影院名称</th>
                 <th>省市区</th>
                 <th>地址</th>
-                <th>影院经理</th>
-                <th>经理电话</th>
-                <th>影院主管</th>
-                <th>主管电话</th>
                 <th>影厅数量</th>
+                <th>影院经理</th>
+                <th>联系电话</th>
+                <th>技术主管</th>
+                <th>联系电话</th>
                 <th>操作</th>
               </tr>
               </thead>
+
               <tbody>
-              <tr th:each="cinema : ${cinemas}">
-                <td th:text="${cinema.id}">北京XXX影城</td>
-                <td th:text="${cinema.cinemaName}">北京XXX影城</td>
-                <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
-                <td th:text="${cinema.address}">平乐园100号</td>
-                <td th:text="${cinema.responsible}">张三</td>
-                <td th:text="${cinema.responsiblePhone}">140000</td>
-                <td th:text="${cinema.manager}">ac</td>
-                <td th:text="${cinema.managerPhone}">dfjlsd</td>
-                <td th:text="${cinema.roomNumber}">1300000000</td>
+
+              <tr>
+                <td>1</td>
+                <td>2612384213134</td>
+                <td>中影国际影城(欢乐海岸店)</td>
+                <td>广东省深圳市南山区</td>
+                <td>深圳市南山区白石路东8号欢乐海岸曲水湾2栋A区</td>
+                <td>12</td>
+                <td>张先生</td>
+                <td>13332193517</td>
+                <td>刘先生</td>
+                <td>13823913241</td>
                 <td>
                   <div class="float-lg-left">
-                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">
+<!--                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">-->
                       <button type="button" class="btn btn-sm" style="color: green">修改</button>
-                    </a>
+<!--                    </a>-->
                     <a href="/base/cinema/delete" style="color: #ffffff;">
                       <button type="button" class="btn btn-sm" style="color: red">删除</button>
                     </a>
                   </div>
                 </td>
               </tr>
+
+              <tr>
+                <td>2</td>
+                <td>2612384213251</td>
+                <td>万达影城(五角场店)</td>
+                <td>上海市</td>
+                <td>上海市杨浦区国宾路58号万达广场3层</td>
+                <td>12</td>
+                <td>孙女士</td>
+                <td>13332193518</td>
+                <td>李先生</td>
+                <td>13823913242</td>
+                <td>
+                  <div class="float-lg-left">
+<!--                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">-->
+                      <button type="button" class="btn btn-sm" style="color: green">修改</button>
+<!--                    </a>-->
+                    <a href="/base/cinema/delete" style="color: #ffffff;">
+                      <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>2612384294832</td>
+                <td>UME华星影城</td>
+                <td>北京市</td>
+                <td>北京市海淀区科学院南路44号</td>
+                <td>7</td>
+                <td>刘女士</td>
+                <td>13332193519</td>
+                <td>孔先生</td>
+                <td>13823913243</td>
+                <td>
+                  <div class="float-lg-left">
+<!--                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">-->
+                      <button type="button" class="btn btn-sm" style="color: green">修改</button>
+<!--                    </a>-->
+                    <a href="/base/cinema/delete" style="color: #ffffff;">
+                      <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>3612384215312</td>
+                <td>首都电影院(西单大悦城店)</td>
+                <td>北京市</td>
+                <td>北京市西城区西单北大街131号西单大悦城F10</td>
+                <td>13</td>
+                <td>李先生</td>
+                <td>13332193520</td>
+                <td>刘女士</td>
+                <td>13823913244</td>
+                <td>
+                  <div class="float-lg-left">
+<!--                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">-->
+                      <button type="button" class="btn btn-sm" style="color: green">修改</button>
+<!--                    </a>-->
+                    <a href="/base/cinema/delete" style="color: #ffffff;">
+                      <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>5</td>
+                <td>3612389215773</td>
+                <td>大光明影院</td>
+                <td>天津市和平区</td>
+                <td>天津市和平区曲阜道1号</td>
+                <td>7</td>
+                <td>王先生</td>
+                <td>13332193521</td>
+                <td>王先生</td>
+                <td>13823913245</td>
+                <td>
+                  <div class="float-lg-left">
+<!--                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">-->
+                      <button type="button" class="btn btn-sm" style="color: green">修改</button>
+<!--                    </a>-->
+                    <a href="/base/cinema/delete" style="color: #ffffff;">
+                      <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+
               </tbody>
             </table>
           </div>

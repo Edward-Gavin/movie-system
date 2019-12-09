@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,9 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -80,6 +82,7 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- Main content -->
+
         <section class="content">
             <div class="row">
                 <div class="col-12">
@@ -89,9 +92,10 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>用户名</th>
                                     <th>性别</th>
                                     <th>手机号</th>
@@ -105,6 +109,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${users}">
+                                    <td th:text="${user.uid}"></td>
                                     <td th:text="${user.username}"></td>
                                     <td th:text="${user.sex}"></td>
                                     <td th:text="${user.phone}"></td>
@@ -117,6 +122,9 @@
                                         <td th:case="'1'">影院管理公司</td>
                                         <td th:case="'2'">影院管理员</td>
                                         <td th:case="'3'">影院普通用户</td>
+                                        <td th:case="'4'">影院经理</td>
+                                        <td th:case="'5'">影院技术主管</td>
+                                        <td th:case="'6'">影院放映员</td>
                                     </div>
                                     <td>
                                         <div class="float-lg-left">

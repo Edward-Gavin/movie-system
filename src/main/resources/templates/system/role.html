@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -94,17 +94,19 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>权限名称</th>
                                     <th>权限信息</th>
-                                    <th>预留字段</th>
+                                    <th>备注</th>
                                     <th>权限操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    <td>1</td>
                                     <td>系统管理员</td>
                                     <td>系统管理员登录后，有用户管理、权限管理、个人信息管理二级目录，可查看所有用户信息</td>
-                                    <td>1</td>
+                                    <td></td>
                                     <td>
                                         <div class="float-lg-left">
                                             <a href="#" style="color: #ffffff;">
@@ -114,9 +116,10 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>2</td>
                                     <td>院线公司</td>
                                     <td>院线公司登录后，有用户管理、权限管理、个人信息管理二级目录，仅可查看自己管理的影院的用户及权限</td>
-                                    <td>1</td>
+                                    <td></td>
                                     <td>
                                         <div class="float-lg-left">
                                             <a href="#" style="color: #ffffff;">
@@ -126,9 +129,10 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>3</td>
                                     <td>影院管理公司</td>
                                     <td>影院管理公司登录后，有用户管理、权限管理、个人信息管理二级目录，仅可查看自己管理的影院的用户及权限</td>
-                                    <td>1</td>
+                                    <td></td>
                                     <td>
                                         <div class="float-lg-left">
                                             <a href="#" style="color: #ffffff;">
@@ -138,9 +142,10 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>4</td>
                                     <td>影院管理员</td>
                                     <td>影院管理员登录后，有用户管理、权限管理、个人信息管理二级目录，仅可查看本影院的用户及权限</td>
-                                    <td>1</td>
+                                    <td></td>
                                     <td>
                                         <div class="float-lg-left">
                                             <a href="#" style="color: #ffffff;">
@@ -149,10 +154,45 @@
                                         </div>
                                     </td>
                                 </tr>
+
+
                                 <tr>
+                                    <td>5</td>
+                                    <td>影院经理</td>
+                                    <td>影院经理属于影院管理员的一种类型。</td>
+                                    <td></td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>6</td>
+                                    <td>影院技术主管</td>
+                                    <td>影院技术主管属于影院管理员的一种类型。</td>
+                                    <td></td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+
+
+                                <tr>
+                                    <td>7</td>
                                     <td>影院普通用户</td>
                                     <td>影院普通登录后，仅有个人信息管理二级目录，仅可修改个人信息。</td>
-                                    <td>1</td>
+                                    <td></td>
                                     <td>
                                         <div class="float-lg-left">
                                             <a href="#" style="color: #ffffff;">
@@ -161,6 +201,21 @@
                                         </div>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td>8</td>
+                                    <td>影院放映员</td>
+                                    <td>影院放映员属于影院普通用户的一种类型。</td>
+                                    <td></td>
+                                    <td>
+                                        <div class="float-lg-left">
+                                            <a href="#" style="color: #ffffff;">
+                                                <button type="button" class="btn btn-sm" style="color: green">权限操作</button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+
                                 </tbody>
                             </table>
                         </div>

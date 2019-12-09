@@ -18,12 +18,12 @@ $(function () {
         {
           backgroundColor: '#007bff',
           borderColor    : '#007bff',
-          data           : [21, 20, 25, 24, 23, 20, 22]
+          data           : [9.0, 8.2, 8.9, 9.4, 8.7, 7.9, 9.2]
         },
         {
           backgroundColor: '#ced4da',
           borderColor    : '#ced4da',
-          data           : [6, 4, 5, 5, 4, 6, 4]
+          data           : [7.9, 8.2, 8.5, 9.5, 8.4, 8.6, 9.4]
         }
       ]
     },
@@ -58,7 +58,7 @@ $(function () {
                 value /= 1000
                 value += 'k'
               }
-              return value + "°/%"
+              return value
             }
           }, ticksStyle)
         }],
@@ -79,7 +79,7 @@ $(function () {
       labels  : ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
       datasets: [{
         type                : 'line',
-        data                : [100, 120, 170, 167, 180, 177, 160],
+        data                : [29.8, 30.3, 31.0, 28.0, 28.9, 29.1, 30.4],
         backgroundColor     : 'transparent',
         borderColor         : '#007bff',
         pointBorderColor    : '#007bff',
@@ -90,7 +90,7 @@ $(function () {
       },
         {
           type                : 'line',
-          data                : [60, 80, 70, 67, 80, 77, 100],
+          data                : [29.0, 30.1, 30.0, 29.0, 29.9, 29.3, 31.0],
           backgroundColor     : 'tansparent',
           borderColor         : '#ced4da',
           pointBorderColor    : '#ced4da',
@@ -124,7 +124,7 @@ $(function () {
           },
           ticks    : $.extend({
             beginAtZero : true,
-            suggestedMax: 200
+            suggestedMax: 40
           }, ticksStyle)
         }],
         xAxes: [{

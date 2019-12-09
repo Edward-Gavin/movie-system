@@ -51,15 +51,15 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         super.addInterceptors(registry);
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        /**
-         * 资源映射路径
-         * addResourceHandler：访问映射路径
-         * addResourceLocations：资源绝对路径
-         */
-        registry.addResourceHandler("/images/**").addResourceLocations("file:/Users/edwardgavinwang/IdeaProjects/github/Spring-boot-mybatis/src/main/resources/static/images/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        /**
+//         * 资源映射路径
+//         * addResourceHandler：访问映射路径
+//         * addResourceLocations：资源绝对路径
+//         */
+//        registry.addResourceHandler("/images/**").addResourceLocations("file:/Users/edwardgavinwang/IdeaProjects/github/Spring-boot-mybatis/src/main/resources/static/images/");
+//    }
 
     @Bean
     public LocaleResolver localeResolver() {

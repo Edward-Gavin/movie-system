@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -96,7 +96,7 @@
                   <div class="row">
                     <div class="col-3 float-lg-left">
                       <div class="form-group">
-                        <label>所在设备类型：</label>
+                        <label>适配设备类型：</label>
                         <select class="form-control" name="type">
                           <option>放映机</option>
                           <option>音响</option>
@@ -104,7 +104,6 @@
                           <option>音频处理器</option>
                           <option>功放设备</option>
                           <option>3D系统</option>
-                          <option>D系统</option>
                         </select>
                       </div>
                     </div>
@@ -121,18 +120,7 @@
                     </div>
                     <div class="form-group col-3 float-lg-left">
                       <label>型号：</label>
-                      <select class="form-control" name="brand">
-                        <option>CLP 系列</option>
-                        <option>SLP 系列</option>
-                        <option>B 系列</option>
-                        <option>C 系列</option>
-                        <option>L 系列</option>
-                        <option>LHC 系列</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-3 float-lg-right">
-                      <label>序列号：</label>
-                      <input type="text" class="form-control" placeholder="例：XXXX-XXXXX-XXXX" name="number">
+                      <input type="text" class="form-control" placeholder="例：R9855937">
                     </div>
                   </div>
                 </div>
@@ -159,16 +147,17 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>ID</th>
-                <th>类型</th>
-                <th>所在设备</th>
-                <th>品牌</th>
-                <th>型号</th>
-                <th>序列号</th>
-                <th>预留字段</th>
+                <th>序号</th>
+                <th>配件类型</th>
+                <th>配件名称</th>
+                <th>配件号</th>
+                <th>适配机型</th>
+                <th>供应商</th>
+                <th>供应商订单编号</th>
+                <th>质保时间</th>
                 <th>详情</th>
               </tr>
               </thead>
@@ -184,45 +173,61 @@
                 <th><a href="/details">详情</a></th>
               </tr>
               <tr>
-                <td >23892</td>
-                <td >音响</td>
-                <td >功放</td>
-                <td >HAEMAN</td>
-                <td >测试</td>
-                <td >14-00-00-08-38-95</td>
-                <td >-</td>
+                <td >1</td>
+                <td >镜头</td>
+                <td >0.98” DC2K (1.4-2.05)</td>
+                <td >R9855931</td>
+                <td >DP-1200, DP-1500, DP-2000, DP2K-12C, DP2K-15C, DP2K-15CLP , DP2K-20C, DP2K-20CLP, SP4K-12C, SP4K-15C, SP4K-20C, SP4K-25C</td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <th><a href="/details">详情</a></th>
+              </tr>
+                <td >2</td>
+                <td >镜头</td>
+                <td >0.98” DC2K (1.6-2.5)</td>
+                <td >R9855932</td>
+                <td >DP-1200, DP-1500, DP-2000, DP2K-12C, DP2K-15C, DP2K-15CLP , DP2K-20C, DP2K-20CLP, SP4K-12C, SP4K-15C, SP4K-20C, SP4K-25C</td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
                 <th><a href="/details">详情</a></th>
               </tr>
               <tr>
-                <td >23543</td>
-                <td >内存条</td>
-                <td >服务器</td>
-                <td >金士顿</td>
-                <td >9400</td>
-                <td >14-00-00-08-38-95</td>
-                <td >-</td>
+                <td >3</td>
+                <td >灯泡</td>
+                <td >OSRAM 4000W XBO DHP OFR</td>
+                <td >R9855937</td>
+                <td >DP-1500, DP-2000, DP2K-15C, DP2K-20C, DP2K-23B, DP2K-32B, DP2K-P, DP4K-23B, DP4K-32B, DP4K-P, HDQ-4K35</td>
+                <td >OSRAM</td>
+                <td >IC: A5390140013 EAN: 4008321226198 NAED: 69481\0 (US)</td>
+                <td >1100小时</td>
                 <th><a href="/details">详情</a></th>
               </tr>
               <tr>
-                <td >23892</td>
-                <td >显卡</td>
-                <td >服务器</td>
-                <td >华为</td>
-                <td >87999</td>
-                <td >14-00-00-08-38-95</td>
-                <td >-</td>
+                <td >4</td>
+                <td >灯泡</td>
+                <td >OSRAM 3000W XBO DHP OFR</td>
+                <td >R9855938</td>
+                <td >DP-1500, DP-2000, DP2K-15C, DP2K-19B, DP2K-20C, DP2K-23B, DP2K-32B, DP2K-P, DP4K-19B, DP4K-23B, DP4K-32B, DP4K-P, HDQ-4K35</td>
+                <td >OSRAM</td>
+                <td > IC:A5390080013 EAN:4008321226181 NAED:69480\0 (US)</td>
+                <td >1500小时</td>
                 <th><a href="/details">详情</a></th>
               </tr>
+
               <tr>
-                <td >23356</td>
-                <td >硬盘</td>
-                <td >服务器</td>
-                <td >惠普</td>
-                <td >87000</td>
-                <td >14-00-00-08-38-95</td>
-                <td >-</td>
+                <td >5</td>
+                <td >其他</td>
+                <td >Barco Alchemy ICMP（带HDMI2.0）</td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
+                <td > </td>
                 <th><a href="/details">详情</a></th>
               </tr>
+
               </tbody>
             </table>
           </div>

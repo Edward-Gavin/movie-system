@@ -117,7 +117,13 @@
                 <!--                <div class="input-group">-->
                 <input id="new-event-title" type="text" class="form-control" placeholder="事件标题">
                 <br>
-                <textarea id="new-event-detail" class="form-control" placeholder="请输入相关事件信息" rows="5" cols="5"></textarea>
+                <textarea id="new-event-detail" class="form-control" placeholder="请输入相关事件信息" rows="2" cols="5"></textarea>
+                <br>所在影厅
+                <select class="form-control">
+                  <option value="server">影厅一</option>
+                  <option value="machine">影厅二</option>
+                  <option value="voice">影厅三</option>
+                </select>
                 <br>任务所在设备
                 <select  id="new-event-equipment" class="form-control">
                   <option value="server">戴尔服务器</option>
@@ -126,10 +132,11 @@
                 </select>
                 <br>请选择相关负责人
                 <select  id="new-event-staff" class="form-control">
-                  <option value="张三">张三</option>
-                  <option value="李四">李四</option>
-                  <option value="王五">王五</option>
-                  <option value="赵六">赵六</option>
+                  <option value="李维">李维</option>
+                  <option value="曾真">曾真</option>
+                  <option value="申立姗">申立姗</option>
+                  <option value="田由甲">田由甲</option>
+                  <option value="李骏">李骏</option>
                 </select>
                 <br>请选择开始时间：
                 <input id="new-event-start-time" type="time" class="form-control">
@@ -193,7 +200,7 @@
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
 <!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+<script th:src="@{/dist/js/moment.min.js}"></script>
 <script th:src="@{/plugins/fullcalendar/fullcalendar.min.js}"></script>
 <script th:src="@{/dist/js/MiniDialog.min.js}"></script>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -107,7 +107,7 @@
                       </div>
                     </div>
                     <div class="col-3">
-                      <label>设备类型</label>
+                      <label>规格/类型</label>
                       <div class="form-group">
                         <select class="form-control">
                           <option>氙灯</option>
@@ -128,7 +128,7 @@
                       </div>
                     </div>
                     <div class="col-3">
-                      <label>设备型号</label>
+                      <label>设备系列</label>
                       <div class="form-group">
                         <select class="form-control">
                           <option>B 系列</option>
@@ -137,6 +137,8 @@
                           <option>S 系列</option>
                         </select>
                       </div>
+                      <label>设备型号</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：DP2K-20C">
                     </div>
                   </div>
                 <!-- /.card-body -->
@@ -151,36 +153,33 @@
             </div>
              <!-- /.card-header -->
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th>教程名称</th>
-                    <th>支持设备型号</th>
-                    <th>建议维护周期</th>
-                    <th>预留属性</th>
-                    <th>预留属性</th>
-                    <th>预留属性</th>
+                    <th>适用设备类型</th>
+                    <th>适用设备品牌</th>
+                    <th>适用设备型号</th>
+                    <th>备注</th>
                     <th>详情</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>XX 设备维护教程</td>
-                    <td>BARCO DP2K</td>
-                    <td>6个月</td>
-                    <td> 4</td>
-                    <td> 4</td>
-                    <td> 4</td>
+                    <td>投影灯盖板拆卸教程</td>
+                    <td>放映机</td>
+                    <td>巴可</td>
+                    <td>DP2K-20C</td>
+                    <td> </td>
                     <td><a href="/documents/operate_details">详情>> </a></td>
                   </tr>
                   <tr>
-                    <td>XX 设备维护教程</td>
-                    <td>BARCO DP2K</td>
-                    <td>6个月</td>
-                    <td> 4</td>
-                    <td> 4</td>
-                    <td> 4</td>
-                    <td><a href="/documents/operate_details">详情>> </a></td>
+                    <td>输入盖板拆卸教程</td>
+                    <td>放映机</td>
+                    <td>巴可</td>
+                    <td>DP2K-20C</td>
+                    <td> </td>
+                    <td><a href="/">详情>> </a></td>
                   </tr>
                 </tbody>
 <!--                <tfoot>-->
