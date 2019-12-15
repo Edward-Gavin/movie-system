@@ -99,15 +99,27 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header no-border">
-                                <div class="d-flex justify-content-between">
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option></option>
-                                            <option>放映厅 2</option>
-                                            <option>放映厅 3</option>
-                                            <option>放映厅 4</option>
-                                            <option>放映厅 5</option>
-                                        </select>
+                                <div class="">
+                                    <div class="form-group row">
+                                        <div class="col-3">
+                                            <h5>
+                                                当前影院：
+                                            </h5>
+                                            <select class="form-control">
+                                                <option>中影国际影城(欢乐海岸店)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-3">
+                                            <h5>
+                                                时间范围：
+                                            </h5>
+                                            <select class="form-control">
+                                                <option>最近1个月</option>
+                                                <option>最近三个月</option>
+                                                <option>最近半年</option>
+                                                <option>最近一年</option>
+                                            </select>
+                                        </div>
                                     </div>
 <!--                                    <h3 class="card-title">入座人数统计</h3>-->
 <!--                                    <a href="javascript:void(0);"></a>-->
@@ -125,14 +137,16 @@
                     <div class="col-lg-12">
                         <table class="table table-bordered table-striped">
                             <thead>
+                            <h5>
+                                放映质量计算规则
+                            </h5>
                             <tr>
-                                <th>设备ID</th>
-                                <th>种类</th>
-                                <th>规格/类型</th>
-                                <th>品牌</th>
-                                <th>系列</th>
-                                <th>型号</th>
-                                <th>详情</th>
+                                <th>序号</th>
+                                <th>规则名称</th>
+                                <th>记分因素</th>
+                                <th>总分值</th>
+                                <th>提出者</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -146,31 +160,12 @@
                                 <th><a href="/base/equipment/details">详情</a></th>
                             </tr>
                             <tr>
-                                <td >23543</td>
-                                <td >扬声器</td>
-                                <td >HARMAN</td>
-                                <td >HARMAN</td>
-                                <td >T</td>
-                                <td >HARMAN</td>
-                                <th><a href="/base/equipment/details">详情</a></th>
-                            </tr>
-                            <tr>
-                                <td >23892</td>
-                                <td >服务器</td>
-                                <td >高级存储</td>
-                                <td >华为</td>
-                                <td >存储系列</td>
-                                <td >SLM</td>
-                                <th><a href="/base/equipment/details">详情</a></th>
-                            </tr>
-                            <tr>
-                                <td >23356</td>
-                                <td >服务器</td>
-                                <td >计算服务</td>
-                                <td >惠普</td>
-                                <td >计算系列</td>
-                                <td >HP_LL</td>
-                                <th><a href="/base/equipment/details">详情</a></th>
+                                <td >1</td>
+                                <td >常规平均记分</td>
+                                <td >温度，湿度，最大声压，pm2.5,pm10，银幕中心亮度，亮度均匀度，顺序对比度，帧内对比度，设备故障概率</td>
+                                <td >1000</td>
+                                <td >李维</td>
+                                <td >配置（绿色按钮形式） 应用（蓝色按钮形式）</td>
                             </tr>
                             </tbody>
                         </table>
@@ -242,56 +237,59 @@
     var barChart = echarts.init(document.getElementById("barChart"));
 
     var builderJson = {
-        "all": 10887,
+        "all": 1200,
         "charts": {
-            "map": 3237,
-            "lines": 2164,
-            "bar": 7561,
-            "line": 7778,
-            "pie": 7355,
-            "scatter": 2405,
-            "candlestick": 1842,
-            "radar": 2090,
-            "heatmap": 1762,
-            "treemap": 1593,
-            "graph": 2060,
-            "boxplot": 1537,
-            "parallel": 1908,
-            "gauge": 2107,
-            "funnel": 1692,
-            "sankey": 1568
+            "影厅1": 890,
+            "影厅2": 850,
+            "影厅3": 900,
+            "影厅4": 950,
+            "影厅5": 810,
+            "影厅6": 910,
+            "影厅7": 830,
+            "影厅8": 850,
+            "影厅9": 820,
+            "影厅10": 950,
+            "影厅11": 970,
+            "影厅12": 920
         },
         "components": {
-            "geo": 2788,
-            "title": 9575,
-            "legend": 9400,
-            "tooltip": 9466,
-            "grid": 9266,
-            "markPoint": 3419,
-            "markLine": 2984,
-            "timeline": 2739,
-            "dataZoom": 2744,
-            "visualMap": 2466,
-            "toolbox": 3034,
-            "polar": 1945
+            "影厅1": 890,
+            "影厅2": 850,
+            "影厅3": 900,
+            "影厅4": 950,
+            "影厅5": 810,
+            "影厅6": 910,
+            "影厅7": 830,
+            "影厅8": 850,
+            "影厅9": 820,
+            "影厅10": 950,
+            "影厅11": 970,
+            "影厅12": 920
         },
         "ie": 9743
     };
 
     var downloadJson = {
-        "小张": 110,
-        "小李": 135,
-        "小王": 129,
-        "小赵": 148
+        "李维": 110,
+        "曾真": 135,
+        "田由甲": 129,
+        "李俊": 120,
+        "申里姗": 148
     };
 
     var themeJson = {
-        "影厅1": 1594,
-        "影厅2": 925,
-        "影厅3": 1608,
-        "影厅4": 721,
-        "影厅5": 2179,
-        "影厅6": 1982
+        "影厅1": 60,
+        "影厅2": 98,
+        "影厅3": 87,
+        "影厅4": 72,
+        "影厅5": 79,
+        "影厅6": 92,
+        "影厅7": 72,
+        "影厅8": 82,
+        "影厅9": 65,
+        "影厅10": 83,
+        "影厅11": 67,
+        "影厅12": 78
     };
 
     var waterMarkText = '';
@@ -331,19 +329,19 @@
         }],
         tooltip: {},
         title: [{
-            text: '维修及维护统计',
-            subtext: '总计 ' + builderJson.all,
+            text: '影院放映质量对比',
+            subtext: '平均得分 846 ',
             x: '25%',
             textAlign: 'center'
         }, {
-            text: '员工出勤天数统计',
+            text: '影院工作量统计（按员工分类）',
             subtext: '总计 ' + Object.keys(downloadJson).reduce(function (all, key) {
                 return all + downloadJson[key];
             }, 0),
             x: '75%',
             textAlign: 'center'
         }, {
-            text: '影厅入座人数',
+            text: '影院工作量统计（按放映厅分类）',
             subtext: '总计 ' + Object.keys(themeJson).reduce(function (all, key) {
                 return all + themeJson[key];
             }, 0),
