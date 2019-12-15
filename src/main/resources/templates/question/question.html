@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -134,7 +134,7 @@
                                         <a href="/question/details" style="color: #fff;">在线测试</a>
                                     </button>
                                     <span>&nbsp;</span>
-                                    <a href="/question/insert">
+                                    <a href="/question/question">
                                         <button type="button" class="btn btn-primary">添加题目</button>
                                     </a>
                                 </div>
@@ -147,37 +147,27 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>题目类型</th>
                                     <th>题目对象</th>
                                     <th>题目分值</th>
                                     <th>相关资源</th>
-                                    <th>预留属性</th>
+                                    <th>题目描述</th>
                                     <th>进入答题</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="cinema : ${cinemas}">
-                                    <td th:text="${cinema.cinemaName}">北京XXX影城</td>
-                                    <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
-                                    <td th:text="${cinema.address}">平乐园100号</td>
-                                    <td th:text="${cinema.responsible}">张三</td>
-                                    <td th:text="${cinema.responsiblePhone}">140000</td>
-                                    <td th:text="${cinema.manager}">ac</td>
-                                    <td th:text="${cinema.managerPhone}">dfjlsd</td>
-                                    <td th:text="${cinema.roomNumber}">1300000000</td>
-                                    <th><a href="/details">详情>></a></th>
-                                </tr>
                                 <tr>
+                                    <td>1</td>
                                     <td>维护</td>
                                     <td>影院</td>
                                     <td>3</td>
-                                    <td>GY 2312标准</td>
-                                    <td>4</td>
-                                    <td ><a href="/question/details">进入答题</a></td>
-
+                                    <td><a href="/documents/operate_details">投影灯盖板拆卸教程</a></td>
+                                    <td>拆卸投影灯盖板需要松开哪两个位置的螺钉？</td>
+                                    <td >进入答题</td>
                                 </tr>
                                 </tbody>
                             </table>

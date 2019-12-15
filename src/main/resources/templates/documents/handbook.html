@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -95,24 +95,24 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <div class="col-3">
-                      <label>故障对象</label>
+                      <label>设备类型</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
                         <select class="form-control">
-                          <option>放映机故障</option>
-                          <option>服务器故障</option>
-                          <option>音响故障</option>
+                          <option>放映机</option>
+                          <option>服务器</option>
+                          <option>音响</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-3">
-                      <label>对象型号</label>
+                      <label>设备型号</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
                         <select class="form-control">
-                          <option>DP2K</option>
-                          <option>DP2K</option>
-                          <option>DP2K</option>
+                          <option>DP2K-20C</option>
+                          <option>DP2K-23B</option>
+                          <option>DP2K-10S</option>
                         </select>
                       </div>
                     </div>
@@ -128,8 +128,8 @@
                       </div>
                     </div>
                     <div class="col-3">
-                      <label>故障详细代码：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：248-2011">
+                      <label>故障代码：</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：5004">
                     </div>
                   </div>
                 <!-- /.card-body -->
@@ -144,27 +144,69 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>设备及其型号</th>
-                  <th>故障代码</th>
+                  <th>序号</th>
+                  <th>设备类型</th>
+                  <th>设备品牌</th>
+                  <th>设备型号</th>
                   <th>故障类型</th>
-                  <th>故障原因</th>
-                  <th>预留属性</th>
-                  <th>预留属性</th>
+                  <th>故障代码</th>
+                  <th>故障信息</th>
                   <th>详情>></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>BARCO DP2K</td>
-                  <td>5003</td>
+                  <td>1</td>
+                  <td>放映机</td>
+                  <td>巴可</td>
+                  <td>DP2K系列</td>
                   <td>错误</td>
+                  <td>5004</td>
+                  <td>“灯 - 无通讯”</td>
+                  <td><a href="/documents/hand_details">详情>> </a>  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>放映机</td>
+                  <td>巴可</td>
+                  <td>DP2K系列</td>
+                  <td>错误</td>
+                  <td>5005</td>
+                  <td>“灯电源 - 通讯失败”</td>
+                  <td>详情>> </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>放映机</td>
+                  <td>巴可</td>
+                  <td>DP2K系列</td>
+                  <td>警告</td>
+                  <td>5043</td>
+                  <td>“反射镜风扇 - 转速低”</td>
+                  <td>详情>> </td>
+                </tr>
+                <tr>
                   <td>4</td>
-                  <td>4</td>
-                  <td>4</td>
-                  <td><a href="/documents/hand_details">详情>> </a> </td>
+                  <td>放映机</td>
+                  <td>巴可</td>
+                  <td>DP2K系列</td>
+                  <td>警告</td>
+                  <td>5123</td>
+                  <td>“灯后部风扇 - 转速低”</td>
+                  <td>详情>> </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>放映机</td>
+                  <td>巴可</td>
+                  <td>DP2K系列</td>
+                  <td>错误</td>
+                  <td>5180</td>
+                  <td>“灯箱 - 未连接”</td>
+                  <td><a href="/documents/hand_details5180">详情>> </a> </td>
                 </tr>
                 </tbody>
               </table>

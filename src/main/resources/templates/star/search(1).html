@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -74,7 +74,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">主页</a></li>
-            <li class="breadcrumb-item active">影院星级评定</li>
+            <li class="breadcrumb-item active">影院星级评定历史记录</li>
           </ol>
         </div>
       </div>
@@ -86,7 +86,7 @@
       <div class="col-12">
       <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">影院星级检索</h3>
+              <h3 class="card-title">记录检索</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -98,11 +98,11 @@
                       <div class="form-group">
                         <label>级别：</label>
                         <select class="form-control" name="type">
-                          <option>一星</option>
-                          <option>二星</option>
-                          <option>三星</option>
-                          <option>四星</option>
                           <option>五星</option>
+                          <option>四星</option>
+                          <option>三星</option>
+                          <option>二星</option>
+                          <option>一星</option>
                         </select>
                       </div>
                     </div>
@@ -129,22 +129,24 @@
       </div>
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">星级评定检索结果</h3>
+            <h3 class="card-title">历史记录检索结果</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped">
               <thead>
               <tr>
+                <th>序号</th>
                 <th>检测编号</th>
                 <th>影院名称</th>
                 <th>检测结果</th>
-                <th>级别</th>
+                <th>当前级别</th>
                 <th>检测日期</th>
               </tr>
               </thead>
               <tbody>
               <tr th:each="cinema : ${cinemas}">
+                <td th:text="${cinema.cinemaName}">0</td>
                 <td th:text="${cinema.cinemaName}">北京XXX影城</td>
                 <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
                 <td th:text="${cinema.address}">平乐园100号</td>
@@ -152,24 +154,27 @@
                 <td th:text="${cinema.responsiblePhone}">140000</td>
               </tr>
               <tr>
+                <td >1</td>
                 <td >0010201911010001</td>
                 <td >北京UME影城（华星店）</td>
                 <td >合格</td>
-                <td >5</td>
+                <td >五星级</td>
                 <td >2019/11/16</td>
               </tr>
               <tr>
+                <td >2</td>
                 <td >0010201911010002</td>
                 <td >北京UME影城（双井店）</td>
                 <td >合格</td>
-                <td >4</td>
+                <td >五星级</td>
                 <td >2019/11/16</td>
               </tr>
               <tr>
+                <td >3</td>
                 <td >0010201911010003</td>
                 <td >北京东融国际影城</td>
                 <td >不合格</td>
-                <td >0</td>
+                <td >三星级</td>
                 <td >2019/11/16</td>
               </tr>
               </tbody>

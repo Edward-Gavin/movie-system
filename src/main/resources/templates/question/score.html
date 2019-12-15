@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -100,9 +100,10 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
+                                    <th>序号</th>
                                     <th>日期</th>
                                     <th>时间</th>
                                     <th>变动</th>
@@ -112,23 +113,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="cinema : ${cinemas}">
-                                    <td th:text="${cinema.cinemaName}">北京XXX影城</td>
-                                    <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
-                                    <td th:text="${cinema.address}">平乐园100号</td>
-                                    <td th:text="${cinema.responsible}">张三</td>
-                                    <td th:text="${cinema.responsiblePhone}">140000</td>
-                                    <td th:text="${cinema.manager}">ac</td>
-                                    <td th:text="${cinema.managerPhone}">dfjlsd</td>
-                                    <td th:text="${cinema.roomNumber}">1300000000</td>
-                                    <th><a href="/details">详情>></a></th>
-                                </tr>
                                 <tr>
+                                    <td>1</td>
                                     <td>2019年10月20日</td>
                                     <td>13:09</td>
                                     <td>+3</td>
                                     <td>答题</td>
-                                    <td>777</td>
+                                    <td>780</td>
                                     <td ><a href="#">详情>></a></td>
 
                                 </tr>
