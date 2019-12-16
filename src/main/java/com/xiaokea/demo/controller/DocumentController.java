@@ -49,4 +49,10 @@ public class DocumentController {
 
         return "documents/hand_details";
     }
+
+    @RequestMapping("/documents/hand_details5180")
+    public String getHandbookDetails5(Model model) {
+
+        return "documents/hand_details5180";
+    }
 }
