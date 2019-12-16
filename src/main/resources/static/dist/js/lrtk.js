@@ -52,7 +52,7 @@ TransformView.prototype = {
   SetOptions: function(options) {
 	this.options = {
 		Up:			true,
-		Step:		5,
+		Step:		8,
 		Time:		10,
 		Auto:		true,
 		Pause:		200,
@@ -107,7 +107,7 @@ TransformView.prototype = {
 	function mytv(aa,bb,cc,dd,ee,ff,gg,hh,ii,jj){
 var objs = ybvvjdt(aa).getElementsByTagName("li");
 var tv = new TransformView(bb,cc,dd,ee, {
-onStart : function(){ Each(objs, function(o, i){ o.className = tv.Index == i ? "on" : ""; }) }//°´Å¥ÑùÊ½
+onStart : function(){ Each(objs, function(o, i){ o.className = tv.Index == i ? "on" : ""; }) }//ï¿½ï¿½Å¥ï¿½ï¿½Ê½
 });
 
 
