@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -103,10 +103,13 @@
                                     <div class="form-group row">
                                         <div class="col-3">
                                             <h5>
-                                                当前影院：
+                                                当前影院：中影国际影城(欢乐海岸店)          对比影院
                                             </h5>
                                             <select class="form-control">
-                                                <option>中影国际影城(欢乐海岸店)</option>
+                                                <option>万达影城(五角场店)</option>
+                                                <option>UME华星影城</option>
+                                                <option>首都电影院(西单大悦城店)</option>
+                                                <option>大光明影院</option>
                                             </select>
                                         </div>
                                         <div class="col-3">
@@ -165,7 +168,14 @@
                                 <td >温度，湿度，最大声压，pm2.5,pm10，银幕中心亮度，亮度均匀度，顺序对比度，帧内对比度，设备故障概率</td>
                                 <td >1000</td>
                                 <td >李维</td>
-                                <td >配置（绿色按钮形式） 应用（蓝色按钮形式）</td>
+                                <td >
+                                        <div class="float-lg-left">
+                                                <button type="button" class="btn btn-sm" style="color: blue">配置</button>
+                                            </a>
+                                                <button type="button" class="btn btn-sm" style="color: green">应用</button>
+                                            </a>
+                                        </div>
+                              </td>
                             </tr>
                             </tbody>
                         </table>
@@ -253,18 +263,18 @@
             "影厅12": 920
         },
         "components": {
-            "影厅1": 890,
-            "影厅2": 850,
-            "影厅3": 900,
-            "影厅4": 950,
-            "影厅5": 810,
-            "影厅6": 910,
-            "影厅7": 830,
-            "影厅8": 850,
-            "影厅9": 820,
-            "影厅10": 950,
-            "影厅11": 970,
-            "影厅12": 920
+            "影厅1": 790,
+            "影厅2": 980,
+            "影厅3": 870,
+            "影厅4": 810,
+            "影厅5": 900,
+            "影厅6": 920,
+            "影厅7": 850,
+            "影厅8": 910,
+            "影厅9": 800,
+            "影厅10": 910,
+            "影厅11": 890,
+            "影厅12": 840
         },
         "ie": 9743
     };
@@ -279,17 +289,17 @@
 
     var themeJson = {
         "影厅1": 60,
-        "影厅2": 98,
-        "影厅3": 87,
-        "影厅4": 72,
-        "影厅5": 79,
-        "影厅6": 92,
-        "影厅7": 72,
-        "影厅8": 82,
+        "影厅2": 47,
+        "影厅3": 51,
+        "影厅4": 56,
+        "影厅5": 49,
+        "影厅6": 58,
+        "影厅7": 50,
+        "影厅8": 57,
         "影厅9": 65,
-        "影厅10": 83,
+        "影厅10": 42,
         "影厅11": 67,
-        "影厅12": 78
+        "影厅12": 40
     };
 
     var waterMarkText = '';
@@ -330,7 +340,7 @@
         tooltip: {},
         title: [{
             text: '影院放映质量对比',
-            subtext: '平均得分 846 ',
+            subtext: '平均得分  887.5 / 872.5',
             x: '25%',
             textAlign: 'center'
         }, {
