@@ -89,7 +89,7 @@
         <div class="col-12">
 		<div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">请输入任务信息</h3>
+                <h3 class="card-title">任务信息检索</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -98,11 +98,11 @@
                   <div class="row">
                     <div class="form-group col-2">
                       <label>日期：</label>
-                      <input type="text" class="form-control" name="date">
+                      <input type="text" class="form-control" name="date">2019/12/17</input>
                     </div>
                     <div class="form-group col-2">
                       <label>责任人：</label>
-                      <input type="text" class="form-control" name="responsible">
+                      <input type="text" class="form-control" name="responsible">李维</input>
                     </div>
                     <div class="form-group col-2">
                       <label>影厅：</label>
@@ -148,37 +148,67 @@
                 <tr>
                   <th>序号</th>
                   <th>任务名称</th>
+                  <th>影厅</th>
                   <th>设备</th>
                   <th>日期</th>
                   <th>责任人</th>
                   <th>任务类型</th>
                   <th>任务发布人</th>
-                  <th>任务描述</th>
-                  <th>操作</th>
+                  <th>状态</th>
                   <th>详情</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="task : ${tasks}">
-                  <td th:text="${task.id}"></td>
-                  <td th:text="${task.title}">Internet</td>
-                  <td th:text="${task.equipment}"></td>
-                  <td th:text="${task.date}"></td>
-                  <td th:text="${task.responsible}"></td>
-                  <td th:text="${task.status}"></td>
-                  <td th:text="${task.publish}"></td>
-                  <td th:text="${task.detail}"></td>
+                  <td>1</td>
+                  <td>放映机光路清洁</td>
+                  <td>1号厅</td>
+                  <td>科视 CP4325-RGB</td>
+                  <td>2019-11-21</td>
+                  <td>李俊</td>
+                  <td>日常维护</td>
+                  <td>李维</td>
                   <td>
                     <div class="float-lg-left">
                       <a style="color: #ffffff;">
-                        <button type="button" class="btn btn-sm" style="color: green">修改</button>
-                      </a>
-                      <a style="color: #ffffff;">
-                        <button type="button" class="btn btn-sm" style="color: red">删除</button>
+                        <button type="button" class="btn btn-sm" style="color: green">已完成</button>
                       </a>
                     </div>
                   </td>
                   <td ><a href="#">详情>></a></td>
+                  <td>2</td>
+                  <td>服务器运维</td>
+                  <td>2号厅</td>
+                  <td>Barco ICMP 巴可灵睿ICMP（带HDMI2.0）</td>
+                  <td>2019-11-20</td>
+                  <td>申立姗</td>
+                  <td>日常维护</td>
+                  <td>李维</td>
+                  <td>
+                    <div class="float-lg-left">
+                      <a style="color: #ffffff;">
+                        <button type="button" class="btn btn-sm" style="color: green">已完成</button>
+                      </a>
+                    </div>
+                  </td>
+                  <td ><a href="#">详情>></a></td>
+                  <td>3</td>
+                  <td>扬声器维修</td>
+                  <td>3号厅</td>
+                  <td>SC-1120两分频银幕扬声器</td>
+                  <td>2019-11-19</td>
+                  <td>田由甲</td>
+                  <td>设备维修</td>
+                  <td>李维</td>
+                  <td>
+                    <div class="float-lg-left">
+                      <a style="color: #ffffff;">
+                        <button type="button" class="btn btn-sm" style="color: green">已完成</button>
+                      </a>
+                    </div>
+                  </td>
+                  <td ><a href="#">详情>></a></td>
+
                 </tr>
                 </tbody>
               </table>

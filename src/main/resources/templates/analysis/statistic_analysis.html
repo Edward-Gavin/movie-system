@@ -103,17 +103,10 @@
                                     <div class="form-group row">
                                         <div class="col-2">
                                             <h6>
-                                                当前影院:
-                                            </h6>
-                                            <span>
-                                                中影国际影城(欢乐海岸店)
-                                            </span>
-                                        </div>
-                                        <div class="col-4">
-                                            <h6>
-                                                对比影院:
+                                                选择影院:
                                             </h6>
                                             <select class="form-control">
+                                                <option>中影国际影城(欢乐海岸店)</option>
                                                 <option>万达影城(五角场店)</option>
                                                 <option>UME华星影城</option>
                                                 <option>首都电影院(西单大悦城店)</option>
@@ -122,7 +115,7 @@
                                         </div>
                                         <div class="col-4">
                                             <h6>
-                                                时间范围：
+                                                时间范围:
                                             </h6>
                                             <select class="form-control">
                                                 <option>最近1个月</option>
@@ -173,6 +166,21 @@
                                 <td >常规平均记分</td>
                                 <td >温度，湿度，最大声压，pm2.5,pm10，银幕中心亮度，亮度均匀度，顺序对比度，帧内对比度，设备故障概率</td>
                                 <td >1000</td>
+                                <td >李维</td>
+                                <td >
+                                        <div class="float-lg-left">
+                                                <button type="button" class="btn btn-sm" style="color: blue">配置</button>
+                                            </a>
+                                                <button type="button" class="btn btn-sm" style="color: green">应用</button>
+                                            </a>
+                                        </div>
+                              </td>
+                            </tr>
+                            <tr>
+                                <td >2</td>
+                                <td >基于故障及隐患计分</td>
+                                <td >设备维护周期，设备老化程度，设备故障概率</td>
+                                <td >100</td>
                                 <td >李维</td>
                                 <td >
                                         <div class="float-lg-left">
@@ -253,36 +261,22 @@
     var barChart = echarts.init(document.getElementById("barChart"));
 
     var builderJson = {
-        "all": 1200,
+        "all": 1000,
         "charts": {
-            "影厅1": 890,
-            "影厅2": 850,
-            "影厅3": 900,
-            "影厅4": 950,
-            "影厅5": 810,
-            "影厅6": 910,
-            "影厅7": 830,
-            "影厅8": 850,
-            "影厅9": 820,
-            "影厅10": 950,
-            "影厅11": 970,
-            "影厅12": 920
+            "1号厅": 890,
+            "2号厅": 850,
+            "3号厅": 900,
+            "4号厅": 950,
+            "5号厅": 810,
+            "6号厅": 910,
+            "7号厅": 830,
+            "8号厅": 850,
+            "9号厅": 820,
+            "10号厅": 950,
+            "11号厅": 970,
+            "VIP厅": 920
         },
-        "components": {
-            "影厅1": 790,
-            "影厅2": 980,
-            "影厅3": 870,
-            "影厅4": 810,
-            "影厅5": 900,
-            "影厅6": 920,
-            "影厅7": 850,
-            "影厅8": 910,
-            "影厅9": 800,
-            "影厅10": 910,
-            "影厅11": 890,
-            "影厅12": 840
-        },
-        "ie": 9743
+        "ie": 1
     };
 
     var downloadJson = {
@@ -294,18 +288,11 @@
     };
 
     var themeJson = {
-        "影厅1": 60,
-        "影厅2": 47,
-        "影厅3": 51,
-        "影厅4": 56,
-        "影厅5": 49,
-        "影厅6": 58,
-        "影厅7": 50,
-        "影厅8": 57,
-        "影厅9": 65,
-        "影厅10": 42,
-        "影厅11": 67,
-        "影厅12": 40
+            "李维": 95%,
+            "曾真": 98%,
+            "田由甲": 87%,
+            "李俊": 81%,
+            "申里姗": 90%,
     };
 
     var waterMarkText = '';
@@ -345,20 +332,20 @@
         }],
         tooltip: {},
         title: [{
-            text: '影院放映质量对比',
-            subtext: '平均得分  887.5 / 872.5',
+            text: '影院放映质量',
+            subtext: '平均得分  887.5',
             x: '25%',
             textAlign: 'center'
         }, {
-            text: '影院工作量统计（按员工分类）',
+            text: '影院工作量统计',
             subtext: '总计 ' + Object.keys(downloadJson).reduce(function (all, key) {
                 return all + downloadJson[key];
             }, 0),
             x: '75%',
             textAlign: 'center'
         }, {
-            text: '影院工作量统计（按放映厅分类）',
-            subtext: '总计 ' + Object.keys(themeJson).reduce(function (all, key) {
+            text: '工作完成率统计',
+            subtext: '平均  90.2%'  {
                 return all + themeJson[key];
             }, 0),
             x: '75%',
@@ -368,13 +355,7 @@
         grid: [{
             top: 50,
             width: '50%',
-            bottom: '45%',
-            left: 10,
-            containLabel: true
-        }, {
-            top: '55%',
-            width: '50%',
-            bottom: 0,
+            bottom: '0',
             left: 10,
             containLabel: true
         }],
@@ -384,28 +365,10 @@
             splitLine: {
                 show: false
             }
-        }, {
-            type: 'value',
-            max: builderJson.all,
-            gridIndex: 1,
-            splitLine: {
-                show: false
-            }
         }],
         yAxis: [{
             type: 'category',
             data: Object.keys(builderJson.charts),
-            axisLabel: {
-                interval: 0,
-                rotate: 30
-            },
-            splitLine: {
-                show: false
-            }
-        }, {
-            gridIndex: 1,
-            type: 'category',
-            data: Object.keys(builderJson.components),
             axisLabel: {
                 interval: 0,
                 rotate: 30
@@ -441,35 +404,6 @@
                 return builderJson.all - builderJson.charts[key];
             })
         }, {
-            type: 'bar',
-            stack: 'component',
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            z: 3,
-            label: {
-                normal: {
-                    position: 'right',
-                    show: true
-                }
-            },
-            data: Object.keys(builderJson.components).map(function (key) {
-                return builderJson.components[key];
-            })
-        }, {
-            type: 'bar',
-            stack: 'component',
-            silent: true,
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            itemStyle: {
-                normal: {
-                    color: '#eee'
-                }
-            },
-            data: Object.keys(builderJson.components).map(function (key) {
-                return builderJson.all - builderJson.components[key];
-            })
-        }, {
             type: 'pie',
             radius: [0, '30%'],
             center: ['75%', '25%'],
@@ -480,9 +414,14 @@
                 }
             })
         }, {
-            type: 'pie',
-            radius: [0, '30%'],
-            center: ['75%', '75%'],
+            type: 'bar',
+            stack: 'chart',
+            silent: true,
+            itemStyle: {
+                normal: {
+                    color: '#eee'
+                }
+            },
             data: Object.keys(themeJson).map(function (key) {
                 return {
                     name: key.replace('.js', ''),

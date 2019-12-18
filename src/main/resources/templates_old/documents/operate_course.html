@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>维护教程</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.min.css}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" th:href="@{/plugins/datatables/dataTables.bootstrap4.min.css}">
+  <!-- Theme style -->
+  <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/index" class="nav-link">主页</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link"></a>
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <div th:replace="model/topper :: topper-info"></div>
+      <!-- Notifications Dropdown Menu -->
+      <div th:replace="model/topper :: topper-notice"></div>
+      <!-- Skin Menu -->
+      <div th:replace="model/topper :: topper-skin"></div>
+      <!-- User profile           -->
+      <div th:replace="model/topper :: topper-user"></div>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+	<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<!-- Brand Logo -->
+		<div th:replace="model/left :: left-logo"></div>
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar user panel (optional) -->
+			<div th:replace="model/left :: left-nav-client"></div>
+			<!-- Sidebar Menu -->
+			<div th:replace="model/left :: left-nav"></div>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+	</aside>
+	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>维护教程</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">主页</a></li>
+              <li class="breadcrumb-item active">维护教程</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+		<div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">输入维护教程信息</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <div class="col-2">
+                      <label>设备种类</label>
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>放映机</option>
+                          <option>功放</option>
+                          <option>音响</option>
+                          <option>服务器</option>
+                          <option>屏幕</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <label>规格/类型</label>
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>氙灯</option>
+                          <option>汞灯</option>
+                          <option>激光</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <label>设备品牌</label>
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>巴克</option>
+                          <option>可视</option>
+                          <option>杜比</option>
+                          <option>索尼</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <label>设备系列</label>
+                      <div class="form-group">
+                        <select class="form-control">
+                          <option>B 系列</option>
+                          <option>C 系列</option>
+                          <option>D 系列</option>
+                          <option>S 系列</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <label>设备型号</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：DP2K-20C">
+                    </div>
+                  </div>
+                <!-- /.card-body -->
+                    <button style="float: right" type="submit" class="btn btn-primary">筛选</button>
+                </div>
+              </form>
+            </div>        
+          <!-- /.card -->
+		  <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">维护教程</h3>
+            </div>
+             <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th>教程名称</th>
+                    <th>适用设备类型</th>
+                    <th>适用设备品牌</th>
+                    <th>适用设备型号</th>
+                    <th>备注</th>
+                    <th>详情</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>投影灯盖板拆卸教程</td>
+                    <td>放映机</td>
+                    <td>巴可</td>
+                    <td>DP2K-20C</td>
+                    <td> </td>
+                    <td><a href="/documents/operate_details">详情>> </a></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>输入盖板拆卸教程</td>
+                    <td>放映机</td>
+                    <td>巴可</td>
+                    <td>DP2K-20C</td>
+                    <td> </td>
+                    <td><a href="/">详情>> </a></td>
+                  </tr>
+                </tbody>
+<!--                <tfoot>-->
+<!--                <tr>-->
+<!--                  <th>Rendering engine</th>-->
+<!--                  <th>Browser</th>-->
+<!--                  <th>Platform(s)</th>-->
+<!--                  <th>Platform(s)</th>-->
+<!--                  <th>Platform(s)</th>-->
+<!--                  <th>Engine version</th>-->
+<!--                  <th>CSS grade</th>-->
+<!--                </tr>-->
+<!--                </tfoot>-->
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+<div th:replace="model/footer :: footer-and-right"></div>
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- DataTables -->
+<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/datatables/dataTables.bootstrap4.min.js}"></script>
+<!-- SlimScroll -->
+<script th:src="@{/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
+<!-- FastClick -->
+<script th:src="@{/plugins/fastclick/fastclick.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
+<!-- AdminLTE for demo purposes -->
+<script th:src="@{/dist/js/demo.js}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -143,7 +143,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-6">
-                  <h3 class="card-title" style="margin-top: 0.5rem; ">计分板</h3>
+                  <h3 class="card-title" style="margin-top: 0.5rem; ">答题</h3>
                 </div>
                 <div class="col-6">
                   <button class="btn btn-info float-right" style="background-color: #4ba4f7;border-color: #4ba4f7;">提交答案</button>
@@ -311,24 +311,73 @@
       var questionList = {
         "question1" :       {
           id      :   0,
-          title   :   "中国第一部获得国际奖的电影是?",
-          options :   ["《神女》", "《歌女红牡丹》", "《渔光曲》", "《生死恨》"],
+          title   :   "2K数字电影放映机的分辨率为： ",
+          options :   ["1280×1080", "1920×1080", "2048×1080", "4096×2160"],
           video   :   "src=\"/video/abc.mov\"",
-          info    :   ["标准 影院", "3", "GY HYT-126837"]
+          info    :   ["电影技术基础知识", "3", " "]
         },
         "question2" :       {
           id      :   1,
-          title   :   "Title here?2",
-          options :   ["option1", "option2", "option3", "option4"],
+          title   :   "4K的像素数是2K像素数的几倍？",
+          options :   ["1倍", "2倍", "3倍", "4倍"],
           video   :   "src=\"/video/abc.mov\"",
-          info    :   ["标准 影院", "3", "GY HYT-126837"]
+          info    :   ["电影技术基础知识", "3", " "]
         },
         "question3" :       {
           id      :   2,
-          title   :   "Title here?3",
-          options :   ["option1", "option2", "option3", "option4"],
+          title   :   "数字电影在播放视频图像是，至少每秒要达到多少帧？",
+          options :   ["12帧", "24帧", "48帧", "64帧"],
           video   :   "src=\"/video/abc.mov\"",
-          info    :   ["标准 影院", "3", "GY HYT-126837"]
+          info    :   ["电影技术基础知识", "3", " "]
+        }
+        "question4" :       {
+          id      :   3,
+          title   :   "当机房同时装有B、C、S、E系列机型和LP系列机型，机房温度应该控制在多少？",
+          options :   ["应将温度控制在10℃～15℃", "应将温度控制在20℃～26℃", "应将温度控制在30℃～35℃", "应将温度控制在35℃～40℃"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机运行时要求", "3", "  "]
+        },
+        "question5" :       {
+          id      :   4,
+          title   :   "测量机房温湿度，温湿度计放在哪里最合适？",
+          options :   ["放映机房门口", "空调出风口", "放映设备附近", "任意位置"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机运行时要求", "3", "  "]
+        },
+        "question6" :       {
+          id      :   5,
+          title   :   "什么是放映机的约定方向？",
+          options :   ["放映机摆放位置", "给放映机指定一个统一的方向", "放映机的水平方向", "放映机的轴向方向"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机的约定方向", "3", "  "]
+        }
+        "question7" :       {
+          id      :   6,
+          title   :   "在放映机约定方向中，R代表放映机的哪一侧？",
+          options :   ["左侧", "右侧", "正面", "背面"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机的约定方向", "3", "  "]
+        },
+        "question8" :       {
+          id      :   7,
+          title   :   "DP2K-20C放映机外盖板由几块盖板组成？",
+          options :   ["六块", "七块", "八块", "九块"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机外盖板的识别与拆卸方法", "3", "  "]
+        },
+        "question9" :       {
+          id      :   8,
+          title   :   "位于放映机左侧盖板内的引擎仓盖板叫什么？",
+          options :   ["灯箱盖板", "输入盖板", "密封盖板", "顶盖板"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :    ["放映机外盖板的识别与拆卸方法", "3", "  "]
+        }
+        "question10" :       {
+          id      :   9,
+          title   :   "拆卸密封盖板并进行安装，都要使用安全认证钥匙进行安全认证，否则会出现的报错代码是什么？",
+          options :   ["10945", "10981", "20945", "20981"],
+          video   :   "src=\"/video/abc.mov\"",
+          info    :   ["放映机外盖板的识别与拆卸方法", "3", "  "]
         }
       };
 

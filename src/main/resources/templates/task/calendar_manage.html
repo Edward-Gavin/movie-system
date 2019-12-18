@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
@@ -115,7 +115,7 @@
                 </div>
                 <!-- /btn-group -->
                 <!--                <div class="input-group">-->
-                <input id="new-event-title" type="text" class="form-control" placeholder="事件标题">
+                <input id="new-event-title" type="text" class="form-control" placeholder="事件标题">放映机光路清洁</input>
                 <br>
                 <textarea id="new-event-detail" class="form-control" placeholder="请输入相关事件信息" rows="2" cols="5"></textarea>
                 <br>所在影厅
@@ -124,11 +124,25 @@
                   <option value="machine">影厅二</option>
                   <option value="voice">影厅三</option>
                 </select>
-                <br>任务所在设备
+                <br>设备类型
                 <select  id="new-event-equipment" class="form-control">
-                  <option value="server">戴尔服务器</option>
-                  <option value="machine">巴克放映机</option>
-                  <option value="voice">杜比音响</option>
+                  <option value="server">放映机</option>
+                  <option value="machine">服务器</option>
+                  <option value="voice">音频处理器</option>
+                  <option value="server">功放</option>
+                  <option value="machine">扬声器</option>
+                  <option value="voice">TMS</option>
+                  <option value="server">3D系统</option>
+                  <option value="machine">4D系统</option>
+                  <option value="voice">银幕</option>
+                </select>
+                <br>型号
+                <select  id="new-event-equipment" class="form-control">
+                  <option value="server">科视CP4325-RGB</option>
+                </select>
+                <br>序列号
+                <select  id="new-event-equipment" class="form-control">
+                  <option value="server">28114841554</option>
                 </select>
                 <br>请选择相关负责人
                 <select  id="new-event-staff" class="form-control">
@@ -138,10 +152,10 @@
                   <option value="田由甲">田由甲</option>
                   <option value="李骏">李骏</option>
                 </select>
-                <br>请选择开始时间：
-                <input id="new-event-start-time" type="time" class="form-control">
-                <br>请选择结束时间：
-                <input id="new-event-end-time" type="time" class="form-control">
+                <br>开始时间：
+                <input id="new-event-start-time" type="time" class="form-control">09:00</input>
+                <br>结束时间：
+                <input id="new-event-end-time" type="time" class="form-control">11:00</input>
                 <br>
                 <div class="input-group-append">
                   <button id="add-new-event" type="button" class="btn btn-warning btn-flat">添加</button>
