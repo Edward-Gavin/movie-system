@@ -257,9 +257,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 <!-- bar-chart -->
 <script>
-
     var barChart = echarts.init(document.getElementById("barChart"));
-
     var builderJson = {
         "all": 1000,
         "charts": {
@@ -276,7 +274,7 @@
             "11号厅": 970,
             "VIP厅": 920
         },
-        "ie": 1
+        "ie": 9743
     };
 
     var downloadJson = {
@@ -288,11 +286,15 @@
     };
 
     var themeJson = {
-            "李维": 95%,
-            "曾真": 98%,
-            "田由甲": 87%,
-            "李俊": 81%,
-            "申里姗": 90%,
+        "all": 100,
+        "components": {
+            "李维": 95,
+            "曾真": 96,
+            "田由甲": 87,
+            "李俊": 81,
+            "申里姗": 90
+        },
+        "ie": 97
     };
 
     var waterMarkText = '';
@@ -308,28 +310,12 @@
     ctx.rotate(-Math.PI / 4);
     ctx.fillText(waterMarkText, 0, 0);
 
-    var option = {
+    option = {
         backgroundColor: {
             type: 'pattern',
             image: canvas,
             repeat: 'repeat'
         },
-        legend:[{
-            orient: 'vertical',
-            x: 'left',
-            type: 'scroll',
-            data: ['a']
-        }, {
-            data: ['a']
-        }, {
-            data: ['a']
-        }, {
-            data: ['a']
-        }, {
-            data: ['a','b','c','d']
-        }, {
-            data:['a','b','c','d','e','f']
-        }],
         tooltip: {},
         title: [{
             text: '影院放映质量',
@@ -345,9 +331,7 @@
             textAlign: 'center'
         }, {
             text: '工作完成率统计',
-            subtext: '平均  90.2%'  {
-                return all + themeJson[key];
-            }, 0),
+            subtext: '平均  90.2%',
             x: '75%',
             y: '50%',
             textAlign: 'center'
@@ -355,13 +339,26 @@
         grid: [{
             top: 50,
             width: '50%',
-            bottom: '0',
-            left: 10,
+            bottom: '%',
+            left: 1,
+            containLabel: true
+        }, {
+            top: '60%',
+            width: '50%',
+            bottom: 0,
+            right: 1,
             containLabel: true
         }],
         xAxis: [{
             type: 'value',
             max: builderJson.all,
+            splitLine: {
+                show: false
+            }
+        }, {
+            type: 'value',
+            max: themeJson.all,
+            gridIndex: 1,
             splitLine: {
                 show: false
             }
@@ -376,9 +373,19 @@
             splitLine: {
                 show: false
             }
+        }, {
+            gridIndex: 1,
+            type: 'category',
+            data: Object.keys(themeJson.components),
+            axisLabel: {
+                interval: 0,
+                rotate: 30
+            },
+            splitLine: {
+                show: false
+            }
         }],
         series: [{
-            name: 'test',
             type: 'bar',
             stack: 'chart',
             z: 3,
@@ -390,7 +397,7 @@
             },
             data: Object.keys(builderJson.charts).map(function (key) {
                 return builderJson.charts[key];
-            }),
+            })
         }, {
             type: 'bar',
             stack: 'chart',
@@ -404,6 +411,42 @@
                 return builderJson.all - builderJson.charts[key];
             })
         }, {
+            type: 'bar',
+            stack: 'component',
+            radius: [0, '30%'],
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            itemStyle: {
+                normal: {
+                    color: '#4B8A08'
+                }
+            },
+            z: 3,
+            label: {
+                normal: {
+                    position: 'right',
+                    show: true
+                }
+            },
+            data: Object.keys(themeJson.components).map(function (key) {
+                return themeJson.components[key];
+            })
+        }, {
+            type: 'bar',
+            radius: [0, '30%'],
+            stack: 'component',
+            silent: true,
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            itemStyle: {
+                normal: {
+                    color: '#eee'
+                }
+            },
+            data: Object.keys(themeJson.components).map(function (key) {
+                return themeJson.all - themeJson.components[key];
+            })
+        }, {
             type: 'pie',
             radius: [0, '30%'],
             center: ['75%', '25%'],
@@ -413,23 +456,8 @@
                     value: downloadJson[key]
                 }
             })
-        }, {
-            type: 'bar',
-            stack: 'chart',
-            silent: true,
-            itemStyle: {
-                normal: {
-                    color: '#eee'
-                }
-            },
-            data: Object.keys(themeJson).map(function (key) {
-                return {
-                    name: key.replace('.js', ''),
-                    value: themeJson[key]
-                }
-            })
         }]
-    };
+    }
     barChart.setOption(option);
 </script>
 </body>
