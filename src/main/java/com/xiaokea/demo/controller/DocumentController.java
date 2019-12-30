@@ -55,4 +55,10 @@ public class DocumentController {
 
         return "documents/hand_details5180";
     }
+
+    @RequestMapping("/documents/search")
+    public String getDecumentSearch(Model model) {
+
+        return "documents/search";
+    }
 }

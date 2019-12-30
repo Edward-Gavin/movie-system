@@ -40,112 +40,18 @@
       </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-comments-o"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fa fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fa fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fa fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="fa fa-clock-o mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
+      <div th:replace="model/topper :: topper-info"></div>
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa fa-bell-o"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fa fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-          <i class="fa fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <div th:replace="model/topper :: topper-notice"></div>
+      <!-- Skin Menu -->
+      <div th:replace="model/topper :: topper-skin"></div>
+      <!-- User profile           -->
+      <div th:replace="model/topper :: topper-user"></div>
+    </ul>  </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -258,7 +164,7 @@
                           &nbsp;
                         </div>
                         <div class="col-sm-11">
-                          <img class="img-fluid" alt="photo" width="35%" th:src="@{/dist/img/WechatIMG269.jpeg}">
+                          <img class="img-fluid" alt="photo" style="height: 40%; width: 40%;" th:src="@{/dist/img/WechatIMG269.jpeg}">
                         </div>
                       </div>
                     </div>
@@ -270,18 +176,16 @@
            <address></address>
               <!-- Table row -->
               <div class="row">
-			  <h4>&nbsp&nbsp&nbsp设备信息：</h4>
+			  <h4>&nbsp&nbsp&nbsp放映机信息：</h4>
                 <div class="col-12 table-responsive">
                   <table class="table table-striped">
                     <thead>
                     <tr>
                       <th>序号</th>
-                      <th>设备类型</th>
                       <th>品牌</th>
                       <th>型号</th>
                       <th>序列号</th>
                       <th>购买日期</th>
-	      <th>所在影厅</th>
 	      <th>详情</th>
                       <th>官网详情</th>
                     </tr>
@@ -289,100 +193,44 @@
                     <tbody>
                     <tr>
                       <td>1 </td>
-                      <td>放映机</td>
                       <td>科视Christie </td>
                       <td>CP4325-RGB</td>
                       <td>28114841554</td>
                       <td>2018/3/2</td>
-	      <td>1 号厅</td>
 	      <th><a href="/assets/equipment_details_k">>>详情</a></th>
                       <th><a href="https://www.christiedigital.com/zh-cn/cinema/cinema-products/digital-cinema-projectors/christie-cp4325-rgb">官网详情</a> </th>
                     </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp服务器信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
                     <tr>
-                      <td>2 </td>
-                      <td>服务器</td>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
                       <td>GDC</td>
                       <td>SX-2001A</td>
                       <td>28114841554</td>
                       <td>2018/3/2</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>音频处理器</td>
-                      <td>杜比</td>
-                      <td>CP750</td>
-                      <td>28114841554</td>
-                      <td>2018/3/2</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>功放</td>
-                      <td>飞达</td>
-                      <td>FPT-8004</td>
-                      <td>45234135</td>
-                      <td>2017/1/20</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>扬声器</td>
-                      <td>QSC</td>
-                      <td>SC-1120两分频银幕扬声器</td>
-                      <td>956453343</td>
-                      <td>2017/1/20</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>TMS</td>
-                      <td> </td>
-                      <td>中影巴可TMS</td>
-                      <td> </td>
-                      <td> </td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>3D系统</td>
-                      <td>飞迪欧</td>
-                      <td>T05L</td>
-                      <td>5343453434</td>
-                      <td>2017/1/20</td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>4D系统</td>
-                      <td>MediaMation</td>
-                      <td>MX4D</td>
-                      <td> </td>
-                      <td> </td>
-                      <td>-</td>
-                      <td>-</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>银幕</td>
-                      <td>巨星银幕</td>
-                      <td>超级微孔银幕</td>
-                      <td>7343422</td>
-                      <td>2017/1/20</td>
-                      <td>-</td>
                       <td>-</td>
                       <td>-</td>
                     </tr>
@@ -392,6 +240,245 @@
                 <!-- /.col -->
               </div>
               <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp音频处理器信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>杜比</td>
+                      <td>CP750</td>
+                      <td>28114841554</td>
+                      <td>2018/3/2</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp功放信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>飞达</td>
+                      <td>FPT-8004</td>
+                      <td>45234135</td>
+                      <td>2017/1/20</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp扬声器信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>QSC</td>
+                      <td>SC-1120两分频银幕扬声器</td>
+                      <td>956453343</td>
+                      <td>2017/1/20</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbspTMS信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td> </td>
+                      <td>中影巴可TMS</td>
+                      <td> </td>
+                      <td> </td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp3D系统信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>飞迪欧</td>
+                      <td>T05L</td>
+                      <td>5343453434</td>
+                      <td>2017/1/20</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp4D系统信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>MediaMation</td>
+                      <td>MX4D</td>
+                      <td> </td>
+                      <td> </td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
+
+              <!-- Table row -->
+              <div class="row">
+			  <h4>&nbsp&nbsp&nbsp银幕信息：</h4>
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>序号</th>
+                      <th>品牌</th>
+                      <th>型号</th>
+                      <th>序列号</th>
+                      <th>购买日期</th>
+	      <th>详情</th>
+                      <th>官网详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>巨星银幕</td>
+                      <td>超级微孔银幕</td>
+                      <td>7343422</td>
+                      <td>2017/1/20</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->          
+           <address></address>
                 
               </div>
             </div>

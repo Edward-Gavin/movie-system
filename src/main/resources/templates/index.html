@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
@@ -26,6 +26,16 @@
     <link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .BMap_cpyCtrl {
+            display: none;
+        }
+
+        .anchorBL {
+            display: none;
+        }
+
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -166,7 +176,7 @@
 <!--                                </div>-->
 <!--                            </div>-->
                             <div class="card-body" style="border-top-right-radius: .25rem;border-top-left-radius: .25rem; margin: 0; padding: 0;">
-                                <div id="mapCharts" style="height: 32.4rem;"></div>
+                                <div id="main_map" style="height: 32.4rem;"></div>
                             </div>
                         </div>
                         <!-- /.card -->
@@ -191,7 +201,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <h3 class="card-title">一周温度变化</h3>
+                                    <h3 class="card-title">影厅一周温度变化</h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
                             </div>
@@ -254,14 +264,14 @@
                                         <div class="row">
                                             <select class="form-control">
                                                 <option>放映机</option>
-                                                <option>音响</option>
+                                                <option>扬声器</option>
                                                 <option>功放</option>
                                                 <option>服务器</option>
                                                 <option>3D系统</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <h3 class="card-title">影厅各类设备比例</h3>
+                                    <h3 class="card-title">全国影院设备使用比例</h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
                             </div>
@@ -277,7 +287,7 @@
 <!--                                        <div class="row">-->
 <!--                                            <select class="form-control col-sm-6">-->
 <!--                                                <option>放映机</option>-->
-<!--                                                <option>音响</option>-->
+<!--                                                <option>扬声器</option>-->
 <!--                                                <option>功放</option>-->
 <!--                                                <option>服务器</option>-->
 <!--                                                <option>3D系统</option>-->
@@ -313,7 +323,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <h3 class="card-title">一周湿度变化</h3>
+                                    <h3 class="card-title">影厅一周湿度变化</h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
                             </div>
@@ -398,23 +408,28 @@
                                         </div>
                                     </div>
                                     <h3 class="card-title">
-                                        银幕亮度
+                                        影厅银幕亮度
                                     </h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
                             </div><!-- /.card-header -->
                             <div class="card-body">
-                                <div class="d-flex">
-                                    <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">&nbsp;</span>
-                                        <span>cd/m2</span>
-                                    </p>
-                                </div>
                                 <div class="tab-content p-0">
                                     <!-- Morris chart - Sales -->
-                                    <div class="chart tab-pane active" id="revenue-chart"
-                                         style="position: relative; height: 300px;"></div>
-                                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
+                                    <div class="chart tab-pane active" id="mullinechart"
+                                         style="position: relative; height: 370px;">
+
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row justify-content-around">
+                                   <div class="row">
+                                        <span class="mr-2">
+                                            实时影厅银幕亮度：<span style="color: green;">42 cd/㎡</span>
+                                        </span>
+                                        <span class="mr-2">
+                                            影厅荧幕亮度参考范围：<span style="color: blue;">(48 ± 10.2)cd/㎡</span>
+                                        </span>
+                                   </div>
                                 </div>
                             </div><!-- /.card-body -->
                         </div>
@@ -666,7 +681,7 @@
                                     </div>
                                     <h3 class="card-title">
                                         <!--                                        <i class="fa fa-th mr-1"></i>-->
-                                        最高声压级
+                                        影厅最高声压级
                                     </h3>
                                     <a href="javascript:void(0);"></a>
                                 </div>
@@ -683,34 +698,6 @@
                             <div class="card-body">
                                 <div class="chart" id="linechart" style="height: 370px;"></div>
                             </div>
-                            <!-- /.card-body -->
-                            <!--                            <div class="card-footer bg-transparent">-->
-                            <!--                                <div class="row">-->
-                            <!--                                    <div class="col-4 text-center">-->
-                            <!--                                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"-->
-                            <!--                                               data-fgColor="#39CCCC">-->
-
-                            <!--                                        <div class="text-white">故障</div>-->
-                            <!--                                    </div>-->
-                            <!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-                            <!--                                    <div class="col-4 text-center">-->
-                            <!--                                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"-->
-                            <!--                                               data-fgColor="#39CCCC">-->
-
-                            <!--                                        <div class="text-white">正常</div>-->
-                            <!--                                    </div>-->
-                            <!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-                            <!--                                    <div class="col-4 text-center">-->
-                            <!--                                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"-->
-                            <!--                                               data-fgColor="#39CCCC">-->
-
-                            <!--                                        <div class="text-white">在修</div>-->
-                            <!--                                    </div>-->
-                            <!--                                    &lt;!&ndash; ./col &ndash;&gt;-->
-                            <!--                                </div>-->
-                            <!--                                &lt;!&ndash; /.row &ndash;&gt;-->
-                            <!--                            </div>-->
-                            <!-- /.card-footer -->
                         </div>
                         <!-- /.card -->
                         <div class="card">
@@ -756,7 +743,7 @@
                       <i class="fa fa-ellipsis-v"></i>
                     </span>
                                         <input type="checkbox" value="" name="">
-                                        <span class="text">开会</span>
+                                        <span class="text">放映机维护</span>
                                         <small class="badge badge-info"><i class="fa fa-clock-o"></i> 4 hours</small>
                                         <div class="tools">
                                             <i class="fa fa-edit"></i>
@@ -769,7 +756,7 @@
                       <i class="fa fa-ellipsis-v"></i>
                     </span>
                                         <input type="checkbox" value="" name="">
-                                        <span class="text">还是开会</span>
+                                        <span class="text">扬声器故障检测</span>
                                         <small class="badge badge-warning"><i class="fa fa-clock-o"></i> 1 day</small>
                                         <div class="tools">
                                             <i class="fa fa-edit"></i>
@@ -782,7 +769,7 @@
                       <i class="fa fa-ellipsis-v"></i>
                     </span>
                                         <input type="checkbox" value="" name="">
-                                        <span class="text">加班开会</span>
+                                        <span class="text">影厅加湿</span>
                                         <small class="badge badge-success"><i class="fa fa-clock-o"></i> 3 days</small>
                                         <div class="tools">
                                             <i class="fa fa-edit"></i>
@@ -795,7 +782,7 @@
                       <i class="fa fa-ellipsis-v"></i>
                     </span>
                                         <input type="checkbox" value="" name="">
-                                        <span class="text">放假啦</span>
+                                        <span class="text">影厅空气质量调节</span>
                                         <small class="badge badge-primary"><i class="fa fa-clock-o"></i> 1 week</small>
                                         <div class="tools">
                                             <i class="fa fa-edit"></i>
@@ -810,43 +797,7 @@
                                 <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i>添加项目</button>
                             </div>
                         </div>
-
                         <!-- Calendar -->
-<!--                        <div class="card bg-success-gradient">-->
-<!--                            <div class="card-header no-border">-->
-<!--                                <h3 class="card-title">-->
-<!--                                    <i class="fa fa-calendar"></i>-->
-<!--                                    日常工作管理-->
-<!--                                </h3>-->
-<!--                                &lt;!&ndash; tools card &ndash;&gt;-->
-<!--                                <div class="card-tools">-->
-<!--                                    &lt;!&ndash; button with a dropdown &ndash;&gt;-->
-<!--                                    <div class="btn-group">-->
-<!--                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">-->
-<!--                                            <i class="fa fa-bars"></i></button>-->
-<!--                                        <div class="dropdown-menu float-right" role="menu">-->
-<!--                                            <a href="#" class="dropdown-item">添加事项</a>-->
-<!--                                            <a href="#" class="dropdown-item">清除事项</a>-->
-<!--                                            <div class="dropdown-divider"></div>-->
-<!--                                            <a href="#" class="dropdown-item">查看事项</a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <button type="button" class="btn btn-success btn-sm" data-widget="collapse">-->
-<!--                                        <i class="fa fa-minus"></i>-->
-<!--                                    </button>-->
-<!--                                    <button type="button" class="btn btn-success btn-sm" data-widget="remove">-->
-<!--                                        <i class="fa fa-times"></i>-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                &lt;!&ndash; /. tools &ndash;&gt;-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-header &ndash;&gt;-->
-<!--                            <div class="card-body p-0">-->
-<!--                                &lt;!&ndash;The calendar &ndash;&gt;-->
-<!--                                <div id="calendar" style="width: 100%"></div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; /.card-body &ndash;&gt;-->
-<!--                        </div>-->
                         <!-- /.card -->
                     </section>
                     <!-- right col -->
@@ -908,6 +859,7 @@
 <script th:src="@{/dist/js/pages/dashboard3.js}"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script th:src="@{/plugins/chart.js/Chart.min.js}"></script>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
@@ -917,595 +869,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=u2Sm0fY5ss4M8A2ta89LWXEtqOHGrcs2"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
-<script type="text/javascript">
-    var dom = document.getElementById("mapCharts");
-    var myChart = echarts.init(dom);
-    var app = {};
-    option = null;
-    var data = [
-        {name: '海门', value: 1},
-        {name: '鄂尔多斯', value: 1},
-        {name: '招远', value: 1},
-        {name: '舟山', value: 1},
-        {name: '齐齐哈尔', value: 2},
-        {name: '盐城', value: 6},
-        {name: '赤峰', value: 3},
-        {name: '青岛', value: 8},
-        {name: '乳山', value: 1},
-        {name: '金昌', value: 1},
-        {name: '泉州', value: 4},
-        {name: '莱西', value: 1},
-        {name: '日照', value: 2},
-        {name: '胶南', value: 2},
-        {name: '南通', value: 2},
-        {name: '拉萨', value: 1},
-        {name: '云浮', value: 1},
-        {name: '梅州', value: 2},
-        {name: '文登', value: 2},
-        {name: '上海', value: 38},
-        {name: '攀枝花', value: 2},
-        {name: '威海', value: 2},
-        {name: '承德', value: 3},
-        {name: '厦门', value: 25},
-        {name: '汕尾', value: 2},
-        {name: '潮州', value: 2},
-        {name: '丹东', value: 1},
-        {name: '太仓', value: 2},
-        {name: '曲靖', value: 2},
-        {name: '烟台', value: 4},
-        {name: '福州', value: 2},
-        {name: '瓦房店', value: 1},
-        {name: '即墨', value: 2},
-        {name: '抚顺', value: 3},
-        {name: '玉溪', value: 3},
-        {name: '张家口', value: 4},
-        {name: '阳泉', value: 1},
-        {name: '莱州', value: 3},
-        {name: '湖州', value: 3},
-        {name: '汕头', value: 3},
-        {name: '昆山', value: 3},
-        {name: '宁波', value: 12},
-        {name: '湛江', value: 2},
-        {name: '揭阳', value: 2},
-        {name: '荣成', value: 3},
-        {name: '连云港', value: 3},
-        {name: '葫芦岛', value: 5},
-        {name: '常熟', value: 3},
-        {name: '东莞', value: 10},
-        {name: '河源', value: 2},
-        {name: '淮安', value: 3},
-        {name: '泰州', value: 3},
-        {name: '南宁', value: 19},
-        {name: '营口', value: 2},
-        {name: '惠州', value: 1},
-        {name: '江阴', value: 1},
-        {name: '蓬莱', value: 1},
-        {name: '韶关', value: 2},
-        {name: '嘉峪关', value: 3},
-        {name: '广州', value: 17},
-        {name: '延安', value: 3},
-        {name: '太原', value: 9},
-        {name: '清远', value: 2},
-        {name: '中山', value: 3},
-        {name: '昆明', value: 3},
-        {name: '寿光', value: 2},
-        {name: '盘锦', value: 4},
-        {name: '长治', value: 5},
-        {name: '深圳', value: 31},
-        {name: '珠海', value: 12},
-        {name: '宿迁', value: 3},
-        {name: '咸阳', value: 3},
-        {name: '铜川', value: 2},
-        {name: '平度', value: 2},
-        {name: '佛山', value: 4},
-        {name: '海口', value: 2},
-        {name: '江门', value: 4},
-        {name: '章丘', value: 4},
-        {name: '肇庆', value: 4},
-        {name: '大连', value: 20},
-        {name: '临汾', value: 1},
-        {name: '吴江', value: 2},
-        {name: '石嘴山', value: 4},
-        {name: '沈阳', value: 28},
-        {name: '苏州', value: 17},
-        {name: '茂名', value: 3},
-        {name: '嘉兴', value: 2},
-        {name: '长春', value: 10},
-        {name: '胶州', value: 2},
-        {name: '银川', value: 2},
-        {name: '张家港', value: 2},
-        {name: '三门峡', value: 6},
-        {name: '锦州', value: 5},
-        {name: '南昌', value: 10},
-        {name: '柳州', value: 4},
-        {name: '三亚', value: 5},
-        {name: '自贡', value: 3},
-        {name: '吉林', value: 17},
-        {name: '阳江', value: 1},
-        {name: '泸州', value: 2},
-        {name: '西宁', value: 3},
-        {name: '宜宾', value: 5},
-        {name: '呼和浩特', value: 12},
-        {name: '成都', value: 18},
-        {name: '大同', value: 5},
-        {name: '镇江', value: 5},
-        {name: '桂林', value: 5},
-        {name: '张家界', value: 5},
-        {name: '宜兴', value: 5},
-        {name: '北海', value: 5},
-        {name: '西安', value: 16},
-        {name: '金坛', value: 2},
-        {name: '东营', value: 2},
-        {name: '牡丹江', value: 3},
-        {name: '遵义', value: 2},
-        {name: '绍兴', value: 5},
-        {name: '扬州', value: 5},
-        {name: '常州', value: 4},
-        {name: '潍坊', value: 3},
-        {name: '重庆', value: 28},
-        {name: '台州', value: 5},
-        {name: '南京', value: 26},
-        {name: '滨州', value: 5},
-        {name: '贵阳', value: 2},
-        {name: '无锡', value: 6},
-        {name: '本溪', value: 2},
-        {name: '克拉玛依', value: 1},
-        {name: '渭南', value: 2},
-        {name: '马鞍山', value: 3},
-        {name: '宝鸡', value: 2},
-        {name: '焦作', value: 3},
-        {name: '句容', value: 2},
-        {name: '北京', value: 36},
-        {name: '徐州', value: 5},
-        {name: '衡水', value: 4},
-        {name: '包头', value: 5},
-        {name: '绵阳', value: 3},
-        {name: '乌鲁木齐', value: 4},
-        {name: '枣庄', value: 2},
-        {name: '杭州', value: 12},
-        {name: '淄博', value: 5},
-        {name: '鞍山', value: 2},
-        {name: '溧阳', value: 2},
-        {name: '库尔勒', value: 4},
-        {name: '安阳', value: 10},
-        {name: '开封', value: 10},
-        {name: '济南', value: 12},
-        {name: '德阳', value: 5},
-        {name: '温州', value: 7},
-        {name: '九江', value: 3},
-        {name: '邯郸', value: 5},
-        {name: '临安', value: 4},
-        {name: '兰州', value: 2},
-        {name: '沧州', value: 5},
-        {name: '临沂', value: 3},
-        {name: '南充', value: 4},
-        {name: '天津', value: 10},
-        {name: '富阳', value: 3},
-        {name: '泰安', value: 2},
-        {name: '诸暨', value: 2},
-        {name: '郑州', value: 15},
-        {name: '哈尔滨', value: 14},
-        {name: '聊城', value: 1},
-        {name: '芜湖', value: 5},
-        {name: '唐山', value: 7},
-        {name: '平顶山', value: 3},
-        {name: '邢台', value: 4},
-        {name: '德州', value: 4},
-        {name: '济宁', value: 4},
-        {name: '荆州', value: 4},
-        {name: '宜昌', value: 3},
-        {name: '义乌', value: 3},
-        {name: '丽水', value: 3},
-        {name: '洛阳', value: 10},
-        {name: '秦皇岛', value: 6},
-        {name: '株洲', value: 4},
-        {name: '石家庄', value: 14},
-        {name: '莱芜', value: 4},
-        {name: '常德', value: 5},
-        {name: '保定', value: 5},
-        {name: '湘潭', value: 5},
-        {name: '金华', value: 5},
-        {name: '岳阳', value: 6},
-        {name: '长沙', value: 17},
-        {name: '衢州', value: 7},
-        {name: '廊坊', value: 9},
-        {name: '菏泽', value: 10},
-        {name: '合肥', value: 22},
-        {name: '武汉', value: 27},
-        {name: '大庆', value: 7}
-    ];
-    var geoCoordMap = {
-        '上海':[121.15,87],
-        '海门':[121.15,31],
-        '鄂尔多斯':[109.781327,39],
-        '招远':[120.38,37],
-        '舟山':[122.207216,29],
-        '齐齐哈尔':[123.97,47],
-        '盐城':[120.13,33],
-        '赤峰':[118.87,42],
-        '青岛':[120.33,36],
-        '乳山':[121.52,36],
-        '金昌':[102.188043,38],
-        '泉州':[118.58,24],
-        '莱西':[120.53,36],
-        '日照':[119.46,35],
-        '胶南':[119.97,35],
-        '南通':[121.05,32],
-        '拉萨':[91.11,29],
-        '云浮':[112.02,22],
-        '梅州':[116.1,24],
-        '文登':[122.05,37],
-        '上海':[121.48,31],
-        '攀枝花':[101.718637,26],
-        '威海':[122.1,37],
-        '承德':[117.93,40],
-        '厦门':[118.1,27],
-        '汕尾':[115.375279,22],
-        '潮州':[116.63,23],
-        '丹东':[124.37,40],
-        '太仓':[121.1,31],
-        '曲靖':[103.79,25],
-        '烟台':[121.39,37],
-        '福州':[119.3,26],
-        '瓦房店':[121.979603,39],
-        '即墨':[120.45,36],
-        '抚顺':[123.97,41],
-        '玉溪':[102.52,24],
-        '张家口':[114.87,40],
-        '阳泉':[113.57,37.85],
-        '莱州':[119.942327,37],
-        '湖州':[120.1,30],
-        '汕头':[116.69,23],
-        '昆山':[120.95,31],
-        '宁波':[121.56,29],
-        '湛江':[110.359377,21],
-        '揭阳':[116.35,23],
-        '荣成':[122.41,37],
-        '连云港':[119.16,34],
-        '葫芦岛':[120.836932,40],
-        '常熟':[120.74,31],
-        '东莞':[113.75,23],
-        '河源':[114.68,23],
-        '淮安':[119.15,33],
-        '泰州':[119.9,32],
-        '南宁':[108.33,22],
-        '营口':[122.18,40],
-        '惠州':[114.4,23],
-        '江阴':[120.26,31],
-        '蓬莱':[120.75,37],
-        '韶关':[113.62,24],
-        '嘉峪关':[98.289152,39],
-        '广州':[113.23,23],
-        '延安':[109.47,36],
-        '太原':[112.53,37],
-        '清远':[113.01,23],
-        '中山':[113.38,22],
-        '昆明':[102.73,25],
-        '寿光':[118.73,36],
-        '盘锦':[122.070714,41],
-        '长治':[113.08,36],
-        '深圳':[114.07,22],
-        '珠海':[113.52,22],
-        '宿迁':[118.3,33],
-        '咸阳':[108.72,34],
-        '铜川':[109.11,39],
-        '平度':[119.97,36],
-        '佛山':[113.11,23],
-        '海口':[110.35,20],
-        '江门':[113.06,22],
-        '章丘':[117.53,36],
-        '肇庆':[112.44,23],
-        '大连':[121.62,38],
-        '临汾':[111.5,36],
-        '吴江':[120.63,31],
-        '石嘴山':[106.39,39],
-        '沈阳':[123.38,41],
-        '苏州':[120.62,31],
-        '茂名':[110.88,21],
-        '嘉兴':[120.76,30],
-        '长春':[125.35,43],
-        '胶州':[120.03336,36],
-        '银川':[106.27,38],
-        '张家港':[120.555821,31],
-        '三门峡':[111.19,34],
-        '锦州':[121.15,41],
-        '南昌':[115.89,28],
-        '柳州':[109.4,24],
-        '三亚':[109.511909,18],
-        '自贡':[104.778442,29],
-        '吉林':[126.57,43],
-        '阳江':[111.95,21],
-        '泸州':[105.39,28],
-        '西宁':[101.74,36],
-        '宜宾':[104.56,29],
-        '呼和浩特':[111.65,40],
-        '成都':[104.06,30],
-        '大同':[113.3,40],
-        '镇江':[119.44,32],
-        '桂林':[110.28,25],
-        '张家界':[110.479191,29],
-        '宜兴':[119.82,31],
-        '北海':[109.12,21],
-        '西安':[108.95,34],
-        '金坛':[119.56,31],
-        '东营':[118.49,37],
-        '牡丹江':[129.58,44],
-        '遵义':[106.9,27],
-        '绍兴':[120.58,30],
-        '扬州':[119.42,32],
-        '常州':[119.95,31],
-        '潍坊':[119.1,36],
-        '重庆':[106.54,29],
-        '台州':[121.420757,28],
-        '南京':[118.78,32],
-        '滨州':[118.03,37],
-        '贵阳':[106.71,26],
-        '无锡':[120.29,31],
-        '本溪':[123.73,41],
-        '克拉玛依':[84.77,45],
-        '渭南':[109.5,34],
-        '马鞍山':[118.48,31],
-        '宝鸡':[107.15,34],
-        '焦作':[113.21,35],
-        '句容':[119.16,31],
-        '北京':[116.46,39],
-        '徐州':[117.2,34],
-        '衡水':[115.72,37],
-        '包头':[110,40],
-        '绵阳':[104.73,31],
-        '乌鲁木齐':[87.68,43],
-        '枣庄':[117.57,34],
-        '杭州':[120.19,30],
-        '淄博':[118.05,36],
-        '鞍山':[122.85,41],
-        '溧阳':[119.48,31],
-        '库尔勒':[86.06,41],
-        '安阳':[114.35,36],
-        '开封':[114.35,34],
-        '济南':[117,36],
-        '德阳':[104.37,31],
-        '温州':[120.65,28],
-        '九江':[115.97,29],
-        '邯郸':[114.47,36],
-        '临安':[119.72,30],
-        '兰州':[103.73,36],
-        '沧州':[116.83,38],
-        '临沂':[118.35,35],
-        '南充':[106.110698,30],
-        '天津':[117.2,39],
-        '富阳':[119.95,30],
-        '泰安':[117.13,36],
-        '诸暨':[120.23,29],
-        '郑州':[113.65,34],
-        '哈尔滨':[126.63,45],
-        '聊城':[115.97,36],
-        '芜湖':[118.38,31],
-        '唐山':[118.02,39],
-        '平顶山':[113.29,33],
-        '邢台':[114.48,37],
-        '德州':[116.29,37],
-        '济宁':[116.59,35],
-        '荆州':[112.239741,30],
-        '宜昌':[111.3,30],
-        '义乌':[120.06,29],
-        '丽水':[119.92,23],
-        '洛阳':[112.44,34],
-        '秦皇岛':[119.57,39],
-        '株洲':[113.16,27],
-        '石家庄':[114.48,38],
-        '莱芜':[117.67,36],
-        '常德':[111.69,29],
-        '保定':[115.48,38],
-        '湘潭':[112.91,27],
-        '金华':[119.64,29],
-        '岳阳':[113.09,29],
-        '长沙':[113,28],
-        '衢州':[118.88,28],
-        '廊坊':[116.7,39],
-        '菏泽':[115.480656,35],
-        '合肥':[117.27,31],
-        '武汉':[114.31,30],
-        '大庆':[125.03,46]
-    };
-
-    var convertData = function (data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    name: data[i].name,
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
-        }
-        return res;
-    };
-
-    option = {
-        title: {
-            text: '全国影院数量统计',
-            // subtext: 'data from PM25.in',
-            // sublink: 'http://www.pm25.in',
-            left: 'center',
-            top: '18rem',
-        },
-        legend: {
-            left: '20rem',
-            bottom: '100rem',
-            orient: 'vertical',
-            backgroundColor: '#d1d1d1',
-            borderRadius: 5,
-        },
-        tooltip : {
-            trigger: 'item'
-        },
-        bmap: {
-            center: [104.114129, 37.550339],
-            zoom: 3,
-            roam: true,
-            mapStyle: {
-                styleJson: [{
-                    'featureType': 'water',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'land',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#f3f3f3'
-                    }
-                }, {
-                    'featureType': 'railway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'highway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#fdfdfd'
-                    }
-                }, {
-                    'featureType': 'highway',
-                    'elementType': 'labels',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'geometry',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'geometry.fill',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'poi',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'green',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'subway',
-                    'elementType': 'all',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'manmade',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'local',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'arterial',
-                    'elementType': 'labels',
-                    'stylers': {
-                        'visibility': 'off'
-                    }
-                }, {
-                    'featureType': 'boundary',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#fefefe'
-                    }
-                }, {
-                    'featureType': 'building',
-                    'elementType': 'all',
-                    'stylers': {
-                        'color': '#d1d1d1'
-                    }
-                }, {
-                    'featureType': 'label',
-                    'elementType': 'labels.text.fill',
-                    'stylers': {
-                        'color': '#999999'
-                    }
-                }]
-            }
-        },
-        series : [
-            {
-                name: '数量',
-                type: 'scatter',
-                coordinateSystem: 'bmap',
-                data: convertData(data),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: false
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'blue'
-                    }
-                }
-            },
-            {
-                name: 'TOP 6',
-                type: 'effectScatter',
-                coordinateSystem: 'bmap',
-                data: convertData(data.sort(function (a, b) {
-                    return b.value - a.value;
-                }).slice(0, 6)),
-                symbolSize: function (val) {
-                    return val[2] / 10;
-                },
-                showEffectOn: 'render',
-                rippleEffect: {
-                    brushType: 'stroke'
-                },
-                hoverAnimation: true,
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: 'blue',
-                        shadowBlur: 10,
-                        shadowColor: '#333'
-                    }
-                },
-                zlevel: 1
-            }
-        ]
-    };;
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-    }
-</script>
 <script>
     var pieChart = echarts.init(document.getElementById("piechart"));
 
@@ -1521,7 +884,7 @@
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['科视Christie','巴可','NEC']
+            data: ['科视','巴可','NEC']
         },
         series : [
             {
@@ -1530,7 +893,7 @@
                 radius : '55%',
                 center: ['50%', '60%'],
                 data:[
-                    {value:335, name:'科视Christie'},
+                    {value:335, name:'科视'},
                     {value:310, name:'巴可'},
                     {value:234, name:'NEC'}
                 ],
@@ -1571,5 +934,224 @@
 
     pieChart.setOption(option);
 </script>
+<script>
+    var pieChart = echarts.init(document.getElementById("mullinechart"));
+
+    option = {
+        title: {
+            text: ''
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data:['中心亮度','平均亮度']
+        },
+        toolbox: {
+            feature: {
+                // saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['周一','周二','周三','周四','周五','周六','周日']
+            }
+        ],
+        yAxis : [
+            {
+                name: "cd/m2",
+                type : 'value'
+            }
+        ],
+        series : [
+            // {
+            //     name:'邮件营销',
+            //     type:'line',
+            //     smooth: true,
+            //     stack: '总量',
+            //     areaStyle: {},
+            //     data:[120, 132, 101, 134, 90, 230, 210]
+            // },
+            // {
+            //     name:'联盟广告',
+            //     type:'line',
+            //     stack: '总量',
+            //     areaStyle: {},
+            //     data:[220, 182, 191, 234, 290, 330, 310]
+            // },
+            // {
+            //     name:'视频广告',
+            //     type:'line',
+            //     stack: '总量',
+            //     areaStyle: {},
+            //     data:[150, 232, 201, 154, 190, 330, 410]
+            // },
+            {
+                name:'中心亮度',
+                type:'line',
+                smooth: true,
+                areaStyle: {normal: {}},
+                data:[34, 45, 43, 32, 43, 37, 46]
+            },
+            {
+                name:'平均亮度',
+                type:'line',
+                smooth: true,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'top'
+                    }
+                },
+                areaStyle: {normal: {}},
+                data:[36, 47, 45, 37, 46, 40, 47],
+                color: "#007cff"
+            }
+        ]
+    };
+    pieChart.setOption(option);
+</script>
+
+<script th:src="@{/dist/js/echarts.js}"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+            'echarts/chart/map', // 使用柱状图就加载bar模块，按需加载
+            'echarts/chart/pie'
+        ],
+        function (ec) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart_map = ec.init(document.getElementById('main_map'));
+
+            var itemStyle = {
+                normal:{label:{
+                        show:true,
+                        formatter:'{b}',
+                        textStyle: {fontSize: 10,fontWeight : 'bold'}
+                    }},
+                emphasis:{label:{show:true}}
+            };
+
+            var option_map = {
+                title : {
+                    text: '全国影院数量统计',
+                    x:'center'
+                },
+                tooltip : {
+                    trigger: 'item'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x:'bottom',
+                    data:['影院数量']
+                },
+                dataRange: {
+                    min: 0,
+                    max: 200,
+                    x: 'left',
+                    y: 'bottom',
+                    text:['高','低'],           // 文本，默认为数值文本
+                    calculable : true
+                },
+                toolbox: {
+                    show: true,
+                    orient : 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                roamController: {
+                    show: true,
+                    x: 'right',
+                    mapTypeControl: {
+                        'china': true
+                    }
+                },
+                series : [
+                    {
+                        name: '影院数量',
+                        type: 'map',
+                        mapType: 'china',
+                        roam: false,
+//                            itemStyle:{
+//                                normal:{label:{show:true}},
+//                                emphasis:{label:{show:true}}
+//                            },
+                        itemStyle: itemStyle,
+                        data:[
+                            {name: '北京',value: 120},
+                            {name: '天津',value: 50},
+                            {name: '上海',value: 130},
+                            {name: '重庆',value: 90},
+                            {name: '河北',value: 50},
+                            {name: '河南',value: 70},
+                            {name: '云南',value: 40},
+                            {name: '辽宁',value: 30},
+                            {name: '黑龙江',value: 40},
+                            {name: '湖南',value: 40},
+                            {name: '安徽',value: 50},
+                            {name: '山东',value: 60},
+                            {name: '新疆',value: 20},
+                            {name: '江苏',value: 70},
+                            {name: '浙江',value: 70},
+                            {name: '江西',value: 70},
+                            {name: '湖北',value: 60},
+                            {name: '广西',value: 60},
+                            {name: '甘肃',value: 30},
+                            {name: '山西',value: 40},
+                            {name: '内蒙古',value: 20},
+                            {name: '陕西',value: 20},
+                            {name: '吉林',value: 50},
+                            {name: '福建',value: 30},
+                            {name: '贵州',value: 50},
+                            {name: '广东',value: 50},
+                            {name: '青海',value: 39},
+                            {name: '西藏',value: 29},
+                            {name: '四川',value: 49},
+                            {name: '宁夏',value: 56},
+                            {name: '海南',value: 50},
+                            {name: '台湾',value: 30},
+                            {name: '香港',value: 20},
+                            {name: '澳门',value: 20}
+                        ]
+                    }
+                ]
+            };
+            // 为echarts对象加载数据
+            myChart_map.setOption(option_map);
+        }
+    );
+</script>
+
+
 </body>
 </html>

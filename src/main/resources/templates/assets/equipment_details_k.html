@@ -177,14 +177,14 @@
                         <div class="col-sm-12">
                           <h6>设备图片视频信息</h6>
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-10 img-responsive">
                           <table width="1000" height="600" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                               <td>
-                                <div style="HEIGHT: 600px; OVERFLOW: hidden;" id=idTransformView>
+                                <div style="HEIGHT: 600px; OVERFLOW: hidden;" id=idTransformView class="img-responsive">
                                   <ul id=idSlider class=slider>
-                                    <div class="row">
-                                      <div style="POSITION: relative">
+                                    <div class="row img-responsive">
+                                      <div class="img-responsive" style="POSITION: relative">
                                         <ul class=txtbg></ul>
                                         <span>科视Christie CP4325-RGB</span>
                                         <a target="_blank"><img th:src="@{/images/CP4325_Artistic_1_jpg.jpg}" width=1000 height=600></a>
@@ -195,7 +195,7 @@
                                         <a target="_blank"><img th:src="@{/images/CP4325_Artistic_2_jpg.jpg}" width=1000 height=600></a>
                                       </div>
                                       <div style="POSITION: relative">
-                                        <ul class=txtbg></ul>
+                                        <ul class=txtbg ></ul>
                                         <span>科视Christie CP4325-RGB</span>
                                         <a target="_blank"><img th:src="@{/images/CP4325_Back_jpg.jpg}" width=1000 height=600></a>
                                       </div>
@@ -204,11 +204,6 @@
                                         <span>科视Christie CP4325-RGB</span>
                                         <a target="_blank"><img th:src="@{/images/CP4325_High_Front_jpg.jpg}" width=1000 height=600></a>
                                       </div>
-<!--                                      <div style="POSITION: relative">-->
-<!--                                        <ul class=txtbg></ul>-->
-<!--                                        <span>科视Christie CP4325-RGB</span>-->
-<!--                                        <a target="_blank"><video preload="auto" controls="controls" th:src="@{/video/abc.mov}" width=1000 height=600></video></a>-->
-<!--                                      </div>-->
                                     </div>
                                   </ul>
                                 </div>
@@ -233,42 +228,6 @@
                           &nbsp;
                         </div>
                         <!-- /.col -->
-<!--                        <div class="col-sm-6">-->
-<!--                          <h6> 设备视频信息</h6>-->
-<!--                          <table width="500" height="400" border="0" align="center" cellpadding="0" cellspacing="0">-->
-<!--                            <tr>-->
-<!--                              <td>-->
-<!--                                <div style="HEIGHT: 400px; OVERFLOW: hidden;" id=idTransformViewvideo>-->
-<!--                                  <ul id=idSlidervideo class=slider>-->
-<!--                                    <div class="row">-->
-<!--                                      <div style="POSITION: relative">-->
-<!--                                        <ul ></ul>-->
-<!--&lt;!&ndash;                                        <span>科视Christie CP4325-RGB</span>&ndash;&gt;-->
-<!--                                        <a target="_blank"><video preload="auto" controls="controls" th:src="@{/video/abc.mov}" width=500 height=400></video></a>-->
-<!--                                      </div>-->
-<!--                                      <div style="POSITION: relative">-->
-<!--                                        <ul ></ul>-->
-<!--&lt;!&ndash;                                        <span>科视Christie CP4325-RGB</span>&ndash;&gt;-->
-<!--                                        <a target="_blank"><video preload="auto" controls="controls" th:src="@{/video/abc.mov}" width=500 height=400></video></a>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </ul>-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                  <ul id=idNumvideo class=hdnum>-->
-<!--                                    <li><img th:src="@{/images/CP4325_Artistic_1_jpg.jpg}" width=61px height=45px></li>-->
-<!--                                    <li><img th:src="@{/images/CP4325_Artistic_2_jpg.jpg}" width=61px height=45px></li>-->
-<!--                                  </ul>-->
-<!--                                  <script language=javascript>-->
-<!--                                    mytv("idNumvideo","idTransformViewvideo","idSlidervideo",500,2,false,1000,8,false,"onclick");-->
-<!--                                    //按钮容器aa，滚动容器bb，滚动内容cc，滚动宽度dd，滚动数量ee，滚动方向ff，延时gg，滚动速度hh，自动滚动ii，                              </script>-->
-<!--                                </div>-->
-<!--                              </td>-->
-<!--                            </tr>-->
-<!--                          </table>-->
-
-<!--                        </div>-->
-                        <!-- /.col -->
                       </div>
                       <!-- /.row -->
                     </div>
@@ -281,13 +240,16 @@
                       <thead>
                       <tr>
                         <th>序号</th>
-                        <th>维修时间</th>
-                        <th>维修人</th>
-                        <th>维修部件</th>
-                        <th>系列</th>
+                        <th>故障登记时间</th>
+                        <th>设备类型</th>
+                        <th>品牌</th>
                         <th>型号</th>
                         <th>序列号</th>
-                        <th>详情</th>
+                        <th>故障描述</th>
+                        <th>负责人员</th>
+                        <th>维修详情</th>
+                        <th>维修状态</th>
+                        <th>完成时间</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -302,34 +264,43 @@
                         <th><a href="/base/equipment/details">详情</a></th>
                       </tr>
                       <tr>
-                        <td >23543</td>
-                        <td >扬声器</td>
-                        <td >HARMAN</td>
-                        <td >HARMAN</td>
-                        <td >T</td>
-                        <td >HARMAN</td>
-                        <td >14-00-00-08-38-95</td>
-                        <th><a href="/base/equipment/details">详情</a></th>
+                        <td >1</td>
+                        <td >2019/1/15 13:32</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >画面昏暗</td>
+                        <td >李维</td>
+                        <td>更换灯泡</td>
+                        <td>已解决</td>
+                        <td>2019/1/15 14:03</td>
                       </tr>
                       <tr>
-                        <td >23892</td>
-                        <td >服务器</td>
-                        <td >高级存储</td>
-                        <td >华为</td>
-                        <td >存储系列</td>
-                        <td >SLM</td>
-                        <td >14-00-00-08-38-95</td>
-                        <th><a href="/base/equipment/details">详情</a></th>
+                        <td >2</td>
+                        <td >2019/5/3 10:11</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >同时报5320、5646、5180 报错</td>
+                        <td >申立姗</td>
+                        <td>灯箱未拧紧。解决方法：打开灯箱盖板，检查灯箱螺杆是否拧紧，重新安装灯箱并拧紧。</td>
+                        <td>已解决</td>
+                        <td>2019/5/5 13:22</td>
                       </tr>
                       <tr>
-                        <td >23356</td>
-                        <td >服务器</td>
-                        <td >计算服务</td>
-                        <td >惠普</td>
-                        <td >计算系列</td>
-                        <td >HP_LL</td>
-                        <td >14-00-00-08-38-95</td>
-                        <th><a href="/base/equipment/details">详情</a></th>
+                        <td >3</td>
+                        <td >2019/11/21 18:22</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >报5800 报错</td>
+                        <td >李俊</td>
+                        <td >需要工程师上门排查ICP，信号底板和引擎哪方面出现问题</td>
+                        <td>待解决</td>
+                        <td>-</td>
                       </tr>
                       </tbody>
                     </table>
@@ -342,12 +313,15 @@
                       <thead>
                       <tr>
                         <th>序号</th>
-                        <th>维护时间</th>
-                        <th>维护人</th>
-                        <th>维护部件</th>
-                        <th>建议</th>
-                        <th>建议更换时间</th>
+                        <th>维护计划时间</th>
+                        <th>设备类型</th>
+                        <th>品牌</th>
+                        <th>型号</th>
                         <th>序列号</th>
+                        <th>维护内容</th>
+                        <th>负责人员</th>
+                        <th>维护状态</th>
+                        <th>完成时间</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -361,31 +335,40 @@
                         <td th:text="${cinema.managerPhone}">dfjlsd</td>
                       </tr>
                       <tr>
-                        <td >23543</td>
-                        <td >扬声器</td>
-                        <td >HARMAN</td>
-                        <td >HARMAN</td>
-                        <td >T</td>
-                        <td >HARMAN</td>
-                        <td >14-00-00-08-38-95</td>
+                        <td >1</td>
+                        <td >2019/2/1 9:30</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >清洗防尘网</td>
+                        <td >李维</td>
+                        <td >已维护</td>
+                        <td >2019/1/15 14:03</td>
                       </tr>
                       <tr>
-                        <td >23892</td>
-                        <td >服务器</td>
-                        <td >高级存储</td>
-                        <td >华为</td>
-                        <td >存储系列</td>
-                        <td >SLM</td>
-                        <td >14-00-00-08-38-95</td>
+                        <td >2</td>
+                        <td >2019/5/1 10:11</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >厂商上门进行光路清洁</td>
+                        <td >申立姗</td>
+                        <td >已维护</td>
+                        <td >2019/5/5 13:22</td>
                       </tr>
                       <tr>
-                        <td >23356</td>
-                        <td >服务器</td>
-                        <td >计算服务</td>
-                        <td >惠普</td>
-                        <td >计算系列</td>
-                        <td >HP_LL</td>
-                        <td >14-00-00-08-38-95</td>
+                        <td >3</td>
+                        <td >2019/11/21 18:22</td>
+                        <td >放映机</td>
+                        <td >科视Christie</td>
+                        <td >CP4325-RGB</td>
+                        <td >82737113944910</td>
+                        <td >系统升级</td>
+                        <td >李俊</td>
+                        <td >待维护</td>
+                        <td >-</td>
                       </tr>
                       </tbody>
                     </table>
@@ -398,10 +381,11 @@
                         <th>序号</th>
                         <th>配件名称</th>
                         <th>配件品牌</th>
-                        <th>配件寿命</th>
-                        <th>上次更换时间</th>
+                        <th>配件型号</th>
+                        <th>配件号</th>
                         <th>建议更换时间</th>
-                        <th>序列号</th>
+                        <th>更换时间</th>
+                        <th>建议下次更换时间</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -415,31 +399,24 @@
                         <td th:text="${cinema.managerPhone}">dfjlsd</td>
                       </tr>
                       <tr>
-                        <td >23543</td>
-                        <td >扬声器</td>
-                        <td >HARMAN</td>
-                        <td >HARMAN</td>
-                        <td >T</td>
-                        <td >HARMAN</td>
-                        <td >14-00-00-08-38-95</td>
+                        <td >1</td>
+                        <td >氙灯</td>
+                        <td >OSRAM</td>
+                        <td >4000W XBO DHP OFR</td>
+                        <td >R9855937</td>
+                        <td >1100小时</td>
+                        <td >2019/6/17</td>
+                        <td >2019/8/1</td>
                       </tr>
                       <tr>
-                        <td >23892</td>
-                        <td >服务器</td>
-                        <td >高级存储</td>
-                        <td >华为</td>
-                        <td >存储系列</td>
-                        <td >SLM</td>
-                        <td >14-00-00-08-38-95</td>
-                      </tr>
-                      <tr>
-                        <td >23356</td>
-                        <td >服务器</td>
-                        <td >计算服务</td>
-                        <td >惠普</td>
-                        <td >计算系列</td>
-                        <td >HP_LL</td>
-                        <td >14-00-00-08-38-95</td>
+                        <td >2</td>
+                        <td >防尘网</td>
+                        <td >BARCO</td>
+                        <td >1926C</td>
+                        <td >R2781456</td>
+                        <td >5000小时</td>
+                        <td >2019/2/17</td>
+                        <td >2020/1/11</td>
                       </tr>
                       </tbody>
                     </table>
