@@ -17,6 +17,7 @@
   <script type="text/javascript" th:src="@{/plugins/moment/moment.js}"></script>
   <!-- Theme style -->
   <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+  <script type='text/javascript' th:src='@{/dist/js/city.js}'></script>
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -86,6 +87,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
+        <form class="row col-12" role="form" action="/documents/searching">
         <div class="col-sm-2">
           <div class="card">
             <div class="card-header bg-primary">
@@ -94,24 +96,24 @@
             <div class="card-body p-0">
               <div class="col-12" style="height: 17rem;" >
                 <br>
-                <div class="checkbox">
-                  <input id="checkbox1" class="styled" type="checkbox">
-                  <label for="checkbox1">
-                    相关标准
-                  </label>
-                </div>
-                <div class="checkbox checkbox-primary">
-                  <input id="checkbox2" class="styled" type="checkbox" checked="">
-                  <label for="checkbox2">
-                    维护教程
-                  </label>
-                </div>
-                <div class="checkbox checkbox-success">
-                  <input id="checkbox3" class="styled" type="checkbox">
-                  <label for="checkbox3">
-                    故障手册
-                  </label>
-                </div>
+                  <div class="checkbox">
+                    <input id="checkbox1" checked class="styled" type="checkbox" name="standard" value="standard" onchange="openClose()">
+                    <label>
+                      相关标准
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <input id="checkbox2" checked class="styled" type="checkbox" name="maintain" value="maintain" onchange="openClose()">
+                    <label>
+                      维护教程
+                    </label>
+                  </div>
+                  <div class="checkbox">
+                    <input id="checkbox3" checked class="styled" type="checkbox" name="malfunction" value="malfunction" onchange="openClose()">
+                    <label>
+                      故障手册
+                    </label>
+                  </div>
               </div>
             </div>
           </div>
@@ -125,63 +127,90 @@
             <!-- /.card-header -->
             <div class="card-body">
               <!-- Conversations are loaded here -->
-              <div class="direct-chat-messages" style="height:17rem;">
-                <div class="row">
+              <div class="direct-chat-messages" style="height:auto;">
+                <div class="row" id="standard_p">
                   <label class="form-inline col-12">
-                    请输入检索条件：
+                    请输入相关标准检索条件：
                     <div class="row col-10">
-                      <select class="form-control col-2">
-                        <option value="server">名称</option>
-                        <option value="machine">设备类型</option>
-                        <option value="voice">设备规格</option>
-                        <option value="voice">型号</option>
-                        <option value="voice">级别</option>
+                      <select class="form-control col-2" name="field1">
+                        <option value="name1">标准名称</option>
+                        <option value="type1">标准类型</option>
+                        <option value="specification1">标准编号</option>
+                        <option value="model1">主要内容</option>
+                        <option value="level1">适用范围</option>
                       </select>
-                      <input class="col-4" type="text">
-                      <select class="form-control col-1">
-                        <option value="server">并含</option>
-                        <option value="machine">或含</option>
-                        <option value="voice">不含</option>
+                      <input class="col-4" type="text" name="keywords1">
+                      <select class="form-control col-1" name="relation1">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
                       </select>
-                      <input class="col-4" type="text">
-                      <select class="form-control col-1">
-                        <option value="server">精确</option>
-                        <option value="machine">模糊</option>
+                      <input class="col-4" type="text" name="keywords2">
+                      <select class="form-control col-1" name="method1">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
                       </select>
                     </div>
                   </label>
+                  <br/>
                 </div>
-                <br/>
-                <div class="row">
+                <div class="row" id="maintain_p">
                   <label class="form-inline col-12">
-                    请输入检索条件：
+                    请输入维护教程检索条件：
                     <div class="row col-10">
-                      <select class="form-control col-2">
-                        <option value="server">名称</option>
-                        <option value="machine">设备类型</option>
-                        <option value="voice">设备规格</option>
-                        <option value="voice">型号</option>
-                        <option value="voice">级别</option>
+                      <select class="form-control col-2" name="field2">
+                        <option value="name2">教程名称</option>
+                        <option value="type2">设备类型</option>
+                        <option value="specification2">设备品牌</option>
+                        <option value="model2">设备型号</option>
                       </select>
-                      <input class="col-4" type="text">
-                      <select class="form-control col-1">
-                        <option value="server">并含</option>
-                        <option value="machine">或含</option>
-                        <option value="voice">不含</option>
+                      <input class="col-4" type="text" name="keywords3">
+                      <select class="form-control col-1" name="relation2">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
                       </select>
-                      <input class="col-4" type="text">
-                      <select class="form-control col-1">
-                        <option value="server">精确</option>
-                        <option value="machine">模糊</option>
+                      <input class="col-4" type="text" name="keywords4">
+                      <select class="form-control col-1" name="method2">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
                       </select>
                     </div>
                   </label>
+                  <br/>
                 </div>
-                <br/>
+                <div class="row" id="malfunction_p">
+                  <label class="form-inline col-12">
+                    请输入故障手册检索条件：
+                    <div class="row col-10">
+                      <select class="form-control col-2" name="field3">
+                        <option value="name3">故障类型</option>
+                        <option value="type3">设备类型</option>
+                        <option value="specification3">设备品牌</option>
+                        <option value="model3">设备型号</option>
+                        <option value="code">故障代码</option>
+                        <option value="return_mg">返回信息</option>
+                        <option value="details">故障详情</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords5">
+                      <select class="form-control col-1" name="relation3">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords6">
+                      <select class="form-control col-1" name="method3">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
+                      </select>
+                    </div>
+                  </label>
+                  <br/>
+                </div>
                 <label class="form-inline">
-                  入库时间：
+                  登记时间：
                   <div class="input-group date" id="datetimepicker1">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="time">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">
                         <i class="fa fa-calendar"></i>
@@ -192,7 +221,7 @@
                 </fieldset>
                 <div class="card-footer">
                   <div class="row float-right" >
-                    <button type="submit" class="btn btn-primary">筛选</button>
+                    <button type="submit" class="btn btn-primary">检索</button>
                   </div>
                 </div>
               </div>
@@ -202,10 +231,11 @@
           </div>
           <!--/.direct-chat -->
         </div>
+        </form>
         <div class="col-sm-12">
-          <div class="card card-primary">
+          <div class="card card-primary" id="standard" >
             <div class="card-header">
-              <h3 class="card-title">检索结果</h3>
+              <h3 class="card-title">相关标准检索结果</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -213,151 +243,215 @@
                 <thead>
                 <tr>
                   <th>序号</th>
-                  <th>影院编码</th>
-                  <th>影院名称</th>
-                  <th>省市区</th>
-                  <th>地址</th>
-                  <th>影厅数量</th>
-                  <th>影院经理</th>
-                  <th>联系电话</th>
-                  <th>技术主管</th>
-                  <th>联系电话</th>
-                  <th>操作</th>
-                  <th>详情</th>
+                  <th>标准名称</th>
+                  <th>标准类型</th>
+                  <th>标准编号</th>
+                  <th>主要内容</th>
+                  <th>适用范围</th>
+<!--                  <th>详情</th>id, name, type, num, content, use_range-->
                 </tr>
                 </thead>
-<!--                <tbody>-->
-<!--                <tr>-->
-<!--                  <td>1</td>-->
-<!--                  <td>2612384213134</td>-->
-<!--                  <td>中影国际影城(欢乐海岸店)</td>-->
-<!--                  <td>广东省深圳市南山区</td>-->
-<!--                  <td>深圳市南山区白石路东8号欢乐海岸曲水湾2栋A区</td>-->
-<!--                  <td>12</td>-->
-<!--                  <td>张先生</td>-->
-<!--                  <td>13332193517</td>-->
-<!--                  <td>刘先生</td>-->
-<!--                  <td>13823913241</td>-->
-<!--                  <td>-->
-<!--                    <div class="float-lg-left">-->
-<!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
-<!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
-<!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
-<!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
-<!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
-<!--                </tr>-->
+                <tr th:each="standard : ${standards}">
+                  <td th:text="${standard.id}">北京XXX影城</td>
+                  <td th:text="${standard.name}">北京XXX影城</td>
+                  <td th:text="${standard.type}">平乐园100号</td>
+                  <td th:text="${standard.num}">张三</td>
+                  <td th:text="${standard.content}">140000</td>
+                  <td th:text="${standard.use_range}">ac</td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <div class="card card-primary" id="maintain" >
+            <div class="card-header">
+              <h3 class="card-title">维护教程检索结果</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>教程名称</th>
+                  <th>设备类型</th>
+                  <th>设备品牌</th>
+                  <th>设备型号</th>
+                  <!--                  <th>详情</th>id, name, type, num, content, use_range-->
+                </tr>
+                </thead>
+                <tr th:each="maintain : ${maintains}">
+                  <td th:text="${maintain.id}">北京XXX影城</td>
+                  <td th:text="${maintain.name}">北京XXX影城</td>
+                  <td th:text="${maintain.type}">平乐园100号</td>
+                  <td th:text="${maintain.brand}">张三</td>
+                  <td th:text="${maintain.model}">140000</td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <div class="card card-primary" id="malfunction" >
+            <div class="card-header">
+              <h3 class="card-title">故障手册检索结果</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>故障类型</th>
+                  <th>设备类型</th>
+                  <th>设备品牌</th>
+                  <th>设备型号</th>
+                  <th>故障代码</th>
+                  <th>返回信息</th>
+                  <th>故障详情</th>
+                  <!--                  <th>详情</th>id, name, type, num, content, use_range-->
+                </tr>
+                </thead>
+                <tr th:each="malfunction : ${malfunctions}">
+                  <td th:text="${malfunction.id}">北京XXX影城</td>
+                  <td th:text="${malfunction.type}">北京XXX影城</td>
+                  <td th:text="${malfunction.equ_type}">平乐园100号</td>
+                  <td th:text="${malfunction.brand}">张三</td>
+                  <td th:text="${malfunction.model}">140000</td>
+                  <td th:text="${malfunction.code}">ac</td>
+                  <td th:text="${malfunction.return_mg}">ac</td>
+                  <td th:text="${malfunction.details}">ac</td>
+                </tr>
+                <!--                <tbody>-->
+                <!--                <tr>-->
+                <!--                  <td>1</td>-->
+                <!--                  <td>2612384213134</td>-->
+                <!--                  <td>中影国际影城(欢乐海岸店)</td>-->
+                <!--                  <td>广东省深圳市南山区</td>-->
+                <!--                  <td>深圳市南山区白石路东8号欢乐海岸曲水湾2栋A区</td>-->
+                <!--                  <td>12</td>-->
+                <!--                  <td>张先生</td>-->
+                <!--                  <td>13332193517</td>-->
+                <!--                  <td>刘先生</td>-->
+                <!--                  <td>13823913241</td>-->
+                <!--                  <td>-->
+                <!--                    <div class="float-lg-left">-->
+                <!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
+                <!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
+                <!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
+                <!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
+                <!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
+                <!--                      </a>-->
+                <!--                    </div>-->
+                <!--                  </td>-->
+                <!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
+                <!--                </tr>-->
 
 
-<!--                <tr>-->
-<!--                  <td>2</td>-->
-<!--                  <td>2612384213251</td>-->
-<!--                  <td>万达影城(五角场店)</td>-->
-<!--                  <td>上海市</td>-->
-<!--                  <td>上海市杨浦区国宾路58号万达广场3层</td>-->
-<!--                  <td>12</td>-->
-<!--                  <td>孙女士</td>-->
-<!--                  <td>13332193518</td>-->
-<!--                  <td>李先生</td>-->
-<!--                  <td>13823913242</td>-->
-<!--                  <td>-->
-<!--                    <div class="float-lg-left">-->
-<!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
-<!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
-<!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
-<!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
-<!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                  <td>2</td>-->
+                <!--                  <td>2612384213251</td>-->
+                <!--                  <td>万达影城(五角场店)</td>-->
+                <!--                  <td>上海市</td>-->
+                <!--                  <td>上海市杨浦区国宾路58号万达广场3层</td>-->
+                <!--                  <td>12</td>-->
+                <!--                  <td>孙女士</td>-->
+                <!--                  <td>13332193518</td>-->
+                <!--                  <td>李先生</td>-->
+                <!--                  <td>13823913242</td>-->
+                <!--                  <td>-->
+                <!--                    <div class="float-lg-left">-->
+                <!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
+                <!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
+                <!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
+                <!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
+                <!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
+                <!--                      </a>-->
+                <!--                    </div>-->
+                <!--                  </td>-->
+                <!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
+                <!--                </tr>-->
 
 
-<!--                <tr>-->
-<!--                  <td>3</td>-->
-<!--                  <td>2612384294832</td>-->
-<!--                  <td>UME华星影城</td>-->
-<!--                  <td>北京市</td>-->
-<!--                  <td>北京市海淀区科学院南路44号</td>-->
-<!--                  <td>7</td>-->
-<!--                  <td>刘女士</td>-->
-<!--                  <td>13332193519</td>-->
-<!--                  <td>孔先生</td>-->
-<!--                  <td>13823913243</td>-->
-<!--                  <td>-->
-<!--                    <div class="float-lg-left">-->
-<!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
-<!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
-<!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
-<!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
-<!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                  <td>3</td>-->
+                <!--                  <td>2612384294832</td>-->
+                <!--                  <td>UME华星影城</td>-->
+                <!--                  <td>北京市</td>-->
+                <!--                  <td>北京市海淀区科学院南路44号</td>-->
+                <!--                  <td>7</td>-->
+                <!--                  <td>刘女士</td>-->
+                <!--                  <td>13332193519</td>-->
+                <!--                  <td>孔先生</td>-->
+                <!--                  <td>13823913243</td>-->
+                <!--                  <td>-->
+                <!--                    <div class="float-lg-left">-->
+                <!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
+                <!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
+                <!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
+                <!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
+                <!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
+                <!--                      </a>-->
+                <!--                    </div>-->
+                <!--                  </td>-->
+                <!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
+                <!--                </tr>-->
 
 
-<!--                <tr>-->
-<!--                  <td>4</td>-->
-<!--                  <td>3612384215312</td>-->
-<!--                  <td>首都电影院(西单大悦城店)</td>-->
-<!--                  <td>北京市</td>-->
-<!--                  <td>北京市西城区西单北大街131号西单大悦城F10</td>-->
-<!--                  <td>13</td>-->
-<!--                  <td>李先生</td>-->
-<!--                  <td>13332193520</td>-->
-<!--                  <td>刘女士</td>-->
-<!--                  <td>13823913244</td>-->
-<!--                  <td>-->
-<!--                    <div class="float-lg-left">-->
-<!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
-<!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
-<!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
-<!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
-<!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                  <td>4</td>-->
+                <!--                  <td>3612384215312</td>-->
+                <!--                  <td>首都电影院(西单大悦城店)</td>-->
+                <!--                  <td>北京市</td>-->
+                <!--                  <td>北京市西城区西单北大街131号西单大悦城F10</td>-->
+                <!--                  <td>13</td>-->
+                <!--                  <td>李先生</td>-->
+                <!--                  <td>13332193520</td>-->
+                <!--                  <td>刘女士</td>-->
+                <!--                  <td>13823913244</td>-->
+                <!--                  <td>-->
+                <!--                    <div class="float-lg-left">-->
+                <!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
+                <!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
+                <!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
+                <!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
+                <!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
+                <!--                      </a>-->
+                <!--                    </div>-->
+                <!--                  </td>-->
+                <!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
+                <!--                </tr>-->
 
 
-<!--                <tr>-->
-<!--                  <td>5</td>-->
-<!--                  <td>3612389215773</td>-->
-<!--                  <td>大光明影院</td>-->
-<!--                  <td>天津市和平区</td>-->
-<!--                  <td>天津市和平区曲阜道1号</td>-->
-<!--                  <td>7</td>-->
-<!--                  <td>王先生</td>-->
-<!--                  <td>13332193521</td>-->
-<!--                  <td>王先生</td>-->
-<!--                  <td>13823913245</td>-->
-<!--                  <td>-->
-<!--                    <div class="float-lg-left">-->
-<!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
-<!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
-<!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
-<!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
-<!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
-<!--                      </a>-->
-<!--                    </div>-->
-<!--                  </td>-->
-<!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
-<!--                </tr>-->
+                <!--                <tr>-->
+                <!--                  <td>5</td>-->
+                <!--                  <td>3612389215773</td>-->
+                <!--                  <td>大光明影院</td>-->
+                <!--                  <td>天津市和平区</td>-->
+                <!--                  <td>天津市和平区曲阜道1号</td>-->
+                <!--                  <td>7</td>-->
+                <!--                  <td>王先生</td>-->
+                <!--                  <td>13332193521</td>-->
+                <!--                  <td>王先生</td>-->
+                <!--                  <td>13823913245</td>-->
+                <!--                  <td>-->
+                <!--                    <div class="float-lg-left">-->
+                <!--                      &lt;!&ndash;                    <a th:href="@{/base/cinema/update(id=${cinema.id})}" style="color: #ffffff;">&ndash;&gt;-->
+                <!--                      <button type="button" class="btn btn-sm" style="color: green">修改</button>-->
+                <!--                      &lt;!&ndash;                    </a>&ndash;&gt;-->
+                <!--                      <a href="/base/cinema/delete" style="color: #ffffff;">-->
+                <!--                        <button type="button" class="btn btn-sm" style="color: red">删除</button>-->
+                <!--                      </a>-->
+                <!--                    </div>-->
+                <!--                  </td>-->
+                <!--                  <td><a href="/assets/details">详情&gt;&gt;</a></td>-->
+                <!--                </tr>-->
 
-<!--                </tbody>-->
+                <!--                </tbody>-->
               </table>
             </div>
             <!-- /.card-body -->
           </div>
         </div>
-      </div>
     </section>
   </div>
       <!-- /.row -->   <!-- /.content -->
@@ -426,6 +520,49 @@
       picker1.data('DateTimePicker').maxDate(e.date);
     });
   });
+</script>
+<script>
+  function openClose(){
+    var checkbox1 =document.getElementById("checkbox1");
+    var checkbox2 = document.getElementById("checkbox2");
+    var checkbox3 = document.getElementById("checkbox3");
+
+    var standard = document.getElementById("standard");
+    var maintain = document.getElementById("maintain");
+    var malfunction = document.getElementById("malfunction");
+
+    var standard_p = document.getElementById("standard_p");
+    var maintain_p = document.getElementById("maintain_p");
+    var malfunction_p = document.getElementById("malfunction_p");
+
+    if (checkbox1.checked){
+      standard.style.display = "block";
+      standard_p.style.display = "block";
+    }
+    else{
+      standard.style.display = "none";
+      standard_p.style.display = "none";
+    }
+
+    if (checkbox2.checked){
+      maintain.style.display = "block";
+      maintain_p.style.display = "block";
+    }
+    else{
+      maintain.style.display = "none";
+      maintain_p.style.display = "none";
+    }
+
+    if (checkbox3.checked){
+      malfunction.style.display = "block";
+      malfunction_p.style.display = "block";
+    }
+    else{
+      malfunction.style.display = "none";
+      malfunction_p.style.display = "none";
+    }
+
+  }
 </script>
 </body>
 </html>

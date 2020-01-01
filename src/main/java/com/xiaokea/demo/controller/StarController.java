@@ -20,7 +20,4 @@ public class StarController {
     public String starInsert() {
         return "star/insert";
     }
-
-
-
 }
