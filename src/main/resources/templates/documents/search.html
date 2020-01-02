@@ -128,9 +128,39 @@
             <div class="card-body">
               <!-- Conversations are loaded here -->
               <div class="direct-chat-messages" style="height:auto;">
+                <div class="form-inline col-2">
+                  <label>
+                    请输入检索条件：
+                  </label>
+                </div>
                 <div class="row" id="standard_p">
                   <label class="form-inline col-12">
-                    请输入相关标准检索条件：
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
+                    <div class="row col-10">
+                      <select class="form-control col-2" name="field1">
+                        <option value="name1">标准名称</option>
+                        <option value="type1">标准类型</option>
+                        <option value="specification1">标准编号</option>
+                        <option value="model1">主要内容</option>
+                        <option value="level1">适用范围</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords1">
+                      <select class="form-control col-1" name="relation1">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords2">
+                      <select class="form-control col-1" name="method1">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
                     <div class="row col-10">
                       <select class="form-control col-2" name="field1">
                         <option value="name1">标准名称</option>
@@ -152,11 +182,34 @@
                       </select>
                     </div>
                   </label>
-                  <br/>
                 </div>
                 <div class="row" id="maintain_p">
                   <label class="form-inline col-12">
-                    请输入维护教程检索条件：
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
+                    <div class="row col-10">
+                      <select class="form-control col-2" name="field2">
+                        <option value="name2">教程名称</option>
+                        <option value="type2">设备类型</option>
+                        <option value="specification2">设备品牌</option>
+                        <option value="model2">设备型号</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords3">
+                      <select class="form-control col-1" name="relation2">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords4">
+                      <select class="form-control col-1" name="method2">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
                     <div class="row col-10">
                       <select class="form-control col-2" name="field2">
                         <option value="name2">教程名称</option>
@@ -177,11 +230,37 @@
                       </select>
                     </div>
                   </label>
-                  <br/>
                 </div>
                 <div class="row" id="malfunction_p">
                   <label class="form-inline col-12">
-                    请输入故障手册检索条件：
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
+                    <div class="row col-10">
+                      <select class="form-control col-2" name="field3">
+                        <option value="name3">故障类型</option>
+                        <option value="type3">设备类型</option>
+                        <option value="specification3">设备品牌</option>
+                        <option value="model3">设备型号</option>
+                        <option value="code">故障代码</option>
+                        <option value="return_mg">返回信息</option>
+                        <option value="details">故障详情</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords5">
+                      <select class="form-control col-1" name="relation3">
+                        <option value="and">并含</option>
+                        <option value="or">或含</option>
+                        <option value="not">不含</option>
+                      </select>
+                      <input class="col-4" type="text" name="keywords6">
+                      <select class="form-control col-1" name="method3">
+                        <option value="1">精确</option>
+                        <option value="0">模糊</option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      &nbsp;
+                    </div>
                     <div class="row col-10">
                       <select class="form-control col-2" name="field3">
                         <option value="name3">故障类型</option>
@@ -205,10 +284,11 @@
                       </select>
                     </div>
                   </label>
-                  <br/>
                 </div>
                 <label class="form-inline">
-                  登记时间：
+                  <div class="col-2">
+                    登记时间：
+                  </div>
                   <div class="input-group date" id="datetimepicker1">
                     <input type="text" class="form-control" name="time">
                     <span class="input-group-btn">
@@ -217,13 +297,22 @@
                       </button>
                     </span>
                   </div>
-                </label>
-                </fieldset>
-                <div class="card-footer">
-                  <div class="row float-right" >
+                  <div class="col-1 text-center">
+                    至
+                  </div>
+                  <div class="input-group date" id="datetimepicker1">
+                    <input type="text" class="form-control" name="time">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="col-2 float-right">
                     <button type="submit" class="btn btn-primary">检索</button>
                   </div>
-                </div>
+                </label>
+                </fieldset>
               </div>
               <!-- /.direct-chat-pane -->
             </div>
