@@ -170,11 +170,11 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
-<!--                            <div class="card-header no-border">-->
-<!--                                <div class="d-flex justify-content-center">-->
-<!--                                    <h3 class="card-title">全国影院数量统计</h3>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="card-header no-border">-->
+                            <!--                                <div class="d-flex justify-content-center">-->
+                            <!--                                    <h3 class="card-title">全国影院数量统计</h3>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <div class="card-body" style="border-top-right-radius: .25rem;border-top-left-radius: .25rem; margin: 0; padding: 0;">
                                 <div id="main_map" style="height: 32.4rem;"></div>
                             </div>
@@ -240,11 +240,11 @@
                                     <span class="mr-2">
                                         温度参考范围：<span style="color: blue;">20℃-32℃</span>
                                     </span>
-                                  <span class="mr-2">
+                                    <span class="mr-2">
                                     <i class="fa fa-square text-primary"></i>
                                       本周
                                   </span>
-                                  <span>
+                                    <span>
                                       <span style="color: #ced4da">
                                           <i class="fa fa-square text-grey"></i>
                                       </span>
@@ -280,28 +280,28 @@
                             </div>
                         </div>
                         <!-- /.card -->
-<!--                        <div class="card">-->
-<!--                            <div class="card-header no-border">-->
-<!--                                <div class="d-flex justify-content-between">-->
-<!--                                    <div class="form-group">-->
-<!--                                        <div class="row">-->
-<!--                                            <select class="form-control col-sm-6">-->
-<!--                                                <option>放映机</option>-->
-<!--                                                <option>扬声器</option>-->
-<!--                                                <option>功放</option>-->
-<!--                                                <option>服务器</option>-->
-<!--                                                <option>3D系统</option>-->
-<!--                                            </select>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <h3 class="card-title">设备品牌统计</h3>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
+                        <!--                        <div class="card">-->
+                        <!--                            <div class="card-header no-border">-->
+                        <!--                                <div class="d-flex justify-content-between">-->
+                        <!--                                    <div class="form-group">-->
+                        <!--                                        <div class="row">-->
+                        <!--                                            <select class="form-control col-sm-6">-->
+                        <!--                                                <option>放映机</option>-->
+                        <!--                                                <option>扬声器</option>-->
+                        <!--                                                <option>功放</option>-->
+                        <!--                                                <option>服务器</option>-->
+                        <!--                                                <option>3D系统</option>-->
+                        <!--                                            </select>-->
+                        <!--                                        </div>-->
+                        <!--                                    </div>-->
+                        <!--                                    <h3 class="card-title">设备品牌统计</h3>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="card-body">-->
 
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; /.card &ndash;&gt;-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        &lt;!&ndash; /.card &ndash;&gt;-->
                         <div class="card">
                             <div class="card-header no-border">
                                 <div class="d-flex justify-content-between">
@@ -366,11 +366,11 @@
                                     <span class="mr-2">
                                         相对湿度参考范围：<span style="color: blue;">10%-90%</span>
                                     </span>
-                                  <span class="mr-2">
+                                    <span class="mr-2">
                                     <i class="fa fa-square text-primary"></i>
                                       本周
                                   </span>
-                                  <span>
+                                    <span>
                                     <span style="color: #ced4da"><i class="fa fa-square"></i></span>
                                       上周
                                   </span>
@@ -422,14 +422,14 @@
                                     </div>
                                 </div>
                                 <div class="d-flex flex-row justify-content-around">
-                                   <div class="row">
+                                    <div class="row">
                                         <span class="mr-2">
                                             实时影厅银幕亮度：<span style="color: green;">42 cd/㎡</span>
                                         </span>
                                         <span class="mr-2">
                                             影厅荧幕亮度参考范围：<span style="color: blue;">(48 ± 10.2)cd/㎡</span>
                                         </span>
-                                   </div>
+                                    </div>
                                 </div>
                             </div><!-- /.card-body -->
                         </div>
@@ -870,7 +870,7 @@
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=u2Sm0fY5ss4M8A2ta89LWXEtqOHGrcs2"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
 <script>
-    var pieChart = echarts.init(document.getElementById("piechart"));
+    var pieChart1 = echarts.init(document.getElementById("piechart"));
 
     var option = {
         // title : {
@@ -908,10 +908,13 @@
         ]
     };
 
-    pieChart.setOption(option);
+    pieChart1.setOption(option);
+    window.addEventListener("resize", function () {
+        pieChart1.resize();
+    });
 </script>
 <script>
-    var pieChart = echarts.init(document.getElementById("linechart"));
+    var pieChart2 = echarts.init(document.getElementById("linechart"));
 
     var option = {
         xAxis: {
@@ -932,10 +935,15 @@
         }]
     };
 
-    pieChart.setOption(option);
+    pieChart2.setOption(option);
+    window.onresize = pieChart2.resize;
+
+    window.addEventListener("resize", function () {
+        pieChart2.resize();
+    });
 </script>
 <script>
-    var pieChart = echarts.init(document.getElementById("mullinechart"));
+    var pieChart3 = echarts.init(document.getElementById("mullinechart"));
 
     option = {
         title: {
@@ -1023,9 +1031,12 @@
             }
         ]
     };
-    pieChart.setOption(option);
+    pieChart3.setOption(option);
+    window.onresize = pieChart3.resize;
+    window.addEventListener("resize", function () {
+        pieChart3.resize();
+    });
 </script>
-
 <script th:src="@{/dist/js/echarts.js}"></script>
 <script type="text/javascript">
     // 路径配置
@@ -1148,10 +1159,9 @@
             };
             // 为echarts对象加载数据
             myChart_map.setOption(option_map);
+            window.onresize = myChart_map.resize;
         }
     );
 </script>
-
-
 </body>
 </html>

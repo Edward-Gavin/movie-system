@@ -459,6 +459,10 @@
         }]
     }
     barChart.setOption(option);
+    window.addEventListener("resize", function () {
+
+        barChart.resize();
+    });
 </script>
 </body>
 </html>

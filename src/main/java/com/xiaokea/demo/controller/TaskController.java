@@ -38,7 +38,7 @@ public class TaskController {
 
         String colorString = httpServletRequest.getParameter("color");
         int color = 0;
-        if (colorString.equals("rgb(243, 156, 18)")) {
+        if (colorString.equals("rgb(211, 158, 0)")) {
             color = 1;
         }else if(colorString.equals("rgb(189, 33, 48)")){
             color =2;
