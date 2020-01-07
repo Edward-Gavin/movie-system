@@ -90,24 +90,25 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="/course/search">
                 <div class="card-body">
                   <div class="form-group row">
-                    <div class="col-6">
-                      <label>在线课程类型</label>
+                    <div class="col-4">
+                      <label>课程分类</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>标准解读</option>
-                          <option>维护教程</option>
-                          <option>维修教程</option>
+                        <select class="form-control" name="type">
+                          <option>行业标准</option>
+                          <option>基础知识</option>
+                          <option>设备维修</option>
+                          <option>日常维护</option>
                         </select>
                       </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-4">
                       <label>在线课程名称：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：电影院星级的划分与评定/GY/T 248-2011">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：电影院星级的划分与评定" name="name">
                     </div>
                   </div>
                   <div class="form-group">
@@ -123,12 +124,13 @@
             </div>
              <!-- /.card-header -->
             <div class="card-body">
+
               <div class="row form-group col-12">
-                <div class="col-3">
+                <div class="col-3" th:each="course : ${courses}">
                   <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
                     <div style="padding-top:10px;">
 
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/cover/03帧内对比度.jpg}" style="height: 200px; width:100%;">
+                      <img class="img-responsive attachment-block clearfix" th:src="@{${course.image}}" style="height: 200px; width:100%;">
                     </div>
                     <p style="padding-left: 10px; padding-right: 10px;">帧内对比度</p>
                     <div class="form-group row">
@@ -136,23 +138,6 @@
                         <p style="padding-left: 10px; padding-bottom: 30px;">
                           <span style="float: left;">2018-03-24 07:15</span>
                           <a style="float: right;" href="/documents/operate_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style=" padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/cover/04混响时间.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">混响时间</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
                         </p>
                       </div>
                     </div>
@@ -192,8 +177,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row form-group col-12">
                 <div class="col-3">
                   <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
                     <div style="padding-top:10px;">
@@ -263,211 +246,25 @@
                   </div>
                 </div>
               </div>
-              <div class="row form-group col-12">
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-                    <div style="padding-top:10px;">
+<!--              <div class="row form-group col-12">-->
+<!--                <div class="col-3">-->
+<!--                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">-->
+<!--                    <div style="padding-top:10px;">-->
 
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/前盖板安装.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-right: 10px; padding-left: 10px;">DP2K-20C前盖板安装方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/输入盖板安装.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C输入盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div><div class="col-3">
-                <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                  <div style="padding-top:10px;">
-                    <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/顶盖板安装.jpg}" style="height:200px;width:100%;">
-                  </div>
-                  <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C顶盖板拆卸方法</p>
-                  <div class="form-group row">
-                    <div class="col-11">
-                      <p style="padding-left: 10px; padding-bottom: 30px;">
-                        <span style="float: left;">2018-03-24 07:15</span>
-                        <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/镜头安装.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C镜头安装方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/镜头拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C镜头拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/前盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C前盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/后盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C后盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/密封盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C密封盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/左盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C左盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/投影灯盖板拆卸.jpg}" style="height:200px;width:100%;"
-                      >
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C投影灯盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/输入盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C输入盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="padding: 0px;border: 1px solid rgb(220,220,220);height: 300px;width: 100%;">
-
-                    <div style="padding-top:10px;">
-                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/split/顶盖板拆卸.jpg}" style="height:200px;width:100%;">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">DP2K-20C顶盖板拆卸方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<!--                      <img class="img-responsive attachment-block clearfix" th:src="@{/images/install/前盖板安装.jpg}" style="height:200px;width:100%;">-->
+<!--                    </div>-->
+<!--                    <p style="padding-right: 10px; padding-left: 10px;">DP2K-20C前盖板安装方法</p>-->
+<!--                    <div class="form-group row">-->
+<!--                      <div class="col-11">-->
+<!--                        <p style="padding-left: 10px; padding-bottom: 30px;">-->
+<!--                          <span style="float: left;">2018-03-24 07:15</span>-->
+<!--                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>-->
+<!--                        </p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
             </div>
           </div>
           <!-- /.col -->
