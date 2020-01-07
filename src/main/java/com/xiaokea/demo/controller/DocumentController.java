@@ -10,7 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -42,11 +44,57 @@ public class DocumentController {
 
         return "documents/standard";
     }
+    @RequestMapping("/documents/standard/search")
+    public String standardSearch(Model model, HttpServletRequest httpServletRequest) {
+        String type = httpServletRequest.getParameter("type");
+        String name = httpServletRequest.getParameter("name");
+        String number = httpServletRequest.getParameter("number");
+
+        // 支持按照设备的类型进行检索
+        List<Standard> standards = standardService.getStandardBySearch(type, name, number);
+        model.addAttribute("standards", standards);
+
+        return "documents/standard";
+    }
 
     @RequestMapping("/documents/operate_course")
     public String operateCourse(Model model) {
 
         return "documents/operate_course";
+    }
+
+    @RequestMapping("/documents/maintain/search")
+    public String operateSearch(Model model, HttpServletRequest httpServletRequest) {
+        String equ_type = httpServletRequest.getParameter("equ_type");
+        String brand = httpServletRequest.getParameter("brand");
+        String model1 = httpServletRequest.getParameter("model");
+        String name = httpServletRequest.getParameter("name");
+
+        // 支持按照设备的类型进行检索
+        List<Maintain> maintains = maintainService.getMaintainBySearch(equ_type, brand, model1, name);
+        model.addAttribute("maintains", maintains);
+
+        return "documents/operate_course";
+    }
+
+    @RequestMapping("/documents/malfunction/search")
+    public String handbookSearch(Model model, HttpServletRequest httpServletRequest) {
+        String type = httpServletRequest.getParameter("equ_type");
+        String error = httpServletRequest.getParameter("error");
+        String brand = httpServletRequest.getParameter("brand");
+        String model1 = httpServletRequest.getParameter("model");
+        String number = httpServletRequest.getParameter("code");
+        log.info(type);
+        log.info(error);
+        log.info(brand);
+        log.info(model1);
+        log.info(number);
+
+        List<Malfunction> malfunctions = malfunctionService.getMalfunctionBySearch(error, type, brand, model1, number);
+        log.info(malfunctions.toString());
+        model.addAttribute("malfunctions", malfunctions);
+
+        return "documents/handbook";
     }
 
     @RequestMapping("/documents/handbook")
@@ -109,22 +157,6 @@ public class DocumentController {
         String method3 = httpServletRequest.getParameter("method3");
 
         String time = httpServletRequest.getParameter("time");
-
-//        log.info(standard);
-//        log.info(maintain);
-//        log.info(malfunction);
-//        log.info(field1);
-//        log.info(keywords1);
-//        log.info(relation1);
-//        log.info(keywords2);
-//        log.info(method1);
-//        log.info(field2);
-//        log.info(keywords3);
-//        log.info(relation2);
-//        log.info(keywords4);
-//        log.info(method2);
-//
-//        log.info(time);
 
         if (standard != null){
             if (field1.equals("name1")) {
@@ -206,9 +238,29 @@ public class DocumentController {
                 model.addAttribute("malfunctions", malfunctions);
             }
         }
-        model.addAttribute("standardss", standard);
-        model.addAttribute("maintain", maintain);
-        model.addAttribute("malfunction", malfunction);
         return "documents/search";
     }
+
+
+    @RequestMapping(value = "/documents/standard/{standard}", method = RequestMethod.GET)
+    public String standDetails(Model model, @PathVariable String standard) {
+        Standard standard1 = standardService.getStandardById(standard);
+        model.addAttribute("standard1", standard1);
+        return "/documents/stand_details";
+    }
+
+    @RequestMapping(value = "/documents/maintain/{maintain}", method = RequestMethod.GET)
+    public String maintainDetails(Model model, @PathVariable String maintain) {
+        Maintain maintain1 = maintainService.getMaintainById(maintain);
+        model.addAttribute("maintain", maintain1);
+        return "/documents/operate_details";
+    }
+
+    @RequestMapping(value = "/documents/malfunction/{malfunction}", method = RequestMethod.GET)
+    public String malfunctionDetails(Model model, @PathVariable String malfunction) {
+        Malfunction malfunction1 = malfunctionService.getMalfunctionById(malfunction);
+        model.addAttribute("malfunction", malfunction1);
+        return "/documents/hand_details";
+    }
+
 }

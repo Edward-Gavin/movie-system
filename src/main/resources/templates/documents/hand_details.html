@@ -105,7 +105,9 @@
                 <div class="col-sm-2 invoice-col">
                   <strong>设备品牌及类型：</strong>
                 
-                    <br>巴可 DP2K系列<br>
+                    <br>
+                  <p th:text="${malfunction.brand}"></p>
+                  <p th:text="${malfunction.model}"></p>
                   <address>
                   </address>
 				  
@@ -114,13 +116,16 @@
                 <div class="col-sm-2 invoice-col">
                   <address>
 					<strong>故障代码及说明：</strong>
-                    <br>Code 5004: “lamp - no communication” (Error)<br>
+                    <br>
+                    <p><span th:text="${malfunction.code}"></span></p>
+                    <p><span th:text="${malfunction.return_mg}"></span></p>
+                    <br>
                   </address>
                 </div>
 				<div class="col-sm-2 invoice-col">
                   <address>
 					<strong>故障级别：</strong>
-                    <br>错误<br>
+                    <br><span th:text="${malfunction.type}"></span><br>
                   </address>
                 </div>
                 <!-- /.col -->
@@ -142,23 +147,23 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td>灯箱没有被正确安装</td>
-                      <td>检查灯箱安装，并重置灯箱</td>
+                      <td><span th:text="${malfunction.status_1}"></span></td>
+                      <td><span th:text="${malfunction.solution_1}"></span></td>
 
                     </tr>
                     <tr>
-                      <td>使用了与本机型号不匹配的灯箱</td>
-                      <td>选择匹配灯箱</td>
+                      <td><span th:text="${malfunction.status_2}"></span></td>
+                      <td><span th:text="${malfunction.solution_3}"></span></td>
 
                     </tr>
                     <tr>
-                      <td>同时显示代码5180（lamp house - not connected）</td>
-                      <td>见<a href="/documents/hand_details5180">5180</a></td>
+                      <td><span th:text="${malfunction.status_3}"></span></td>
+                      <td><span th:text="${malfunction.solution_3}"></span></td>
 
                     </tr>
                     <tr>
-                      <td>与灯箱无通讯</td>
-                      <td>检查灯箱前端蓝色插头是否损坏</td>
+                      <td><span th:text="${malfunction.status_4}"></span></td>
+                      <td><span th:text="${malfunction.solution_4}"></span></td>
 
                     </tr>
                     </tbody>

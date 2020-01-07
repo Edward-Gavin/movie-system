@@ -337,16 +337,17 @@
                   <th>标准编号</th>
                   <th>主要内容</th>
                   <th>适用范围</th>
-<!--                  <th>详情</th>id, name, type, num, content, use_range-->
+                  <th>详情</th>
                 </tr>
                 </thead>
                 <tr th:each="standard : ${standards}">
-                  <td th:text="${standard.id}">北京XXX影城</td>
-                  <td th:text="${standard.name}">北京XXX影城</td>
-                  <td th:text="${standard.type}">平乐园100号</td>
-                  <td th:text="${standard.num}">张三</td>
-                  <td th:text="${standard.content}">140000</td>
-                  <td th:text="${standard.use_range}">ac</td>
+                  <td th:text="${standard.id}"></td>
+                  <td th:text="${standard.name}"></td>
+                  <td th:text="${standard.type}"></td>
+                  <td th:text="${standard.num}"></td>
+                  <td th:text="${standard.content}"></td>
+                  <td th:text="${standard.use_range}"></td>
+                  <td ><a th:href="@{/documents/standard/{standard}(standard=${standard.id})}">详情>></a></td>
                 </tr>
               </table>
             </div>
@@ -366,15 +367,16 @@
                   <th>设备类型</th>
                   <th>设备品牌</th>
                   <th>设备型号</th>
-                  <!--                  <th>详情</th>id, name, type, num, content, use_range-->
+                  <th>详情</th>
                 </tr>
                 </thead>
                 <tr th:each="maintain : ${maintains}">
-                  <td th:text="${maintain.id}">北京XXX影城</td>
-                  <td th:text="${maintain.name}">北京XXX影城</td>
-                  <td th:text="${maintain.type}">平乐园100号</td>
-                  <td th:text="${maintain.brand}">张三</td>
-                  <td th:text="${maintain.model}">140000</td>
+                  <td th:text="${maintain.id}"></td>
+                  <td th:text="${maintain.name}"></td>
+                  <td th:text="${maintain.type}"></td>
+                  <td th:text="${maintain.brand}"></td>
+                  <td th:text="${maintain.model}"></td>
+                  <td ><a th:href="@{/documents/maintain/{maintain}(maintain=${maintain.id})}">详情>></a></td>
                 </tr>
               </table>
             </div>
@@ -397,6 +399,8 @@
                   <th>故障代码</th>
                   <th>返回信息</th>
                   <th>故障详情</th>
+                  <th>详细信息</th>
+
                   <!--                  <th>详情</th>id, name, type, num, content, use_range-->
                 </tr>
                 </thead>
@@ -409,6 +413,7 @@
                   <td th:text="${malfunction.code}">ac</td>
                   <td th:text="${malfunction.return_mg}">ac</td>
                   <td th:text="${malfunction.details}">ac</td>
+                  <td ><a th:href="@{/documents/malfunction/{malfunction}(malfunction=${malfunction.id})}">详情>></a></td>
                 </tr>
                 <!--                <tbody>-->
                 <!--                <tr>-->

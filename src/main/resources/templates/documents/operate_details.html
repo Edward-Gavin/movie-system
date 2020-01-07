@@ -93,7 +93,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <small class="float-left">投影灯盖板拆卸教程</small>
+                    <small class="float-left" th:text="${maintain.name}"></small>
                     <small class="float-right">更新时间: 2/8/2019</small>
                   </h4>
                 </div>
@@ -105,7 +105,7 @@
                 <div class="col-sm-2 invoice-col">
                   <strong>适用设备类型：</strong>
                 
-                    <br> 放映机 <br>
+                    <br> <span th:text="${maintain.type}"></span> <br>
                   <address>
                   </address>
 				  
@@ -114,13 +114,13 @@
                 <div class="col-sm-2 invoice-col">
                   <address>
 					<strong>适用设备品牌：</strong>
-                    <br>巴可 BARCO<br>
+                    <br><span th:text="${maintain.brand}"></span><br>
                   </address>
                 </div>
                 <div class="col-sm-2 invoice-col">
                   <address>
                     <strong>适用设备型号：</strong>
-                    <br>DP2K-20C<br>
+                    <br><span th:text="${maintain.model}"></span><br>
                   </address>
                 </div>
                 <!-- /.col -->
@@ -144,19 +144,23 @@
                     <tbody>
                     <tr>
                       <td>步骤一</td>
-                      <td>准备一字螺丝刀</td>
+                      <td><span th:text="${maintain.step_1}"></span></td>
                     </tr>
                     <tr>
                       <td>步骤二</td>
-                      <td>逆时针松开投影灯盖板右上方和右下方的两颗螺钉</td>
+                      <td><span th:text="${maintain.step_2}"></span></td>
                     </tr>
                     <tr>
                       <td>步骤三</td>
-                      <td>依次轻轻拉出投影灯盖板的左上角和左下角</td>
+                      <td><span th:text="${maintain.step_3}"></span></td>
                     </tr>
                     <tr>
                       <td>步骤四</td>
-                      <td>取下盖板并妥善放置</td>
+                      <td><span th:text="${maintain.step_4}"></span></td>
+                    </tr>
+                    <tr>
+                      <td>步骤五</td>
+                      <td><span th:text="${maintain.step_5}"></span></td>
                     </tr>
                     </tbody>
                   </table>
@@ -164,10 +168,6 @@
                       <button style="float: right" type="submit" class="btn btn-info"><a href = "/question/details">答题</a></button>
                     </div>
 				  </div>
-				  <div class="col-6 table-responsive">
-                      <iframe src="http://218.241.227.185/mserver/player/?url=%2Fvod%2Fvod%2Fvx41gl30%2Findex.m3u8" height="400px" width="600px" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                      <span>&nbsp;</span>
-                  </div>
                 <!-- /.col -->
               </div>
                 <!-- /.card-body -->

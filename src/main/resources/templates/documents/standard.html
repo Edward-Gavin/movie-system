@@ -90,36 +90,29 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="/documents/standard/search">
                 <div class="card-body">
                   <div class="form-group row">
                     <div class="col-4">
                       <label>标准类型</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
+                        <select class="form-control" name="type">
+                          <option>行业标准</option>
                           <option>国际标准</option>
                           <option>国内标准</option>
-                          <option>行业标准</option>
                           <option>团体标准</option>
                           <option>企业标准</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-4">
-                      <label>适用对象</label>
-                      <div class="form-group">
-                        <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>放映机标准</option>
-                          <option>影院标准</option>
-                          <option>影厅标准</option>
-                        </select>
-                      </div>
+                      <label>标准名称：</label>
+                      <input type="text" class="form-control" placeholder="例：电影院星级的划分与评定" name="name">
                     </div>
                     <div class="col-4">
-                      <label>标准文件名称/标准编号：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：电影院星级的划分与评定/GY/T 248-2011">
+                      <label>标准编号：</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：GY/T 248-2011" name="number">
                     </div>
                   </div>
                   <div class="form-group">
@@ -127,7 +120,6 @@
                   </div>
 
                 <!-- /.card-body -->
-
                 </div>
               </form>
             </div>        
@@ -139,65 +131,17 @@
              <!-- /.card-header -->
             <div class="card-body">
               <div class="row form-group col-12">
-                <div class="col-3">
+                <div class="col-3" th:each="standard : ${standards}">
                   <div style="border: 1px solid rgb(220,220,220);height: 100%;width: 100%;">
                     <div style="padding-top:10px;">
-                      <img style="height: 100%; width: 100%;" class="img-responsive attachment-block clearfix" src="http://www.crifst.ac.cn/PDF/hangyebiaozhun/GYT2482011/files/thumb/1.jpg">
+                      <img style="height: 100%; width: 100%;" class="img-responsive attachment-block clearfix" th:src="@{${standard.image}}">
                     </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">数字电影中档和流动放映系统用声频功率放大器技术要求和测量方法</p>
+                    <p style="padding-left: 10px; padding-right: 10px;" th:text="${standard.name}"></p>
                     <div class="form-group row">
                       <div class="col-11">
                         <p style="padding-left: 10px; padding-bottom: 30px;">
                           <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="border: 1px solid rgb(220,220,220);height: 100%;width: 100%;">
-                    <div style="padding-top:10px;">
-                      <img style="height: 100%; width: 100%;" class="img-responsive attachment-block clearfix" src="http://www.crifst.ac.cn/PDF/hangyebiaozhun/GYT2482011/files/thumb/1.jpg">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">数字电影中档和流动放映系统用声频功率放大器技术要求和测量方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="border: 1px solid rgb(220,220,220);height: 100%;width: 100%;">
-                    <div style="padding-top:10px;">
-                      <img style="height: 100%; width: 100%;" class="img-responsive attachment-block clearfix" src="http://www.crifst.ac.cn/PDF/hangyebiaozhun/GYT2482011/files/thumb/1.jpg">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">数字电影中档和流动放映系统用声频功率放大器技术要求和测量方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div style="border: 1px solid rgb(220,220,220);height: 100%;width: 100%;">
-                    <div style="padding-top:10px;">
-                      <img style="height: 100%; width: 100%;" class="img-responsive attachment-block clearfix" src="http://www.crifst.ac.cn/PDF/hangyebiaozhun/GYT2482011/files/thumb/1.jpg">
-                    </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">数字电影中档和流动放映系统用声频功率放大器技术要求和测量方法</p>
-                    <div class="form-group row">
-                      <div class="col-11">
-                        <p style="padding-left: 10px; padding-bottom: 30px;">
-                          <span style="float: left;">2018-03-24 07:15</span>
-                          <a style="float: right;" href="/documents/stand_details"> 详情>> </a>
+                          <a style="float: right;" th:href="@{/documents/standard/{standard}(standard=${standard.id})}"> 详情>> </a>
                         </p>
                       </div>
                     </div>

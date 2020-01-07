@@ -26,4 +26,15 @@ public interface StandardMapper {
 
     @Select("Select id, name, type, num, content, use_range from standard where use_range LIKE CONCAT(CONCAT('%', #{use_range}), '%');")
     List<Standard> getStandardByRange(@Param( "use_range" ) String use_range);
+
+    @Select("Select * from standard where id = #{id};")
+    Standard getStandardById(@Param( "id" ) String id);
+
+    @Select("Select * from standard where type LIKE CONCAT(CONCAT('%', #{type}), '%')" +
+            "and name LIKE CONCAT(CONCAT('%', #{name}), '%')" +
+            "and num LIKE CONCAT(CONCAT('%', #{num}), '%')")
+    List<Standard> getStandardBySearch(@Param( "type" ) String type,
+                                 @Param( "num" ) String name,
+                                 @Param( "name" ) String num);
+
 }

@@ -42,4 +42,14 @@ public class MalfunctionService {
     public List<Malfunction> getMalfunctionByDetails(String details) {
         return malfunctionMapper.getMalfunctionByDetails(details);
     }
+
+    public Malfunction getMalfunctionById(String id) {
+        return malfunctionMapper.getMalfunctionById(id);
+    }
+
+    public List<Malfunction> getMalfunctionBySearch(String type, String equ_type, String brand, String model, String code) {
+        return malfunctionMapper.getMalfunctionBySearch(type, equ_type, brand, model, code);
+    }
+
+
 }

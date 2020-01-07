@@ -87,7 +87,7 @@
             <div class="col-md-12">
               <div class="card card-primary card-outline">
                 <div class="card-header">
-                  <h3 class="card-title">数字电影中档和流动放映系统用声频功率放大器的技术要求和测量方法
+                  <h3 class="card-title"><span th:text="${standard1.name}"></span>
                     <span class="mailbox-read-time float-right">2019年10月20日 1:45 下午</span>
                   </h3>
                 </div>
@@ -118,7 +118,9 @@
                           </strong>
                         </address>
                         <div class="row" style="padding-left: 10px;">
-                          <img  class="attachment-block clearfix" src="http://www.crifst.ac.cn/PDF/hangyebiaozhun/GYT2482011/files/thumb/1.jpg" style="height: 70%; width: 60%;">
+                          <a th:href="@{${standard1.file}}">
+                            <img  class="attachment-block clearfix" th:src="@{${standard1.image}}" style="height: 90%; width: 80%;">
+                          </a>
                         </div>
                       </div>
                       <div class="col-6">
@@ -136,19 +138,19 @@
                           <br/>
                           <br/>
                           <strong>标准类型: </strong>
-                          <br>国家标准<br>
+                          <br><span th:text="${standard1.type}"></span><br>
                         </address>
                         <address>
                           <strong>标准编号: </strong>
-                          <br>GY/T 24
+                          <br><span th:text="${standard1.num}"></span>
                         </address>
                         <address>
                           <strong>主要内容：</strong><br>
-                          规定了数字电影中档和流动放映系统用声频功率放大器的技术要求和测量方法。对于能够确保同样测量不确定度的任何等效测量方法也可以采用。有争议时，应以本标准为准。
+                          <span th:text="${standard1.content}"></span>
                         </address>
                         <address>
                           <strong>适用范围：</strong><br>
-                          适用于数字电影中档和流动放映系统的声频功率放大器的应用和检测。
+                          <span th:text="${standard1.use_range}"></span>
                         </address>
                         <address>
                           <a href = "http://www.crifst.ac.cn/index.php?c=show&id=623">阅读原文</a>

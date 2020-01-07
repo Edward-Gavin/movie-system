@@ -91,14 +91,14 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="/documents/malfunction/search">
                 <div class="card-body">
                   <div class="form-group row">
                     <div class="col-2">
                       <label>设备类型</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
+                        <select class="form-control" name="equ_type">
                           <option>放映机</option>
                           <option>服务器</option>
                           <option>扬声器</option>
@@ -109,7 +109,7 @@
                       <label>品牌</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
+                        <select class="form-control" name="brand">
                           <option>巴可</option>
                           <option>科视</option>
                           <option>NEC</option>
@@ -120,8 +120,8 @@
                       <label>型号</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>DP2K-20C</option>
+                        <select class="form-control" name="model">
+                          <option>DP2K-27C</option>
                           <option>DP2K-23B</option>
                           <option>DP2K-10S</option>
                         </select>
@@ -131,16 +131,16 @@
                       <label>故障类型</label>
                       <div class="form-group">
                         <!--<label>Select</label>-->
-                        <select class="form-control">
-                          <option>错误</option>
-                          <option>警告</option>
-                          <option>错误和警告</option>
+                        <select class="form-control" name="error">
+                          <option value="Error">错误</option>
+                          <option value="Warning">警告</option>
+                          <option value="all">错误和警告</option>
                         </select>
                       </div>
                     </div>
                     <div class="col-2">
                       <label>故障代码：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：5004">
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：5004" name="code">
                     </div>
                   </div>
                 <!-- /.card-body -->
@@ -149,7 +149,7 @@
               </form>
             </div>        
           <!-- /.card -->
-		  <div class="card">
+		  <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">故障手册</h3>
             </div>
@@ -169,56 +169,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>放映机</td>
-                  <td>巴可</td>
-                  <td>DP2K系列</td>
-                  <td>错误</td>
-                  <td>5004</td>
-                  <td>“灯 - 无通讯”</td>
-                  <td><a href="/documents/hand_details">详情>> </a>  </td>
+                <tr th:each="malfunction : ${malfunctions}">
+                  <td th:text="${malfunction.id}"></td>
+                  <td th:text="${malfunction.type}"></td>
+                  <td th:text="${malfunction.equ_type}"></td>
+                  <td th:text="${malfunction.brand}"></td>
+                  <td th:text="${malfunction.model}"></td>
+                  <td th:text="${malfunction.code}"></td>
+                  <td th:text="${malfunction.return_mg}"></td>
+                  <td ><a th:href="@{/documents/malfunction/{malfunction}(malfunction=${malfunction.id})}">详情>></a></td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>放映机</td>
-                  <td>巴可</td>
-                  <td>DP2K系列</td>
-                  <td>错误</td>
-                  <td>5005</td>
-                  <td>“灯电源 - 通讯失败”</td>
-                  <td>详情>> </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>放映机</td>
-                  <td>巴可</td>
-                  <td>DP2K系列</td>
-                  <td>警告</td>
-                  <td>5043</td>
-                  <td>“反射镜风扇 - 转速低”</td>
-                  <td>详情>> </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>放映机</td>
-                  <td>巴可</td>
-                  <td>DP2K系列</td>
-                  <td>警告</td>
-                  <td>5123</td>
-                  <td>“灯后部风扇 - 转速低”</td>
-                  <td>详情>> </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>放映机</td>
-                  <td>巴可</td>
-                  <td>DP2K系列</td>
-                  <td>错误</td>
-                  <td>5180</td>
-                  <td>“灯箱 - 未连接”</td>
-                  <td><a href="/documents/hand_details5180">详情>> </a> </td>
-                </tr>
+
+<!--                <tr>-->
+<!--                  <td>5</td>-->
+<!--                  <td>放映机</td>-->
+<!--                  <td>巴可</td>-->
+<!--                  <td>DP2K系列</td>-->
+<!--                  <td>错误</td>-->
+<!--                  <td>5180</td>-->
+<!--                  <td>“灯箱 - 未连接”</td>-->
+<!--                  <td><a href="/documents/hand_details5180">详情>> </a> </td>-->
+<!--                </tr>-->
                 </tbody>
               </table>
             </div>

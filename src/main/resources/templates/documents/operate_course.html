@@ -91,13 +91,13 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="/documents/maintain/search">
                 <div class="card-body">
                   <div class="form-group row">
-                    <div class="col-2">
-                      <label>设备种类</label>
+                    <div class="col-3">
+                      <label>设备类型</label>
                       <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="equ_type">
                           <option>放映机</option>
                           <option>功放</option>
                           <option>扬声器</option>
@@ -106,20 +106,10 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-2">
-                      <label>规格/类型</label>
-                      <div class="form-group">
-                        <select class="form-control">
-                          <option>氙灯</option>
-                          <option>汞灯</option>
-                          <option>激光</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-2">
+                    <div class="col-3">
                       <label>设备品牌</label>
                       <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="brand">
                           <option>巴可</option>
                           <option>科视</option>
                           <option>杜比</option>
@@ -127,20 +117,29 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-2">
-                      <label>设备系列</label>
+                    <div class="col-3">
+                      <label>设备型号</label>
                       <div class="form-group">
-                        <select class="form-control">
-                          <option>B 系列</option>
-                          <option>C 系列</option>
-                          <option>D 系列</option>
-                          <option>S 系列</option>
+                        <select class="form-control" name="model">
+                          <option>DP2K-20C</option>
+                          <option>DP2K-21C</option>
+                          <option>DP2K-22C</option>
+                          <option>DP2K-23C</option>
+                          <option>DP2K-24C</option>
+                          <option>DP2K-25C</option>
+                          <option>DP2K-26C</option>
+                          <option>DP2K-28C</option>
+                          <option>DP2K-29C</option>
+                          <option>DP2K-30C</option>
+                          <option>DP2K-31C</option>
+                          <option>DP2K-32C</option>
+                          <option>DP2K-33C</option>
                         </select>
                       </div>
                     </div>
-                    <div class="col-4">
-                      <label>设备型号</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：DP2K-20C">
+                    <div class="col-3">
+                      <label>教程名称</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="例：投影灯盖板拆卸方法" name="name">
                     </div>
                   </div>
                 <!-- /.card-body -->
@@ -149,7 +148,7 @@
               </form>
             </div>        
           <!-- /.card -->
-		  <div class="card">
+		  <div class="card card-primary">
             <div class="card-header">
               <h3 class="card-title">维护教程</h3>
             </div>
@@ -163,41 +162,19 @@
                     <th>适用设备类型</th>
                     <th>适用设备品牌</th>
                     <th>适用设备型号</th>
-                    <th>备注</th>
                     <th>详情</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>投影灯盖板拆卸教程</td>
-                    <td>放映机</td>
-                    <td>巴可</td>
-                    <td>DP2K-20C</td>
-                    <td> </td>
-                    <td><a href="/documents/operate_details">详情>> </a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>输入盖板拆卸教程</td>
-                    <td>放映机</td>
-                    <td>巴可</td>
-                    <td>DP2K-20C</td>
-                    <td> </td>
-                    <td><a href="/documents/operate_course">详情>> </a></td>
-                  </tr>
+                <tr th:each="maintain : ${maintains}">
+                  <td th:text="${maintain.id}"></td>
+                  <td th:text="${maintain.name}"></td>
+                  <td th:text="${maintain.type}"></td>
+                  <td th:text="${maintain.brand}"></td>
+                  <td th:text="${maintain.model}"></td>
+                  <td ><a th:href="@{/documents/maintain/{maintain}(maintain=${maintain.id})}">详情>></a></td>
+                </tr>
                 </tbody>
-<!--                <tfoot>-->
-<!--                <tr>-->
-<!--                  <th>Rendering engine</th>-->
-<!--                  <th>Browser</th>-->
-<!--                  <th>Platform(s)</th>-->
-<!--                  <th>Platform(s)</th>-->
-<!--                  <th>Platform(s)</th>-->
-<!--                  <th>Engine version</th>-->
-<!--                  <th>CSS grade</th>-->
-<!--                </tr>-->
-<!--                </tfoot>-->
               </table>
             </div>
             <!-- /.card-body -->

@@ -225,7 +225,7 @@
     /* initialize the external events
      -----------------------------------------------------------------*/
     var storedEvents= [];
-    $.get("http://localhost:8084/get_task",function (data,status) {
+    $.get("http://localhost:8081/get_task",function (data,status) {
               console.log(status)
               if("success"==status){//如果从服务器成功获取数据
                     for(var p in data){
@@ -326,7 +326,7 @@
                       content:information,
                       ok:{
                         callback: function () {
-                          $.post("http://localhost:8084/post_task",
+                          $.post("http://localhost:8081/post_task",
                                   {
                                     title:copiedEventObject.title,
                                     detail:copiedEventObject.detail,

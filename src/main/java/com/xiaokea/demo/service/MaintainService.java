@@ -30,5 +30,11 @@ public class MaintainService {
     public List<Maintain> getMaintainByModel(String model) {
         return maintainMapper.getMaintainByModel(model);
     }
+    public Maintain getMaintainById(String id) {
+        return maintainMapper.getMaintainById(id);
+    }
+    public List<Maintain> getMaintainBySearch(String type, String brand, String model, String name) {
+        return maintainMapper.getMaintainBySearch(type, brand, model, name);
+    }
 
 }

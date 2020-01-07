@@ -35,4 +35,12 @@ public class StandardService {
         return standardMapper.getStandardByRange(use_range);
     }
 
+    public Standard getStandardById(String id) {
+        return standardMapper.getStandardById(id);
+    }
+
+    public List<Standard> getStandardBySearch(String type, String name, String number) {
+        return standardMapper.getStandardBySearch(type, name, number);
+    }
+
 }
