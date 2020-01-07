@@ -18,4 +18,5 @@ public class CourseController {
     public String onlineCourse(){
         return "course/online_course";
     }
+
 }
