@@ -111,7 +111,7 @@
                   <div class="mailbox-read-message">
                     <!-- info row -->
                     <div class="row invoice-info">
-                      <div class="col-3">
+                      <div class="col-12 col-lg-3 col-md-12 col-sm-12">
                         <address>
                           <strong>
                             标准概览：
@@ -123,17 +123,17 @@
                           </a>
                         </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-12 col-lg-6 col-md-12 col-sm-12">
                         <address>
                           <strong>
                             标准解读：
                           </strong>
                         </address>
                         <!--                        <video style="height: 400px; width: 600px;" autoplay="autoplay" controls="controls" th:src="@{/video/abc.mov}">-->
-                        <iframe src="http://218.241.227.185/mserver/player/?url=%2Fvod%2Fvod%2Fiyq5a7xu%2Findex.m3u8" style="width: 60%; height: 80%;" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                        <iframe id="vid" class="col-12 col-lg-10 col-md-9 col-sm-12" src="http://192.168.100.78/mserver/player/?url=%2Fvod%2Fvod%2Ftng0n0a5%2Findex.m3u8" style="height: 80%;" frameborder="0" scrolling="no" allowfullscreen></iframe>
                         <!--                        </video>-->
                       </div>
-                      <div class="col-3">
+                      <div class="col-12 col-lg-3 col-md-12 col-sm-12">
                         <address>
                           <br/>
                           <br/>
@@ -196,5 +196,8 @@
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
 <script th:src="@{/dist/js/demo.js}"></script>
+<script>
+  document.getElementById("vid").style.height=document.getElementById("vid").scrollWidth*0.75+"px";
+</script>
 </body>
 </html>
