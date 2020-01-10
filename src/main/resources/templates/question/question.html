@@ -91,21 +91,9 @@
                         <form role="form" >
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4 float-lg-left">
-                                        <div class="form-group">
-                                            <label>题目类型：</label>
-                                            <select class="form-control" name="province">
-                                                <option>所有</option>
-                                                <option>电影技术基础知识</option>
-                                                <option>放映机运行时要求</option>
-                                                <option>放映机的约定方向</option>
-                                                <option>放映机外盖板的识别与拆卸方法</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="col-4 float-lg-right">
                                         <div class="form-group">
-                                            <label>题目对象：</label>
+                                            <label>题目类型：</label>
                                             <select class="form-control" name="city">
                                                 <option>所有</option>
                                                 <option>影院</option>
@@ -127,6 +115,12 @@
                                                 <option>4</option>
                                                 <option>5</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 float-lg-right">
+                                        <div class="form-group">
+                                            <label>相关内容：</label>
+                                            <input type="text" class="form-control" placeholder="数字电影放映机的分辨率" name="content">
                                         </div>
                                     </div>
                                 </div>
@@ -152,10 +146,9 @@
                                 <thead>
                                 <tr>
                                     <th>序号</th>
+                                    <th>相关内容</th>
                                     <th>题目类型</th>
-                                    <th>题目对象</th>
                                     <th>题目分值</th>
-                                    <th>相关资源</th>
                                     <th>题目描述</th>
                                     <th>进入答题</th>
                                 </tr>
@@ -164,90 +157,80 @@
                                 <tr>
                                     <td>1</td>
                                     <td>电影技术基础知识</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>2K数字电影放映机的分辨率为：</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>电影技术基础知识</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>4K的像素数是2K像素数的几倍？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td>电影技术基础知识</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>数字电影在播放视频图像是，至少每秒要达到多少帧？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td>放映机运行时要求</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>当机房同时装有B、C、S、E系列机型和LP系列机型，机房温度应该控制在多少？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td>放映机运行时要求</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>测量机房温湿度，温湿度计放在哪里最合适？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
                                     <td>放映机的约定方向</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>什么是放映机的约定方向？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
                                     <td>放映机的约定方向</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>在放映机约定方向中，R代表放映机的哪一侧？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
                                     <td>放映机外盖板的识别与拆卸方法</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>DP2K-20C放映机外盖板由几块盖板组成？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
                                     <td>放映机外盖板的识别与拆卸方法</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>位于放映机左侧盖板内的引擎仓盖板叫什么？</td>
                                     <td ><a href="/question/details" >在线测试</a></td>
                                 </tr>
                                 <tr>
                                     <td>10</td>
                                     <td>放映机外盖板的识别与拆卸方法</td>
-                                    <td>电影</td>
+                                    <td>设备</td>
                                     <td>3</td>
-                                    <td>  </td>
                                     <td>拆卸密封盖板并进行安装，都要使用安全认证钥匙进行安全认证，否则会出现的报错代码是什么？</td>
                                     <td ><a href="/question/details">在线测试</a></td>
                                 </tr>

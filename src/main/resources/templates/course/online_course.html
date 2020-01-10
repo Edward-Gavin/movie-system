@@ -86,7 +86,7 @@
         <div class="col-12">
 		<div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">输入在线课程检索信息</h3>
+                <h3 class="card-title">在线课程检索信息</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -112,7 +112,7 @@
                     </div>
                     <div class="col-4">
                       <label>发布时间：</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" name="date">
+                      <input type="text" class="form-control" placeholder="2019-11-20" name="date">
                     </div>
                   </div>
                   <div class="form-group">
@@ -124,7 +124,7 @@
           <!-- /.card -->
 		  <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">在线课程</h3>
+              <h3 class="card-title">在线课程检索结果</h3>
             </div>
              <!-- /.card-header -->
             <div class="card-body">
@@ -136,7 +136,7 @@
 
                       <img class="img-responsive attachment-block clearfix" th:src="@{${course.image}}" style="height: 200px; width:100%;">
                     </div>
-                    <p style="padding-left: 10px; padding-right: 10px;">帧内对比度</p>
+                    <p style="padding-left: 10px; padding-right: 10px;" th:text="${course.name}">帧内对比度</p>
                     <div class="form-group row">
                       <div class="col-11">
                         <p style="padding-left: 10px; padding-bottom: 30px;">

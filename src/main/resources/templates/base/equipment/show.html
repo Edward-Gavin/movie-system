@@ -89,7 +89,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">请输入设备检索信息</h3>
+                            <h3 class="card-title">设备检索信息</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -107,11 +107,10 @@
                                                     <option>音频处理器</option>
                                                     <option>功放设备</option>
                                                     <option>3D系统</option>
-                                                    <option>D系统</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-2 float-lg-right">
+                                        <div class="col-3 float-lg-right">
                                             <div class="form-group">
                                                 <label>规格/类型：</label>
                                                 <select class="form-control" name="brand">
@@ -124,13 +123,13 @@
                                         <div class="col-2 float-lg-left">
                                             <label>品牌：</label>
                                             <select class="form-control" name="brand">
-                                                <option>可视</option>
-                                                <option>巴克</option>
+                                                <option>巴可</option>
+                                                <option>科视</option>
                                                 <option>杜比</option>
                                                 <option>戴尔</option>
                                             </select>
                                         </div>
-                                        <div class="col-2 float-lg-left">
+                                        <div class="col-3 float-lg-left">
                                             <label>系列：</label>
                                             <select class="form-control" name="brand">
                                                 <option>CLP 系列</option>
@@ -144,17 +143,12 @@
                                         <div class="col-2 float-lg-left">
                                             <label>型号：</label>
                                             <select class="form-control" name="brand">
-                                                <option>CLP </option>
-                                                <option>SLP </option>
-                                                <option>B </option>
-                                                <option>C </option>
-                                                <option>L </option>
-                                                <option>LHC </option>
+                                                <option>DP2K-20C</option>
+                                                <option>CP4220</option>
+                                                <option>CP4325-RGB</option>
+                                                <option>DP2K-23B</option>
+                                                <option>DP2K-10S</option>
                                             </select>
-                                        </div>
-                                        <div class="col-2 float-lg-right">
-                                            <label>序列号：</label>
-                                            <input type="text" class="form-control" placeholder="例：XXXX-XXXXX-XXXX" name="number">
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +157,9 @@
                                     <div class="card-footer">
                                         <div class="row float-right">
                                             <button type="submit" class="btn btn-primary">筛选</button>
+                                            <span> &nbsp; &nbsp;</span>
                                             <button type="button" class="btn btn-primary">导入</button>
+                                            <span> &nbsp; &nbsp;</span>
                                             <a href="/base/equipment/insert" style="color: #ffffff;">
                                                 <button type="button" class="btn btn-primary">添加</button>
                                             </a>
@@ -179,7 +175,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>设备ID</th>
