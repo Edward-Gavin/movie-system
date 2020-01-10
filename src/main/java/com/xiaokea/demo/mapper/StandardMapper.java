@@ -37,4 +37,7 @@ public interface StandardMapper {
                                  @Param( "num" ) String name,
                                  @Param( "name" ) String num);
 
+    @Select("Select * from standard;")
+    List<Standard> getStandardAll();
+
 }

@@ -43,4 +43,10 @@ public class StandardService {
         return standardMapper.getStandardBySearch(type, name, number);
     }
 
+    public List<Standard> getStandardAll() {
+        return standardMapper.getStandardAll();
+    }
+
+
+
 }

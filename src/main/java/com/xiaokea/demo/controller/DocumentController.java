@@ -40,10 +40,11 @@ public class DocumentController {
 
     @RequestMapping("/documents/standard")
     public String searchStandard(Model model) {
-
-
+        List<Standard> standardAll = standardService.getStandardAll();
+        model.addAttribute("standards", standardAll);
         return "documents/standard";
     }
+
     @RequestMapping("/documents/standard/search")
     public String standardSearch(Model model, HttpServletRequest httpServletRequest) {
         String type = httpServletRequest.getParameter("type");
@@ -59,7 +60,8 @@ public class DocumentController {
 
     @RequestMapping("/documents/operate_course")
     public String operateCourse(Model model) {
-
+        List<Maintain> maintainAll = maintainService.getMaintainAll();
+        model.addAttribute("maintains", maintainAll);
         return "documents/operate_course";
     }
 
@@ -99,7 +101,8 @@ public class DocumentController {
 
     @RequestMapping("/documents/handbook")
     public String getHandbook(Model model) {
-
+        List<Malfunction> malfunctionAll = malfunctionService.getMalfunctionAll();
+        model.addAttribute("malfunctions", malfunctionAll);
         return "documents/handbook";
     }
 

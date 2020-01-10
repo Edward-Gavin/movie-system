@@ -27,7 +27,10 @@ public class CourseController {
     private CourseService courseService;
 
     @RequestMapping("/online_course")
-    public String onlineCourse(){
+    public String onlineCourse(Model model){
+        List<Course> courseAll = courseService.findCourseAll();
+        model.addAttribute("courses", courseAll);
+
         return "course/online_course";
     }
 

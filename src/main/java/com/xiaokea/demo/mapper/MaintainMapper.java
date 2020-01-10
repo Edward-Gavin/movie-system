@@ -36,6 +36,7 @@ public interface MaintainMapper {
                                       @Param( "brand") String brand,
                                       @Param( "model") String model,
                                       @Param( "name") String name);
-
+    @Select("Select * from maintain;")
+    List<Maintain> getMaintainAll();
 
 }

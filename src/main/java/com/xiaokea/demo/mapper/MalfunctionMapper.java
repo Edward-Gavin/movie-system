@@ -46,4 +46,7 @@ public interface MalfunctionMapper {
                                    @Param( "model" ) String model,
                                    @Param( "code" ) String code);
 
+    @Select("Select * from malfunction;")
+    List<Malfunction> getMalfunctionAll();
+
 }

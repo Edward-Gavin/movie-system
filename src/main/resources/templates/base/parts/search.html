@@ -93,9 +93,9 @@
           <form role="form" action="/base/parts/show">
         <div class="card-body">
           <div class="row">
-            <div class="col-4 float-lg-left">
+            <div class="col-2 float-lg-left">
               <div class="form-group">
-                <label>适配设备类型：</label>
+                <label>配件类型：</label>
                 <select class="form-control" name="type">
                   <option>放映机</option>
                   <option>音响</option>
@@ -106,9 +106,9 @@
                 </select>
               </div>
             </div>
-            <div class="col-4 float-lg-right">
+            <div class="col-2 float-lg-right">
               <div class="form-group">
-                <label>品牌：</label>
+                <label>适配品牌：</label>
                 <select class="form-control" name="brand">
                   <option>科视</option>
                   <option>巴可</option>
@@ -117,9 +117,28 @@
                 </select>
               </div>
             </div>
-            <div class="form-group col-4 float-lg-left">
-              <label>型号：</label>
+            <div class="form-group col-2 float-lg-left">
+              <div class="form-group">
+                <label>适配型号：</label>
+                <select class="form-control" name="model">
+                  <option>DP2K-20C</option>
+                  <option>CP4325-RGB</option>
+                  <option>CP4220	</option>
+                  <option>CP2230</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-2 float-lg-left">
+              <label>配件名称：</label>
+              <input type="text" class="form-control" placeholder="例：镜头">
+            </div>
+            <div class="form-group col-2 float-lg-left">
+              <label>配件号：</label>
               <input type="text" class="form-control" placeholder="例：R9855937">
+            </div>
+            <div class="form-group col-2 float-lg-left">
+              <label>供应商：</label>
+              <input type="text" class="form-control" placeholder="例：巴可">
             </div>
           </div>
           <div class="form-group">
@@ -140,7 +159,7 @@
       </div>
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">基础信息检索结果</h3>
+            <h3 class="card-title">配件检索结果</h3>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -149,43 +168,43 @@
               <tr>
                 <th>序号</th>
                 <th>配件类型</th>
+                <th>适配品牌</th>
                 <th>配件名称</th>
                 <th>配件号</th>
-                <th>适配机型</th>
+                <th>适配型号</th>
                 <th>供应商</th>
-                <th>供应商订单编号</th>
                 <th>质保时间</th>
                 <th>详情</th>
               </tr>
               </thead>
               <tbody>
               <tr th:each="cinema : ${cinemas}">
-                <td th:text="${cinema.cinemaName}">北京XXX影城</td>
-                <td th:text="${cinema.province + cinema.city}">北京市 朝阳区</td>
-                <td th:text="${cinema.address}">平乐园100号</td>
-                <td th:text="${cinema.responsible}">张三</td>
-                <td th:text="${cinema.responsiblePhone}">140000</td>
-                <td th:text="${cinema.manager}">ac</td>
-                <td th:text="${cinema.managerPhone}">dfjlsd</td>
+                <td th:text="${cinema.cinemaName}"></td>
+                <td th:text="${cinema.province + cinema.city}"></td>
+                <td th:text="${cinema.address}"></td>
+                <td th:text="${cinema.responsible}"></td>
+                <td th:text="${cinema.responsiblePhone}"></td>
+                <td th:text="${cinema.manager}"></td>
+                <td th:text="${cinema.managerPhone}"></td>
                 <th>暂无</th>
               </tr>
               <tr>
                 <td >1</td>
                 <td >镜头</td>
+                <td >巴可</td>
                 <td >0.98” DC2K (1.4-2.05)</td>
                 <td >R9855931</td>
                 <td >DP-1200, DP-1500, DP-2000, DP2K-12C, DP2K-15C, DP2K-15CLP , DP2K-20C, DP2K-20CLP, SP4K-12C, SP4K-15C, SP4K-20C, SP4K-25C</td>
-                <td ></td>
                 <td ></td>
                 <td ></td>
                 <th>暂无</th>
               </tr>
                 <td >2</td>
                 <td >镜头</td>
+                <td >科视</td>
                 <td >0.98” DC2K (1.6-2.5)</td>
                 <td >R9855932</td>
                 <td >DP-1200, DP-1500, DP-2000, DP2K-12C, DP2K-15C, DP2K-15CLP , DP2K-20C, DP2K-20CLP, SP4K-12C, SP4K-15C, SP4K-20C, SP4K-25C</td>
-                <td ></td>
                 <td ></td>
                 <td ></td>
                 <th>暂无</th>
@@ -193,38 +212,25 @@
               <tr>
                 <td >3</td>
                 <td >灯泡</td>
+                <td >巴可</td>
                 <td >OSRAM 4000W XBO DHP OFR</td>
                 <td >R9855937</td>
                 <td >DP-1500, DP-2000, DP2K-15C, DP2K-20C, DP2K-23B, DP2K-32B, DP2K-P, DP4K-23B, DP4K-32B, DP4K-P, HDQ-4K35</td>
                 <td >OSRAM</td>
-                <td >IC: A5390140013 EAN: 4008321226198 NAED: 69481\0 (US)</td>
                 <td >1100小时</td>
                 <th>暂无</th>
               </tr>
               <tr>
                 <td >4</td>
                 <td >灯泡</td>
+                <td >科视</td>
                 <td >OSRAM 3000W XBO DHP OFR</td>
                 <td >R9855938</td>
                 <td >DP-1500, DP-2000, DP2K-15C, DP2K-19B, DP2K-20C, DP2K-23B, DP2K-32B, DP2K-P, DP4K-19B, DP4K-23B, DP4K-32B, DP4K-P, HDQ-4K35</td>
                 <td >OSRAM</td>
-                <td > IC:A5390080013 EAN:4008321226181 NAED:69480\0 (US)</td>
                 <td >1500小时</td>
                 <th>暂无</th>
               </tr>
-
-              <tr>
-                <td >5</td>
-                <td >其他</td>
-                <td >Barco Alchemy ICMP（带HDMI2.0）</td>
-                <td > </td>
-                <td > </td>
-                <td > </td>
-                <td > </td>
-                <td > </td>
-                <th>暂无</th>
-              </tr>
-
               </tbody>
             </table>
           </div>

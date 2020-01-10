@@ -38,4 +38,9 @@ public class MaintainService {
         return maintainMapper.getMaintainBySearch(type, brand, model, name);
     }
 
+    public List<Maintain> getMaintainAll() {
+        return maintainMapper.getMaintainAll();
+    }
+
+
 }

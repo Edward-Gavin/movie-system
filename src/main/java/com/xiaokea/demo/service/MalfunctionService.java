@@ -51,5 +51,9 @@ public class MalfunctionService {
         return malfunctionMapper.getMalfunctionBySearch(type, equ_type, brand, model, code);
     }
 
+    public List<Malfunction> getMalfunctionAll() {
+        return malfunctionMapper.getMalfunctionAll();
+    }
+
 
 }

@@ -16,4 +16,7 @@ public interface CourseMapper {
     @Select( "select * from course where id= #{id}" )
     Course findCourseByid( @Param("id") String id);
 
+    @Select( "select * from course;" )
+    List<Course> findByCourseAll();
+
 }

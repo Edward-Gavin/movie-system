@@ -25,4 +25,8 @@ public class CourseService {
         return courseMapper.findCourseByid(id);
     }
 
+    public List<Course> findCourseAll(){
+        return courseMapper.findByCourseAll();
+    }
+
 }
