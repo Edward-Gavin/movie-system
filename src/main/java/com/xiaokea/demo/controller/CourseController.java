@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -42,5 +44,13 @@ public class CourseController {
         model.addAttribute("courses", courses);
         return "course/online_course";
     }
+
+    @RequestMapping(value = "/course/{course}", method = RequestMethod.GET)
+    public String courseDetails(Model model, @PathVariable String course) {
+        Course course1 = courseService.findCourseById(course);
+        model.addAttribute("course1", course1);
+        return "course/video_details";
+    }
+
 
 }

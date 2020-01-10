@@ -21,4 +21,8 @@ public class CourseService {
         return courseMapper.findByCourseByName(name, type);
     }
 
+    public Course findCourseById(String id){
+        return courseMapper.findCourseByid(id);
+    }
+
 }
