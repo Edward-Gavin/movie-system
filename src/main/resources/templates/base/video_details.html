@@ -79,114 +79,62 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4">
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">课程详情</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fa fa-book mr-1"></i>课程名称</strong>
-
-                <p class="text-muted" th:text="${course1.name}">
-                </p>
-
-                <hr>
-
-                <strong><i class="fa fa-pencil mr-1"></i>视频类型</strong>
-
-                <p class="text-muted"  th:text="${course1.type}">
-                </p>
-
-                <hr>
-
-                <strong><i class="fa fa-map-marker mr-1"></i> 更新时间</strong>
-
-                <p class="text-muted" th:text="${course1.datetime}"></p>
-
-                <hr>
-
-                <strong><i class="fa fa-file-text-o mr-1"></i> 视频简介</strong>
-
-                <p class="text-muted">&nbsp;</p>
-                <hr>
-
-                <strong><i class="fa fa-file-text-o mr-1"></i> 视频资源</strong>
-
-                <p class="text-muted">&nbsp;</p>
-<!--                <hr>-->
-
-<!--                <strong><i class="fa fa-file-text-o mr-1"></i> 对比度</strong>-->
-
-<!--                <p class="text-muted">-->
-<!--                  1850:1</p>-->
-<!--                <hr>-->
-
-<!--                <strong><i class="fa fa-file-text-o mr-1"></i> 分辨率</strong>-->
-
-<!--                <p class="text-muted">-->
-<!--                  4,096 x 2,160</p>-->
-<!--                <hr>-->
-
-<!--                <strong><i class="fa fa-file-text-o mr-1"></i> 屏幕尺寸</strong>-->
-
-<!--                <p class="text-muted">-->
-<!--                  宽度可达10米/33英寸（屏幕增益1.2 @ 14ftl）</p>-->
-
-<!--                <hr>-->
-
-<!--                <strong><i class="fa fa-file-text-o mr-1"></i> Part Number-->
-<!--                </strong>-->
-
-<!--                <p class="text-muted">-->
-<!--                  19000-0012672-8389</p>-->
-              </div>
-
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-8">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">课程视频</h3>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane active show" id="activity">
-                    <!-- Post -->
-                    <div class="post">
-
-                      <!-- /.user-block -->
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <iframe preload="auto" controls="controls" th:src="${course1.video}" height="360px" class="col-lg-12" style="padding: 0;"></iframe>
-                          <!-- /.row -->
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-                    </div>
-                    <!-- /.post -->
-                  </div>
-                  <!-- /.tab-pane -->
+          <div class="col-12">
+            <!--<div class="callout callout-info">
+              <h5><i class="fa fa-info"></i> Note:</h5>
+              This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+            </div>-->
+            <!-- Main content -->
+            <div class="invoice p-3 mb-3">
+              <!-- title row -->
+              <div class="row">
+                <div class="col-12">
+                  <h4>
+                    <small class="float-left" th:text="${course1.name}"></small>
+                    <small class="float-right">更新时间: 2/8/2019</small>
+                  </h4>
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+                <!-- /.col -->
+              </div>
+              <div class="col-12 row">&nbsp;</div>
+              <!-- info row -->
+              <div class="row invoice-info">
+                <div class="col-sm-3 invoice-col">
+                  <strong>视频类型：</strong>
+                    <br> <span th:text="${course1.type}"></span> <br>
+                  <address>
+                  </address>
+                </div>
+              </div>
+                <!-- /.col -->
+              <div class="row invoice-info">
+                <div class="col-sm-3 invoice-col">
+                    <address>
+                      <strong>更新时间：</strong>
+                      <br><span th:text="${course1.datetime}"></span><br>
+                    </address>
+                  </div>
+              </div>
+                <div class="col-sm-6 invoice-col">
+                  <address>
+                    <strong>视频简介：</strong>
+                    <br><span th:text="${course1.datetime}"></span><br>
+                  </address>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+             </div>
             </div>
-            <!-- /.nav-tabs-custom -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
+            <!-- /.invoice -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section>
       </div><!-- /.container-fluid -->
-    </section>    <!-- /.content -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
